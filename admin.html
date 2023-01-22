@@ -5,19 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
 </head>
-<body>
+<body style="font-family: monospace; background-image: url(lib_bg.jpg);background-repeat: no-repeat; background-size: cover;">
     <center>
-    <div class="container col-lg-5" style="margin:auto;position:absolute;top: 0;left: 0;right: 0;bottom: 0;width: 400px;height: 300px;">
-    <h1>Library Admin Page</h1><br>
-    <form action="action_menu.php" id="home" method="post">
-        <input class="form-control" name="user" placeholder="Username" type="text"><br>
-        <input class="form-control" name="pass" placeholder="Password" type="password"><br>
-        <input class="btn btn-primary" value="Login" type="submit">
-    </form>
+    <div class="container col-lg-5" style="position: relative; top: 210px; width: 520px;">
+        <img src="lib_logo.png" alt="liblogo" width="150">
+        <h1 style="color: aliceblue">Library Admin Page</h1><br>
+        <form action="action_menu.php" id="home" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" name="user" placeholder="Username" style="background-color: #28242c; color:#a5adb5">
+                <label for="floatingInput" style="color:#a5adb5">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass" style="background-color: #28242c; color:#a5adb5">
+                <label for="floatingPassword" style="color:#a5adb5">Password</label>
+            </div>
+            <br>
+            <input class="btn btn-primary" value="Login" type="submit" style="width: 100px; height: 50px;">
+        </form>
     </div>
     </center>
 
 </body>
+<script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
 </html>
