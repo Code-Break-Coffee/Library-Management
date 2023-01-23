@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jan 23, 2023 at 01:52 PM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: 127.0.0.1:3308
+-- Generation Time: Jan 23, 2023 at 03:58 PM
+-- Server version: 8.0.18
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,13 +31,13 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `Book_No` varchar(10) NOT NULL,
-  `Authors` varchar(20) NOT NULL,
+  `Authors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Title` varchar(30) NOT NULL,
   `Edition` varchar(15) NOT NULL,
-  `Publiser` varchar(20) NOT NULL,
-  `Total_Pages` int NOT NULL,
-  `Cost` int NOT NULL,
-  `Name_of_supplier` varchar(20) NOT NULL,
+  `Publisher` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Total_Pages` int(11) NOT NULL,
+  `Cost` int(11) NOT NULL,
+  `Name_of_supplier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Bill_No` varchar(20) NOT NULL,
   `Bar_code` varchar(50) NOT NULL,
   PRIMARY KEY (`Book_No`)
@@ -46,8 +47,9 @@ CREATE TABLE IF NOT EXISTS `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`Book_No`, `Authors`, `Title`, `Edition`, `Publiser`, `Total_Pages`, `Cost`, `Name_of_supplier`, `Bill_No`, `Bar_code`) VALUES
-('69_d', 'oh sorry he iss dead', 'Fuck Life', 'among ones', 'methi saw chatora', 6969, 69, 'Tanishq the smugler', '699999fuck', 'System-32/notForChildren/contentsOfThisFoldersAre/');
+INSERT INTO `books` (`Book_No`, `Authors`, `Title`, `Edition`, `Publisher`, `Total_Pages`, `Cost`, `Name_of_supplier`, `Bill_No`, `Bar_code`) VALUES
+('69_d', 'oh sorry he iss dead', 'Fuck Life', 'among ones', 'methi saw chatora', 6969, 69, 'Tanishq the smugler', '699999fuck', 'System-32/notForChildren/contentsOfThisFoldersAre/'),
+('ahahah', 'ajjafjararja', 'krkararjar', 'jrrjsrjarjaj', 'fjsjsrjsrjs', 123, 50, 'ahaaha', 'jarjakaka', '');
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `issue/return` (
   `Book_No` varchar(10) NOT NULL,
   `Title` varchar(30) NOT NULL,
   `Member_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Member_Name` varchar(30) NOT NULL,
+  `Member_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Date_issue` date NOT NULL,
   `Date_return` date NOT NULL,
   `Member_type` varchar(10) NOT NULL,
@@ -79,10 +81,10 @@ CREATE TABLE IF NOT EXISTS `issue/return` (
 
 DROP TABLE IF EXISTS `member-faculty`;
 CREATE TABLE IF NOT EXISTS `member-faculty` (
-  `Name` varchar(30) NOT NULL,
+  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Member_ID` varchar(20) NOT NULL,
   `Faculty_Type` varchar(20) NOT NULL,
-  `Father-husband` varchar(30) NOT NULL,
+  `Father-husband` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`Member_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -94,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `member-faculty` (
 
 DROP TABLE IF EXISTS `member-student`;
 CREATE TABLE IF NOT EXISTS `member-student` (
-  `Name` varchar(30) NOT NULL,
+  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Roll_No` varchar(15) NOT NULL,
   `Enroll` varchar(15) NOT NULL,
   `Member_ID` varchar(20) NOT NULL,
