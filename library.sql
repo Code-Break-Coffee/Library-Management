@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Jan 23, 2023 at 03:58 PM
--- Server version: 8.0.18
--- PHP Version: 7.3.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 28, 2023 at 03:49 PM
+-- Server version: 8.0.32
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,8 +34,8 @@ CREATE TABLE IF NOT EXISTS `books` (
   `Title` varchar(30) NOT NULL,
   `Edition` varchar(15) NOT NULL,
   `Publisher` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Total_Pages` int(11) NOT NULL,
-  `Cost` int(11) NOT NULL,
+  `Total_Pages` int NOT NULL,
+  `Cost` int NOT NULL,
   `Name_of_supplier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Bill_No` varchar(20) NOT NULL,
   `Bar_code` varchar(50) NOT NULL,
@@ -111,8 +110,19 @@ CREATE TABLE IF NOT EXISTS `member-student` (
 -- Constraints for table `issue/return`
 --
 ALTER TABLE `issue/return`
-  ADD CONSTRAINT `issue/return_ibfk_1` FOREIGN KEY (`Book_No`) REFERENCES `books` (`Book_No`),
-  ADD CONSTRAINT `issue/return_ibfk_2` FOREIGN KEY (`Member_ID`) REFERENCES `member-student` (`Member_ID`);
+  ADD CONSTRAINT `issue/return_ibfk_1` FOREIGN KEY (`Book_No`) REFERENCES `books` (`Book_No`);
+
+--
+-- Constraints for table `member-faculty`
+--
+ALTER TABLE `member-faculty`
+  ADD CONSTRAINT `member-faculty_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `issue/return` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `member-student`
+--
+ALTER TABLE `member-student`
+  ADD CONSTRAINT `member-student_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `issue/return` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
