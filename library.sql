@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 28, 2023 at 03:49 PM
+-- Generation Time: Feb 01, 2023 at 03:10 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `Cost` int NOT NULL,
   `Name_of_supplier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Bill_No` varchar(20) NOT NULL,
-  `Bar_code` varchar(50) NOT NULL,
+  `Bar_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'NA',
   PRIMARY KEY (`Book_No`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -48,54 +48,52 @@ CREATE TABLE IF NOT EXISTS `books` (
 
 INSERT INTO `books` (`Book_No`, `Authors`, `Title`, `Edition`, `Publisher`, `Total_Pages`, `Cost`, `Name_of_supplier`, `Bill_No`, `Bar_code`) VALUES
 ('69_d', 'oh sorry he iss dead', 'Fuck Life', 'among ones', 'methi saw chatora', 6969, 69, 'Tanishq the smugler', '699999fuck', 'System-32/notForChildren/contentsOfThisFoldersAre/'),
-('ahahah', 'ajjafjararja', 'krkararjar', 'jrrjsrjarjaj', 'fjsjsrjsrjs', 123, 50, 'ahaaha', 'jarjakaka', '');
+('ahahah', 'ajjafjararja', 'krkararjar', 'jrrjsrjarjaj', 'fjsjsrjsrjs', 123, 50, 'ahaaha', 'jarjakaka', ''),
+('isghsdgs', 'sgsdhsgs', 'tanishq', '69', 'go', 969, 69, 'tanishq the smugler', '69', 'NA');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `issue/return`
+-- Table structure for table `issue_return`
 --
 
-DROP TABLE IF EXISTS `issue/return`;
-CREATE TABLE IF NOT EXISTS `issue/return` (
+DROP TABLE IF EXISTS `issue_return`;
+CREATE TABLE IF NOT EXISTS `issue_return` (
   `Book_No` varchar(10) NOT NULL,
   `Title` varchar(30) NOT NULL,
-  `Member_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Member_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Member_ID` varchar(20) NOT NULL,
+  `Member_Name` varchar(50) NOT NULL,
   `Date_issue` date NOT NULL,
   `Date_return` date NOT NULL,
   `Member_type` varchar(10) NOT NULL,
   KEY `Book_No` (`Book_No`),
-  KEY `Book_No_2` (`Book_No`),
-  KEY `Member_ID` (`Member_ID`),
-  KEY `Title` (`Title`),
-  KEY `Title_2` (`Title`)
+  KEY `fk_2` (`Member_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member-faculty`
+-- Table structure for table `member_faculty`
 --
 
-DROP TABLE IF EXISTS `member-faculty`;
-CREATE TABLE IF NOT EXISTS `member-faculty` (
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+DROP TABLE IF EXISTS `member_faculty`;
+CREATE TABLE IF NOT EXISTS `member_faculty` (
+  `Name` varchar(50) NOT NULL,
   `Member_ID` varchar(20) NOT NULL,
   `Faculty_Type` varchar(20) NOT NULL,
-  `Father-husband` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Father-husband` varchar(50) NOT NULL,
   PRIMARY KEY (`Member_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member-student`
+-- Table structure for table `member_student`
 --
 
-DROP TABLE IF EXISTS `member-student`;
-CREATE TABLE IF NOT EXISTS `member-student` (
-  `Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+DROP TABLE IF EXISTS `member_student`;
+CREATE TABLE IF NOT EXISTS `member_student` (
+  `Name` varchar(50) NOT NULL,
   `Roll_No` varchar(15) NOT NULL,
   `Enroll` varchar(15) NOT NULL,
   `Member_ID` varchar(20) NOT NULL,
@@ -107,22 +105,12 @@ CREATE TABLE IF NOT EXISTS `member-student` (
 --
 
 --
--- Constraints for table `issue/return`
+-- Constraints for table `issue_return`
 --
-ALTER TABLE `issue/return`
-  ADD CONSTRAINT `issue/return_ibfk_1` FOREIGN KEY (`Book_No`) REFERENCES `books` (`Book_No`);
-
---
--- Constraints for table `member-faculty`
---
-ALTER TABLE `member-faculty`
-  ADD CONSTRAINT `member-faculty_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `issue/return` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `member-student`
---
-ALTER TABLE `member-student`
-  ADD CONSTRAINT `member-student_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `issue/return` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `issue_return`
+  ADD CONSTRAINT `fk_1` FOREIGN KEY (`Member_ID`) REFERENCES `member_student` (`Member_ID`),
+  ADD CONSTRAINT `fk_2` FOREIGN KEY (`Member_ID`) REFERENCES `member_faculty` (`Member_ID`),
+  ADD CONSTRAINT `issue_return_ibfk_1` FOREIGN KEY (`Book_No`) REFERENCES `books` (`Book_No`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
