@@ -104,13 +104,7 @@ CREATE TABLE IF NOT EXISTS `member_student` (
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `issue_return`
---
-ALTER TABLE `issue_return`
-  ADD CONSTRAINT `fk_1` FOREIGN KEY (`Member_ID`) REFERENCES `member_student` (`Member_ID`),
-  ADD CONSTRAINT `fk_2` FOREIGN KEY (`Member_ID`) REFERENCES `member_faculty` (`Member_ID`),
-  ADD CONSTRAINT `issue_return_ibfk_1` FOREIGN KEY (`Book_No`) REFERENCES `books` (`Book_No`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
