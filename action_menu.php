@@ -13,7 +13,6 @@
         while($row=$result->fetch_assoc()){  
             if($row["Username"]==$u && $row["Password"]==$p)
             {
-                echo"<script>window.alert('Welcome to admin page');</script>";
                 include "action_menu.html";
             }
             else{

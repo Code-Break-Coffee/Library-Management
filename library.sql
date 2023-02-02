@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 01, 2023 at 03:10 PM
+-- Generation Time: Feb 02, 2023 at 01:16 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `Username` varchar(50) NOT NULL,
+  `Password` varchar(16) NOT NULL,
+  PRIMARY KEY (`Username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Username`, `Password`) VALUES
+('admin', '12345678');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `books`
 --
 
@@ -32,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `Book_No` varchar(10) NOT NULL,
   `Authors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Title` varchar(30) NOT NULL,
+  `Status` varchar(25) NOT NULL,
   `Edition` varchar(15) NOT NULL,
   `Publisher` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Total_Pages` int NOT NULL,
@@ -46,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`Book_No`, `Authors`, `Title`, `Edition`, `Publisher`, `Total_Pages`, `Cost`, `Name_of_supplier`, `Bill_No`, `Bar_code`) VALUES
-('69_d', 'oh sorry he iss dead', 'Fuck Life', 'among ones', 'methi saw chatora', 6969, 69, 'Tanishq the smugler', '699999fuck', 'System-32/notForChildren/contentsOfThisFoldersAre/'),
-('ahahah', 'ajjafjararja', 'krkararjar', 'jrrjsrjarjaj', 'fjsjsrjsrjs', 123, 50, 'ahaaha', 'jarjakaka', ''),
-('isghsdgs', 'sgsdhsgs', 'tanishq', '69', 'go', 969, 69, 'tanishq the smugler', '69', 'NA');
+INSERT INTO `books` (`Book_No`, `Authors`, `Title`, `Status`, `Edition`, `Publisher`, `Total_Pages`, `Cost`, `Name_of_supplier`, `Bill_No`, `Bar_code`) VALUES
+('69_d', 'oh sorry he iss dead', 'Fuck Life', '', 'among ones', 'methi saw chatora', 6969, 69, 'Tanishq the smugler', '699999fuck', 'System-32/notForChildren/contentsOfThisFoldersAre/'),
+('ahahah', 'ajjafjararja', 'krkararjar', '', 'jrrjsrjarjaj', 'fjsjsrjsrjs', 123, 50, 'ahaaha', 'jarjakaka', ''),
+('isghsdgs', 'sgsdhsgs', 'tanishq', '', '69', 'go', 969, 69, 'tanishq the smugler', '69', 'NA');
 
 -- --------------------------------------------------------
 
@@ -66,9 +87,16 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
   `Date_issue` date NOT NULL,
   `Date_return` date NOT NULL,
   `Member_type` varchar(10) NOT NULL,
-  KEY `Book_No` (`Book_No`),
-  KEY `fk_2` (`Member_ID`)
+  KEY `bk_id` (`Book_No`),
+  KEY `Member_ID` (`Member_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `issue_return`
+--
+
+INSERT INTO `issue_return` (`Book_No`, `Title`, `Member_ID`, `Member_Name`, `Date_issue`, `Date_return`, `Member_type`) VALUES
+('ahahah', 'ajjafjararja', '59486958', 'yufgue', '2023-02-23', '2023-02-22', 'dbfkabd');
 
 -- --------------------------------------------------------
 
@@ -79,11 +107,45 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
 DROP TABLE IF EXISTS `member_faculty`;
 CREATE TABLE IF NOT EXISTS `member_faculty` (
   `Name` varchar(50) NOT NULL,
-  `Member_ID` varchar(20) NOT NULL,
+  `Faculty_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Faculty_Type` varchar(20) NOT NULL,
   `Father-husband` varchar(50) NOT NULL,
-  PRIMARY KEY (`Member_ID`)
+  PRIMARY KEY (`Faculty_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `member_faculty`
+--
+
+INSERT INTO `member_faculty` (`Name`, `Faculty_ID`, `Faculty_Type`, `Father-husband`) VALUES
+('yufgue', '59486958', 'dbfkabd', 'dshbkbakf'),
+('kartikey Hid', 'dkhdavkhad', 'dndbf', 'fnadsbfkbadk'),
+('kartikey Hid', 'dkhdhad', 'dndbf', 'fnadsbfkbadk');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_library`
+--
+
+DROP TABLE IF EXISTS `member_library`;
+CREATE TABLE IF NOT EXISTS `member_library` (
+  `Member_ID` varchar(20) NOT NULL,
+  `Student_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Faculty_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `b_issued` int DEFAULT NULL,
+  `M_status` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`Member_ID`),
+  KEY `S_id` (`Student_ID`,`Faculty_ID`),
+  KEY `Faculty_ID` (`Faculty_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `member_library`
+--
+
+INSERT INTO `member_library` (`Member_ID`, `Student_ID`, `Faculty_ID`, `b_issued`, `M_status`) VALUES
+('59486958', '', '', 12, 'active');
 
 -- --------------------------------------------------------
 
@@ -96,15 +158,17 @@ CREATE TABLE IF NOT EXISTS `member_student` (
   `Name` varchar(50) NOT NULL,
   `Roll_No` varchar(15) NOT NULL,
   `Enroll` varchar(15) NOT NULL,
-  `Member_ID` varchar(20) NOT NULL,
-  PRIMARY KEY (`Member_ID`)
+  `Student_ID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`Student_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Constraints for dumped tables
+-- Dumping data for table `member_student`
 --
 
-
+INSERT INTO `member_student` (`Name`, `Roll_No`, `Enroll`, `Student_ID`) VALUES
+('fhjgfjtjfyj', 'gddh', 'fgdfgndng', '59486958'),
+('yufgue', 'gddh', 'fgdfgndng', 'dkhdavkhad');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
