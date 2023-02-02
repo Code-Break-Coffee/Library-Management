@@ -15,4 +15,19 @@ $(document).ready(function()
             }
         });
     });
+    $("#search").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method: "post",
+            url: "search.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Result)
+            {
+                $("#booktable").html(Result);
+            }
+        });
+    });
 });
