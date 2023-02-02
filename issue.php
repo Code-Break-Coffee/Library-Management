@@ -10,8 +10,8 @@ $M_Type;
 $Available=false;
 $b=$_POST["Book_No"];
 $m=$_POST["Member_ID"];
-$sql_b="SELECT * from books where 'Book_NO' = '$b'";
-$sql_f="SELECT * from member_library where 'Member_ID' = '$m'";
+$sql_b="SELECT * from books where Book_NO = '$b'";
+$sql_f="SELECT * from member_library where Member_ID = '$m'";
 $result_b = $conn->query($sql_b);
 $result_f = $conn->query($sql_f);
 
