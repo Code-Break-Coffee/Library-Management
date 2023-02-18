@@ -14,8 +14,8 @@
         $s=$_POST["supplier"];
         $b=$_POST["bill"];
 
-        $sql="INSERT INTO books(Book_No,Authors,Title,Edition,Publisher,
-        Total_Pages,Cost,Name_of_supplier,Bill_No) values('$bn','$a','$t','$e','$p',$pa,$c,'$s','$b');";
+        $sql="INSERT INTO books(Book_No,Author,Title,Edition,Publisher,
+        Total_Pages,Cost,Supplier,Bill_No) values('$bn','$a','$t','$e','$p',$pa,$c,'$s','$b');";
         $result=$conn->query($sql);
         if($result)
         {
@@ -53,14 +53,14 @@
             echo"Publisher Name should not exceed 50 characters!!!";
             return false;
         }
-        if(strlen(strval($_POST["pages"])) > 11)
+        if(strlen(strval($_POST["pages"])) > 9)
         {
-            echo"Total Pages should not exceed 11 characters!!!";
+            echo"Total Pages should not exceed 9 characters!!!";
             return false;
         }
-        if(strlen(strval($_POST["cost"])) > 11)
+        if(strlen(strval($_POST["cost"])) > 9)
         {
-            echo"Cost should not exceed 11 characters!!!";
+            echo"Cost should not exceed 9 characters!!!";
             return false;
         }
         if(strlen($_POST["supplier"]) > 50)
