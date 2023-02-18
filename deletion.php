@@ -38,13 +38,13 @@ class disp
                 echo"
                 <tr>
                 <td style='text-align:center;'>".$row["Book_No"]."</td>
-                <td style='text-align:center;'>".$row["Authors"]."</td>
+                <td style='text-align:center;'>".$row["Author"]."</td>
                 <td style='text-align:center;'>".$row["Title"]."</td>
                 <td style='text-align:center;'>".$row["Edition"]."</td>
                 <td style='text-align:center;'>".$row["Publisher"]."</td>
                 <td style='text-align:center;'>".$row["Total_Pages"]."</td>
                 <td style='text-align:center;'>".$row["Cost"]."</td>
-                <td style='text-align:center;'>".$row["Name_of_supplier"]."</td>
+                <td style='text-align:center;'>".$row["Supplier"]."</td>
                 <td style='text-align:center;'>".$row["Bill_No"]."</td>
                 <td style='text-align:center;'><form id='del$i' method='post' action=''>
                 <div style='display:none;'><input type='radio' value='".$row["Book_No"]."' name='bookno' checked>

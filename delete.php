@@ -5,7 +5,7 @@ if(!empty($_POST["bookno"]) && !empty($_POST["title"]))
 {
     $book=$_POST["bookno"];
     $title=$_POST["title"];
-    $sql="SELECT Status FROM books where Book_No = '$book';";
+    $sql="SELECT  FROM books where Book_No = '$book';";
     $ob1=new check($conn,$sql,$book,$title);
     if($ob1->checked())
     {
