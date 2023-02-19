@@ -1,7 +1,7 @@
 <?php
     $host="localhost";
     $username="Kartikey";
-    $password="12345 hgy";
+    $password="12345";
     $dbname="library";
 
     $conn=new mysqli($host,$username,$password,$dbname);
