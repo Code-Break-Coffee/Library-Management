@@ -1,6 +1,6 @@
 <?php
-    $host="localhost:3306";
-    $username="tanishq";
+    $host="localhost";
+    $username="Kartikey";
     $password="12345";
     $dbname="library";
 
