@@ -9,7 +9,8 @@
     <script src="jquery.js"></script>
     <script src="ajax.js"></script>
 </head>
-<body>
+<body alink="aliceblue" vlink="aliceblue" link="aliceblue">
+    <center><h1>Deletion Page</h1></center>
     <div class="container">
         <h3>Search</h3>
         <form id="search" method="post" action="">
@@ -27,8 +28,10 @@
             <input type="text" name="data" class="form-control" placeholder="Value"><br>
             <input class="btn btn-primary" type="submit" value="Search">
             <button class="btn btn-danger" onclick="window.location.reload();">Reset</button>
+            <a href="menu.php?value=1" class="btn btn-primary">Back To Menu</a>
         </form>
-        <center><div id="deleted" style="color:red;font-weight: bolder;"></div></center>
+        <center><div id="deleted" style="color:red;font-weight: bolder;"></div>
+        </center>
     </div>
 </body>
 </html>

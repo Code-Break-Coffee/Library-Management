@@ -5,7 +5,7 @@ if(!empty($_POST["bookno"]) && !empty($_POST["title"]))
 {
     $book=$_POST["bookno"];
     $title=$_POST["title"];
-    $sql="SELECT Issue_Bookno FROM issue_return";
+    $sql="SELECT Status from books;";
     $ob1=new check($conn,$sql,$book,$title);
     if($ob1->checked())
     {
@@ -42,9 +42,9 @@ class check
             $count=0;
             while($row=$result->fetch_assoc())
             {
-                if($row["Issue_Bookno"] == $this->book)
+                if($row["Status"]!="Available")
                 {
-                    echo"Book No., $this->book, named, $this->title is been issued by a member of the Library, so it cannot be deleted!!!";
+                    echo"Book No., $this->book, named, $this->title is been issued by ".$row["Status"]." of the Library, so it cannot be deleted!!!";
                     $count=1;
                     break;
                 }

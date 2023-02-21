@@ -18,7 +18,7 @@ class disp
         if($result)
         {
             echo"
-            <div id=booktable>
+            <div id='booktable'>
             <table class='table table-striped table-responsive table-hover table-bordered'>
             <tr>
             <th style='text-align:center;'>Book No.</th>
