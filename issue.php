@@ -67,7 +67,7 @@ if($result_b && $result_m){
     }
     if($Available){
         $sql_ir="INSERT INTO issue_return (Issue_by,Issue_Bookno,Issue_Date)
-        values ('$m','$b','$m','$doi');";
+        values ('$m',$b,'$m','$doi');";
         $resultIssue=$conn->query($sql_ir);
         if($resulIssue){
             if($issueBy =="Student"){

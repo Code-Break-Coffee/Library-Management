@@ -19,13 +19,13 @@ $result_m = $conn->query($sql_m);
 if($result_b && $result_m){
     if($issueBy =="Student"){
         while($row = $result_m->fetch_assoc()){
-            if($row["Student_Book1"]=='$b'){
+            if($row["Student_Book1"]==$b){
                 $BookNoIssue = 1;
             }
-            elseif($row["Student_Book2"]=='$b'){
+            elseif($row["Student_Book2"]==$b){
                 $BookNoIssue = 2;
             }
-            elseif($row["Student_Book3"]=='$b'){
+            elseif($row["Student_Book3"]==$b){
                 $BookNoIssue = 3;
             }
             else{
@@ -35,19 +35,19 @@ if($result_b && $result_m){
         }
         if($issueBy =="Faculty"){
             while($row = $result_m->fetch_assoc()){
-                if($row["Faculty_Book1"]=='$b'){
+                if($row["Faculty_Book1"]==$b){
                     $BookNoIssue = 1;
                 }
-                elseif($row["Faculty_Book2"]=='$b'){
+                elseif($row["Faculty_Book2"]==$b){
                     $BookNoIssue = 2;
                 }
-                elseif($row["Faculty_Book3"]=='$b'){
+                elseif($row["Faculty_Book3"]==$b){
                     $BookNoIssue = 3;
                 }
-                elseif($row["Faculty_Book4"]=='$b'){
+                elseif($row["Faculty_Book4"]==$b){
                     $BookNoIssue = 4;
                 }
-                elseif($row["Faculty_Book5"]=='$b'){
+                elseif($row["Faculty_Book5"]==$b){
                     $BookNoIssue = 5;
                 }
                 else{
