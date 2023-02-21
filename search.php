@@ -33,13 +33,13 @@ class search
             echo"
             <tr>
             <td style='text-align:center;'>".$row["Book_No"]."</td>
-            <td style='text-align:center;'>".$row["Authors"]."</td>
+            <td style='text-align:center;'>".$row["Author"]."</td>
             <td style='text-align:center;'>".$row["Title"]."</td>
             <td style='text-align:center;'>".$row["Edition"]."</td>
             <td style='text-align:center;'>".$row["Publisher"]."</td>
             <td style='text-align:center;'>".$row["Total_Pages"]."</td>
             <td style='text-align:center;'>".$row["Cost"]."</td>
-            <td style='text-align:center;'>".$row["Name_of_supplier"]."</td>
+            <td style='text-align:center;'>".$row["Supplier"]."</td>
             <td style='text-align:center;'>".$row["Bill_No"]."</td>
             <td style='text-align:center;'><form id='del$i' method='post' action=''>
             <div style='display:none;'><input type='radio' value='".$row["Book_No"]."' name='bookno' checked>
@@ -78,9 +78,7 @@ if(!empty(filter_input(INPUT_POST,"column")) && !empty($_POST["data"]))
 {
     $column=filter_input(INPUT_POST,"column");
     if($column=="Book No.") $column="Book_No";
-    if($column=="Author") $column="Authors";
     if($column=="Total Pages") $column="Total_Pages";
-    if($column=="Supplier") $column="Name_of_supplier";
     if($column=="Bill No.") $column="Bill_No";
     $data=$_POST["data"];
     $sql="SELECT * from books where $column = '$data';";

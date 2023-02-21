@@ -7,7 +7,7 @@ $sql_m;
 $b=$_POST["Book_No"];
 $m=$_POST["Member_ID"];
 $issueBy= $_POST["issuedBy"];
-$sql_b="SELECT * from books where Book_No = '$b'";
+$sql_b="SELECT * from books where Book_No = $b";
 if($issueBy =="Student"){
     $sql_m="SELECT * from student where Member_ID = '$m'";
 }
@@ -18,9 +18,9 @@ $result_b = $conn->query($sql_b);
 $result_m = $conn->query($sql_m);
 if($result_b && $result_m){
     if($issueBy =="Student"){
-        while($row = $result_m->fetch_assoc()){}
-        if($row["Student_Book1"]=='$b'){
-            $BookNoIssue = 1;
+        while($row = $result_m->fetch_assoc()){
+            if($row["Student_Book1"]=='$b'){
+                $BookNoIssue = 1;
             }
             elseif($row["Student_Book2"]=='$b'){
                 $BookNoIssue = 2;
@@ -32,25 +32,27 @@ if($result_b && $result_m){
                 //incorrect 
             }
         }
+        }
         if($issueBy =="Faculty"){
-            while($row = $result_m->fetch_assoc()){}
-            if($row["Faculty_Book1"]=='$b'){
-                $BookNoIssue = 1;
-            }
-            elseif($row["Faculty_Book2"]=='$b'){
-                $BookNoIssue = 2;
-            }
-            elseif($row["Faculty_Book3"]=='$b'){
-                $BookNoIssue = 3;
-            }
-            elseif($row["Faculty_Book4"]=='$b'){
-                $BookNoIssue = 4;
-            }
-            elseif($row["Faculty_Book5"]=='$b'){
-                $BookNoIssue = 5;
-            }
-            else{
-                //incorrect
+            while($row = $result_m->fetch_assoc()){
+                if($row["Faculty_Book1"]=='$b'){
+                    $BookNoIssue = 1;
+                }
+                elseif($row["Faculty_Book2"]=='$b'){
+                    $BookNoIssue = 2;
+                }
+                elseif($row["Faculty_Book3"]=='$b'){
+                    $BookNoIssue = 3;
+                }
+                elseif($row["Faculty_Book4"]=='$b'){
+                    $BookNoIssue = 4;
+                }
+                elseif($row["Faculty_Book5"]=='$b'){
+                    $BookNoIssue = 5;
+                }
+                else{
+                    //incorrect
+                }
             }
         }
         if($issueBy =="Student"){

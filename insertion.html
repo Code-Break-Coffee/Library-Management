@@ -9,10 +9,10 @@
     <script src="jquery.js"></script>
     <script src="ajax.js"></script>
 </head>
-<body>
+<body alink="aliceblue" vlink="aliceblue" link="aliceblue">
     <center>
+        <h1>Insertion Page</h1>
     <form id="insert_book" action="" method="post">
-        <input type="text" placeholder="Book No" name="bookno" class="form-control" maxlength="10" required>
         <input type="text" placeholder="Author of Book" name="author" class="form-control" maxlength="50" required>
         <input type="text" placeholder="Title of Book" name="title" class="form-control" maxlength="30" required>
         <input type="text" placeholder="Edition of Book" name="edition" class="form-control" maxlength="15" required>
@@ -23,6 +23,7 @@
         <input type="text" placeholder="Bill No" name="bill" class="form-control" maxlength="20" required>
         <input type="submit" value="Submit" class="btn btn-primary">
     </form><br>
+    <a class="btn btn-primary" href="menu.php?value=1">Back To Menu</a>
     <div id="response" style="color:red;font-weight: bold;"></div>
     </center>
 </body>

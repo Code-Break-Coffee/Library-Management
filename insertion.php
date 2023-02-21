@@ -1,10 +1,9 @@
 <?php
     include "dbconnect.php";
     
-    $bn;$a;$t;$e;$p;$pa;$c;$s;$b;
+    $a;$t;$e;$p;$pa;$c;$s;$b;
     if(datacheck())
     {
-        $bn=$_POST["bookno"];
         $a=$_POST["author"];
         $t=$_POST["title"];
         $e=$_POST["edition"];
@@ -14,8 +13,8 @@
         $s=$_POST["supplier"];
         $b=$_POST["bill"];
 
-        $sql="INSERT INTO books(Book_No,Author,Title,Edition,Publisher,
-        Total_Pages,Cost,Supplier,Bill_No) values('$bn','$a','$t','$e','$p',$pa,$c,'$s','$b');";
+        $sql="INSERT INTO books(Author,Title,Edition,Publisher,
+        Total_Pages,Cost,Supplier,Bill_No) values('$a','$t','$e','$p',$pa,$c,'$s','$b');";
         $result=$conn->query($sql);
         if($result)
         {
@@ -28,11 +27,6 @@
     }
     function datacheck()
     {
-        if(strlen($_POST["bookno"]) > 10)
-        {
-            echo"Book No. should not exceed 10 characters!!!";
-            return false;
-        }
         if(strlen($_POST["author"]) > 50)
         {
             echo"Author Name should not exceed 50 characters!!!";

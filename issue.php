@@ -9,7 +9,7 @@ $BookNoIssue=0;
 $b=$_POST["Book_No"];
 $m=$_POST["Member_ID"];
 $issueBy= $_POST["issuedBy"];
-$sql_b="SELECT * from books where Book_No = '$b'";
+$sql_b="SELECT * from books where Book_No = $b";
 if($issueBy =="Student"){
     $sql_m="SELECT * from student where Member_ID = '$m'";
 }
@@ -26,41 +26,43 @@ if($result_b && $result_m){
         }
     }
     if($issueBy =="Student"){
-    while($row = $result_m->fetch_assoc()){}
+    while($row = $result_m->fetch_assoc()){
         if($row["Student_Book1"]==null){
             $BookNoIssue = 1;
         }
-        elseif($row["Student_Book2"]==null){
+        else if($row["Student_Book2"]==null){
             $BookNoIssue = 2;
         }
-        elseif($row["Student_Book3"]==null){
+        else if($row["Student_Book3"]==null){
             $BookNoIssue = 3;
         }
         else{
             //issueing book limit reached
             $Available = false;
         }
+    }  
     }
     if($issueBy =="Faculty"){
-        while($row = $result_m->fetch_assoc()){}
-        if($row["Faculty_Book1"]==null){
-            $BookNoIssue = 1;
-        }
-        elseif($row["Faculty_Book2"]==null){
-            $BookNoIssue = 2;
-        }
-        elseif($row["Faculty_Book3"]==null){
-            $BookNoIssue = 3;
-        }
-        elseif($row["Faculty_Book4"]==null){
-            $BookNoIssue = 4;
-        }
-        elseif($row["Faculty_Book5"]==null){
-            $BookNoIssue = 5;
-        }
-        else{
-            //issueing book limit reached
-            $Available= false;
+        while($row = $result_m->fetch_assoc()){
+            if($row["Faculty_Book1"]==null){
+                $BookNoIssue = 1;
+            }
+            else if($row["Faculty_Book2"]==null){
+                $BookNoIssue = 2;
+            }
+            else if($row["Faculty_Book3"]==null){
+                $BookNoIssue = 3;
+            }
+            else if($row["Faculty_Book4"]==null){
+                $BookNoIssue = 4;
+            }
+            else if($row["Faculty_Book5"]==null){
+                $BookNoIssue = 5;
+            }
+            else{
+                //issueing book limit reached
+                $Available= false;
+            }
         }
     }
     if($Available){
@@ -70,23 +72,24 @@ if($result_b && $result_m){
         if($resulIssue){
             if($issueBy =="Student"){
                 $slot ="Student_Book".$BookNoIssue; 
-                $sql_UpdateS="UPDATE student set '$slot'='$b' where Member_ID = '$m';";  
+                $sql_UpdateS="UPDATE student set $slot=$b where Member_ID = '$m';";  
                 $update_student = $conn->query($sql_UpdateS);
                 $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                 $update_book = $conn->query($sql_Update);
             }
-            elseif($issueBy == "Faculty"){
+            else if($issueBy == "Faculty"){
                 $slot ="Faculty_Book".$BookNoIssue; 
-                $sql_UpdateF="UPDATE faculty set '$slot'='$b' where Member_ID = '$m';";  
+                $sql_UpdateF="UPDATE faculty set $slot=$b where Member_ID = '$m';";  
                 $update_faculty = $conn->query($sql_UpdateF);
                 $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                 $update_book = $conn->query($sql_Update);
             }
-            //add an message to show data stored successfully
+            echo"Book issued by $m successfully";
         }
     }
 }
-else{
+else
+{
     echo "$conn->error";
 }
 
