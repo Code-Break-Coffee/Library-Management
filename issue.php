@@ -159,9 +159,29 @@ if($checkedb)
                 echo "Book $b not Available!!!";
             }
         }
-        else
-        {
-            echo $conn->error;
+
+    }
+    if($Available){
+        $sql_ir="INSERT INTO issue_return (Issue_by,Issue_Bookno,Issue_Date)
+        values ('$m',$b,'$m','$doi');";
+        $resultIssue=$conn->query($sql_ir);
+        if($resulIssue){
+            if($issueBy =="Student"){
+                $slot ="Student_Book".$BookNoIssue; 
+                $sql_UpdateS="UPDATE student set $slot=$b where Member_ID = '$m';";  
+                $update_student = $conn->query($sql_UpdateS);
+                $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
+                $update_book = $conn->query($sql_Update);
+            }
+            else if($issueBy == "Faculty"){
+                $slot ="Faculty_Book".$BookNoIssue; 
+                $sql_UpdateF="UPDATE faculty set $slot=$b where Member_ID = '$m';";  
+                $update_faculty = $conn->query($sql_UpdateF);
+                $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
+                $update_book = $conn->query($sql_Update);
+            }
+            echo"Book issued by $m successfully";
+
         }
     }
     else
