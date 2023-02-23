@@ -3,7 +3,7 @@ include "dbconnect.php";
 
 date_default_timezone_set("Asia/Kolkata");
 $doi = date("Y/m/d");
-$Available=false;
+$Available=true;
 $sql_m;
 $BookNoIssue=0;
 $b=$_POST["Book_No"];
@@ -31,7 +31,7 @@ function bookcheck($x,$y)
     {
         while($row=$x->fetch_assoc())
         {
-            if($row["Book_No"] == $y)
+            if($row["Book_No"] == $y && $row["Status"] == "Available")
             {
                 return true;
             }
@@ -54,7 +54,7 @@ function membercheck($x,$y)
     }
     return false;
 }
-
+$result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
 $checkedm=membercheck($result_check,$m);
 
@@ -64,13 +64,6 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
-            while($row = $result_b->fetch_assoc())
-            {
-                if($row["Status"] =="Available" && $row["Book_No"] == $b)
-                {
-                    $Available = true;
-                }
-            }
             if($issueBy =="Student")
             {
                 while($row = $result_m->fetch_assoc())
@@ -94,6 +87,7 @@ if($checkedb)
                     }
                 }  
             }
+            $result_m->data_seek(0);
             if($issueBy =="Faculty")
             {
                 while($row = $result_m->fetch_assoc())
@@ -125,7 +119,7 @@ if($checkedb)
                     }
                 }
             }
-            if($Available)
+            if($Available )
             {
                 $sql_ir="INSERT INTO issue_return (Issue_By,Issue_Bookno,Issue_Date)
                 values ('$m','$b','$doi');";
@@ -135,22 +129,24 @@ if($checkedb)
                     if($issueBy =="Student")
                     {
                         $slot ="Student_Book".$BookNoIssue; 
-                        $sql_UpdateS="UPDATE student set $slot=$b where Member_ID = '$m';";  
+                        $sql_UpdateS="UPDATE student set $slot=$b where Student_Rollno = '$m';";  
                         $update_student = $conn->query($sql_UpdateS);
                         $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                         $update_book = $conn->query($sql_Update);
                         if($update_book) echo"Book issued by $m successfully";
                         else echo $conn->error;
+                        if(!$update_student) echo $conn->error;
                     }
                     else if($issueBy == "Faculty")
                     {
                         $slot ="Faculty_Book".$BookNoIssue; 
-                        $sql_UpdateF="UPDATE faculty set $slot=$b where Member_ID = '$m';";  
+                        $sql_UpdateF="UPDATE faculty set $slot=$b where Faculty_ID = '$m';";  
                         $update_faculty = $conn->query($sql_UpdateF);
                         $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                         $update_book = $conn->query($sql_Update);
                         if($update_book) echo"Book issued by $m successfully";
                         else echo $conn->error;
+                        if(!$update_faculty) echo $conn->error;
                     }
                 }
                 else
@@ -165,38 +161,40 @@ if($checkedb)
         }
 
     }
-}
-//     if($Available){
-//         $sql_ir="INSERT INTO issue_return (Issue_by,Issue_Bookno,Issue_Date)
-//         values ('$m',$b,'$m','$doi');";
-//         $resultIssue=$conn->query($sql_ir);
-//         if($resulIssue){
-//             if($issueBy =="Student"){
-//                 $slot ="Student_Book".$BookNoIssue; 
-//                 $sql_UpdateS="UPDATE student set $slot=$b where Member_ID = '$m';";  
-//                 $update_student = $conn->query($sql_UpdateS);
-//                 $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
-//                 $update_book = $conn->query($sql_Update);
-//             }
-//             else if($issueBy == "Faculty"){
-//                 $slot ="Faculty_Book".$BookNoIssue; 
-//                 $sql_UpdateF="UPDATE faculty set $slot=$b where Member_ID = '$m';";  
-//                 $update_faculty = $conn->query($sql_UpdateF);
-//                 $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
-//                 $update_book = $conn->query($sql_Update);
-//             }
-//             echo"Book issued by $m successfully";
 
-//         }
-//     }
-//     else
-//     {
-//         echo "Member $m not found!!!";
-//     }
-// }
-// else
-// {
-//     echo "Book $b not found!!!";
-// }
+    if($Available){
+        $sql_ir="INSERT INTO issue_return (Issue_by,Issue_Bookno,Issue_Date)
+        values ('$m',$b,'$m','$doi');";
+        $resultIssue=$conn->query($sql_ir);
+        if($resulIssue){
+            if($issueBy =="Student"){
+                $slot ="Student_Book".$BookNoIssue; 
+                $sql_UpdateS="UPDATE student set $slot=$b where Member_ID = '$m';";  
+                $update_student = $conn->query($sql_UpdateS);
+                $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
+                $update_book = $conn->query($sql_Update);
+            }
+            else if($issueBy == "Faculty"){
+                $slot ="Faculty_Book".$BookNoIssue; 
+                $sql_UpdateF="UPDATE faculty set $slot=$b where Member_ID = '$m';";  
+                $update_faculty = $conn->query($sql_UpdateF);
+                $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
+                $update_book = $conn->query($sql_Update);
+            }
+            echo"Book issued by $m successfully";
+
+        }
+    }
+    else
+    {
+        echo "Member $m not found!!!";
+    }
+}
+else
+{
+    echo "Book $b not Available!!!";
+
+}
+
 
 ?>
