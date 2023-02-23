@@ -30,4 +30,19 @@ $(document).ready(function()
             }
         });
     });
+    $("#issueform").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method: "post",
+            url: "issue.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Response)
+            {
+                $("#response").html(Response);
+            }
+        });
+    });
 });
