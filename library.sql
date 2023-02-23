@@ -1,3 +1,4 @@
+create database library;
 use library;
 
 create table admin(
@@ -8,7 +9,6 @@ create table admin(
 
 insert into admin values('admin',12345678);
 
-use library;
 create table books(
   Book_No int(10) not null AUTO_INCREMENT, 
   Author varchar(50) not null,
@@ -21,6 +21,10 @@ create table books(
   Bill_No varchar(20),
   Status varchar(20) default "Available",
   primary key(Book_No)
+);
+
+create table member(
+  Member_ID varchar(20) not null primary key
 );
 
 create table student(
@@ -55,19 +59,23 @@ create table issue_return(
   Return_Date date default null,
   primary key(Issue_No)
 );
-use library;
 
 alter table issue_return
 add constraint issue
 foreign key(Issue_Bookno) references books(Book_No);
 
 alter table issue_return
-add constraint issue_student
-foreign key(Issue_By) references student(Student_Rollno);
+add constraint issue_member
+foreign key(Issue_By) references member(Member_ID);
 
-alter table issue_return
-add constraint issue_faculty
-foreign key(Issue_By) references faculty(Faculty_ID);
+alter table student
+add constraint student_member
+foreign key(Student_Rollno) references member(Member_ID);
+
+use library;
+alter table faculty
+add constraint faculty_member
+foreign key(Faculty_ID) references member(Member_ID);
 
 alter table faculty
 add constraint faculty_1
