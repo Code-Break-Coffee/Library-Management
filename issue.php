@@ -161,6 +161,7 @@ if($checkedb)
         }
 
     }
+
     if($Available){
         $sql_ir="INSERT INTO issue_return (Issue_by,Issue_Bookno,Issue_Date)
         values ('$m',$b,'$m','$doi');";
@@ -192,6 +193,8 @@ if($checkedb)
 else
 {
     echo "Book $b not Available!!!";
+
 }
+
 
 ?>
