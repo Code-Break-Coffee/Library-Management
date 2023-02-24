@@ -60,4 +60,19 @@ $(document).ready(function()
             }
         });
     });
+    $("#memberform").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method: "post",
+            url: "member.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Response)
+            {
+                $("#response").html(Response);
+            }
+        });
+    });
 });

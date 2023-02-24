@@ -5,11 +5,11 @@ if(!empty($_POST["bookno"]) && !empty($_POST["title"]))
 {
     $book=$_POST["bookno"];
     $title=$_POST["title"];
-    $sql="SELECT Status from books;";
+    $sql="SELECT * from books;";
     $ob1=new check($conn,$sql,$book,$title);
     if($ob1->checked())
     {
-        $delsql="DELETE from books where Book_No = '$book';";
+        $delsql="DELETE from books where Book_No = $book;";
         $ob2=new del($conn,$delsql);
         if($ob2->deleted())
         {
@@ -42,7 +42,7 @@ class check
             $count=0;
             while($row=$result->fetch_assoc())
             {
-                if($row["Status"]!="Available")
+                if($row["Status"]!="Available" && $row["Book_No"] == $this->book)
                 {
                     echo"Book No., $this->book, named, $this->title is been issued by ".$row["Status"]." of the Library, so it cannot be deleted!!!";
                     $count=1;
@@ -80,7 +80,11 @@ class del
         {
             return true;
         }
-        return false;
+        else
+        {
+            echo $this->conn->error;
+            return false;
+        }
     }
 }
 ?>
