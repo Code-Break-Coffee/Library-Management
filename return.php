@@ -1,8 +1,8 @@
 <?php
 include "dbconnect.php";
 
-$dor = date("Y/m/d");
 date_default_timezone_set("Asia/Kolkata");
+$dor = date("Y/m/d");
 $sql_m;
 $b=$_POST["Book_No"];
 $m=$_POST["Member_ID"];
