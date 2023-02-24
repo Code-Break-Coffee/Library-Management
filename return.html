@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
     <title>Returning Book</title>
+    <style>#responsereturn{color:red;font-weight: bolder;}</style>
+    <script src="jquery.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body alink="aliceblue" vlink="aliceblue" link="aliceblue">
     <center><h1>Book Returning Page</h1></center>
     <div class="container">
-        <form id="return" method="post" action="">
+        <form id="returnform" method="post" action="">
             <b>Book No:</b><input class="form-control" name="Book_No" type="text"><br>
             <b>Member ID:</b><input class="form-control" name="Member_ID" type="text"><br>
             <b>Member Type:</b>&nbsp;&nbsp;
             Student <input name="ReturnedBy" value="Student" type="radio" class="form-check-input" checked> 
             &nbsp; &nbsp; Faculty <input class="form-check-input" value="Faculty" name="ReturnedBy" type="radio"><br>
-            <center><button type="button" class="btn btn-primary">Submit</button></center>
+            <center><input type="submit" class="btn btn-primary" value="Submit"/></center>
         </form>
     </div><br>
-    <center><a href="menu.php?value=1" class="btn btn-primary">Back To Menu</a></center>
+    <center><a href="menu.php?value=1" class="btn btn-primary">Back To Menu</a>
+    <div id="responsereturn"></div></center>
 </body>
 </html>

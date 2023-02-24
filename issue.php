@@ -54,6 +54,7 @@ function membercheck($x,$y)
     }
     return false;
 }
+
 $result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
 $checkedm=membercheck($result_check,$m);
@@ -159,8 +160,18 @@ if($checkedb)
                 echo "Book $b not Available!!!";
             }
         }
-
+        else
+        {
+            echo $conn->error;
+        }
     }
-
+    else
+    {
+        echo "Member $m not found!!!";
+    }
+}
+else
+{
+    echo "Book $b is not Available!!!";
 }
 ?>

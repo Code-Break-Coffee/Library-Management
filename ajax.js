@@ -45,4 +45,19 @@ $(document).ready(function()
             }
         });
     });
+    $("#returnform").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method: "post",
+            url: "return.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Response)
+            {
+                $("#responsereturn").html(Response);
+            }
+        });
+    });
 });
