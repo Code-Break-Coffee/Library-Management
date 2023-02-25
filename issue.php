@@ -54,14 +54,40 @@ function membercheck($x,$y)
     }
     return false;
 }
+function memberTypeCheck($x,$y,$z)
+{
+    if($x && $z =="Student")
+    {
+        while($row=$x->fetch_assoc())
+        {
+            if($row["Student_Rollno"] == $y)
+            {
+                return true;
+            }
+        }
+    }
+    else if($x && $z == "Faculty")
+    {
+        while($row=$x->fetch_assoc())
+        {
+            if($row["Faculty_ID"] == $y)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 
 $result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
 $checkedm=membercheck($result_check,$m);
+$checkedmt=memberTypeCheck($result_m,$m,$issueBy);
 
 if($checkedb)
 {
-    if($checkedm)
+    if($checkedm && $checkedmt)
     {
         if($result_b && $result_m)
         {
