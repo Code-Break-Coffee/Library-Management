@@ -91,9 +91,9 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
+            $result_m->data_seek(0);
             if($issueBy =="Student")
             {
-                $result_m->data_seek(0);
                 while($row = $result_m->fetch_assoc())
                 {
                     if($row["Student_Rollno"]== $m)
@@ -117,8 +117,7 @@ if($checkedb)
                         }
                     }
                 }  
-            }
-            $result_m->data_seek(0);
+            } 
             if($issueBy =="Faculty")
             {
                 while($row = $result_m->fetch_assoc())
