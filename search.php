@@ -15,7 +15,7 @@ class search
         $search=$this->conn->query($this->sql);
         echo"
         <table class='table table-striped table-responsive table-hover table-bordered'>
-        <tr>
+        <tr class='table-primary'>
         <th style='text-align:center;'>Book No.</th>
         <th style='text-align:center;'>Author</th>
         <th style='text-align:center;'>Title</th>
