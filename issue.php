@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Kolkata");
 $doi = date("Y/m/d");
 $Available=true;
 $sql_m;
-$BookNoIssue=0;
+$BookNoIssue=1;
 $b=$_POST["Book_No"];
 $m=$_POST["Member_ID"];
 $issueBy= $_POST["issuedBy"];
@@ -93,24 +93,28 @@ if($checkedb)
         {
             if($issueBy =="Student")
             {
+                $result_m->data_seek(0);
                 while($row = $result_m->fetch_assoc())
                 {
-                    if($row["Student_Book1"]==null)
+                    if($row["Student_Rollno"]== $m)
                     {
-                        $BookNoIssue = 1;
-                    }
-                    else if($row["Student_Book2"]==null)
-                    {
-                        $BookNoIssue = 2;
-                    }
-                    else if($row["Student_Book3"]==null)
-                    {
-                        $BookNoIssue = 3;
-                    }
-                    else
-                    {
-                        echo "Book issue limit reached for $m";
-                        $Available = false;
+                        if($row["Student_Book1"]==null)
+                        {
+                            $BookNoIssue = 1;
+                        }
+                        else if($row["Student_Book2"]==null)
+                        {
+                            $BookNoIssue = 2;
+                        }
+                        else if($row["Student_Book3"]==null)
+                        {
+                            $BookNoIssue = 3;
+                        }
+                        else
+                        {
+                            echo "Book issue limit reached for $m";
+                            $Available = false;
+                        }
                     }
                 }  
             }
@@ -119,30 +123,33 @@ if($checkedb)
             {
                 while($row = $result_m->fetch_assoc())
                 {
-                    if($row["Faculty_Book1"]==null)
+                    if($row["Faculty_ID"]== $m)
                     {
-                        $BookNoIssue = 1;
-                    }
-                    else if($row["Faculty_Book2"]==null)
-                    {
-                        $BookNoIssue = 2;
-                    }
-                    else if($row["Faculty_Book3"]==null)
-                    {
-                        $BookNoIssue = 3;
-                    }
-                    else if($row["Faculty_Book4"]==null)
-                    {
-                        $BookNoIssue = 4;
-                    }
-                    else if($row["Faculty_Book5"]==null)
-                    {
-                        $BookNoIssue = 5;
-                    }
-                    else
-                    {
-                        echo "Book issue limit reached for $m";
-                        $Available= false;
+                        if($row["Faculty_Book1"]==null)
+                        {
+                            $BookNoIssue = 1;
+                        }
+                        else if($row["Faculty_Book2"]==null)
+                        {
+                            $BookNoIssue = 2;
+                        }
+                        else if($row["Faculty_Book3"]==null)
+                        {
+                            $BookNoIssue = 3;
+                        }
+                        else if($row["Faculty_Book4"]==null)
+                        {
+                            $BookNoIssue = 4;
+                        }
+                        else if($row["Faculty_Book5"]==null)
+                        {
+                            $BookNoIssue = 5;
+                        }
+                        else
+                        {
+                            echo "Book issue limit reached for $m";
+                            $Available= false;
+                        }
                     }
                 }
             }
@@ -160,9 +167,8 @@ if($checkedb)
                         $update_student = $conn->query($sql_UpdateS);
                         $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                         $update_book = $conn->query($sql_Update);
-                        if($update_book) echo"Book issued by $m successfully";
+                        if($update_book && $update_student) echo"Book issued by $m successfully";
                         else echo $conn->error;
-                        if(!$update_student) echo $conn->error;
                     }
                     else if($issueBy == "Faculty")
                     {
@@ -171,9 +177,8 @@ if($checkedb)
                         $update_faculty = $conn->query($sql_UpdateF);
                         $sql_Update = "UPDATE books set Status='$m' where Book_No = $b;";
                         $update_book = $conn->query($sql_Update);
-                        if($update_book) echo"Book issued by $m successfully";
+                        if($update_book && $update_faculty) echo"Book issued by $m successfully";
                         else echo $conn->error;
-                        if(!$update_faculty) echo $conn->error;
                     }
                 }
                 else
