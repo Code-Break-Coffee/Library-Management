@@ -12,7 +12,7 @@ $MemberType= $_POST["membertype"];
 $sql_b="SELECT * from books;";
 
 $sql_m="SELECT * from member;";
-$result_m=$conn->query($sql_check);
+$result_m=$conn->query($sql_m);
 
 if($MemberType =="Student")
 {
