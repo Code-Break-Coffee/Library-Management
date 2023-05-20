@@ -97,4 +97,3 @@ alter table member add constraint bk9
 
 alter table member add constraint bk10
     foreign key(Book_Issue10) references books(Book_No);
-
