@@ -50,6 +50,7 @@ create table if not exists member(
 create table if not exists issue_return(
   Issue_No int not null AUTO_INCREMENT,
   Issue_By varchar(20) not null,
+  Member_Type varchar(8) not null,
   Issue_Bookno int(10) not null,
   Issue_Date date not null,
   Return_Date date default null,
