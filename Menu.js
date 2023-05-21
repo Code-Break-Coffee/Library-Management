@@ -1,20 +1,25 @@
-document.getElementById("home").addEventListener('click',()=>
+document.getElementById("h").addEventListener('click',()=>
 {
     var container=document.getElementById("contain");
     container.innerHTML="";
-    container.style.background="url(Library.jpg)";
-    container.style.backgroundRepeat="no-repeat";
-    container.style.backgroundPosition="center";
-    container.style.backgroundSize="cover";
+});
+document.getElementById("i").addEventListener('click',()=>
+{
+    var container=document.getElementById("contain");
+    container.innerHTML="";
+    $("#contain").load("./Issue.html");
 });
 
-document.getElementById("issue").addEventListener('click',()=>
+document.getElementById("r").addEventListener('click',()=>
 {
     var container=document.getElementById("contain");
     container.innerHTML="";
-    container.style.background="none";
-    // container.style.backgroundColor="#5cdb95";
-    container.style.backgroundColor="aliceblue";
-    container.style.color="#05386b";
-    $("#contain").load("./Issue.html");
+    $("#contain").load("./Return.html");
+});
+
+document.getElementById("ins").addEventListener('click',()=>
+{
+    var container=document.getElementById("contain");
+    container.innerHTML="";
+    $("#contain").load("./Insert.html");
 });
