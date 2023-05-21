@@ -34,6 +34,7 @@ create table if not exists faculty(
 
 create table if not exists member(
     Member_ID varchar(20) not null,
+    MemberType
     Book_Issue1 int(10) default null,
     Book_Issue2 int(10) default null,
     Book_Issue3 int(10) default null,
