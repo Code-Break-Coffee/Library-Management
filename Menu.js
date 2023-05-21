@@ -3,7 +3,6 @@ document.getElementById("h").addEventListener('click',()=>
     var container=document.getElementById("contain");
     container.innerHTML="";
 });
-
 document.getElementById("i").addEventListener('click',()=>
 {
     var container=document.getElementById("contain");
