@@ -15,4 +15,19 @@ $(document).ready(function()
             }
         });
     });
+    $("#returnform").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method : "post",
+            url: "Return.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Result)
+            {
+                $("#response2").html(Result);
+            }
+        });
+    });
 });
