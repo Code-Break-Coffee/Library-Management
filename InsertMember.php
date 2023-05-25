@@ -43,7 +43,7 @@ if(!membercheck($result_m,$m) && !memberTypeCheck($result_mt,$m,$MemberType))
     $add_mt = $conn->query($sql_mTAdd);
     if(!$add_m || !$add_mt)
     {
-        $conn->error;
+        echo $conn->error;
     }
 
 }
