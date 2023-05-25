@@ -23,3 +23,10 @@ document.getElementById("ins").addEventListener('click',()=>
     container.innerHTML="";
     $("#contain").load("./Insert.html");
 });
+
+document.getElementById("d").addEventListener('click',()=>
+{
+    var container=document.getElementById("contain");
+    container.innerHTML="";
+    $("#contain").load("./Delete.html");
+});
