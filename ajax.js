@@ -30,4 +30,20 @@ $(document).ready(function()
             }
         });
     });
+    $("#deleteform").submit(function(e)
+    {
+        e.preventDefault();
+        $.ajax(
+        {
+            method: "post",
+            url: "Delete.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Result)
+            {
+                $("response4").html(Result);
+            }
+        });
+    });
+    window.alert("Done!!!");
 });
