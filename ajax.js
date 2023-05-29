@@ -30,13 +30,13 @@ $(document).ready(function()
             }
         });
     });
-    $("#deleteform").submit(function(e)
+    $("#delete_").submit(function(e)
     {
         e.preventDefault();
         $.ajax(
         {
             method: "post",
-            url: "Delete.php",
+            url: "temp.js",
             data: $(this).serialize(),
             datatype: "text",
             success: function(Result)
@@ -45,5 +45,4 @@ $(document).ready(function()
             }
         });
     });
-    window.alert("Done!!!");
 });
