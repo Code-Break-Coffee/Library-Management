@@ -77,7 +77,7 @@ if($result_m)
 
     if(!$check_status)
     {
-        echo "Book issued."
+        echo "Book issued.";
         echo "Number of books issued: $count";
     }
 
