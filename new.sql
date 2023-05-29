@@ -34,6 +34,7 @@ create table if not exists faculty(
 
 create table if not exists member(
     Member_ID varchar(20) not null,
+    MemberType
     Book_Issue1 int(10) default null,
     Book_Issue2 int(10) default null,
     Book_Issue3 int(10) default null,
@@ -50,6 +51,7 @@ create table if not exists member(
 create table if not exists issue_return(
   Issue_No int not null AUTO_INCREMENT,
   Issue_By varchar(20) not null,
+  Member_Type varchar(8) not null,
   Issue_Bookno int(10) not null,
   Issue_Date date not null,
   Return_Date date default null,
