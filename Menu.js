@@ -1,9 +1,3 @@
-document.getElementById("h").addEventListener('click',()=>
-{
-    var container=document.getElementById("contain");
-    container.innerHTML="";
-});
-
 document.getElementById("i").addEventListener('click',()=>
 {
     var container=document.getElementById("contain");
@@ -164,7 +158,7 @@ document.getElementById("d").addEventListener('click',()=>
                 <label>Book Number:</label>\
                 <input type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>\
                 <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Delete"/>\
-                <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear2</button><br><br>\
+                <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>\
                 <div style="color:red;font-weight: bold;" id="response4"></div>\
             </center>\
         </form>\

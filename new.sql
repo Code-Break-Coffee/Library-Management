@@ -1,9 +1,8 @@
 create database if not exists library;
 use library;
--- drop database library;
 
 create table if not exists books(
-  Book_No int(10) not null, 
+  Book_No int not null, 
   Author varchar(50) not null,
   Title varchar(30) not null,
   Edition varchar(15) not null,
@@ -34,17 +33,17 @@ create table if not exists faculty(
 
 create table if not exists member(
     Member_ID varchar(20) not null,
-    MemberType
-    Book_Issue1 int(10) default null,
-    Book_Issue2 int(10) default null,
-    Book_Issue3 int(10) default null,
-    Book_Issue4 int(10) default null,
-    Book_Issue5 int(10) default null,
-    Book_Issue6 int(10) default null,
-    Book_Issue7 int(10) default null,
-    Book_Issue8 int(10) default null,
-    Book_Issue9 int(10) default null,
-    Book_Issue10 int(10) default null,
+    MemberType varchar(8) not null,
+    Book_Issue1 int default null,
+    Book_Issue2 int default null,
+    Book_Issue3 int default null,
+    Book_Issue4 int default null,
+    Book_Issue5 int default null,
+    Book_Issue6 int default null,
+    Book_Issue7 int default null,
+    Book_Issue8 int default null,
+    Book_Issue9 int default null,
+    Book_Issue10 int default null,
     primary key(Member_ID)
 );
 
@@ -52,7 +51,7 @@ create table if not exists issue_return(
   Issue_No int not null AUTO_INCREMENT,
   Issue_By varchar(20) not null,
   Member_Type varchar(8) not null,
-  Issue_Bookno int(10) not null,
+  Issue_Bookno int not null,
   Issue_Date date not null,
   Return_Date date default null,
   primary key(Issue_No)
