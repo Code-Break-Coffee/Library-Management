@@ -1,10 +1,14 @@
 <?php
+session_start();
 include "dbconnect.php";
 $user;$pass;
 if(!empty($_POST["username"]) && !empty($_POST["password"]))
 {
     $user=$_POST["username"];
     $pass=$_POST["password"];
+
+    $_SESSION["username"]=$user;
+    $_SESSION["password"]=$pass;
 
     $sql="SELECT * from admin;";
     $result=$conn->query($sql);
@@ -16,7 +20,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
             if($row["Username"] == $user && $row["Password"] == $pass)
             {
                 $flag=1;
-                include "Main.html";
+                include "Main.php";
             }
         }
     }
