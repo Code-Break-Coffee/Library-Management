@@ -1,8 +1,15 @@
 <?php
 
 include "dbconnect.php";
-
-date_default_timezone_set("Asia/Kolkata");
+if(empty($_POST["Bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
+{
+    echo "<script>window.alert('Unauthorized Access or Input Not Given!!!');</script>";
+    echo "<script>window.alert('Login Again!!!');</script>";
+    include "index.html";
+}
+else
+{
+    date_default_timezone_set("Asia/Kolkata");
 $doi = date("Y/m/d");
 $Available=true;
 $sql_mt;
@@ -184,6 +191,7 @@ if($checkedb)
 else
 {
     echo "Book $b is not Available!!!";
+}
 }
 
 ?>

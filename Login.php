@@ -30,4 +30,9 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
         include "index.html";
     }
 }
+else
+{
+    echo "<script>window.alert('Unauthorized Access!!!');</script>";
+    include "index.html";
+}
 ?>
