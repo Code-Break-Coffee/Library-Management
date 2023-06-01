@@ -3,7 +3,7 @@
 include "dbconnect.php";
 if(empty($_POST["Bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
-    echo "<script>window.alert('Unauthorized Access or Input Not Given!!!');</script>";
+    echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
     echo "<script>window.alert('Login Again!!!');</script>";
     include "index.html";
 }
