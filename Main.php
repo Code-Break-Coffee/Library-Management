@@ -243,27 +243,37 @@ if($result)
                                         <div class="row">
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Book Number:</label>
-                                                <input type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/>
+                                                <input required type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/>
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Title:</label>
-                                                <input type="text" name="title" class="form-control" style="width:100%;"/>
+                                                <input required type="text" name="title" class="form-control" style="width:100%;"/>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Edition:</label>
-                                                <input type="text" name="edition" class="form-control" style="width:100%;"/>
+                                                <input required type="text" name="edition" class="form-control" style="width:100%;"/>
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
-                                                <label>Author:</label>
-                                                <input type="text" name="author" class="form-control" style="width:100%;"/>
+                                                <label>Author 1:</label>
+                                                <input required type="text" name="author1" class="form-control" style="width:100%;"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+                                                <label>Author 2:</label>
+                                                <input type="text" name="author2" class="form-control" style="width:100%;"/>
+                                            </div>
+                                            <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+                                                <label>Author 3:</label>
+                                                <input type="text" name="author3" class="form-control" style="width:100%;"/>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Publisher:</label>
-                                                <input type="text" name="publisher" class="form-control" style="width:100%;"/>
+                                                <input required type="text" name="publisher" class="form-control" style="width:100%;"/>
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Supplier:</label>
@@ -277,7 +287,7 @@ if($result)
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Total Pages:</label>
-                                                <input type="number" name="totalpages" class="form-control" style="width:100%;"/>
+                                                <input required type="number" name="totalpages" class="form-control" style="width:100%;"/>
                                             </div>
                                         </div>
                                         <div class="row">
