@@ -1,56 +1,76 @@
 <?php
-echo "tested!!!";
-// include "dbconnect.php";
-// include "Check.php";
+include "dbconnect.php";
 
-// $sql_mt;
+if(empty($_POST["bookno"]) || empty($_POST["title"]) || empty($_POST["edition"]) || 
+empty($_POST["author1"]) || empty($_POST["publisher"])||
+empty($_POST["totalpages"]))
+{
+    echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
+    include "index.html";
+}
+else
+{
+    $sql;
+    $bookno=$_POST["bookno"];
+    $title=$_POST["title"];
+    $edition=$_POST["edition"];
+    $author1=$_POST["author1"];
+    $author2;$author3;
+    $publisher=$_POST["publisher"];
+    $supplier;
+    $cost;
+    $total_pages=$_POST["totalpages"];
+    $billno;
+    if(!empty($_POST["author2"])) $author2=$_POST["author2"];
+    else
+    {
+        $author2=null;
+    }
+    if(!empty($_POST["author3"])) $author3=$_POST["author3"];
+    else
+    {
+        $author3=null;
+    }
+    if(!empty($_POST["author3"]) && empty($_POST["author2"]))
+    {
+        $author2=$_POST["author3"];
+        $author3=null;
+    }
+    if(!empty($_POST["cost"])) $cost=$_POST["cost"];
+    else $cost=null;
+    if(!empty($_POST["billno"])) $billno=$_POST["billno"];
+    else $billno=null;
+    if(!empty($_POST["supplier"])) $supplier=$_POST["supplier"];
+    else $supplier=null;
 
-// $m=$_POST["memberid"];
-// $MemberType= $_POST["membertype"];
-// $MemberName= $_POST["membername"];
+    $flag=0;
+    $sqlcheck="SELECT Book_No from books;";
+    $resultcheck=$conn->query($sqlcheck);
+    if($resultcheck)
+    {
+        while($row=$resultcheck->fetch_assoc())
+        {
+            if($bookno == $row["Book_No"])
+            {
+                $flag=1;
+                echo "Book $bookno already present!!!";
+            }
+        }
+    }
+    if($flag==0)
+    {
+        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Total_Pages,Cost,Supplier,Bill_No) values
+        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$total_pages,$cost,'$supplier','$billno');";
 
-// $sql_m="SELECT * from member;";
-// $result_m=$conn->query($sql_m);
-
-// if($MemberType =="Student")
-// {
-//     $SRoll = $_POST["studentroll"];
-//     $SCourse = $_POST["studentcourse"];
-//     $SEnroll = $_POST["studentenroll"];
-//     $sql_mt="SELECT * from student;";
-// }
-// else if($MemberType =="Faculty")
-// {
-//     $FId = $_POST["facultyid"];
-//     $FRName = $_POST["facultyrname"];
-//     $FType = $_POST["facultytype"];
-//     $sql_mt="SELECT * from faculty;";
-// }
-// else echo "fuck off";
-// $result_mt = $conn->query($sql_mt);
-
-// if(!membercheck($result_m,$m) && !memberTypeCheck($result_mt,$m,$MemberType))
-// {
-//     $sql_mAdd="INSERT INTO member (MemberId) VALUES ('$m');";
-//     if($MemberType =="Student")
-//     {
-//         $sql_mTAdd= "INSERT INTO student (Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) VALUES ('$m','$MemberName','$SCourse','$SCourse','$SEnroll')";
-//     }
-//     else if($MemberType =="Faculty")
-//     {
-//         $sql_mTAdd= "INSERT INTO faculty (Faculty_Id,Faculty_Name,Faculty_Type,Faculty_Fatherorhusband) VALUES ('$m','$MemberName','$FType','$FRName')";
-//     }
-//     $add_m = $conn->query($sql_mAdd);
-//     $add_mt = $conn->query($sql_mTAdd);
-//     if(!$add_m || !$add_mt)
-//     {
-//         $conn->error;
-//     }
-
-// }
-// else
-// {
-//     echo "Member Already Exists";
-// }
-
+        $result=$conn->query($sql);
+        if($result)
+        {
+            echo "Book $bookno inserted successfully!!!";
+        }
+        else
+        {
+            echo $conn->error;
+        }
+    }
+}
 ?>
