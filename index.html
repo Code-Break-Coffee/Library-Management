@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        .heading
+        {
+            font-family: HeadingBold;
+            background-color: #5cdb95;
+            color:#05386b;
+        }
+        @font-face {
+            font-family: HeadingBold;
+            src: url(BebasNeue-Bold.ttf);
+        }
+        @font-face {
+            font-family: HeadingRegular;
+            src: url(BebasNeue-Regular.ttf);
+        }
+        #contain
+        {
+            background: url(library.jpg);
+            background-repeat: no-repeat ;
+            background-position: center;
+            background-size: cover;
+            width:100vw;
+            height:88.4vh;
+        }
+        .hovered:hover
+        {
+            cursor: pointer;
+            background-color: #5cdb95;
+            color:#05386b;
+        }
+        .hovered
+        {
+            color:#5cdb95;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="row" style="width:100vw;">
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
+            <h1>International Institute of Professional Studies</h1>
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
+            <h1>Library</h1>
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
+            <h1>Devi Ahilya<br>Vishva Vidyalaya</h1>
+        </div>
+    </div>
+    </center>
+    <div style="background-color: #05386b;width:100vw;height:5px;"></div>
+    <div id="contain">
+        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <form id="login" method="post" action="">
+                    <center>
+                        <h1>Admin Page</h1>
+                        <label>Username:</label>
+                        <input required type="text" name="username" class="form-control" style="width:100%;" placeholder="Enter Username"/><br>
+                        <label>Password:</label>
+                        <input required type="password" name="password" class="form-control" style="width:100%;" placeholder="Enter Password"/><br>
+                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Login"/>
+                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="bootstrap.bundle.js"></script>
+<script src="Jquery.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#login").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Login.php",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $("body").html(Result);
+                }
+            });
+        });
+    });
+    document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+</html>
