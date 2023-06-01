@@ -57,6 +57,7 @@ else
             }
         }
     }
+    else echo $conn->error;
     if($flag==0)
     {
         $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Total_Pages,Cost,Supplier,Bill_No) values
