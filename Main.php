@@ -129,17 +129,21 @@ if($result)
                             $("#deleteform").submit(function(e)
                             {
                                 e.preventDefault();
-                                $.ajax(
+                                var conf=window.confirm("Are you sure you want to delete this book?");
+                                if(conf)
                                 {
-                                    method: "post",
-                                    url: "Delete.php",
-                                    data: $(this).serialize(),
-                                    datatype: "text",
-                                    success: function(Result)
+                                    $.ajax(
                                     {
-                                        $("#response4").html(Result);
-                                    }
-                                });
+                                        method: "post",
+                                        url: "Delete.php",
+                                        data: $(this).serialize(),
+                                        datatype: "text",
+                                        success: function(Result)
+                                        {
+                                            $("#response4").html(Result);
+                                        }
+                                    });
+                                }
                             });
                         });
                     });
