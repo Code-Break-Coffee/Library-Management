@@ -116,7 +116,7 @@ if($result)
                                         <center>
                                             <h1>Book Delete Form</h1>
                                             <label>Book Number:</label>
-                                            <input type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                                            <input required type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
                                             <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Delete"/>
                                             <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
                                             <div style="color:red;font-weight: bold;" id="response4"></div>
@@ -202,9 +202,9 @@ if($result)
                                     <center>
                                         <h1>Book Return Form</h1>
                                         <label>Book Number:</label>
-                                        <input type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                                        <input required type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
                                         <label>Member ID:</label>
-                                        <input type="text" name="memberid" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+                                        <input required type="text" name="memberid" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Member ID"/><br>
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input" value="Student"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input" value="Faculty"/><br><br>
@@ -336,9 +336,14 @@ if($result)
                                 <form id="searchform" method="post" action="">
                                     <center>
                                         <h1>Book Search Form</h1>
-                                        <label>Book Number:</label>
-                                        <input type="text" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Delete"/>
+                                        <label>Category:</label>
+                                        <select id="sb" name="soption" class="form-control" style="width:100%;">
+                                            <option value="Book No.">Book No.</option>
+                                            <option value="Author">Author</option>
+                                            <option value="Title">Title</option>
+                                        </select><br>
+                                        <div id="searchcontain"></div>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Search"/>
                                         <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response5"></div>
                                     </center>
@@ -347,6 +352,31 @@ if($result)
                         </div>`;
                         $(document).ready(function()
                         {
+                            var sb=document.getElementById("sb");
+                            var sval=sb.options[sb.selectedIndex].value;
+                            var sc=document.getElementById("searchcontain");
+                            if(sval=="Book No.")
+                            {
+                                sc.innerHTML=`<label>Book Number:</label><input required type="number" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/>`;
+                            }
+                            $("#sb").click(function()
+                            {
+                                var sb=document.getElementById("sb");
+                                var sval=sb.options[sb.selectedIndex].value;
+                                var sc=document.getElementById("searchcontain");
+                                if(sval=="Book No.")
+                                {
+                                    sc.innerHTML=`<label>Book Number:</label><input required type="number" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/>`;
+                                }
+                                if(sval=="Author")
+                                {
+                                    sc.innerHTML=`<label>Author:</label><input required type="text" name="author" class="form-control" style="width:100%;"/>`;
+                                }
+                                if(sval=="Title")
+                                {
+                                    sc.innerHTML=`<label>Title:</label><input required type="text" name="title" class="form-control" style="width:100%;"/>`;
+                                }
+                            });
                             $("#searchform").submit(function(e)
                             {
                                 e.preventDefault();
@@ -364,7 +394,6 @@ if($result)
                             });
                         });
                     });
-
                     $(document).ready(function()
                     {
                         $("#logout").submit(function(e)
