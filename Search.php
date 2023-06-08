@@ -23,15 +23,42 @@ else
         return false;
     }
 
-    function Book_Autor($bauthor)
+    function Book_Author($bauthor)
     {
         include "dbconnect.php";
-        $books = array();
         $b ="%".strtolower($bauthor)."%";
-        $sql = "SELECT Book_No from books where Author LIKE '$b'";
+        $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
         $result=$conn->query($sql);
-        while($row = $result->fetch_assoc()) $books[] = $row;
-        return $books;
+        if($result)
+        {
+            echo "<table class='table table-responsive table-bordered table-dark table-striped'>
+            <tr>
+            <th>B No.</th>
+            <th>Title</th>
+            <th>Edition</th>
+            <th>Author</th>
+            <th>Author</th>
+            <th>Author</th>
+            </tr>";
+            $count=0;
+            while($row=$result->fetch_assoc())
+            {
+                $count++;
+                // if($count>5) break;
+                echo"
+                <tr>
+                <td>".$row["Book_No"]."</td>
+                <td>".$row["Title"]."</td>
+                <td>".$row["Edition"]."</td>
+                <td>".$row["Author1"]."</td>
+                <td>".$row["Author2"]."</td>
+                <td>".$row["Author3"]."</td>
+                </tr>
+                ";
+            }
+            echo"</table>";
+        }
+        else echo $conn->error;
     }
 
     function Book_Name($bname)
@@ -76,10 +103,7 @@ else
     else if(filter_input(INPUT_POST,"soption")=="Author")
     {
         $bauthor=$_POST["author"];
-        $Search = Book_Autor($bauthor);
+        Book_Author($bauthor);
     }
-
-
-    $sql_b="SELECT * from books;";
-    }
+}
 ?>
