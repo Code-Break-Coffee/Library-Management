@@ -349,7 +349,7 @@ if($result)
                                 </form>
                             </div>
                         </div>
-                        <div style="position:absolute;top:70%;width:100%;color:red;font-weight: bold;" id="response5"></div>`;
+                        <center><div style="background-color:aliceblue;position:absolute;top:70%;width:100%;color:red;font-weight: bold;" id="response5"></div></center>`;
                         $(document).ready(function()
                         {
                             var sb=document.getElementById("sb");

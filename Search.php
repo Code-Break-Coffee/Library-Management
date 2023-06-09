@@ -17,9 +17,11 @@ else
         {
             if($row["Book_No"] == $bno)
             {
+                $result->data_seek(0);
                 return true;
             }
         }
+        $result->data_seek(0);
         return false;
     }
 
@@ -64,41 +66,72 @@ else
     function Book_Name($bname)
     {
         include "dbconnect.php";
-        $books = array();
         $b ="%".strtolower($bname)."%";
-        $sql = "SELECT Book_No from books where Title LIKE '$b'";
+        $sql = "SELECT * from books where Title LIKE '$b'";
         $result=$conn->query($sql);
-        while($row = $result->fetch_assoc()) $books[] = $row;
-        return $books;
+        if($result)
+        {
+            echo "<table class='table table-responsive table-bordered table-dark table-striped'>
+            <tr>
+            <th>B No.</th>
+            <th>Title</th>
+            <th>Edition</th>
+            <th>Author</th>
+            <th>Author</th>
+            <th>Author</th>
+            </tr>";
+            $count=0;
+            while($row=$result->fetch_assoc())
+            {
+                $count++;
+                // if($count>5) break;
+                echo"
+                <tr>
+                <td>".$row["Book_No"]."</td>
+                <td>".$row["Title"]."</td>
+                <td>".$row["Edition"]."</td>
+                <td>".$row["Author1"]."</td>
+                <td>".$row["Author2"]."</td>
+                <td>".$row["Author3"]."</td>
+                </tr>
+                ";
+            }
+            echo"</table>";
+        }
+        else echo $conn->error;
     }
-
 
     if(filter_input(INPUT_POST,"soption")=="Book No.")
     {
+        include "dbconnect.php";
         $bno=$_POST["bookno"];
-        $Search = Book_No($bno);
-        $s="SELECT Status from books where Book_No = $bno;";
-        $r=$conn->query($s);
+        $Search=Book_No($bno);
+        $sql="SELECT Status from books where Book_No = $bno;";
+        $result=$conn->query($sql);
         $f=0;
-        while($row=$r->fetchassoc())
+        if($result)
         {
-            if($row["Status"] == "Available") $f=1;
+            while($row=$result->fetch_assoc())
+            {
+                if($row["Status"] == "Available") $f=1;
+            }
+            if($f==1)
+            {
+                if($Search) echo "Book $bno is Available in the Library and can be issued!!!"; 
+                else echo "Book Not Available in the Library!!!";
+            }
+            else
+            {
+                if($Search) echo "Book $bno is Available in the Library but is currently issued by another member!!!";
+                else echo "Book Not Available in the Library!!!"; 
+            }
         }
-        if($f==1)
-        {
-            if($Search) echo "Book $bno is Available in the Library and can be issued!!!"; 
-            else echo "Book Not Available in the Library!!!";
-        }
-        else
-        {
-            if($Search) echo "Book $bno is Available in the Library but is currently issued by another member!!!";
-            else echo "Book Not Available in the Library!!!"; 
-        }
+        else echo $conn->error;
     }
     else if(filter_input(INPUT_POST,"soption")=="Title")
     {
         $bname=$_POST["title"];
-        $Search = Book_Name($bname);
+        Book_Name($bname);
     }
     else if(filter_input(INPUT_POST,"soption")=="Author")
     {
