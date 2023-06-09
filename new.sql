@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 01, 2023 at 07:26 AM
+-- Generation Time: Jun 08, 2023 at 06:54 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -69,8 +69,22 @@ CREATE TABLE IF NOT EXISTS `books` (
 --
 
 INSERT INTO `books` (`Book_No`, `Author1`, `Author2`, `Author3`, `Title`, `Edition`, `Publisher`, `Total_Pages`, `Cost`, `Supplier`, `Bill_No`, `Status`) VALUES
-(12, 'adahah', '', '', 'agag', 'ahhaha', 'adhahah', 1234, 123, 'jajaja', 'adhahah', 'Available'),
-(13, 'adahah', '', '', 'agag', 'ahhaha', 'adhahah', 1234, 123, '', 'adhahah', 'Available');
+(12, 'adahah', '', '', 'agag', 'ahhaha', 'adhahah', 1234, 123, 'jajaja', 'adhahah', '10'),
+(13, 'aeajejaj', '', '', 'agag', 'ahhaha', 'aejeja', 1234, 123, 'aejajaja', 'aehaeaj', 'Available'),
+(14, 'ahahaha', 'ahaha', 'fadaha', 'gagaga', 'ahahah', 'ahahaha', 1234, 123, 'daaah', 'ahahajaj', 'Available'),
+(15, 'ahahaha', 'ahaha', 'fadaha', 'gaga', 'aha', 'ahahaha', 1234, 123, 'daaah', 'ahahajaj', 'Available'),
+(16, 'adhah', 'afjak', 'kajajaa', 'gjswjsaj', 'ajajaj', 'adjaja', 123, 1234, 'rjajaj', 'ahajaja', 'Available'),
+(17, 'adhah', 'afjak', 'kajajaa', 'gjswjsaj', 'ajajaj', 'adjaja', 123, 1234, 'rjajaj', 'ahajaja', 'Available'),
+(18, 'adhah', 'afjak', 'kajajaa', 'gjswjsaj', 'ajajaj', 'adjaja', 123, 1234, 'rjajaj', 'ahajaja', 'Available'),
+(19, 'adhah', 'afjak', 'kajajaa', 'gjswjsaj', 'ajajaj', 'adjaja', 123, 1234, 'rjajaj', 'ahajaja', 'Available'),
+(20, 'adhah', 'afjak', 'kajajaa', 'gjswjsaj', 'ajajaj', 'adjaja', 123, 1234, 'rjajaj', 'ahajaja', 'Available'),
+(21, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(22, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(23, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(24, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(25, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(26, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available'),
+(27, 'arjajaeaja', '', '', 'adhajaj', 'arjajaj', 'ajajaj', 1234, 234, 'aejaja', 'ajajkaj', 'Available');
 
 -- --------------------------------------------------------
 
@@ -104,7 +118,14 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
   PRIMARY KEY (`Issue_No`),
   KEY `Issue_Book` (`Issue_Bookno`),
   KEY `Issue_member` (`Issue_By`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `issue_return`
+--
+
+INSERT INTO `issue_return` (`Issue_No`, `Issue_By`, `Member_Type`, `Issue_Bookno`, `Issue_Date`, `Return_Date`) VALUES
+(1, '10', 'Student', 12, '2023-06-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -116,28 +137,15 @@ DROP TABLE IF EXISTS `member`;
 CREATE TABLE IF NOT EXISTS `member` (
   `Member_ID` varchar(20) NOT NULL,
   `MemberType` varchar(8) NOT NULL,
-  `Book_Issue1` int DEFAULT NULL,
-  `Book_Issue2` int DEFAULT NULL,
-  `Book_Issue3` int DEFAULT NULL,
-  `Book_Issue4` int DEFAULT NULL,
-  `Book_Issue5` int DEFAULT NULL,
-  `Book_Issue6` int DEFAULT NULL,
-  `Book_Issue7` int DEFAULT NULL,
-  `Book_Issue8` int DEFAULT NULL,
-  `Book_Issue9` int DEFAULT NULL,
-  `Book_Issue10` int DEFAULT NULL,
-  PRIMARY KEY (`Member_ID`),
-  KEY `bk1` (`Book_Issue1`),
-  KEY `bk2` (`Book_Issue2`),
-  KEY `bk3` (`Book_Issue3`),
-  KEY `bk4` (`Book_Issue4`),
-  KEY `bk5` (`Book_Issue5`),
-  KEY `bk6` (`Book_Issue6`),
-  KEY `bk7` (`Book_Issue7`),
-  KEY `bk8` (`Book_Issue8`),
-  KEY `bk9` (`Book_Issue9`),
-  KEY `bk10` (`Book_Issue10`)
+  PRIMARY KEY (`Member_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`Member_ID`, `MemberType`) VALUES
+('10', 'Student');
 
 -- --------------------------------------------------------
 
@@ -153,6 +161,13 @@ CREATE TABLE IF NOT EXISTS `student` (
   `Student_Enrollmentno` varchar(20) NOT NULL,
   PRIMARY KEY (`Student_Rollno`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`Student_Rollno`, `Student_Name`, `Student_Course`, `Student_Enrollmentno`) VALUES
+('10', 'Soham Nathkhat Kothari', 'MTech IT [5yrs]', 'DE2102058');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
