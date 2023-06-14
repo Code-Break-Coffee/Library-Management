@@ -396,6 +396,79 @@ if($result)
                             });
                         });
                     });
+                    
+                    document.getElementById("m").addEventListener("click",()=>
+                    {
+                        var container=document.getElementById("contain");
+                        container.innerHTML=`
+                        <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                                <form id="memberform" method="post" action="">
+                                    <center>
+                                        <h1>Book Member Form</h1>
+                                        <label>Check Dues:</label>
+                                        <select name="moption" id="mb" class="form-control" style="width:100%;">
+                                            <option value="Single Member">Single Member</option>
+                                            <option value="Class">Class</option>
+                                        </select><br>
+                                        <div id="membercontain"></div>
+                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+                        <center>
+                            <div style="background-color:aliceblue;position:absolute;top:70%;width:100%;color:red;font-weight: bold;" id="response6">
+                            </div>
+                        </center>`;
+                        $(document).ready(function()
+                        {
+
+                            var mb=document.getElementById("mb");
+                            var mval=mb.options[mb.selectedIndex].value;
+                            var mc=document.getElementById("membercontain");
+                            if(mval=="Single Member")
+                            {
+                                mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
+                                <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                            }
+                            $("#mb").click(function()
+                            {
+                                var mb=document.getElementById("mb");
+                                var mval=mb.options[mb.selectedIndex].value;
+                                var mc=document.getElementById("membercontain");
+                                if(mval=="Single Member")
+                                {
+                                    mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
+                                    <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                                }
+                                if(mval=="Class")
+                                {
+                                    mc.innerHTML=`<label>Course:</label><input required type="text" name="course" class="form-control" style="width:100%;"/><br>
+                                    <label>Year:</label><input required type="number" name="year" class="form-control" style="width:100%;"/>
+                                    <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Download"/>`;
+                                }
+                            });
+
+                            $("#memberform").submit(function(e)
+                            {
+                                var test=document.getElementById("test");
+                                test.style.top="37.5%";
+                                e.preventDefault();
+                                $.ajax(
+                                {
+                                    method: "post",
+                                    url: "Member.php",
+                                    data: $(this).serialize(),
+                                    datatype: "text",
+                                    success: function(Result)
+                                    {
+                                        $("#response6").html(Result);
+                                    }
+                                });
+                            });
+                        });
+                    });
                     $(document).ready(function()
                     {
                         $("#logout").submit(function(e)
@@ -414,6 +487,7 @@ if($result)
                             });
                         }); 
                     });
+
                 </script>
             </html>';
         }
