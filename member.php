@@ -34,8 +34,8 @@ else
     {
         include "dbconnect.php";
         include "Check.php";
-        $course ="IT-";
-        $year ="2k21-";
+        $course =$_POST["course"];
+        $year =$_POST["year"];
         $batch =$course.$year;
         $record = array();
         $sql_m="SELECT * from member;";
