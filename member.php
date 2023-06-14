@@ -59,9 +59,18 @@ else
                         {
                             $count += 1;
                         }
-                        $record[] = $row;
-                        $record[$row] = $count." DUES";
+                        if($count != 0)
+                        {
+                            $record[] = $row;
+                            $record[$row] = $count." DUES";
+                        }
+                        else
+                        {
+                            $record[] = $row;
+                            $record[$row] = "NODUES";
+                        }
                     }
+                    else echo $conn->error;
                 }
                 else
                 {
@@ -71,11 +80,6 @@ else
             }
         }
         else echo $conn->error;
-        $sql="SELECT * from member;";
-        if(membercheck($sql,$batch))
-        {
-            
-        }
     }
    
 }
