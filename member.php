@@ -1,91 +1,82 @@
 <?php
 
-$mem_id = $_POST["memberid"];
-$mem_type = $_POST["membertype"];
-$sql_m = "SELECT * from member;";
-$result_m = $conn->query($sql_m);
-$check_status = TRUE;
-$count = 0;
-if($result_m)
+date_default_timezone_set("Asia/Kolkata");
+if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
 {
-    while($row = $result_m -> fetch_assoc())
-    {
-        if($row["Member_ID"] == $m)
-        {
-            if($row["Book_Issue1"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue2"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue3"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue4"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue5"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue6"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue7"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue8"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue9"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-            else if($row["Book_Issue10"] != null)
-            {
-                $check_status = FALSE;
-                $count++;
-                break;
-            }
-        }
-    }
-
-    if(!$check_status)
-    {
-        echo "Book issued.";
-        echo "Number of books issued: $count";
-    }
-
+    echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
+    include "index.html";
 }
 else
 {
-    echo "Member not found.";
+
+    if(filter_input(INPUT_POST,"moption")=="Single Member")
+    {
+        include "dbconnect.php";
+        $memberId = $_POST["MemberId"];
+        $sql="SELECT * from issue_return where Issue_By = $memberId and Return_Date =null;";
+        $result=$conn->query($sql);
+        $count=0;
+        if($result)
+        {
+            while($row=$result->fetch_assoc()) $count += 1;
+            if($count==0)
+            {
+                echo "Member $memberId has NODUES"; 
+            }
+            else
+            {
+                echo "Member $memberId has $count Books Dues";
+            }
+        }
+        else echo $conn->error;
+    }
+    else if(filter_input(INPUT_POST,"moption")=="Class")
+    {
+        include "dbconnect.php";
+        include "Check.php";
+        $course ="IT-";
+        $year ="2k21-";
+        $batch =$course.$year;
+        $record = array();
+        $sql_m="SELECT * from member;";
+        $result_m=$conn->query($sql_m);
+        $sql_s = "SELECT Student_Rollno from student where Student_Rollno like '$batch'.'%'";
+        $result_s = $conn->query($sql_s);
+        if($result_s)
+        {
+            while($row = $result_s->fetch_assoc())
+            {
+                $result_m->data_seek(0);
+                $checkedm=membercheck($result_m,$m);
+                if($checkedm)
+                {
+                    $count = 0;
+                    $issue_sql = "SELECT * from issue_return where Return_Date = NULL";
+                    $issue_result = $conn->query($issue_sql);
+                    if($issue_result)
+                    {
+                        while ($issue_row = $issue_result->fetch_assoc())
+                        {
+                            $count += 1;
+                        }
+                        $record[] = $row;
+                        $record[$row] = $count." DUES";
+                    }
+                }
+                else
+                {
+                    $record[] = $row;
+                    $record[$row] = "NODUES";
+                }
+            }
+        }
+        else echo $conn->error;
+        $sql="SELECT * from member;";
+        if(membercheck($sql,$batch))
+        {
+            
+        }
+    }
+   
 }
-
-
 ?>
