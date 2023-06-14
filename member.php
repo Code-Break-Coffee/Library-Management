@@ -12,7 +12,7 @@ else
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {
         include "dbconnect.php";
-        $memberId = $_POST["MemberId"];
+        $memberId = $_POST["memberid"];
         $sql="SELECT * from issue_return where Issue_By = $memberId and Return_Date =null;";
         $result=$conn->query($sql);
         $count=0;
