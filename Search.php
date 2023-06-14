@@ -76,9 +76,9 @@ else
             <th>B No.</th>
             <th>Title</th>
             <th>Edition</th>
-            <th>Author</th>
-            <th>Author</th>
-            <th>Author</th>
+            <th>Author 1</th>
+            <th>Author 2</th>
+            <th>Author 3</th>
             </tr>";
             $count=0;
             while($row=$result->fetch_assoc())
