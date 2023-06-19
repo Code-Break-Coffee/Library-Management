@@ -1,7 +1,7 @@
 <?php
 
 include "dbconnect.php";
-if(empty($_POST["Bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
+if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
     echo "<script>window.alert('Login Again!!!');</script>";
@@ -13,7 +13,7 @@ date_default_timezone_set("Asia/Kolkata");
 $doi = date("Y/m/d");
 $Available=true;
 $sql_mt;
-$b=$_POST["Bookno"];
+$b=$_POST["bookno"];
 $m=$_POST["memberid"];
 $MemberType= $_POST["membertype"];
 $sql_b="SELECT * from books;";
@@ -98,7 +98,7 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
-            if($Allowed)
+            if($Available)
             {
                 $sql_ir="INSERT INTO issue_return (Issue_By,Member_Type,Issue_Bookno,Issue_Date)
                 values ('$m','$MemberType','$b','$doi');";
