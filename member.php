@@ -45,14 +45,14 @@ else
         // Add 1 page in your PDF
         $pdf->AddPage();
         $pdf->SetFont("Arial", "B", 22);
-        $course =$_POST["course"];
+        $course =filter_input(INPUT_POST,"course");
         $year =$_POST["year"];
+        $year=strval($year);
         if($year[1] == "0") $year[1] = "k";
         $batch =strtoupper($course)."-".$year;
-        $batch = "IT-2k21";
         $sql_m="SELECT * from member;";
         $result_m=$conn->query($sql_m);
-        $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like 'IT-2k21-%'";
+        $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$batch%'";
         $result_s = $conn->query($sql_s);
 
         $pdf->Cell(70, 10, "Name", 1, 0, "L");
@@ -104,6 +104,7 @@ else
             }
             $destination = __DIR__ . "/Doc/" .'Registratinconfirmed.pdf';
             $pdf->Output($destination,'F');
+            echo "<script>window.alert('PDF Downloaded Successfully!!!');</script>";
         }
         else echo $conn->error;
     }
