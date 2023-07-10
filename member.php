@@ -1,11 +1,13 @@
 <?php
 
 date_default_timezone_set("Asia/Kolkata");
-if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
+
+if(empty(filter_input(INPUT_POST,"moption")))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
     include "index.html";
 }
+
 else
 {
 
@@ -13,7 +15,7 @@ else
     {
         include "dbconnect.php";
         $memberId = $_POST["memberid"];
-        $sql="SELECT * from issue_return where Issue_By = $memberId and Return_Date =null;";
+        $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";
         $result=$conn->query($sql);
         $count=0;
         if($result)
@@ -34,24 +36,40 @@ else
     {
         include "dbconnect.php";
         include "Check.php";
+        // Include the PDF class
+        require_once "FPDF-master/fpdf.php";
+
+        // Create instance of PDF class
+        $pdf = new FPDF();
+        
+        // Add 1 page in your PDF
+        $pdf->AddPage();
+        $pdf->SetFont("Arial", "B", 22);
         $course =$_POST["course"];
         $year =$_POST["year"];
-        $batch =$course.$year;
-        $record = array();
+        if($year[1] == "0") $year[1] = "k";
+        $batch =strtoupper($course)."-".$year;
+        $batch = "IT-2k21";
         $sql_m="SELECT * from member;";
         $result_m=$conn->query($sql_m);
-        $sql_s = "SELECT Student_Rollno from student where Student_Rollno like '$batch'.'%'";
+        $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like 'IT-2k21-%'";
         $result_s = $conn->query($sql_s);
+
+        $pdf->Cell(70, 10, "Name", 1, 0, "L");
+        $pdf->Cell(60, 10, "Roll Number", 1, 0, "L");
+        $pdf->Cell(60, 10, "Dues / Nodues", 1, 1, "L");
+        $pdf->Ln();
         if($result_s)
         {
             while($row = $result_s->fetch_assoc())
             {
+                $checkedm=membercheck($result_m,$row["Student_Rollno"]);
                 $result_m->data_seek(0);
-                $checkedm=membercheck($result_m,$m);
                 if($checkedm)
                 {
                     $count = 0;
-                    $issue_sql = "SELECT * from issue_return where Return_Date = NULL";
+                    $id =$row["Student_Rollno"];
+                    $issue_sql = "SELECT * from issue_return where Return_Date is NULL and Issue_By ='$id'";
                     $issue_result = $conn->query($issue_sql);
                     if($issue_result)
                     {
@@ -61,26 +79,33 @@ else
                         }
                         if($count != 0)
                         {
-                            $record[] = $row;
-                            $record[$row] = $count." DUES";
+                            // dues $count
+                            $pdf->Cell(70, 10, $row["Student_Name"], 1, 0, "L");
+                            $pdf->Cell(60, 10, $row["Student_Rollno"], 1, 0, "L");
+                            $pdf->Cell(60, 10, "Dues: ".$count, 1, 1, "L");
                         }
                         else
                         {
-                            $record[] = $row;
-                            $record[$row] = "NODUES";
+                            // nodues
+                            $pdf->Cell(70, 10, $row["Student_Name"], 1, 0, "L");
+                            $pdf->Cell(60, 10, $row["Student_Rollno"], 1, 0, "L");
+                            $pdf->Cell(60, 10, "No Dues", 1, 1, "L");
                         }
                     }
                     else echo $conn->error;
                 }
                 else
                 {
-                    $record[] = $row;
-                    $record[$row] = "NODUES";
+                    // nodues
+                    $pdf->Cell(70, 10, $row["Student_Name"], 1, 0, "L");
+                    $pdf->Cell(60, 10, $row["Student_Rollno"], 1, 0, "L");
+                    $pdf->Cell(60, 10, "No Dues", 1, 1, "L");
                 }
             }
+            $destination = __DIR__ . "/Doc/" .'Registratinconfirmed.pdf';
+            $pdf->Output($destination,'F');
         }
         else echo $conn->error;
     }
-   
 }
 ?>

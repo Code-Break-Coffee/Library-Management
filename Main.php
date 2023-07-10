@@ -444,7 +444,19 @@ if($result)
                                 }
                                 if(mval=="Class")
                                 {
-                                    mc.innerHTML=`<label>Course:</label><input required type="text" name="course" class="form-control" style="width:100%;"/><br>
+                                    mc.innerHTML=`<label>Course:</label>
+                                    <select name="course" id="mb" class="form-control" style="width:100%;">
+                                            <option value="IT" selected >MTech(IT) 5yrs</option>
+                                            <option value="">MCA 5yrs</option>
+                                            <option value="">B.com(H)</option>
+                                            <option value="">MBA(T) 2yrs</option>
+                                            <option value="">MBA(T) 5yrs</option>
+                                            <option value="">MBA(MS) 2yrs</option>
+                                            <option value="">MBA(MS) 5yrs</option>
+                                            <option value="">MBA(APR)</option>
+                                            <option value="">MBA(Ent.)</option>
+                                        </select><br>
+                                    <input required type="text" name="course" class="form-control" style="width:100%;"/><br>
                                     <label>Year:</label><input required type="number" name="year" class="form-control" style="width:100%;"/>
                                     <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Download"/>`;
                                 }
