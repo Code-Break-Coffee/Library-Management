@@ -342,8 +342,8 @@ if($result)
                                             <option value="Author">Author</option>
                                             <option value="Title">Title</option>
                                         </select><br>
-                                        <div id="searchcontain"></div>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Search"/>
+                                        <div id="searchcontain"></div><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Search"/><br><br>
                                         <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
                                     </center>
                                 </form>
@@ -411,7 +411,7 @@ if($result)
                                             <option value="Single Member">Single Member</option>
                                             <option value="Class">Class</option>
                                         </select><br>
-                                        <div id="membercontain"></div>
+                                        <div id="membercontain"></div><br>
                                         <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
                                     </center>
                                 </form>
@@ -430,7 +430,7 @@ if($result)
                             if(mval=="Single Member")
                             {
                                 mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
-                                <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                                <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
                             }
                             $("#mb").click(function()
                             {
@@ -440,14 +440,14 @@ if($result)
                                 if(mval=="Single Member")
                                 {
                                     mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
-                                    <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
                                 }
                                 if(mval=="Class")
                                 {
                                     mc.innerHTML=`<label>Course:</label>
                                     <select name="course" id="mb" class="form-control" style="width:100%;">
-                                            <option value="IT" selected >MTech(IT) 5yrs</option>
-                                            <option value="">MCA 5yrs</option>
+                                            <option value="IT">MTech(IT) 5yrs</option>
+                                            <option value="IC">MCA 5yrs</option>
                                             <option value="">B.com(H)</option>
                                             <option value="">MBA(T) 2yrs</option>
                                             <option value="">MBA(T) 5yrs</option>
@@ -456,9 +456,8 @@ if($result)
                                             <option value="">MBA(APR)</option>
                                             <option value="">MBA(Ent.)</option>
                                         </select><br>
-                                    <input required type="text" name="course" class="form-control" style="width:100%;"/><br>
                                     <label>Year:</label><input required type="number" name="year" class="form-control" style="width:100%;"/>
-                                    <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Download"/>`;
+                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Download"/>`;
                                 }
                             });
 
