@@ -25,8 +25,8 @@ if($result)
                         .heading
                         {
                             font-family: HeadingBold;
-                            background-color: #5cdb95;
-                            color:#05386b;
+                            background-color: #5ec2ge;
+                            color:#3d4a3d;
                         }
                         @font-face {
                             font-family: HeadingBold;
