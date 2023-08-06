@@ -112,7 +112,7 @@ if($result)
                             container.innerHTML=`
                             <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                                 <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                    <form id="deleteform" method="post" action="">
+                                    <form id="deleteform" method="post" action="" autocomplete="off">
                                         <center>
                                             <h1>Book Delete Form</h1>
                                             <label>Book Number:</label>
@@ -154,7 +154,7 @@ if($result)
                         container.innerHTML=`
                         <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="issuebook" method="post" action="">
+                                <form id="issuebook" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Issue Form</h1>
                                         <label>Book Number:</label>
@@ -198,7 +198,7 @@ if($result)
                         container.innerHTML=`
                         <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="returnform" method="post" action="">
+                                <form id="returnform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Return Form</h1>
                                         <label>Book Number:</label>
@@ -241,7 +241,7 @@ if($result)
                         container.innerHTML=`
                         <div style="font-weight:bold;width:50vw;height:70vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="insertform" method="post" action="">
+                                <form id="insertform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Insert Form</h1>
                                         <div class="row">
@@ -333,7 +333,7 @@ if($result)
                         container.innerHTML=`
                         <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="searchform" method="post" action="">
+                                <form id="searchform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Search Form</h1>
                                         <label>Category:</label>
@@ -403,7 +403,7 @@ if($result)
                         container.innerHTML=`
                         <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="memberform" method="post" action="">
+                                <form id="memberform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Member Form</h1>
                                         <label>Check Dues:</label>

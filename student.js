@@ -23,8 +23,15 @@ $(document).ready(function()
             datatype: "text",
             success: function(Response)
             {
-
+                $("#response").html(Response);
             }
         });
     });
 });
+
+function cleared()
+{
+    document.getElementById("formblock").style.display="block";
+    document.getElementById("iframeblock").style.display="none";
+    holder.value="";
+}
