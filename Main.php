@@ -26,7 +26,7 @@ if($result)
                         {
                             font-family: HeadingBold;
                             background-color: #5ec2ge;
-                            color:#3d4a3d;
+                            color:#bbf0e8;
                         }
                         @font-face {
                             font-family: HeadingBold;
@@ -48,12 +48,12 @@ if($result)
                         .hovered:hover
                         {
                             cursor: pointer;
-                            background-color: #5cdb95;
-                            color:#05386b;
+                            background-color: #61908a;
+                            color:#092435;
                         }
                         .hovered
                         {
-                            color:#5cdb95;
+                            color:#61908a;
                         }
                     </style>
                 </head>
@@ -74,8 +74,8 @@ if($result)
                             </div>
                         </div>
                     </center>
-                    <div style="background-color: #05386b;width:100vw;height:5px;"></div>
-                    <div style="background-color: #05386b;font-size: large;font-weight: bold;">
+                    <div style="background-color: black;width:100vw;height:5px;"></div>
+                    <div style="background-color: black;font-size: large;font-weight: bold;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
                             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav-fill w-100">
@@ -110,15 +110,15 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                             container.innerHTML=`
-                            <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                            <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color:#092435;border-width: 5px;border-style: solid;">
                                 <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                     <form id="deleteform" method="post" action="">
                                         <center>
                                             <h1>Book Delete Form</h1>
                                             <label>Book Number:</label>
                                             <input required type="number" name="bookno" class="form-control" style="width:100%;" placeholder="Scan the Barcode or Enter Book No."/><br>
-                                            <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Delete"/>
-                                            <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                            <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
+                                            <button type="reset" class="btn " style="font-weight: bold; background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                             <div style="color:red;font-weight: bold;" id="response4"></div>
                                         </center>
                                     </form>
@@ -152,7 +152,7 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color:#092435;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="issuebook" method="post" action="">
                                     <center>
@@ -165,8 +165,8 @@ if($result)
                                         <input type="radio" name="membertype" checked class="form-check-input" value="Student"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
                                         <input type="radio" name="membertype" class="form-check-input" value="Faculty"/><br><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Issue"/>
-                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Issue"/>
+                                        <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response"></div>
                                     </center>
                                 </form>
@@ -196,7 +196,7 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color:#092435;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="returnform" method="post" action="">
                                     <center>
@@ -208,8 +208,8 @@ if($result)
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input" value="Student"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input" value="Faculty"/><br><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Return"/>
-                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Return"/>
+                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response2"></div>
                                     </center>
                                 </form>
@@ -239,7 +239,7 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:50vw;height:70vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                        <div style="font-weight:bold;width:50vw;height:70vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color: #092435;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="insertform" method="post" action="">
                                     <center>
@@ -300,8 +300,8 @@ if($result)
                                                 <input type="text" name="billno" class="form-control" style="width:100%;"/>
                                             </div>
                                         </div><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Insert"/>
-                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
+                                        <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response3"></div>
                                     </center>
                                 </form>
@@ -331,7 +331,7 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                        <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color:#092435;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="searchform" method="post" action="">
                                     <center>
@@ -343,8 +343,8 @@ if($result)
                                             <option value="Title">Title</option>
                                         </select><br>
                                         <div id="searchcontain"></div><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Search"/><br><br>
-                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/><br><br>
+                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                     </center>
                                 </form>
                             </div>
@@ -401,7 +401,7 @@ if($result)
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #5cdb95;color:#05386b;border-color: #05386b;border-width: 5px;border-style: solid;">
+                        <div id="test" style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: #61908a;color:#092435;border-color:#092435;border-width: 5px;border-style: solid;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="memberform" method="post" action="">
                                     <center>
@@ -412,7 +412,7 @@ if($result)
                                             <option value="Class">Class</option>
                                         </select><br>
                                         <div id="membercontain"></div><br>
-                                        <button type="reset" class="btn btn-danger" style="font-weight: bold;">Clear</button><br><br>
+                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                     </center>
                                 </form>
                             </div>
@@ -430,7 +430,7 @@ if($result)
                             if(mval=="Single Member")
                             {
                                 mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
-                                <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                                <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>`;
                             }
                             $("#mb").click(function()
                             {
@@ -440,7 +440,7 @@ if($result)
                                 if(mval=="Single Member")
                                 {
                                     mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;"/>
-                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Check"/>`;
+                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>`;
                                 }
                                 if(mval=="Class")
                                 {
@@ -457,7 +457,7 @@ if($result)
                                             <option value="">MBA(Ent.)</option>
                                         </select><br>
                                     <label>Year:</label><input required type="number" name="year" class="form-control" style="width:100%;"/>
-                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: #05386b;font-weight: bold;" value="Download"/>`;
+                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Download"/>`;
                                 }
                             });
 
