@@ -42,8 +42,8 @@ if($result)
                             background-repeat: repeat-y ;
                             background-position: center;
                             background-size: cover;
-                            width:100vw;
-                            height:82.1vh;
+                            width:100%;
+                            height:500px;
                         }
                         .hovered:hover
                         {
