@@ -12,6 +12,7 @@ else
     $bookno=$_POST["bookno"];
     $bookcheck="SELECT Book_No from books where Book_No = '$bookno';";
     $sqlcheck="SELECT Issue_Bookno, Return_Date from issue_return where Issue_Bookno = '$bookno' and Return_Date is NULL;";
+    $bookresultcheck= $conn->query($bookcheck);
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck)
     {

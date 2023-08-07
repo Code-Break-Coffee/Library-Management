@@ -1,7 +1,8 @@
 <?php
 session_start();
 include "dbconnect.php";
-
+$u=$_SESSION["username123"];
+$p=$_SESSION["password"];
 $result=$conn->query("SELECT * from admin;");
 $flag=0;
 if($result)
