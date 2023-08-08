@@ -44,7 +44,7 @@ else
     else $supplier=null;
 
     $flag=0;
-    $sqlcheck="SELECT Book_No from books;";
+    $sqlcheck="SELECT Book_No from books where  Book_No='$bookno';";
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck)
     {
