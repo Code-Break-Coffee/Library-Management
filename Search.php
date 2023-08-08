@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Kolkata");
 if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {

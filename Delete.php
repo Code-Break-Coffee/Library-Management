@@ -4,13 +4,15 @@ include "dbconnect.php";
 if(empty($_POST["bookno"]))
 {
     echo "<script>window.alert('Input not Given aur Unauthorized Access!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
     $flag=0;
     $bookno=$_POST["bookno"];
-    $sqlcheck="SELECT * from issue_return;";
+    $bookcheck="SELECT Book_No from books where Book_No = '$bookno';";
+    $sqlcheck="SELECT Issue_Bookno, Return_Date from issue_return where Issue_Bookno = '$bookno' and Return_Date is NULL;";
+    $bookresultcheck= $conn->query($bookcheck);
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck)
     {

@@ -6,7 +6,7 @@ empty($_POST["author1"]) || empty($_POST["publisher"])||
 empty($_POST["totalpages"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {

@@ -1,3 +1,5 @@
 <?php
-include "index.html";
+session_start();
+session_destroy();
+include "index.php";
 ?>
