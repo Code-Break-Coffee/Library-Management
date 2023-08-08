@@ -28,7 +28,6 @@
             background-position: center;
             background-size: cover;
             width:100vw;
-            /* background-color: #d4cfcc; */
             height:88.9vh;
         }
         .hovered:hover
@@ -58,15 +57,15 @@
     </div>
     </center>
     <div id="contain">
-        <div style="font-weight:bold;width:50vw;height:50vh;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 10px;background-color: #61908a;color:#092435;border-color: #132734;border-width: 5px;border-style: solid;">
+        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                 <form id="login" method="post" action="" autocomplete="off">
                     <center>
-                        <h1 style="color:black;">Admin Page</h1>
+                        <h1 style="color:aliceblue;">Admin Page</h1>
                         <label style="font-weight: bold;">Username:</label>
-                        <input required type="text" name="username" class="form-control" style="width:100%;background-color: #f0ead6;" placeholder="Enter Username"/><br>
+                        <input required type="text" name="username" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Username"/><br>
                         <label style="font-weight: bold;">Password:</label>
-                        <input required type="password" name="password" class="form-control" style="width:100%;background-color: #f0ead6;" placeholder="Enter Password"/><br>
+                        <input required type="password" name="password" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Password"/><br>
                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Login"/>
                         <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                     </center>

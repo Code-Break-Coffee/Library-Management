@@ -5,7 +5,7 @@ if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membert
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
     echo "<script>window.alert('Login Again!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
