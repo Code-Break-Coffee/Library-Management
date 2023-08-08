@@ -1,6 +1,7 @@
 <?php
 
 include "dbconnect.php";
+
 if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
@@ -16,18 +17,18 @@ $sql_mt;
 $b=$_POST["bookno"];
 $m=$_POST["memberid"];
 $MemberType= $_POST["membertype"];
-$sql_b="SELECT * from books;";
+$sql_b="SELECT Book_No from books where Book_No='$b';";
 
-$sql_m="SELECT * from member;";
+$sql_m="SELECT * from member where Member_ID ='$m' ;";
 $result_m=$conn->query($sql_m);
 
 if($MemberType =="Student")
 {
-    $sql_mt="SELECT * from student;";
+    $sql_mt="SELECT Student_Rollno from student where Student_Rollno = '$m';";
 }
 else if($MemberType =="Faculty")
 {
-    $sql_mt="SELECT * from faculty;";
+    $sql_mt="SELECT Faculty_ID from faculty where Member_ID='$m';";
 }
 $result_b = $conn->query($sql_b);
 $result_mt = $conn->query($sql_mt);
@@ -87,7 +88,7 @@ function memberTypeCheck($x,$y,$z)
 }
 
 
-$result_m->data_seek(0);
+// $result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
 $checkedm=membercheck($result_m,$m);
 $checkedmt=memberTypeCheck($result_mt,$m,$MemberType);
