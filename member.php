@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Kolkata");
 if(empty(filter_input(INPUT_POST,"moption")))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 
 else

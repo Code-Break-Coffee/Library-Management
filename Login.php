@@ -27,12 +27,12 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     if($flag==0)
     {
         echo "<script>window.alert('Incorrect Username or Password!!!');</script>";
-        include "index.html";
+        include "index.php";
     }
 }
 else
 {
     echo "<script>window.alert('Unauthorized Access!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 ?>
