@@ -338,7 +338,7 @@ else
                                         </select><br>
                                         <div id="searchcontain"></div><br>
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/><br><br>
-                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                                        <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                     </center>
                                 </form>
                             </div>
@@ -370,6 +370,10 @@ else
                                 {
                                     sc.innerHTML=`<label>Title:</label><input required type="text" name="title" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>`;
                                 }
+                            });
+                            $("#resetsearch").click(function()
+                            {
+                                document.getElementById("searchcontain").innerHTML="<label>Book Number:</label><input required type='text' name='bookno' class='form-control bg-dark' style='width:100%;color:aliceblue;' placeholder='Scan the Barcode or Enter Book No.'/>";
                             });
                             $("#searchform").submit(function(e)
                             {
@@ -406,7 +410,7 @@ else
                                             <option value="Class">Class</option>
                                         </select><br>
                                         <div id="membercontain"></div><br>
-                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                                        <button type="reset" id="resetmember" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                     </center>
                                 </form>
                             </div>
@@ -453,6 +457,11 @@ else
                                     <label>Year:</label><input required type="number" name="year" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                                     <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Download"/>`;
                                 }
+                            });
+
+                            $("#resetmember").click(function()
+                            {
+                                document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/><br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>';
                             });
 
                             $("#memberform").submit(function(e)
