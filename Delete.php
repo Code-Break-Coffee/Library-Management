@@ -4,7 +4,7 @@ include "dbconnect.php";
 if(empty($_POST["bookno"]))
 {
     echo "<script>window.alert('Input not Given aur Unauthorized Access!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
