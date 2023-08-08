@@ -151,14 +151,17 @@ else
                                 <form id="issuebook" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Issue Form</h1>
-                                        <label>Book Number:</label>
-                                        <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
-                                        <label>Member ID:</label>
-                                        <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
                                         <label>Member Type:</label><br><label class="form-check-label">Student:</label>&nbsp;
                                         <input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student" style="color:aliceblue;"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
                                         <input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty" style="color:aliceblue;"/><br><br>
+                                        
+                                        <label>Member ID:</label>
+                                        <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+
+                                        <label>Book Number:</label>
+                                        <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Issue"/>
                                         <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response"></div>
@@ -195,13 +198,15 @@ else
                                 <form id="returnform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Return Form</h1>
-                                        <label>Book Number:</label>
-                                        <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
-                                        <label>Member ID:</label>
-                                        <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/><br><br>
+                                        <label>Member ID:</label>
+                                        <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+
+                                        <label>Book Number:</label>
+                                        <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Return"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response2"></div>
@@ -286,6 +291,16 @@ else
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>Total Pages:</label>
                                                 <input required type="number" name="totalpages" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+                                                <label>No. of copy:</label>
+                                                <input type="number" name="bookcount" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                                            </div>
+                                            <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+                                                <label>CL No.</label>
+                                                <input required type="number" name="CL" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                                             </div>
                                         </div>
                                         <div class="row">
