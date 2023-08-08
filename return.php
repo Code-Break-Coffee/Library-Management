@@ -88,7 +88,7 @@ else
     }
 
 
-    $result_m->data_seek(0);
+    // $result_m->data_seek(0);
     $checkedb=bookcheck($result_b,$b,$m);
     $checkedm=membercheck($result_m,$m);
     $checkedmt=memberTypeCheck($result_mt,$m,$MemberType);

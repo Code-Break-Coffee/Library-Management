@@ -35,7 +35,6 @@ else
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {
         include "dbconnect.php";
-        include "Check.php";
         // Include the PDF class
         require_once "FPDF-master/fpdf.php";
 

@@ -10,7 +10,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     $_SESSION["username"]=$user;
     $_SESSION["password"]=$pass;
 
-    $sql="SELECT * from admin;";
+    $sql="SELECT * from admin where Username = '$user';";
     $result=$conn->query($sql);
     $flag=0;
     if($result)
