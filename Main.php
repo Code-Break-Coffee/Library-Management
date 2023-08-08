@@ -1,7 +1,6 @@
 <?php
-session_start();
 include "dbconnect.php";
-$u=$_SESSION["username123"];
+$u=$_SESSION["username"];
 $p=$_SESSION["password"];
 $result=$conn->query("SELECT * from admin;");
 $flag=0;
@@ -43,7 +42,7 @@ if($result)
                             background-position: center;
                             background-size: cover;
                             width:100%;
-                            height:500px;
+                            height:82.1vh;
                         }
                         .hovered:hover
                         {
