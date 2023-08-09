@@ -17,7 +17,7 @@ $sql_mt;
 $b=$_POST["bookno"];
 $m=$_POST["memberid"];
 $MemberType= $_POST["membertype"];
-$sql_b="SELECT Book_No from books where Book_No='$b';";
+$sql_b="SELECT Book_No, Status from books where Book_No='$b';";
 
 $sql_m="SELECT * from member where Member_ID ='$m' ;";
 $result_m=$conn->query($sql_m);
