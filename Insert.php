@@ -20,6 +20,7 @@ else
     $supplier;
     $cost;
     $total_pages=$_POST["totalpages"];
+    $Cl_No=$_POST["CL"];
     $billno;
     if(!empty($_POST["author2"])) $author2=$_POST["author2"];
     else
@@ -60,13 +61,13 @@ else
     else echo $conn->error;
     if($flag==0)
     {
-        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Total_Pages,Cost,Supplier,Bill_No) values
-        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$total_pages,$cost,'$supplier','$billno');";
+        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
+        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
 
         $result=$conn->query($sql);
         if($result)
         {
-            echo "Book $bookno inserted successfully!!!";
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'>Book $bookno inserted successfully!!!</div>";
         }
         else
         {

@@ -151,6 +151,7 @@ else
                                 <form id="issuebook" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Book Issue Form</h1>
+                                        <br>
                                         <label>Member Type:</label><br><label class="form-check-label">Student:</label>&nbsp;
                                         <input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student" style="color:aliceblue;"/>
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
@@ -238,7 +239,7 @@ else
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="insertform" method="post" action="" autocomplete="off">
                                     <center>
@@ -300,7 +301,7 @@ else
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                                                 <label>CL No.</label>
-                                                <input required type="number" name="CL" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                                                <input required type="number" name="CL" class="form-control bg-dark" step="0.0000001" style="width:100%;color:aliceblue;"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -311,16 +312,17 @@ else
                                         </div><br>
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                                         <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                                        <div style="color:red;font-weight: bold;" id="response3"></div>
-                                    </center>
-                                </form>
+                                        </center>
+                                        </form>
                             </div>
-                        </div>`;
+                        </div>
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: absolute; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
                         $(document).ready(function()
                         {
                             $("#insertform").submit(function(e)
                             {
                                 e.preventDefault();
+                                document.getElementById("InsertField").style.display="none";
                                 $.ajax(
                                 {
                                     method: "post",
@@ -329,6 +331,7 @@ else
                                     datatype: "text",
                                     success: function(Result)
                                     {
+                                        document.getElementById("response3").style.display="block";
                                         $("#response3").html(Result);
                                     }
                                 });
@@ -340,7 +343,7 @@ else
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div id="test" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="searchform" method="post" action="" autocomplete="off">
                                     <center>
@@ -358,7 +361,7 @@ else
                                 </form>
                             </div>
                         </div>
-                        <center><div style="background-color:aliceblue;position:absolute;top:70%;width:100%;color:red;font-weight: bold;" id="response5"></div></center>`;
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: absolute; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
                         $(document).ready(function()
                         {
                             var sb=document.getElementById("sb");
@@ -392,8 +395,7 @@ else
                             });
                             $("#searchform").submit(function(e)
                             {
-                                var test=document.getElementById("test");
-                                test.style.top="37.5%";
+                                document.getElementById("SearchField").style.display="none";
                                 e.preventDefault();
                                 $.ajax(
                                 {
@@ -403,6 +405,7 @@ else
                                     datatype: "text",
                                     success: function(Result)
                                     {
+                                        document.getElementById("response3").style.display="block";
                                         $("#response5").html(Result);
                                     }
                                 });
