@@ -108,32 +108,32 @@ else
                     $resultIssue=$conn->query($sql_ir);
                     if($resultIssue && $resultReturn)
                     {
-                        echo"Book $b returned successfully";
+                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $b returned successfully!!!</center></div>";
                         
                     }
                     else
                     {
-                        echo $conn->error;
+                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
                     }        
                 }
                 else
                 {
-                    echo "Return for Book not Allowed!!!";
+                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Return for Book $b not Allowed!!!</center></div>";
                 }
             }
             else
             {
-                echo $conn->error;
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
             }
         }
         else
         {
-            echo "Member $m not found!!!";
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $m not found!!!</center></div>";
         }
     }
     else
     {
-        echo "Book $b is not Issued or Member $m incorrect!!! ";
+        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b is not Issued or Member $m incorrect!!!</center></div>";
 
     }
 }

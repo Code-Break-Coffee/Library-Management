@@ -117,13 +117,13 @@ else
             }
             if($f==1)
             {
-                if($Search) echo "Book $bno is Available in the Library and can be issued!!!"; 
-                else echo "Book Not Available in the Library!!!";
+                if($Search) echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $bno is Available in the Library and can be issued!!!</center></div>"; 
+                else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b not Available in the Library!!!</center></div>";
             }
             else
             {
-                if($Search) echo "Book $bno is Available in the Library but is currently issued by another member!!!";
-                else echo "Book Not Available in the Library!!!"; 
+                if($Search) echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $bno is Available in the Library but is currently issued by another member!!!</center></div>";
+                else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b not Available in the Library!!!</center></div>"; 
             }
         }
         else echo $conn->error;

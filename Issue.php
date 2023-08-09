@@ -17,7 +17,7 @@ $sql_mt;
 $b=$_POST["bookno"];
 $m=$_POST["memberid"];
 $MemberType= $_POST["membertype"];
-$sql_b="SELECT Book_No from books where Book_No='$b';";
+$sql_b="SELECT Book_No,Status from books where Book_No='$b';";
 
 $sql_m="SELECT * from member where Member_ID ='$m' ;";
 $result_m=$conn->query($sql_m);
@@ -109,32 +109,32 @@ if($checkedb)
                     $sql_UpdateB = "UPDATE books set Status='$m' where Book_No = $b;";
                     $update_book = $conn->query($sql_UpdateB);
 
-                    if($update_book) echo"Book issued by $m successfully";
-                    else echo $conn->error;
+                    if($update_book) echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:green;'><center>Book issued by $m successfully!!!</center></div>";
+                    else echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
                 }
                 else
                 {
-                    echo $conn->error;
+                    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
                 }        
             }
             else
             {
-                echo "Issue for Book not Allowed!!!";
+                echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Issue for Book not Allowed!!!</center></div>";
             }
         }
         else
         {
-            echo $conn->error;
+            echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
         }
     }
     else
     {
-        echo "Member $m not found!!!";
+        echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Member $m not found!!!</center></div>";
     }
 }
 else
 {
-    echo "Book $b is not Available!!!";
+    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Book $b is not Available!!!</center></div>";
 }
 
 }
