@@ -261,16 +261,16 @@ else
                                         <h1>Audit</h1>
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
-                                        
+                                        &nbsp;
                                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/>
-                                        
+                                        &nbsp;
                                         <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
                                         <br><br>
-                                        <label>From:</label>
-                                        <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-
                                         <label>To:</label>
                                         <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+                                        
+                                        <label>From:</label>
+                                        <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
 
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
@@ -292,7 +292,7 @@ else
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="returnform" method="post" action="" autocomplete="off">
                                     <center>
-
+                                    <h1>Add Member Form</h1>
                                     <label>Course:</label>
                                     <select name="course1" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                                             <option value="IT">MTech(IT) 5yrs</option>
@@ -309,10 +309,10 @@ else
                                         <label>Year:</label>
                                         <input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
 
-                                        <label>CL:</label>
-                                        <input required type="text" name="cl" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+                                        <label>Serial No:</label>
+                                        <input required type="text" name="Serial No" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
 
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Submit"/>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response_me"></div>
                                     </center>
