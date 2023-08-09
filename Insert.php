@@ -54,11 +54,11 @@ else
             if($bookno == $row["Book_No"])
             {
                 $flag=1;
-                echo "Book $bookno already present!!!";
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $bookno already present!!!</center></div>";
             }
         }
     }
-    else echo $conn->error;
+    else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
     if($flag==0)
     {
         $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
@@ -67,11 +67,11 @@ else
         $result=$conn->query($sql);
         if($result)
         {
-            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'>Book $bookno inserted successfully!!!</div>";
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $bookno inserted successfully!!!</center></div>";
         }
         else
         {
-            echo $conn->error;
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
         }
     }
 }

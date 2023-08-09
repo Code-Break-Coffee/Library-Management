@@ -16,6 +16,10 @@ else
                     <title>Library</title>
                     <link rel="stylesheet" href="bootstrap.css">
                     <style>
+                        #logoutbtn:hover
+                        {
+                            box-shadow: 3px 3px 3px aliceblue;
+                        }
                         .heading
                         {
                             font-family: HeadingBold;
@@ -60,7 +64,7 @@ else
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
                                 <h1>Library</h1>
                                 <form id="logout" method="post" action="">
-                                    <input type="submit" value="Logout" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
+                                    <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
                                 </form>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
@@ -91,6 +95,12 @@ else
                                     <li class="nav-item">
                                         <a class="nav-link hovered" id="m">Member</a>
                                     </li>
+                                    <li class="nav-item">
+                                         <a class="nav-link hovered" id="au">Audit</a>
+                                    </li>
+                                    <li class="nav-item">
+                                         <a class="nav-link hovered" id="me">Membership</a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
@@ -104,7 +114,7 @@ else
                     {
                         var container=document.getElementById("contain");
                             container.innerHTML=`
-                            <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                            <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                                 <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                     <form id="deleteform" method="post" action="" autocomplete="off">
                                         <center>
@@ -113,11 +123,11 @@ else
                                             <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
                                             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
                                             <button type="reset" class="btn " style="font-weight: bold; background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                                            <div style="color:red;font-weight: bold;" id="response4"></div>
                                         </center>
                                     </form>
                                 </div>
-                            </div>`;
+                            </div>
+                            <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response4"></div>`;
                         $(document).ready(function()
                         {
                             $("#deleteform").submit(function(e)
@@ -126,6 +136,8 @@ else
                                 var conf=window.confirm("Are you sure you want to delete this book?");
                                 if(conf)
                                 {
+                                    document.querySelector("#deletefield").style.display="none";
+                                    document.querySelector("#response4").style.display="block";
                                     $.ajax(
                                     {
                                         method: "post",
@@ -146,7 +158,7 @@ else
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="issuebook" method="post" action="" autocomplete="off">
                                     <center>
@@ -165,16 +177,18 @@ else
 
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Issue"/>
                                         <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                                        <div style="color:red;font-weight: bold;" id="response"></div>
                                     </center>
                                 </form>
                             </div>
-                        </div>`;
+                        </div>
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response"></div>`;
                         $(document).ready(function()
                         {
                             $("#issuebook").submit(function(e)
                             {
                                 e.preventDefault();
+                                document.querySelector("#issuefield").style.display="none";
+                                document.querySelector("#response").style.display="block";
                                 $.ajax(
                                 {
                                     method: "post",
@@ -194,7 +208,7 @@ else
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="returnform" method="post" action="" autocomplete="off">
                                     <center>
@@ -210,15 +224,17 @@ else
 
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Return"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                                        <div style="color:red;font-weight: bold;" id="response2"></div>
                                     </center>
                                 </form>
                             </div>
-                        </div>`;
+                        </div>
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response2"></div>`;
                         $(document).ready(function()
                         {
                             $("#returnform").submit(function(e)
                             {
+                                document.querySelector("#returnfield").style.display="none";
+                                document.querySelector("#response2").style.display="block";
                                 e.preventDefault();
                                 $.ajax(
                                 {
@@ -234,6 +250,80 @@ else
                             });
                         });
                     });
+
+                    document.getElementById("au").addEventListener("click",()=>{
+                        var container=document.getElementById("contain");
+                        container.innerHTML=`
+                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                                <form id="returnform" method="post" action="" autocomplete="off">
+                                    <center>
+                                        <h1>Audit</h1>
+                                        <label>Member Type:</label><br>
+                                        <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
+                                        
+                                        <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/>
+                                        
+                                        <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
+                                        <br><br>
+                                        <label>From:</label>
+                                        <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+
+                                        <label>To:</label>
+                                        <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
+                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                                        <div style="color:red;font-weight: bold;" id="response_au"></div>
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+                        `;
+                    })
+// -----------------------------------------------------------Tanishq------------------------------------------------
+
+
+                    document.getElementById("me").addEventListener("click",()=>
+                    {
+                        var container=document.getElementById("contain");
+                        container.innerHTML=`
+                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                                <form id="returnform" method="post" action="" autocomplete="off">
+                                    <center>
+
+                                    <label>Course:</label>
+                                    <select name="course1" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                                            <option value="IT">MTech(IT) 5yrs</option>
+                                            <option value="IC">MCA 5yrs</option>
+                                            <option value="IB">B.com(H)</option>
+                                            <option value="TA">MBA(T) 2yrs</option>
+                                            <option value="TM">MBA(TM) 5yrs</option>
+                                            <option value="FT">MBA(MS) 2yrs</option>
+                                            <option value="IM">MBA(MS) 5yrs</option>
+                                            <option value="AP">MBA(APR)</option>
+                                            <option value="ES">MBA(E-SHIP)</option>
+                                        </select><br>
+
+                                        <label>Year:</label>
+                                        <input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+
+                                        <label>CL:</label>
+                                        <input required type="text" name="cl" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Submit"/>
+                                        <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                                        <div style="color:red;font-weight: bold;" id="response_me"></div>
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+                        `;
+                    })
+
+// -----------------------------------tanishq-------------------------------------------
+
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
@@ -296,7 +386,7 @@ else
                                         </div>
                                         <div class="row">
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
-                                                <label>No. of copy:</label>
+                                                <label>No. of Copy:</label>
                                                 <input type="number" name="bookcount" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                                             </div>
                                             <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
@@ -316,13 +406,14 @@ else
                                         </form>
                             </div>
                         </div>
-                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: absolute; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
                         $(document).ready(function()
                         {
                             $("#insertform").submit(function(e)
                             {
                                 e.preventDefault();
                                 document.getElementById("InsertField").style.display="none";
+                                document.getElementById("response3").style.display="block";
                                 $.ajax(
                                 {
                                     method: "post",
@@ -331,7 +422,6 @@ else
                                     datatype: "text",
                                     success: function(Result)
                                     {
-                                        document.getElementById("response3").style.display="block";
                                         $("#response3").html(Result);
                                     }
                                 });
@@ -355,13 +445,13 @@ else
                                             <option value="Title">Title</option>
                                         </select><br>
                                         <div id="searchcontain"></div><br>
-                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/><br><br>
+                                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
                                         <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                     </center>
                                 </form>
                             </div>
                         </div>
-                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: absolute; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
                         $(document).ready(function()
                         {
                             var sb=document.getElementById("sb");
@@ -395,8 +485,9 @@ else
                             });
                             $("#searchform").submit(function(e)
                             {
-                                document.getElementById("SearchField").style.display="none";
                                 e.preventDefault();
+                                document.getElementById("SearchField").style.display="none";
+                                document.getElementById("response3").style.display="block";
                                 $.ajax(
                                 {
                                     method: "post",
@@ -405,7 +496,6 @@ else
                                     datatype: "text",
                                     success: function(Result)
                                     {
-                                        document.getElementById("response3").style.display="block";
                                         $("#response5").html(Result);
                                     }
                                 });
@@ -417,7 +507,7 @@ else
                     {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div id="test" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="memberform" method="post" action="" autocomplete="off">
                                     <center>
@@ -427,16 +517,14 @@ else
                                             <option value="Single Member">Single Member</option>
                                             <option value="Class">Class</option>
                                         </select><br>
-                                        <div id="membercontain"></div><br>
-                                        <button type="reset" id="resetmember" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                                        <div id="membercontain"></div>
+                                        <input id="membersubmit" type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>
+                                        <button type="reset" id="resetmember" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>                                        
                                     </center>
                                 </form>
                             </div>
                         </div>
-                        <center>
-                            <div style="background-color:aliceblue;position:absolute;top:70%;width:100%;color:red;font-weight: bold;" id="response6">
-                            </div>
-                        </center>`;
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response6"></div>`;
                         $(document).ready(function()
                         {
 
@@ -446,7 +534,8 @@ else
                             if(mval=="Single Member")
                             {
                                 mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
-                                <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>`;
+                                <br>`;
+                                document.getElementById("membersubmit").setAttribute("value","Check");
                             }
                             $("#mb").click(function()
                             {
@@ -456,7 +545,8 @@ else
                                 if(mval=="Single Member")
                                 {
                                     mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
-                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>`;
+                                    <br>`;
+                                    document.getElementById("membersubmit").setAttribute("value","Check");
                                 }
                                 if(mval=="Class")
                                 {
@@ -464,29 +554,36 @@ else
                                     <select name="course" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                                             <option value="IT">MTech(IT) 5yrs</option>
                                             <option value="IC">MCA 5yrs</option>
-                                            <option value="">B.com(H)</option>
-                                            <option value="">MBA(T) 2yrs</option>
-                                            <option value="">MBA(T) 5yrs</option>
-                                            <option value="">MBA(MS) 2yrs</option>
-                                            <option value="">MBA(MS) 5yrs</option>
-                                            <option value="">MBA(APR)</option>
-                                            <option value="">MBA(Ent.)</option>
+                                            <option value="IB">B.com(H)</option>
+                                            <option value="TA">MBA(T) 2yrs</option>
+                                            <option value="TM">MBA(TM) 5yrs</option>
+                                            <option value="FT">MBA(MS) 2yrs</option>
+                                            <option value="IM">MBA(MS) 5yrs</option>
+                                            <option value="AP">MBA(APR)</option>
+                                            <option value="ES">MBA(E-SHIP)</option>
                                         </select><br>
-                                    <label>Year:</label><input required type="number" name="year" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
-                                    <br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Download"/>`;
+                                    <label>Year:</label><input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                                    <br>`;
+                                    document.getElementById("membersubmit").setAttribute("value","Download");
                                 }
                             });
 
                             $("#resetmember").click(function()
                             {
-                                document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/><br><input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>';
+                                document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/><br>';
+                                document.getElementById("membersubmit").setAttribute("value","Check");
                             });
 
                             $("#memberform").submit(function(e)
                             {
-                                var test=document.getElementById("test");
-                                test.style.top="37.5%";
                                 e.preventDefault();
+                                document.getElementById("memberfield").style.display="none";
+                                document.getElementById("response6").style.display="block";
+                                if(document.getElementById("membersubmit").value==="Download")
+                                {
+                                    document.getElementById("memberfield").style.display="block";
+                                    document.getElementById("response6").style.display="none";
+                                }
                                 $.ajax(
                                 {
                                     method: "post",

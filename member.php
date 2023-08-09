@@ -23,14 +23,14 @@ else
             while($row=$result->fetch_assoc()) $count += 1;
             if($count==0)
             {
-                echo "Member $memberId has NODUES"; 
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Member $memberId has NODUES</center></div>"; 
             }
             else
             {
-                echo "Member $memberId has $count Books Dues";
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $memberId has $count Books Dues</center></div>";
             }
         }
-        else echo $conn->error;
+        else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {
