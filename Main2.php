@@ -286,9 +286,9 @@ else
                         document.querySelector("#au").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="returnform" method="post" action="" autocomplete="off">
+                                <form id="auform" method="post" action="" autocomplete="off">
                                     <center>
                                         <h1>Audit</h1>
                                         <label>Member Type:</label><br>
@@ -299,20 +299,37 @@ else
                                         <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
                                         <br><br>
                                         <label>To:</label>
-                                        <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-                                        
+                                        <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>                                    
                                         <label>From:</label>
                                         <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                                        <div style="color:red;font-weight: bold;" id="response_au"></div>
                                     </center>
                                 </form>
                             </div>
                         </div>
-                        `;
-                    })
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response7"></div>`;
+                        $(document).ready(function()
+                        {
+                            $("#auform").submit(function(e)
+                            {
+                                document.querySelector("#aufield").style.display="none";
+                                document.querySelector("#response7").style.display="block";
+                                e.preventDefault();
+                                $.ajax(
+                                {
+                                    method: "post",
+                                    url: "Audit.php",
+                                    data: $(this).serialize(),
+                                    datatype: "text",
+                                    success: function(Result)
+                                    {
+                                        $("#response7").html(Result);
+                                    }
+                                });
+                            });
+                        });
+                    });
 // -----------------------------------------------------------Tanishq------------------------------------------------
 
 
@@ -328,9 +345,9 @@ else
                         document.querySelector("#me").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
-                        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+                        <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                                <form id="returnform" method="post" action="" autocomplete="off">
+                                <form id="meform" method="post" action="" autocomplete="off">
                                     <center>
                                     <h1>Add Member Form</h1>
                                     <label>Course:</label>
@@ -345,13 +362,10 @@ else
                                             <option value="AP">MBA(APR)</option>
                                             <option value="ES">MBA(E-SHIP)</option>
                                         </select><br>
-
                                         <label>Year:</label>
                                         <input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-
                                         <label>Serial No:</label>
                                         <input required type="text" name="Serial No" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-
                                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
                                         <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                                         <div style="color:red;font-weight: bold;" id="response_me"></div>
@@ -359,7 +373,27 @@ else
                                 </form>
                             </div>
                         </div>
-                        `;
+                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response8"></div>`;
+                        $(document).ready(function()
+                        {
+                            $("#meform").submit(function(e)
+                            {
+                                document.querySelector("#mefield").style.display="none";
+                                document.querySelector("#response8").style.display="block";
+                                e.preventDefault();
+                                $.ajax(
+                                {
+                                    method: "post",
+                                    url: "Membership.php",
+                                    data: $(this).serialize(),
+                                    datatype: "text",
+                                    success: function(Result)
+                                    {
+                                        $("#response8").html(Result);
+                                    }
+                                });
+                            });
+                        });
                     })
 
 // -----------------------------------tanishq-------------------------------------------
