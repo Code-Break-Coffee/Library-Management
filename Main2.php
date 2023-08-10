@@ -45,9 +45,9 @@ else
                         }
                         .hovered:hover
                         {
-                            cursor: pointer;
-                            background-color: #61908a;
-                            color:#092435;
+                            cursor: pointer !important;
+                            background-color: #61908a !important;
+                            color:#092435 !important;
                         }
                         .hovered
                         {
@@ -110,8 +110,16 @@ else
                 <script src="bootstrap.bundle.js"></script>
                 <script src="Jquery.js"></script>
                 <script>
+                    let hovered = document.getElementsByClassName("hovered");
                     document.getElementById("d").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#d").style.color="black";
+                        document.querySelector("#d").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                             container.innerHTML=`
                             <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -156,6 +164,13 @@ else
 
                     document.getElementById("i").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#i").style.color="black";
+                        document.querySelector("#i").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -206,6 +221,13 @@ else
 
                     document.getElementById("r").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#r").style.color="black";
+                        document.querySelector("#r").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -252,6 +274,13 @@ else
                     });
 
                     document.getElementById("au").addEventListener("click",()=>{
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#au").style.color="black";
+                        document.querySelector("#au").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -286,6 +315,13 @@ else
 
                     document.getElementById("me").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#me").style.color="black";
+                        document.querySelector("#me").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -327,6 +363,13 @@ else
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#ins").style.color="black";
+                        document.querySelector("#ins").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -431,6 +474,13 @@ else
 
                     document.getElementById("s").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#s").style.color="black";
+                        document.querySelector("#s").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -505,6 +555,13 @@ else
                     
                     document.getElementById("m").addEventListener("click",()=>
                     {
+                        for(let i=0;i<hovered.length;i++)
+                        {
+                            hovered[i].style.color="#61908a";
+                            hovered[i].style.backgroundColor="black";
+                        }
+                        document.querySelector("#m").style.color="black";
+                        document.querySelector("#m").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
