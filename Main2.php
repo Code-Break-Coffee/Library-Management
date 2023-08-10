@@ -110,9 +110,9 @@ else
                 <script src="bootstrap.bundle.js"></script>
                 <script src="Jquery.js"></script>
                 <script>
-                    let hovered = document.getElementsByClassName("hovered");
                     document.getElementById("d").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -164,6 +164,7 @@ else
 
                     document.getElementById("i").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -221,6 +222,7 @@ else
 
                     document.getElementById("r").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -274,6 +276,7 @@ else
                     });
 
                     document.getElementById("au").addEventListener("click",()=>{
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -315,6 +318,7 @@ else
 
                     document.getElementById("me").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -363,6 +367,7 @@ else
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -474,6 +479,7 @@ else
 
                     document.getElementById("s").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
@@ -555,6 +561,7 @@ else
                     
                     document.getElementById("m").addEventListener("click",()=>
                     {
+                        let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
                         {
                             hovered[i].style.color="#61908a";
