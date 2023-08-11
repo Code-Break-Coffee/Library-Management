@@ -57,6 +57,7 @@ else
                 </head>
                 <body>
                     <center>
+                        <!-- heading -->
                         <div class="row" style="width:100vw;">
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
                                 <h1>International Institute of Professional Studies</h1>
@@ -72,6 +73,7 @@ else
                             </div>
                         </div>
                     </center>
+                    <!--navbar-->
                     <div style="background-color: black;width:100vw;height:5px;"></div>
                     <div style="background-color: black;font-size: large;font-weight: bold;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
@@ -110,6 +112,9 @@ else
                 <script src="bootstrap.bundle.js"></script>
                 <script src="Jquery.js"></script>
                 <script>
+
+                    //delete
+
                     document.getElementById("d").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -161,6 +166,8 @@ else
                             });
                         });
                     });
+                    
+                    //issue
 
                     document.getElementById("i").addEventListener("click",()=>
                     {
@@ -219,6 +226,8 @@ else
                             });
                         });
                     });
+                    
+                    //return
 
                     document.getElementById("r").addEventListener("click",()=>
                     {
@@ -275,6 +284,8 @@ else
                         });
                     });
 
+                    //audit
+
                     document.getElementById("au").addEventListener("click",()=>{
                         let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
@@ -330,8 +341,8 @@ else
                             });
                         });
                     });
-// -----------------------------------------------------------Tanishq------------------------------------------------
 
+                    //membership
 
                     document.getElementById("me").addEventListener("click",()=>
                     {
@@ -396,8 +407,7 @@ else
                         });
                     })
 
-// -----------------------------------tanishq-------------------------------------------
-
+                    //insert
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
@@ -511,6 +521,8 @@ else
                         });
                     });
 
+                    //search
+
                     document.getElementById("s").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -593,6 +605,8 @@ else
                         });
                     });
                     
+                    //member
+
                     document.getElementById("m").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -696,6 +710,9 @@ else
                             });
                         });
                     });
+
+                    //logout
+
                     $(document).ready(function()
                     {
                         $("#logout").submit(function(e)
