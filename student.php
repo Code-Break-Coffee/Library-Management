@@ -50,7 +50,8 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
                         <td>".$row["Author3"]."</td>
                     </tr>";
             }
-        echo "</table>";
+        echo "</table>
+        <button class='btn btn-danger' onclick='cleared();'>Clear</button>";
     }
     else echo $conn->error;
 }
