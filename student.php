@@ -31,7 +31,7 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
     $result=$conn->query($sql);
     if($result)
     {
-        echo "<table class='table table-responsive table-dark table-striped'>
+        echo "<table class='table table-responsive table-dark table-striped table-bordered'>
             <tr>
                 <th>Title</th>
                 <th>Edition</th>
