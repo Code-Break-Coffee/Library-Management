@@ -34,6 +34,14 @@ else
                             font-family: HeadingRegular;
                             src: url(BebasNeue-Regular.ttf);
                         }
+                        [type="submit"]:hover
+                        {
+                            border: 2px solid aliceblue;
+                        }
+                        [type="reset"]:hover
+                        {
+                            border: 2px solid aliceblue;
+                        }
                         #contain
                         {
                             background: url(library.jpg);
@@ -301,7 +309,7 @@ else
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="auform" method="post" action="" autocomplete="off">
                                     <center>
-                                        <h1>Audit</h1>
+                                        <h1>Audit Form</h1>
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
                                         &nbsp;
@@ -731,7 +739,24 @@ else
                             });
                         }); 
                     });
-
+                    let s=0;
+                    let interval=setInterval(frame,1000);
+                    function frame()
+                    {
+                        if(s===600)
+                        {
+                            window.location.reload();
+                        }
+                        document.addEventListener('mousemove',()=>
+                        {
+                            s=0;
+                        });
+                        document.addEventListener('keydown',()=>
+                        {
+                            s=0;
+                        });
+                        s++;
+                    }
                 </script>
             </html>
     <?php

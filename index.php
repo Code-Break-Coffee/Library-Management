@@ -30,6 +30,14 @@
             width:100vw;
             height:88.9vh;
         }
+        [type="submit"]:hover
+        {
+            border: 2px solid aliceblue;
+        }
+        [type="reset"]:hover
+        {
+            border: 2px solid aliceblue;
+        }
         .hovered:hover
         {
             cursor: pointer;
