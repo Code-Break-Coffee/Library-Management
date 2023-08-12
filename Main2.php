@@ -34,6 +34,14 @@ else
                             font-family: HeadingRegular;
                             src: url(BebasNeue-Regular.ttf);
                         }
+                        [type="submit"]:hover
+                        {
+                            border: 2px solid aliceblue;
+                        }
+                        [type="reset"]:hover
+                        {
+                            border: 2px solid aliceblue;
+                        }
                         #contain
                         {
                             background: url(library.jpg);
@@ -57,6 +65,7 @@ else
                 </head>
                 <body>
                     <center>
+                        <!-- heading -->
                         <div class="row" style="width:100vw;">
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
                                 <h1>International Institute of Professional Studies</h1>
@@ -72,6 +81,7 @@ else
                             </div>
                         </div>
                     </center>
+                    <!--navbar-->
                     <div style="background-color: black;width:100vw;height:5px;"></div>
                     <div style="background-color: black;font-size: large;font-weight: bold;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
@@ -110,6 +120,9 @@ else
                 <script src="bootstrap.bundle.js"></script>
                 <script src="Jquery.js"></script>
                 <script>
+
+                    //delete
+
                     document.getElementById("d").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -161,6 +174,8 @@ else
                             });
                         });
                     });
+                    
+                    //issue
 
                     document.getElementById("i").addEventListener("click",()=>
                     {
@@ -219,6 +234,8 @@ else
                             });
                         });
                     });
+                    
+                    //return
 
                     document.getElementById("r").addEventListener("click",()=>
                     {
@@ -275,6 +292,8 @@ else
                         });
                     });
 
+                    //audit
+
                     document.getElementById("au").addEventListener("click",()=>{
                         let hovered = document.getElementsByClassName("hovered");
                         for(let i=0;i<hovered.length;i++)
@@ -290,7 +309,7 @@ else
                             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                                 <form id="auform" method="post" action="" autocomplete="off">
                                     <center>
-                                        <h1>Audit</h1>
+                                        <h1>Audit Form</h1>
                                         <label>Member Type:</label><br>
                                         <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
                                         &nbsp;
@@ -330,8 +349,8 @@ else
                             });
                         });
                     });
-// -----------------------------------------------------------Tanishq------------------------------------------------
 
+                    //membership
 
                     document.getElementById("me").addEventListener("click",()=>
                     {
@@ -396,8 +415,7 @@ else
                         });
                     })
 
-// -----------------------------------tanishq-------------------------------------------
-
+                    //insert
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
@@ -511,6 +529,8 @@ else
                         });
                     });
 
+                    //search
+
                     document.getElementById("s").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -593,6 +613,8 @@ else
                         });
                     });
                     
+                    //member
+
                     document.getElementById("m").addEventListener("click",()=>
                     {
                         let hovered = document.getElementsByClassName("hovered");
@@ -696,6 +718,9 @@ else
                             });
                         });
                     });
+
+                    //logout
+
                     $(document).ready(function()
                     {
                         $("#logout").submit(function(e)
@@ -714,7 +739,24 @@ else
                             });
                         }); 
                     });
-
+                    let s=0;
+                    let interval=setInterval(frame,1000);
+                    function frame()
+                    {
+                        if(s===600)
+                        {
+                            window.location.reload();
+                        }
+                        document.addEventListener('mousemove',()=>
+                        {
+                            s=0;
+                        });
+                        document.addEventListener('keydown',()=>
+                        {
+                            s=0;
+                        });
+                        s++;
+                    }
                 </script>
             </html>
     <?php
