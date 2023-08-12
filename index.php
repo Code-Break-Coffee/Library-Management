@@ -96,5 +96,10 @@
         });
     });
     document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('beforeunload',(e)=>
+    {
+        e.preventDefault();
+        e.returnValue="";
+    });
 </script>
 </html>

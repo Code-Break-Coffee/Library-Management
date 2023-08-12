@@ -1,5 +1,6 @@
 <?php
 
+include "LetMeIn.php";
 date_default_timezone_set("Asia/Kolkata");
 if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
 {
@@ -8,6 +9,7 @@ if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
 }
 else
 {
+    verif();
     function Book_No($bno)
     {
         include "dbconnect.php";
