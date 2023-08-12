@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 10, 2023 at 04:42 PM
+-- Generation Time: Aug 12, 2023 at 02:08 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -70,22 +70,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 --
 
 INSERT INTO `books` (`Book_No`, `Author1`, `Author2`, `Author3`, `Title`, `Edition`, `Publisher`, `Cl_No`, `Total_Pages`, `Cost`, `Supplier`, `Bill_No`, `Status`) VALUES
-('12', 'Zakie', 'Khan', '', 'ML', '2.5', 'smuggler', 1.555555820465088, 45, 123, 'sj', '', 'Available'),
-('11', 'Tanishq', 'Mehrunkar', '', 'JS', '2.0', 'smuggle.io', 69.9999008178711, 69, 69, 'smuggled.gay', '', 'Available'),
-('13', 'fgnchn', 'rdgmh', '', 'trdht', 'fhvhgv', 'afsdghjk', 69.6969696, 89, 566, 'fmjg', '123', 'Available'),
-('14', 'nvmnvmh', 'b mbvm', '', 'gcfncnm', 'bnmhvmhj', 'nbcnh', 5656, 5454, 898, 'hvm', '545', 'Available'),
-('15', 'vgvmh', 'hvhm', '', 'dxdbfhn', 'vhgfnh', '4jhjhh', 5653.65, 45, 142, 'bhcg', '', 'Available'),
-('16', 'bjhvgh', 'xgfxc', '', 'hjdvja', 'cgfdgf', 'rdthfjgkjhkj', 56, 543, 265, 'dthgnfh', '', 'Available'),
-('17', 'nvgf', 'mvmhgn', '', '1gcfxd', 'vxfbcn', 'gnv', 232, 2123, 16, 'vngb', '', 'Available'),
-('18', 'hghfvhn', 'ggnvn', '', 'hhfdgjhfjg', 'fgm', 'hgchg', 212, 435, 45, 'bggvgn', '', 'Available'),
-('19', 'ghjj', 'jhjh', 'gh', 'bgh', 'hfhj', 'rdthg', 21, 42, 15, 'fhm', '', 'Available'),
-('20', 'fcgvhj', 'cgvh', '', 'fxghjgh', 'fgcnhjh', 'ghfxcg', 2, 6465, 54, 'cbng', '', 'Available'),
-('21', 'hjm', 'hgvh', '', 'knkhgf', 'fghjgkh', 'klhjgf', 15, 65, 21, 'dgfh', '', 'Available'),
-('22', 'gfdfhgj', 'dgfhj', '', 'fgchjyhg', 'gffh', 'ghjgkh', 21, 54, 45, 'fxcghjh', '', 'Available'),
-('23', 'efsgfdhfjghk', 'sg', '', 'sergdhkjl', 'efssrdgthygjukh', 'dghj', 4, 5435, 543, 'fsfdgfhjh', '', 'Available'),
-('24', 'fxgchj', 'fx', '', 'ggfhjkjl', 'xfxgchjk', 'fcgvhbjn', 2, 3, 2, 'fncgvmhbjn', '', 'Available'),
-('25', 'xgfgvhbjnk', 'cvbn', '', 'egdhkj', 'xfcghjk', 'xfxgchjh', 2, 1, 6, 'fcvbn', '', 'Available'),
-('26', 'fxgvhb', 'bbnm', '', 'dfxdfcghj', 'fxcgvhj', 'gcgvb', 5, 2, 4, 'fxg', '', 'Available'),
+('jdbnhawd', 'vhhm', 'gvhm', '', 'cgfcdwan', 'gcvgfnc', 'bhjvghfggh', 6, 56, 55, 'fcgghvhb', '', 'Available'),
 ('27', 'fcgvhbjnk', 'fcgvhbn', '', 'fghj', 'ghbjk', 'hcgvhjbjnk', 5, 545, 2042, 'fxcgvhbjn', '', 'Available'),
 ('75', 'jvjkjg', 'jhbbkk', '', 'fkjsdfkjnj', 'bjhiy', 'hjb', 59, 56, 95, 'hjb', '', 'Available');
 
@@ -272,9 +257,17 @@ INSERT INTO `student` (`Student_Rollno`, `Student_Name`, `Student_Course`, `Stud
 DROP TABLE IF EXISTS `temp_keys`;
 CREATE TABLE IF NOT EXISTS `temp_keys` (
   `Username` varchar(20) NOT NULL,
-  `Key_Session` varchar(30) NOT NULL,
+  `Key_Session` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `Log` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `temp_keys`
+--
+
+INSERT INTO `temp_keys` (`Username`, `Key_Session`, `Log`) VALUES
+('admin', '$2y$10$ceOU6nZOCgIo7o.lyun9yOIWvVyQmy2PlDT2JB1M7zNFV/udm7PSW', 'Sat, 12 Aug 2023 19:26:14 +0530');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
