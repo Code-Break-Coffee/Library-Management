@@ -28,28 +28,30 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
         where Title like '%$data%';";
     }
     else header("Location: /LibraryManagement/student.html");
-    $sql="SELECT * from student;";
     $result=$conn->query($sql);
     if($result)
     {
-        echo "<table class='table table-responsive table-dark table-striped'>
+        echo "<table class='table table-responsive table-dark table-striped table-bordered'>
             <tr>
                 <th>Title</th>
                 <th>Edition</th>
                 <th>Author 1</th>
                 <th>Author 2</th>
+                <th>Author 3</th>
             </tr>";
             while($row=$result->fetch_assoc())
             {
                 echo "
                     <tr>
-                        <td>".$row["Student_Rollno"]."</td>
-                        <td>".$row["Student_Name"]."</td>
-                        <td>".$row["Student_Course"]."</td>
-                        <td>".$row["Student_Enrollmentno"]."</td>
+                        <td>".$row["Title"]."</td>
+                        <td>".$row["Edition"]."</td>
+                        <td>".$row["Author1"]."</td>
+                        <td>".$row["Author2"]."</td>
+                        <td>".$row["Author3"]."</td>
                     </tr>";
             }
-        echo "</table>";
+        echo "</table>
+        <button class='btn btn-danger' onclick='cleared();'>Clear</button>";
     }
     else echo $conn->error;
 }

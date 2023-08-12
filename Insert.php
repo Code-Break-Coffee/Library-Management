@@ -6,7 +6,7 @@ empty($_POST["author1"]) || empty($_POST["publisher"])||
 empty($_POST["totalpages"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
@@ -20,6 +20,7 @@ else
     $supplier;
     $cost;
     $total_pages=$_POST["totalpages"];
+    $Cl_No=$_POST["CL"];
     $billno;
     if(!empty($_POST["author2"])) $author2=$_POST["author2"];
     else
@@ -44,7 +45,7 @@ else
     else $supplier=null;
 
     $flag=0;
-    $sqlcheck="SELECT Book_No from books;";
+    $sqlcheck="SELECT Book_No from books where  Book_No='$bookno';";
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck)
     {
@@ -53,24 +54,24 @@ else
             if($bookno == $row["Book_No"])
             {
                 $flag=1;
-                echo "Book $bookno already present!!!";
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $bookno already present!!!</center></div>";
             }
         }
     }
-    else echo $conn->error;
+    else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
     if($flag==0)
     {
-        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Total_Pages,Cost,Supplier,Bill_No) values
-        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$total_pages,$cost,'$supplier','$billno');";
+        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
+        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
 
         $result=$conn->query($sql);
         if($result)
         {
-            echo "Book $bookno inserted successfully!!!";
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $bookno inserted successfully!!!</center></div>";
         }
         else
         {
-            echo $conn->error;
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
         }
     }
 }

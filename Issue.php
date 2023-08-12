@@ -1,11 +1,12 @@
 <?php
 
 include "dbconnect.php";
+
 if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
     echo "<script>window.alert('Login Again!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
@@ -16,18 +17,18 @@ $sql_mt;
 $b=$_POST["bookno"];
 $m=$_POST["memberid"];
 $MemberType= $_POST["membertype"];
-$sql_b="SELECT * from books;";
+$sql_b="SELECT Book_No,Status from books where Book_No='$b';";
 
-$sql_m="SELECT * from member;";
+$sql_m="SELECT * from member where Member_ID ='$m' ;";
 $result_m=$conn->query($sql_m);
 
 if($MemberType =="Student")
 {
-    $sql_mt="SELECT * from student;";
+    $sql_mt="SELECT Student_Rollno from student where Student_Rollno = '$m';";
 }
 else if($MemberType =="Faculty")
 {
-    $sql_mt="SELECT * from faculty;";
+    $sql_mt="SELECT Faculty_ID from faculty where Member_ID='$m';";
 }
 $result_b = $conn->query($sql_b);
 $result_mt = $conn->query($sql_mt);
@@ -87,7 +88,7 @@ function memberTypeCheck($x,$y,$z)
 }
 
 
-$result_m->data_seek(0);
+// $result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
 $checkedm=membercheck($result_m,$m);
 $checkedmt=memberTypeCheck($result_mt,$m,$MemberType);
@@ -108,32 +109,32 @@ if($checkedb)
                     $sql_UpdateB = "UPDATE books set Status='$m' where Book_No = $b;";
                     $update_book = $conn->query($sql_UpdateB);
 
-                    if($update_book) echo"Book issued by $m successfully";
-                    else echo $conn->error;
+                    if($update_book) echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:green;'><center>Book issued by $m successfully!!!</center></div>";
+                    else echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
                 }
                 else
                 {
-                    echo $conn->error;
+                    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
                 }        
             }
             else
             {
-                echo "Issue for Book not Allowed!!!";
+                echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Issue for Book not Allowed!!!</center></div>";
             }
         }
         else
         {
-            echo $conn->error;
+            echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
         }
     }
     else
     {
-        echo "Member $m not found!!!";
+        echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Member $m not found!!!</center></div>";
     }
 }
 else
 {
-    echo "Book $b is not Available!!!";
+    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Book $b is not Available!!!</center></div>";
 }
 
 }

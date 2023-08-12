@@ -9,7 +9,7 @@ $sql_mt;
 if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
     echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.html";
+    include "index.php";
 }
 else
 {
@@ -88,7 +88,7 @@ else
     }
 
 
-    $result_m->data_seek(0);
+    // $result_m->data_seek(0);
     $checkedb=bookcheck($result_b,$b,$m);
     $checkedm=membercheck($result_m,$m);
     $checkedmt=memberTypeCheck($result_mt,$m,$MemberType);
@@ -108,32 +108,32 @@ else
                     $resultIssue=$conn->query($sql_ir);
                     if($resultIssue && $resultReturn)
                     {
-                        echo"Book $b returned successfully";
+                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $b returned successfully!!!</center></div>";
                         
                     }
                     else
                     {
-                        echo $conn->error;
+                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
                     }        
                 }
                 else
                 {
-                    echo "Return for Book not Allowed!!!";
+                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Return for Book $b not Allowed!!!</center></div>";
                 }
             }
             else
             {
-                echo $conn->error;
+                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
             }
         }
         else
         {
-            echo "Member $m not found!!!";
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $m not found!!!</center></div>";
         }
     }
     else
     {
-        echo "Book $b is not Issued or Member $m incorrect!!! ";
+        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b is not Issued or Member $m incorrect!!!</center></div>";
 
     }
 }

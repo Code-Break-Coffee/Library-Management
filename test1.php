@@ -9,15 +9,19 @@ for($i=0;$i<25;$i++)
 {
     if($i<9)
     {
-        $sql1="INSERT into member(Member_ID,MemberType) values('IT-2k21-0".($member+$i)."','$type');";
+        $sql1="INSERT into member(Member_ID,MemberType) values('IT2k210".($member+$i)."','$type');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
+        else{
+         echo $conn->error;
+        }
     }
     else
     {
-        $sql1="INSERT into member(Member_ID,MemberType) values('IT-2k21-".($member+$i)."','$type');";
+        $sql1="INSERT into member(Member_ID,MemberType) values('IT2k21".($member+$i)."','$type');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
+        else echo $conn->error;
     }
 }
 $member=1;
@@ -25,14 +29,14 @@ for($i=0;$i<75;$i++)
 {
     if($i<9)
     {
-        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT-2k21-0".($member+$i)."','$name','$course','DE210200".($member+$i)."');";
+        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT2k210".($member+$i)."','$name','$course','DE210200".($member+$i)."');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else echo $conn->error;
     }
     else
     {
-        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT-2k21-".($member+$i)."','$name','$course','DE21020".($member+$i)."');";
+        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT2k21".($member+$i)."','$name','$course','DE21020".($member+$i)."');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else echo $conn->error;
