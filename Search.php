@@ -15,7 +15,7 @@ else
         $result = $conn->query($sql);
         while($row=$result->fetch_assoc())
         {
-            if($row["Book_No"] == $bno)
+            if($row["Book_No"] == $bno)       
             {
                 $result->data_seek(0);
                 return true;
