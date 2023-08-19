@@ -117,13 +117,13 @@ else
             }
             if($f==1)
             {
-                if($Search) echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $bno is Available in the Library and can be issued!!!</center></div>"; 
-                else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b not Available in the Library!!!</center></div>";
+                if($Search){}
+                else echo "";
             }
             else
             {
-                if($Search) echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $bno is Available in the Library but is currently issued by another member!!!</center></div>";
-                else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b not Available in the Library!!!</center></div>"; 
+                if($Search) echo "";
+                else echo ""; 
             }
         }
         else echo $conn->error;
@@ -139,4 +139,9 @@ else
         Book_Author($bauthor);
     }
 }
+echo '
+        <div id="dialog" title="Basic dialog">
+            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+        </div>
+        '; 
 ?>
