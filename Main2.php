@@ -57,11 +57,21 @@ else
                             background-color: #61908a !important;
                             color:#092435 !important;
                         }
+                        .dropdown_hover:hover
+                        {
+                            background-color: #092435;
+                            color: aliceblue;
+                        }
+                        .hovered:focus
+                        {
+                            color: #61908a;
+                        }
                         .hovered
                         {
                             color:#61908a;
                         }
                     </style>
+                    <script src="bootstrap.bundle.js"></script>
                 </head>
                 <body>
                     <center>
@@ -90,26 +100,41 @@ else
                                     <li class="nav-item">
                                         <a class="nav-link hovered" id="s">Search</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="i">Issue</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Reports
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown_hover" id="au">Audit</a>
+                                        <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
+                                        </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="r">Return</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Transactions
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown_hover" id="i">Issue</a>
+                                        <a class="dropdown-item dropdown_hover" id="r">Return</a>
+                                        </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="ins">Insert</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Book Manipulation
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown_hover" id="ins">Insert</a>
+                                        <a class="dropdown-item dropdown_hover" id="d">Delete</a>
+                                        </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="d">Delete</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="m">Member</a>
-                                    </li>
-                                    <li class="nav-item">
-                                         <a class="nav-link hovered" id="au">Audit</a>
-                                    </li>
-                                    <li class="nav-item">
-                                         <a class="nav-link hovered" id="me">Membership</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Membership
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown_hover" id="me">Add Member</a>
+                                        <a class="dropdown-item dropdown_hover" id="de">Delete Member</a>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -125,14 +150,6 @@ else
 
                     document.getElementById("d").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#d").style.color="black";
-                        document.querySelector("#d").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                             container.innerHTML=`
                             <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -179,14 +196,6 @@ else
 
                     document.getElementById("i").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#i").style.color="black";
-                        document.querySelector("#i").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -239,14 +248,6 @@ else
 
                     document.getElementById("r").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#r").style.color="black";
-                        document.querySelector("#r").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -294,15 +295,8 @@ else
 
                     //audit
 
-                    document.getElementById("au").addEventListener("click",()=>{
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#au").style.color="black";
-                        document.querySelector("#au").style.backgroundColor="aliceblue";
+                    document.getElementById("au").addEventListener("click",()=>
+                    {
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -354,14 +348,6 @@ else
 
                     document.getElementById("me").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#me").style.color="black";
-                        document.querySelector("#me").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -419,14 +405,6 @@ else
 
                     document.getElementById("ins").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#ins").style.color="black";
-                        document.querySelector("#ins").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -533,14 +511,6 @@ else
 
                     document.getElementById("s").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#s").style.color="black";
-                        document.querySelector("#s").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -617,14 +587,6 @@ else
 
                     document.getElementById("m").addEventListener("click",()=>
                     {
-                        let hovered = document.getElementsByClassName("hovered");
-                        for(let i=0;i<hovered.length;i++)
-                        {
-                            hovered[i].style.color="#61908a";
-                            hovered[i].style.backgroundColor="black";
-                        }
-                        document.querySelector("#m").style.color="black";
-                        document.querySelector("#m").style.backgroundColor="aliceblue";
                         var container=document.getElementById("contain");
                         container.innerHTML=`
                         <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
