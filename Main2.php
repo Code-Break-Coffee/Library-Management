@@ -49,7 +49,7 @@ else
                             background-position: center;
                             background-size: cover;
                             width:100%;
-                            height:82.1vh;
+                            height:764px;
                         }
                         .hovered:hover
                         {
@@ -561,7 +561,7 @@ else
                                 </form>
                             </div>
                         </div>
-                        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
+                        <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response5"></div>`;
                         $(document).ready(function()
                         {
                             var sb=document.getElementById("sb");
@@ -596,8 +596,6 @@ else
                             $("#searchform").submit(function(e)
                             {
                                 e.preventDefault();
-                                document.getElementById("SearchField").style.display="none";
-                                document.getElementById("response3").style.display="block";
                                 $.ajax(
                                 {
                                     method: "post",
@@ -606,7 +604,9 @@ else
                                     datatype: "text",
                                     success: function(Result)
                                     {
+                                        $( "#dialog" ).dialog( "destroy" );
                                         $("#response5").html(Result);
+                                        $("#dialog").dialog();
                                     }
                                 });
                             });
@@ -758,6 +758,7 @@ else
                         s++;
                     }
                 </script>
+                <script src="./jquery-ui-1.13.2.custom/jquery-ui.js"></script>
             </html>
     <?php
 }
