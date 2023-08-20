@@ -1,5 +1,5 @@
 <?php
-if(empty($_SESSION["username"]) || empty($_SESSION["password"]))
+if(empty($_SESSION["username"]))
 {
     echo "<script>window.alert('Unauthorized Access!!!');</script>";
     include "index.php";
