@@ -27,7 +27,7 @@ else
             $member_sql = "SELECT Member_ID from member where Member_ID = '$memberId';";
             $result_m=$conn->query($member_sql);
             $m_count =0;
-            while($row=$result->fetch_assoc()) $m_count += 1;
+            while($row=$result_m->fetch_assoc()) $m_count += 1;
         }
         $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";
         $result=$conn->query($sql);
@@ -41,7 +41,7 @@ else
                 {
                     echo "
                     <div id='dialog6' style='color:green;' title='Success'>
-                        <p><center>Member $memberId has NODUES</center></p>
+                        <p><center>Member $memberId has NO-DUES</center></p>
                     </div>";
                 }
                 else
