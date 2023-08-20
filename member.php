@@ -17,7 +17,10 @@ else
         $memberId = $_POST["memberid"];
         if(empty($_POST["memberid"]))
         {
-            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Please enter Member ID</center></div>";
+            echo "
+                <div id='dialog6' style='color:red;' title='Error'>
+                    <p><center>Please enter Member ID</center></p>
+                </div>";
         }
         else if(!empty($_POST["memberid"]))
         {
@@ -36,16 +39,28 @@ else
                 while($row=$result->fetch_assoc()) $count += 1;
                 if($count==0)
                 {
-                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Member $memberId has NODUES</center></div>"; 
+                    echo "
+                    <div id='dialog6' style='color:green;' title='Success'>
+                        <p><center>Member $memberId has NODUES</center></p>
+                    </div>";
                 }
                 else
                 {
-                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $memberId has $count Books Dues</center></div>";
+                    echo "
+                    <div id='dialog6' style='color:red;' title='Error'>
+                        <p><center>Member $memberId has $count Books Dues</center></p>
+                    </div>";
                 }
             }
-            else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
+            else echo "
+            <div id='dialog6' style='color:red;' title='Error'>
+                <p><center>$conn->error</center></p>
+            </div>";
         }
-        else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member Not found</center></div>";
+        else echo "
+        <div id='dialog6' style='color:red;' title='Error'>
+            <p><center>Member Not found</center></p>
+        </div>";
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {
