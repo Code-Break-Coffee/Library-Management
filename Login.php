@@ -20,11 +20,6 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
             if($row["Username"] == $user && $row["Password"] == $pass)
             {
                 $flag=1;
-                // include "KeyGen.php";
-                // $success = Gen($_SESSION["username"], $_SESSION["password"]);
-                // if($success){
-                //     include "Main.php";
-                // }
                 include "Main.php";
             }
         }
@@ -38,6 +33,10 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     {
 
     }
+}
+else if(empty($_POST["username"]) || empty($_POST["password"]))
+{
+    //student page
 }
 else
 {

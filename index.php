@@ -48,6 +48,10 @@
         {
             color:#5cdb95;
         }
+        [value="Student"]:hover
+        {
+            border: 2px solid aliceblue;
+        }
     </style>
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">
@@ -72,13 +76,15 @@
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                 <form id="login" method="post" action="" autocomplete="off">
                     <center>
-                        <h1 style="color:aliceblue;">Admin Page</h1>
+                        <h1 style="color:aliceblue;">Login Page</h1>
                         <label style="font-weight: bold;">Username:</label>
                         <input required type="text" name="username" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Username"/><br>
                         <label style="font-weight: bold;">Password:</label>
                         <input required type="password" name="password" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Password"/><br>
                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Login"/>
-                        <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                        <button class="btn" style="font-weight: bold;background-color: #092435;color: aliceblue;" value="Student" id="student">Student</button>
+                        <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>
+                        <br><br>
                     </center>
                 </form>
             </div>
@@ -91,6 +97,21 @@
     $(document).ready(function()
     {
         $("#login").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Login.php",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $("body").html(Result);
+                }
+            });
+        });
+        $("#student").click(function(e)
         {
             e.preventDefault();
             $.ajax(
