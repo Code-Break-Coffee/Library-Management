@@ -108,8 +108,11 @@ else
                     $resultIssue=$conn->query($sql_ir);
                     if($resultIssue && $resultReturn)
                     {
-                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $b returned successfully!!!</center></div>";
-                        
+                        echo "
+                        <div id='dialog2' style='color:green;' title='Success'>
+                            <p><center>Book Issue Successfully!!</center></p>
+                        </div>
+                        "; 
                     }
                     else
                     {
@@ -118,7 +121,11 @@ else
                 }
                 else
                 {
-                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Return for Book $b not Allowed!!!</center></div>";
+                    echo "
+                    <div id='dialog2' style='color:red;' title='Not Allowed'>
+                        <p><center>Book $b Return Not Allowed!!</center></p>
+                    </div>
+                    "; 
                 }
             }
             else
@@ -128,13 +135,18 @@ else
         }
         else
         {
-            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $m not found!!!</center></div>";
+            echo "<div id='dialog2' style='color:red;' title='notification'>
+                    <p><center>Member $m not found</center></p>
+                </div>";
         }
     }
     else
     {
-        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $b is not Issued or Member $m incorrect!!!</center></div>";
-
+        echo "
+        <div id='dialog2' style='color:red;' title='notification'>
+            <p><center>Book $b is not issued or $m is Incorrect</center></p>
+        </div>
+        "; 
     }
 }
 ?>

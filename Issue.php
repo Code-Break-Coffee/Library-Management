@@ -109,7 +109,11 @@ if($checkedb)
                     $sql_UpdateB = "UPDATE books set Status='$m' where Book_No = $b;";
                     $update_book = $conn->query($sql_UpdateB);
 
-                    if($update_book) echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:green;'><center>Book issued by $m successfully!!!</center></div>";
+                    if($update_book)echo "
+                    <div id='dialog1' style='color:green;' title='notification'>
+                        <p><center>Book Issued By Member $m Succesfull!</center></p>
+                    </div>
+                    "; 
                     else echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
                 }
                 else
@@ -119,7 +123,11 @@ if($checkedb)
             }
             else
             {
-                echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Issue for Book not Allowed!!!</center></div>";
+                echo "
+                <div id='dialog1' style='color:red;' title='Not Allowed'>
+                    <p><center>Book Issue Not Allowed!!</center></p>
+                </div>
+                "; 
             }
         }
         else
@@ -129,12 +137,20 @@ if($checkedb)
     }
     else
     {
-        echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Member $m not found!!!</center></div>";
+        echo "
+        <div id='dialog1' style='color:red;' title='Member Not Found'>
+            <p><center>Member $m Not Found</center></p>
+        </div>
+        "; 
     }
 }
 else
 {
-    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>Book $b is not Available!!!</center></div>";
+    echo "
+    <div id='dialog1' style='color:red;' title='Book Not Available'>
+        <p><center>Book $b Is Not Availabe</center></p>
+    </div>
+    "; 
 }
 
 }
