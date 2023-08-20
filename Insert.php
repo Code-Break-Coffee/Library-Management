@@ -54,11 +54,18 @@ else
             if($bookno == $row["Book_No"])
             {
                 $flag=1;
-                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Book $bookno already present!!!</center></div>";
-            }
+                echo "
+                <div id='dialog3' style='color:red;' title='Not Allowed'>
+                    <p><center>Book $bookno Already Present</center></p>
+                </div>
+                "; }
         }
     }
-    else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
+    else echo "
+    <div id='dialog3' style='color:red;' title='Not Allowed'>
+        <p><center>$conn->error</center></p>
+    </div>
+    "; 
     if($flag==0)
     {
         $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
@@ -67,11 +74,18 @@ else
         $result=$conn->query($sql);
         if($result)
         {
-            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Book $bookno inserted successfully!!!</center></div>";
-        }
+            echo "
+            <div id='dialog3' style='color:green;' title='Successful'>
+                <p><center>Book Inserted Successfully</center></p>
+            </div>
+            "; }
         else
         {
-            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
+            echo "
+            <div id='dialog3' style='color:red;' title='Not Allowed'>
+                <p><center>$conn->error</center></p>
+            </div>
+            "; 
         }
     }
 }

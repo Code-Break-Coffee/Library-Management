@@ -17,7 +17,7 @@ document.getElementById("d").addEventListener("click",()=>
                 </form>
             </div>
         </div>
-        <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response4"></div>`;
+        <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response4"></div>`;
     $(document).ready(function()
     {
         $("#deleteform").submit(function(e)
@@ -26,8 +26,6 @@ document.getElementById("d").addEventListener("click",()=>
             let conf=window.confirm("Are you sure you want to delete this book?");
             if(conf)
             {
-                document.querySelector("#deletefield").style.display="none";
-                document.querySelector("#response4").style.display="block";
                 $.ajax(
                 {
                     method: "post",
@@ -36,7 +34,9 @@ document.getElementById("d").addEventListener("click",()=>
                     datatype: "text",
                     success: function(Result)
                     {
+                        $( "#dialog4" ).dialog( "destroy" );
                         $("#response4").html(Result);
+                        $("#dialog4").dialog();
                     }
                 });
             }
@@ -73,14 +73,12 @@ document.getElementById("i").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response"></div>`;
     $(document).ready(function()
     {
         $("#issuebook").submit(function(e)
         {
             e.preventDefault();
-            document.querySelector("#issuefield").style.display="none";
-            document.querySelector("#response").style.display="block";
             $.ajax(
             {
                 method: "post",
@@ -89,7 +87,9 @@ document.getElementById("i").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog1" ).dialog( "destroy" );
                     $("#response").html(Result);
+                    $("#dialog1").dialog();
                 }
             });
         });
@@ -122,13 +122,11 @@ document.getElementById("r").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response2"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response2"></div>`;
     $(document).ready(function()
     {
         $("#returnform").submit(function(e)
         {
-            document.querySelector("#returnfield").style.display="none";
-            document.querySelector("#response2").style.display="block";
             e.preventDefault();
             $.ajax(
             {
@@ -138,7 +136,9 @@ document.getElementById("r").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog2" ).dialog( "destroy" );
                     $("#response2").html(Result);
+                    $("#dialog2").dialog();
                 }
             });
         });
@@ -173,13 +173,11 @@ document.getElementById("au").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response7"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response7"></div>`;
     $(document).ready(function()
     {
         $("#auform").submit(function(e)
         {
-            document.querySelector("#aufield").style.display="none";
-            document.querySelector("#response7").style.display="block";
             e.preventDefault();
             $.ajax(
             {
@@ -189,7 +187,9 @@ document.getElementById("au").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog7" ).dialog( "destroy" );
                     $("#response7").html(Result);
+                    $("#dialog7").dialog();
                 }
             });
         });
@@ -230,13 +230,11 @@ document.getElementById("me").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response8"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response8"></div>`;
     $(document).ready(function()
     {
         $("#meform").submit(function(e)
         {
-            document.querySelector("#mefield").style.display="none";
-            document.querySelector("#response8").style.display="block";
             e.preventDefault();
             $.ajax(
             {
@@ -246,7 +244,9 @@ document.getElementById("me").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog8" ).dialog( "destroy" );
                     $("#response8").html(Result);
+                    $("#dialog8").dialog();
                 }
             });
         });
@@ -336,14 +336,12 @@ document.getElementById("ins").addEventListener("click",()=>
                     </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response3"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response3"></div>`;
     $(document).ready(function()
     {
         $("#insertform").submit(function(e)
         {
             e.preventDefault();
-            document.getElementById("InsertField").style.display="none";
-            document.getElementById("response3").style.display="block";
             $.ajax(
             {
                 method: "post",
@@ -352,7 +350,9 @@ document.getElementById("ins").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog3" ).dialog( "destroy" );
                     $("#response3").html(Result);
+                    $("#dialog3").dialog();
                 }
             });
         });
@@ -458,7 +458,7 @@ document.getElementById("m").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold; background:url(Alert_Image.jpg); width: 600px; height: 350px; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;" id="response6"></div>`;
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response6"></div>`;
     $(document).ready(function()
     {
 
@@ -496,7 +496,7 @@ document.getElementById("m").addEventListener("click",()=>
                         <option value="AP">MBA(APR)</option>
                         <option value="ES">MBA(E-SHIP)</option>
                     </select><br>
-                <label>Year:</label><input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                <label>Year:</label><input required type="number" name="year" maxlength=4  class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Download");
             }
@@ -511,13 +511,7 @@ document.getElementById("m").addEventListener("click",()=>
         $("#memberform").submit(function(e)
         {
             e.preventDefault();
-            document.getElementById("memberfield").style.display="none";
-            document.getElementById("response6").style.display="block";
-            if(document.getElementById("membersubmit").value==="Download")
-            {
-                document.getElementById("memberfield").style.display="block";
-                document.getElementById("response6").style.display="none";
-            }
+
             $.ajax(
             {
                 method: "post",
@@ -526,7 +520,9 @@ document.getElementById("m").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    $( "#dialog6" ).dialog( "destroy" );
                     $("#response6").html(Result);
+                    $("#dialog6").dialog();
                 }
             });
         });
