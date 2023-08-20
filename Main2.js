@@ -2,7 +2,7 @@
 
 document.getElementById("d").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
         container.innerHTML=`
         <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -23,7 +23,7 @@ document.getElementById("d").addEventListener("click",()=>
         $("#deleteform").submit(function(e)
         {
             e.preventDefault();
-            var conf=window.confirm("Are you sure you want to delete this book?");
+            let conf=window.confirm("Are you sure you want to delete this book?");
             if(conf)
             {
                 $.ajax(
@@ -48,7 +48,7 @@ document.getElementById("d").addEventListener("click",()=>
 
 document.getElementById("i").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -100,7 +100,7 @@ document.getElementById("i").addEventListener("click",()=>
 
 document.getElementById("r").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -149,7 +149,7 @@ document.getElementById("r").addEventListener("click",()=>
 
 document.getElementById("au").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -200,7 +200,7 @@ document.getElementById("au").addEventListener("click",()=>
 
 document.getElementById("me").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -257,7 +257,7 @@ document.getElementById("me").addEventListener("click",()=>
 
 document.getElementById("ins").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -363,7 +363,7 @@ document.getElementById("ins").addEventListener("click",()=>
 
 document.getElementById("s").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -386,18 +386,18 @@ document.getElementById("s").addEventListener("click",()=>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response5"></div>`;
     $(document).ready(function()
     {
-        var sb=document.getElementById("sb");
-        var sval=sb.options[sb.selectedIndex].value;
-        var sc=document.getElementById("searchcontain");
+        let sb=document.getElementById("sb");
+        let sval=sb.options[sb.selectedIndex].value;
+        let sc=document.getElementById("searchcontain");
         if(sval=="Book No.")
         {
             sc.innerHTML=`<label>Book Number:</label><input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>`;
         }
         $("#sb").click(function()
         {
-            var sb=document.getElementById("sb");
-            var sval=sb.options[sb.selectedIndex].value;
-            var sc=document.getElementById("searchcontain");
+            let sb=document.getElementById("sb");
+            let sval=sb.options[sb.selectedIndex].value;
+            let sc=document.getElementById("searchcontain");
             if(sval=="Book No.")
             {
                 sc.innerHTML=`<label>Book Number:</label><input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>`;
@@ -439,7 +439,7 @@ document.getElementById("s").addEventListener("click",()=>
 
 document.getElementById("m").addEventListener("click",()=>
 {
-    var container=document.getElementById("contain");
+    let container=document.getElementById("contain");
     container.innerHTML=`
     <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -462,9 +462,9 @@ document.getElementById("m").addEventListener("click",()=>
     $(document).ready(function()
     {
 
-        var mb=document.getElementById("mb");
-        var mval=mb.options[mb.selectedIndex].value;
-        var mc=document.getElementById("membercontain");
+        let mb=document.getElementById("mb");
+        let mval=mb.options[mb.selectedIndex].value;
+        let mc=document.getElementById("membercontain");
         if(mval=="Single Member")
         {
             mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
@@ -473,9 +473,9 @@ document.getElementById("m").addEventListener("click",()=>
         }
         $("#mb").click(function()
         {
-            var mb=document.getElementById("mb");
-            var mval=mb.options[mb.selectedIndex].value;
-            var mc=document.getElementById("membercontain");
+            let mb=document.getElementById("mb");
+            let mval=mb.options[mb.selectedIndex].value;
+            let mc=document.getElementById("membercontain");
             if(mval=="Single Member")
             {
                 mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>

@@ -1,5 +1,5 @@
 <?php
-if(empty($_SESSION["username"]) || empty($_SESSION["password"]))
+if(empty($_SESSION["username"]))
 {
     echo "<script>window.alert('Unauthorized Access!!!');</script>";
     include "index.php";
@@ -49,7 +49,7 @@ else
                             background-position: center;
                             background-size: cover;
                             width:100%;
-                            height:764px;
+                            height:769px;
                         }
                         .hovered:hover
                         {
@@ -92,7 +92,7 @@ else
                         </div>
                     </center>
                     <!--navbar-->
-                    <div style="background-color: black;width:100vw;height:5px;"></div>
+                    <!-- <div style="background-color: black;width:100vw;height:5px;"></div> -->
                     <div style="background-color: black;font-size: large;font-weight: bold;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
                             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">

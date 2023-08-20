@@ -15,31 +15,37 @@ else
     {
         include "dbconnect.php";
         $memberId = $_POST["memberid"];
+        if(empty($_POST["memberid"]))
+        {
+            echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Please enter Member ID</center></div>";
+        }
+        else if(!empty($_POST["memberid"]))
+        {
+            $member_sql = "SELECT Member_ID from member where Member_ID = '$memberId';";
+            $result_m=$conn->query($member_sql);
+            $m_count =0;
+            while($row=$result->fetch_assoc()) $m_count += 1;
+        }
         $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";
         $result=$conn->query($sql);
         $count=0;
-        if($result)
+        if($m_count > 0)
         {
-            while($row=$result->fetch_assoc()) $count += 1;
-            if($count==0)
+            if($result)
             {
-                echo "<div id='dialog6' style='color:green;' title='No Dues'>
-                <p><center>Member $memberId has no dues</center></p>
-            </div>"; 
+                while($row=$result->fetch_assoc()) $count += 1;
+                if($count==0)
+                {
+                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: green;'><center>Member $memberId has NODUES</center></div>"; 
+                }
+                else
+                {
+                    echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member $memberId has $count Books Dues</center></div>";
+                }
             }
-            else
-            {
-                echo "
-                <div id='dialog6' style='color:red;' title='Dues Pending'>
-                    <p><center>Member $memberId has $count Dues</center></p>
-                </div>
-                "; }
+            else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
         }
-        else  echo "
-        <div id='dialog6' style='color:red;' title='Error'>
-            <p><center>$conn->error</center></p>
-        </div>
-        "; 
+        else echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>Member Not found</center></div>";
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {
