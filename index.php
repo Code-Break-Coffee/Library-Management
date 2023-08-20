@@ -72,7 +72,7 @@
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                 <form id="login" method="post" action="" autocomplete="off">
                     <center>
-                        <h1 style="color:aliceblue;">Admin Page</h1>
+                        <h1 style="color:aliceblue;">Login Page</h1>
                         <label style="font-weight: bold;">Username:</label>
                         <input required type="text" name="username" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Username"/><br>
                         <label style="font-weight: bold;">Password:</label>
