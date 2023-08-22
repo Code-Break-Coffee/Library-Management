@@ -10,10 +10,12 @@ $doi_from=$_POST["from"];
 
 
 
-function show_table($stat){
+function show_table($stat)
+{
     include "dbconnect.php";
     $result=$conn->query($stat);
-    if($result){
+    if($result)
+    {
         echo "<table class='table table-responsive table-bordered table-dark table-striped'>
         <tr>
         <th>Issue Bookno</th>
@@ -36,30 +38,31 @@ function show_table($stat){
             ";
         }
     }
-    else{
+    else
+    {
         echo $conn->error;
     }
-    
 }
 
-if($membership=="Student"){
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Student' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
+if($membership=="Student")
+{
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return 
+        where Member_Type='Student' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
+            or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
-else if($membership=="Faculty"){
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Faculty' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
+else if($membership=="Faculty")
+{
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return 
+        where Member_Type='Faculty' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
+            or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
-else{
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
+else
+{
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return 
+        where Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
+            or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
-
-
-
-// echo "
-// <div id='dialog7' style='color:green;' title='Success'>
-//     <p><center>Done</center></p>
-// </div>
-// "; 
 ?>
