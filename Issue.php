@@ -16,6 +16,8 @@ $Available=true;
 $sql_mt;
 $b=$_POST["bookno"];
 $m=$_POST["memberid"];
+$m = strtoupper($m);
+$m = str_replace("-","",$m);
 $MemberType= $_POST["membertype"];
 $sql_b="SELECT Book_No,Status from books where Book_No='$b';";
 

@@ -1,4 +1,4 @@
-//delete
+//------------------------------------------------------------------------------delete
 
 document.getElementById("d").addEventListener("click",()=>
 {
@@ -44,7 +44,7 @@ document.getElementById("d").addEventListener("click",()=>
     });
 });
 
-//issue
+//----------------------------------------------------------------------------issue
 
 document.getElementById("i").addEventListener("click",()=>
 {
@@ -96,7 +96,7 @@ document.getElementById("i").addEventListener("click",()=>
     });
 });
 
-//return
+//------------------------------------------------------------------------------return
 
 document.getElementById("r").addEventListener("click",()=>
 {
@@ -145,7 +145,7 @@ document.getElementById("r").addEventListener("click",()=>
     });
 });
 
-//audit
+//-------------------------------------------------------------------------------audit
 
 document.getElementById("au").addEventListener("click",()=>
 {
@@ -196,7 +196,7 @@ document.getElementById("au").addEventListener("click",()=>
     });
 });
 
-//membership
+//-------------------------------------------------------------------------membership
 
 document.getElementById("me").addEventListener("click",()=>
 {
@@ -253,7 +253,7 @@ document.getElementById("me").addEventListener("click",()=>
     });
 })
 
-//insert
+//----------------------------------------------------------------------------------insert
 
 document.getElementById("ins").addEventListener("click",()=>
 {
