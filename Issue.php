@@ -30,7 +30,7 @@ if($MemberType =="Student")
 }
 else if($MemberType =="Faculty")
 {
-    $sql_mt="SELECT Faculty_ID from faculty where Member_ID='$m';";
+    $sql_mt="SELECT Faculty_ID from faculty where Faculty_ID='$m';";
 }
 $result_b = $conn->query($sql_b);
 $result_mt = $conn->query($sql_mt);
