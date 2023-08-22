@@ -19,12 +19,12 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
     $data=$_POST["data"];
     if($_POST["search"]=="Author")
     {
-        $sql="SELECT Title,Edition,Author1,Author2,Author3 from books 
+        $sql="SELECT DISTINCT Title,Edition,Author1,Author2,Author3 from books 
         where Author1 like '%$data%' or Author2 like '%$data%' or Author3 like '%$data%';";
     }
     else if($_POST["search"] == "Title")
     {
-        $sql="SELECT Title,Edition,Author1,Author2,Author3 from books 
+        $sql="SELECT DISTINCT Title,Edition,Author1,Author2,Author3 from books 
         where Title like '%$data%';";
     }
     else header("Location: /LibraryManagement/student.html");
