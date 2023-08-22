@@ -5,8 +5,7 @@ if(empty($_POST["bookno"]) || empty($_POST["title"]) || empty($_POST["edition"])
 empty($_POST["author1"]) || empty($_POST["publisher"])||
 empty($_POST["totalpages"]))
 {
-    echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 else
 {

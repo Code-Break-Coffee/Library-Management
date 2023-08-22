@@ -17,8 +17,7 @@ if($result)
 }
 if($flag==0)
 {
-    echo "<script>window.alert('Unauthorized Access!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 session_destroy();
 ?>

@@ -8,8 +8,7 @@ $Available=true;
 $sql_mt;
 if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
 {
-    echo "<script>window.alert('Unauthorized Access or Inputs Not Given!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 else
 {
