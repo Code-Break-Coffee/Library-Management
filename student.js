@@ -1,10 +1,11 @@
-let holder=document.getElementById("holder");
 document.getElementById("author").addEventListener('focus',()=>
 {
+    let holder=document.getElementById("holder");
     holder.setAttribute("placeholder","Enter the Author:");
 });
 document.getElementById("title").addEventListener('focus',()=>
 {
+    let holder=document.getElementById("holder");
     holder.setAttribute("placeholder","Enter the Title:");
 });
 
@@ -13,8 +14,6 @@ $(document).ready(function()
     $("#studentSearch").submit(function(e)
     {
         e.preventDefault();
-        document.getElementById("formblock").style.display="none";
-        document.getElementById("iframeblock").style.display="block";
         $.ajax(
         {
             method: "post",
@@ -23,7 +22,9 @@ $(document).ready(function()
             datatype: "text",
             success: function(Response)
             {
-                $("#response").html(Response);
+                document.getElementById("iframeblock").style.display="block";
+                document.getElementById("formblock").style.transform="translate(-180%,-60%)";
+                $("#iframeblock").html(Response);
             }
         });
     });
@@ -31,7 +32,9 @@ $(document).ready(function()
 
 function cleared()
 {
-    document.getElementById("formblock").style.display="block";
+    let holder=document.getElementById("holder");
     document.getElementById("iframeblock").style.display="none";
+    document.getElementById("formblock").style.transform="translate(-50%,-60%)";
     holder.value="";
+    document.getElementById("clear2").style.display="none";
 }

@@ -8,7 +8,6 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     $pass=$_POST["password"];
 
     $_SESSION["username"]=$user;
-    // $_SESSION["password"]=$pass;
 
     $sql="SELECT * from admin where Username = '$user';";
     $result=$conn->query($sql);
@@ -34,14 +33,8 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 
     }
 }
-else if(empty($_POST["username"]) || empty($_POST["password"]))
-{
-    //student page
-    
-}
 else
 {
-    echo "<script>window.alert('Unauthorized Access!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 ?>

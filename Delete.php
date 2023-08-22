@@ -3,8 +3,7 @@ include "dbconnect.php";
 
 if(empty($_POST["bookno"]))
 {
-    echo "<script>window.alert('Input not Given aur Unauthorized Access!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 else
 {
