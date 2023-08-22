@@ -2,14 +2,14 @@
 include "dbconnect.php";
 
 $member=1;
-$name="Nathkhat Kothari";
-$course="MTech IT [5yrs]";
-$type="Student";
+$name="Nathkhat teacher";
+$course="Assistent";
+$type="Faculty";
 for($i=0;$i<25;$i++)
 {
     if($i<9)
     {
-        $sql1="INSERT into member(Member_ID,MemberType) values('IT2K210".($member+$i)."','$type');";
+        $sql1="INSERT into member(Member_ID,MemberType) values('FID-0".($member+$i)."','$type');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else{
@@ -18,7 +18,7 @@ for($i=0;$i<25;$i++)
     }
     else
     {
-        $sql1="INSERT into member(Member_ID,MemberType) values('IT2K21".($member+$i)."','$type');";
+        $sql1="INSERT into member(Member_ID,MemberType) values('FID-".($member+$i)."','$type');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else echo $conn->error;
@@ -29,14 +29,14 @@ for($i=0;$i<75;$i++)
 {
     if($i<9)
     {
-        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT2K210".($member+$i)."','$name','$course','DE210200".($member+$i)."');";
+        $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type,Faculty_Fatherorhusband) values('FID-0".($member+$i)."','$name','$course','NA');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else echo $conn->error;
     }
     else
     {
-        $sql1="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno) values('IT2K21".($member+$i)."','$name','$course','DE21020".($member+$i)."');";
+        $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type,Faculty_Fatherorhusband) values('FID-".($member+$i)."','$name','$course','NA');";
         $result1=$conn->query($sql1);
         if($result1) echo "$i record added!!!\n";
         else echo $conn->error;

@@ -18,7 +18,7 @@ else
                     <style>
                         #logoutbtn:hover
                         {
-                            box-shadow: 3px 3px 3px aliceblue;
+                            border: 2px 2px solid aliceblue;
                         }
                         .heading
                         {

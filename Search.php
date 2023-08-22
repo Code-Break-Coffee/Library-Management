@@ -24,7 +24,7 @@ else
         $result->data_seek(0);
         return false;
     }
-
+    
     function Book_Author($bauthor)
     {
         include "dbconnect.php";
@@ -139,9 +139,4 @@ else
         Book_Author($bauthor);
     }
 }
-echo '
-        <div id="dialog" title="Basic dialog">
-            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
-        </div>
-        '; 
 ?>

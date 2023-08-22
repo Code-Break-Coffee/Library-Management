@@ -37,6 +37,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 else if(empty($_POST["username"]) || empty($_POST["password"]))
 {
     //student page
+    
 }
 else
 {

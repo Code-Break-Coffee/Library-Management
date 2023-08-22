@@ -65,7 +65,9 @@
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Library</h1>
-        </div>
+            <form id="Student" method="post" action="student.html" target="_blank">
+                <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
+            </form></div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Devi Ahilya<br>Vishva Vidyalaya</h1>
         </div>
@@ -82,7 +84,6 @@
                         <label style="font-weight: bold;">Password:</label>
                         <input required type="password" name="password" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Password"/><br>
                         <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Login"/>
-                        <button class="btn" style="font-weight: bold;background-color: #092435;color: aliceblue;" value="Student" id="student">Student</button>
                         <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>
                         <br><br>
                     </center>
@@ -111,21 +112,22 @@
                 }
             });
         });
-        $("#student").click(function(e)
-        {
-            e.preventDefault();
-            $.ajax(
-            {
-                method: "post",
-                url: "Login.php",
-                data: $(this).serialize(),
-                datatype: "text",
-                success: function(Result)
-                {
-                    $("body").html(Result);
-                }
-            });
-        });
+        // $("#student").click(function(e)
+        // {
+        //     e.preventDefault();
+        //     $.ajax(
+        //     {
+        //         method: "post",
+        //         url: "student.html",
+        //         data: $(this).serialize(),
+        //         datatype: "text",
+        //         success: function(Result)
+        //         {
+        //             $("body").html(Result);
+        //         }
+        //     });
+        // });
+
     });
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('beforeunload',(e)=>
