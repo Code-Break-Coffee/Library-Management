@@ -3,7 +3,7 @@ include "dbconnect.php";
 
 $member=1;
 $name="Nathkhat teacher";
-$course="Assistent";
+$course="Assistant";
 $type="Faculty";
 for($i=0;$i<25;$i++)
 {
