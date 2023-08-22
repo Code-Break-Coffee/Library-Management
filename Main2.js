@@ -162,11 +162,11 @@ document.getElementById("au").addEventListener("click",()=>
                     <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/>
                     &nbsp;
                     <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
-                    <br><br>
-                    <label>To:</label>
-                    <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>                                    
+                    <br><br>                                   
                     <label>From:</label>
                     <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+                    <label>To:</label>
+                    <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
                     <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
