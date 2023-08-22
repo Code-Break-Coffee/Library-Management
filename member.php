@@ -15,6 +15,8 @@ else
     {
         include "dbconnect.php";
         $memberId = $_POST["memberid"];
+        $memberId = strtoupper($memberId);
+        $memberId = str_replace("-","",$memberId);
         if(empty($_POST["memberid"]))
         {
             echo "

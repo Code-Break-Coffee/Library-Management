@@ -15,6 +15,8 @@ else
 {
     $b=$_POST["bookno"];
     $m=$_POST["memberid"];
+    $m = strtoupper($m);
+    $m = str_replace("-","",$m);
     $MemberType= $_POST["membertype"];
     $sql_b="SELECT * from books;";
     $Allowed=true;
