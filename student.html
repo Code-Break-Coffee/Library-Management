@@ -20,8 +20,8 @@
         .heading
         {
             font-family: HeadingBold;
-            background-color: #092435;
-            color: #bbf0e8;
+            background-color: #011034;
+            color: #02C9AF;
         }
         td,th
         {
@@ -46,7 +46,7 @@
         }
         span
         {
-            color:black;
+            color:aliceblue;
             font-weight: bold;
         }
     </style>
@@ -63,25 +63,22 @@
             <h1>Devi Ahilya Vishva Vidyalaya</h1>
         </div>
     </div>
-    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:500px;height:500px;top:50%;left:50%;position:relative;transform: translate(-50%,-60%);">
+    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:400px;height:400px;top:50%;left:50%;position:relative;transform: translate(-50%,-60%);">
         <div style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);">
             <center>
-                <h2 style="font-weight: bolder;color:aliceblue;text-shadow: 3px 3px black;">Search A Book</h2>
+                <h2 style="font-weight: bolder;color:#049CE4;text-shadow: 3px 3px #2B4F8D;">Search A Book</h2>
                 <form id="studentSearch" action="" method="post" autocomplete="off" style="color:aliceblue;">
-                    <label style="font-weight:bold;color:black;">Search Via:</label><br>
+                    <label style="font-weight:bold;color:aliceblue;">Search Via:</label><br>
                     <span>Author: </span>&nbsp;<input id="author" type="radio" name="search" class="form-check-input bg-dark" value="Author" style="color:aliceblue;">
                     <span>Title: </span>&nbsp;<input id="title" type="radio" name="search" class="form-check-input bg-dark" value="Title" checked style="color:aliceblue;"><br><br>
-                    <div class="container"><input style="color:aliceblue;background-color: #092435;border-radius:5px;width:70%;height:35px;border-color:black;border-style:solid;" required id="holder" type="text" placeholder="Enter the Title:" name="data"></div><br>
-                    <input type="submit" value="Search" class="btn" style="width:80px;background-color: black;color:#D2D2D4;">
+                    <div class="container"><input style="color:aliceblue;background-color: #011034;border-radius:5px;width:70%;height:35px;border-color:black;border-style:solid;" required id="holder" type="text" placeholder="Enter the Title:" name="data"></div><br>
+                    <input type="submit" value="Search" class="btn" style="width:80px;background-color: #2B4F8D;color:aliceblue;font-weight: bold;"><br>
+                    <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:black;font-weight: bold;background: #eb3434;display: none;" value="Clear">
                 </form>
             </center>
         </div>
     </div>
-    <div id="iframeblock" style="width:100%;display:none;width:1100px;height:650px;top:50%;left:50%;position:absolute;transform: translate(-50%,-50%);">
-        <center>
-            <div id="response" style="width:100%;overflow:auto;height:650px;"></div><br>
-        </center>
-    </div>
+    <div id="iframeblock" style="width:1050px;display:none;height:650px;overflow: auto;position:relative;top:50%;left:50%;transform:translate(-25%,-120%)"></div>
 </body>
 <script src="student.js"></script>
 </html>

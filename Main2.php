@@ -1,8 +1,7 @@
 <?php
 if(empty($_SESSION["username"]))
 {
-    echo "<script>window.alert('Unauthorized Access!!!');</script>";
-    include "index.php";
+    header("Location: /LibraryManagement/index.php");
 }
 else
 {

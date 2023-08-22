@@ -31,7 +31,9 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
     $result=$conn->query($sql);
     if($result)
     {
-        echo "<table class='table table-responsive table-dark table-striped table-bordered'>
+        echo "
+        <script>document.getElementById('clear2').style.display='block';</script>
+        <table class='table table-responsive table-dark table-striped table-bordered'>
             <tr>
                 <th>Title</th>
                 <th>Edition</th>
@@ -50,8 +52,7 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
                         <td>".$row["Author3"]."</td>
                     </tr>";
             }
-        echo "</table>
-        <button class='btn btn-danger' onclick='cleared();'>Clear</button>";
+        echo "</table>";
     }
     else echo $conn->error;
 }
