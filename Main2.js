@@ -173,7 +173,7 @@ document.getElementById("au").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response7"></div>`;
+    <div style="font-weight: bold;" id="response7"></div>`;
     $(document).ready(function()
     {
         $("#auform").submit(function(e)

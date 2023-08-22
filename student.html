@@ -7,38 +7,72 @@
     <link rel="stylesheet" href="bootstrap.css">
     <script src="Jquery.js"></script>
     <style>
+         @font-face
+         {
+            font-family: HeadingBold;
+            src: url(BebasNeue-Bold.ttf);
+        }
+        @font-face
+        {
+            font-family: HeadingRegular;
+            src: url(BebasNeue-Regular.ttf);
+        }
+        .heading
+        {
+            font-family: HeadingBold;
+            background-color: #092435;
+            color: #bbf0e8;
+        }
         td,th
         {
             text-align: center;
         }
-        [type="submit"]:hover
+        [value="Search"]:hover
         {
-            border: 2px solid black;
+            border: 2px solid aliceblue;
+        }
+        input::placeholder
+        { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color:aliceblue;
+            opacity: 1;
+        }
+        :-ms-input-placeholder
+        { /* Internet Explorer 10-11 */
+            color:aliceblue;
+        }
+        ::-ms-input-placeholder 
+        { /* Microsoft Edge */
+            color:aliceblue;
+        }
+        span
+        {
+            color:black;
+            font-weight: bold;
         }
     </style>
 </head>
 <body style="width:99.25vw;height:100vh;background-image:url(student.jpg);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;">
     <div class="row" style="text-align: center;background-color: #1a1b47;color:#E4E5EA;">
-        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4">
+        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
             <h1>International Institute of Professional Studies</h1>
         </div>
-        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4">
-            <h1><i>Library</i></h1>
+        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
+            <h1>Library</h1>
         </div>
-        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4">
+        <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
             <h1>Devi Ahilya Vishva Vidyalaya</h1>
         </div>
     </div>
-    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:500px;height:500px;top:50%;left:50%;position:absolute;transform: translate(-50%,-50%);">
+    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:500px;height:500px;top:50%;left:50%;position:relative;transform: translate(-50%,-60%);">
         <div style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);">
             <center>
-                <h2 style="font-weight: bolder;color:aliceblue;">Search A Book</h2>
+                <h2 style="font-weight: bolder;color:aliceblue;text-shadow: 3px 3px black;">Search A Book</h2>
                 <form id="studentSearch" action="" method="post" autocomplete="off" style="color:aliceblue;">
-                    <label style="font-weight:bold;color:aliceblue;">Search Via:</label><br>
-                    Author: &nbsp;<input id="author" type="radio" name="search" class="form-check-input bg-dark" value="Author" style="color:aliceblue;">
-                    Title: &nbsp;<input id="title" type="radio" name="search" class="form-check-input bg-dark" value="Title" checked style="color:aliceblue;"><br><br>
-                    <div class="container"><input style="color:aliceblue;" required id="holder" type="text" class="form-control bg-dark" placeholder="Enter the Title:" name="data"></div><br>
-                    <input type="submit" value="Search" class="btn" style="width:80px;background-color: rgb(75, 75, 75);color:#D2D2D4;">
+                    <label style="font-weight:bold;color:black;">Search Via:</label><br>
+                    <span>Author: </span>&nbsp;<input id="author" type="radio" name="search" class="form-check-input bg-dark" value="Author" style="color:aliceblue;">
+                    <span>Title: </span>&nbsp;<input id="title" type="radio" name="search" class="form-check-input bg-dark" value="Title" checked style="color:aliceblue;"><br><br>
+                    <div class="container"><input style="color:aliceblue;background-color: #092435;border-radius:5px;width:70%;height:35px;border-color:black;border-style:solid;" required id="holder" type="text" placeholder="Enter the Title:" name="data"></div><br>
+                    <input type="submit" value="Search" class="btn" style="width:80px;background-color: black;color:#D2D2D4;">
                 </form>
             </center>
         </div>
