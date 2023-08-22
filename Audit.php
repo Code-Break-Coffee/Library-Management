@@ -16,10 +16,10 @@ function show_table($stat){
     if($result){
         echo "<table class='table table-responsive table-bordered table-dark table-striped'>
         <tr>
-        <th>Issue_Bookno</th>
-        <th>Issue_By</th>
-        <th>Issue_Date</th>
-        <th>Return_Date</th>
+        <th>Issue Bookno</th>
+        <th>Issue By</th>
+        <th>Issue Date</th>
+        <th>Return Date</th>
         </tr>";
         $count=0;
         while($row=$result->fetch_assoc())
@@ -43,15 +43,15 @@ function show_table($stat){
 }
 
 if($membership=="Student"){
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Student' and Issue_Date>=$doi_from and Return_Date<=$doi_to;";
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Student' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
 else if($membership=="Faculty"){
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Faculty' and Issue_Date>=$doi_from and Return_Date<=$doi_to;";
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Member_Type='Faculty' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
 else{
-    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Issue_Date>=$doi_from and Return_Date<=$doi_to;";
+    $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return where Issue_Date>='$doi_from' and Issue_Date<='$doi_to' or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
     show_table($sql_mem);
 }
 
