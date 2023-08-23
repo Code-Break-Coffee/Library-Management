@@ -19,7 +19,7 @@ else
         if(empty($_POST["memberid"]))
         {
             echo "
-                <div id='dialog6' style='color:red;' title='Error'>
+                <div id='dialog6' style='color:red;' title='⚠️Error'>
                     <p><center>Please enter Member ID</center></p>
                 </div>";
         }
@@ -48,18 +48,18 @@ else
                 else
                 {
                     echo "
-                    <div id='dialog6' style='color:red;' title='Error'>
+                    <div id='dialog6' style='color:red;' title='⚠️Error'>
                         <p><center>Member $memberId has $count Books Dues</center></p>
                     </div>";
                 }
             }
             else echo "
-            <div id='dialog6' style='color:red;' title='Error'>
+            <div id='dialog6' style='color:red;' title='⚠️Error'>
                 <p><center>$conn->error</center></p>
             </div>";
         }
         else echo "
-        <div id='dialog6' style='color:red;' title='Error'>
+        <div id='dialog6' style='color:red;' title='⚠️Error' background: url(alert.png);>
             <p><center>Member Not found</center></p>
         </div>";
     }
