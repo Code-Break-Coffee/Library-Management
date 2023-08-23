@@ -1,14 +1,3 @@
-document.getElementById("author").addEventListener('focus',()=>
-{
-    let holder=document.getElementById("holder");
-    holder.setAttribute("placeholder","Enter the Author:");
-});
-document.getElementById("title").addEventListener('focus',()=>
-{
-    let holder=document.getElementById("holder");
-    holder.setAttribute("placeholder","Enter the Title:");
-});
-
 $(document).ready(function()
 {
     $("#studentSearch").submit(function(e)
@@ -30,9 +19,16 @@ $(document).ready(function()
     });
 });
 
+$(document).ready(function(){
+    $("#book_s").autocomplete({
+        autoFocus: true,
+        source: "Suggestions.php",
+    });
+});
+
 function cleared()
 {
-    let holder=document.getElementById("holder");
+    let holder=document.getElementById("book_s");
     document.getElementById("iframeblock").style.display="none";
     document.getElementById("formblock").style.transform="translate(-50%,-60%)";
     holder.value="";

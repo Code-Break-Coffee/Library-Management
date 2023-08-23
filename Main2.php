@@ -82,7 +82,7 @@ else
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
                                 <h1>Library</h1>
                                 <form id="logout" method="post" action="">
-                                    <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
+                                    <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
                                 </form>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">

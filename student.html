@@ -6,6 +6,10 @@
     <title>Book Search Page</title>
     <link rel="stylesheet" href="bootstrap.css">
     <script src="Jquery.js"></script>
+
+    <!-- jQuery UI library -->
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom\jquery-ui.css">
+    <script src="jquery-ui-1.13.2.custom\jquery-ui.min.js"></script>
     <style>
          @font-face
          {
@@ -22,10 +26,6 @@
             font-family: HeadingBold;
             background-color: #011034;
             color: #02C9AF;
-        }
-        td,th
-        {
-            text-align: center;
         }
         [value="Search"]:hover
         {
@@ -49,6 +49,37 @@
             color:aliceblue;
             font-weight: bold;
         }
+        table 
+        {
+            background: #012B39;
+            border-radius: 0.25em;
+            border-collapse: collapse;
+        }
+        th 
+        {
+            border-bottom: 1px solid #364043;
+            color: #E2B842;
+            text-align: center;
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 0.5em 1em;
+        }
+        td 
+        {
+            color: #fff;
+            text-align: center;
+            font-weight: 400;
+            padding: 0.65em 1em;
+        }
+
+        tbody tr 
+        {
+            transition: background 0.25s ease;
+        }
+        tbody tr:hover {
+            background: #014055;
+        }
+
     </style>
 </head>
 <body style="width:99.25vw;height:100vh;background-image:url(student.jpg);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;">
@@ -67,12 +98,11 @@
         <div style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);">
             <center>
                 <h2 style="font-weight: bolder;color:#049CE4;text-shadow: 3px 3px #2B4F8D;">Search A Book</h2>
-                <form id="studentSearch" action="" method="post" autocomplete="off" style="color:aliceblue;">
-                    <label style="font-weight:bold;color:aliceblue;">Search Via:</label><br>
-                    <span>Author: </span>&nbsp;<input id="author" type="radio" name="search" class="form-check-input bg-dark" value="Author" style="color:aliceblue;">
-                    <span>Title: </span>&nbsp;<input id="title" type="radio" name="search" class="form-check-input bg-dark" value="Title" checked style="color:aliceblue;"><br><br>
-                    <div class="container"><input style="color:aliceblue;background-color: #011034;border-radius:5px;width:70%;height:35px;border-color:black;border-style:solid;" required id="holder" type="text" placeholder="Enter the Title:" name="data"></div><br>
-                    <input type="submit" value="Search" class="btn" style="width:80px;background-color: #2B4F8D;color:aliceblue;font-weight: bold;"><br>
+                <br><br>
+                <form id="studentSearch" action="" method="post" style="color:aliceblue;">
+                    <div style="display: flex; justify-content: center; gap:5px">
+                    <div><input style="color:aliceblue;background-color: #011034;border-radius:5px;height:42px;border-color:black;border-style:solid;" required id="book_s" type="text" placeholder="Enter the Title:" name="data"></div>
+                    <div><button type="submit" value="" class="btn" style="width:80px;background-color: #2B4F8D;"><img src="baseline_search_white_24dp.png" height="30px" width="30px" alt=""></button></div></div><br>
                     <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:black;font-weight: bold;background: #eb3434;display: none;" value="Clear">
                 </form>
             </center>

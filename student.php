@@ -24,7 +24,7 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
     }
     else if($_POST["search"] == "Title")
     {
-        $sql="SELECT DISTINCT Title,Edition,Author1,Author2,Author3 from books 
+        $sql="SELECT Title,Edition,Author1,Author2,Author3 from books 
         where Title like '%$data%';";
     }
     else header("Location: /LibraryManagement/student.html");
@@ -33,14 +33,15 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
     {
         echo "
         <script>document.getElementById('clear2').style.display='block';</script>
-        <table class='table table-responsive table-dark table-striped table-bordered'>
+        <table>
             <tr>
                 <th>Title</th>
                 <th>Edition</th>
                 <th>Author 1</th>
                 <th>Author 2</th>
                 <th>Author 3</th>
-            </tr>";
+            </tr>
+                <tbody>";
             while($row=$result->fetch_assoc())
             {
                 echo "
@@ -52,7 +53,8 @@ else if(!empty($_SESSION["search"]) && !empty($_SESSION["data"]))
                         <td>".$row["Author3"]."</td>
                     </tr>";
             }
-        echo "</table>";
+        echo "</tbody>
+            </table>";
     }
     else echo $conn->error;
 }
