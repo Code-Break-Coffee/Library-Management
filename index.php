@@ -1,3 +1,7 @@
+<?php
+@session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,22 +120,6 @@
                 }
             });
         });
-        // $("#student").click(function(e)
-        // {
-        //     e.preventDefault();
-        //     $.ajax(
-        //     {
-        //         method: "post",
-        //         url: "student.html",
-        //         data: $(this).serialize(),
-        //         datatype: "text",
-        //         success: function(Result)
-        //         {
-        //             $("body").html(Result);
-        //         }
-        //     });
-        // });
-
     });
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('beforeunload',(e)=>

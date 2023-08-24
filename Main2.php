@@ -1,10 +1,12 @@
 <?php
+@session_start();
 if(empty($_SESSION["username"]))
 {
     header("Location: /LibraryManagement/index.php");
 }
 else
 {
+    $_SESSION["TEMP"] = "987";
     ?>
     <!DOCTYPE html>
             <html lang="en">
