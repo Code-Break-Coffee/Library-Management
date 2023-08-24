@@ -1,12 +1,11 @@
 <?php
-
+session_start();
+include "auth.php";
 date_default_timezone_set("Asia/Kolkata");
-
-if(empty(filter_input(INPUT_POST,"moption")))
+if(!verification())
 {
     header("Location: /LibraryManagement/index.php");
 }
-
 else
 {
 

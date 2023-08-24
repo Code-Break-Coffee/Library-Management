@@ -18,7 +18,8 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
         {
             if($row["Username"] == $user && $row["Password"] == $pass)
             {
-                $flag=1;
+                include "KeyGen.php";
+                Gen();
                 include "Main.php";
             }
         }
@@ -27,10 +28,6 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     {
         echo "<script>window.alert('Incorrect Username or Password!!!');</script>";
         include "index.php";
-    }
-    else if($flag==1)
-    {
-
     }
 }
 else

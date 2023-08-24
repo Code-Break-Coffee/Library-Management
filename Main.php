@@ -19,5 +19,5 @@ if($flag==0)
 {
     header("Location: /LibraryManagement/index.php");
 }
-session_destroy();
+// session_destroy();
 ?>
