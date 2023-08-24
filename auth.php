@@ -1,6 +1,10 @@
 <?php
     function verification()
     {
+        if(empty($_SESSION["username"]) || empty($_SESSION["Log"])){
+            return false;
+        }
+        else{
         $u =$_SESSION["username"];
         $log =$_SESSION["Log"];
         date_default_timezone_set("Asia/Kolkata");
@@ -18,11 +22,8 @@
             }
             // echo "$u $log $hash $d";
         }
-        if (password_verify($u.$log.$d, $hash)) {
-            return true;
-        }
-        else{
-            return false;}
+        return password_verify("$u"."$log"."$d", $hash);
+    }
     
     }
 ?>

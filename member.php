@@ -1,13 +1,17 @@
 <?php
-session_start();
+@session_start();
 include "auth.php";
 date_default_timezone_set("Asia/Kolkata");
-if(!verification())
+$v =verification();
+echo $v;
+if(!$v)
 {
-    header("Location: /LibraryManagement/index.php");
+    echo"hola";
+    // header("Location: /LibraryManagement/index.php");
 }
 else
 {
+    echo "hola again";
 
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {

@@ -1,7 +1,6 @@
 <?php
 include "dbconnect.php";
 $u=$_SESSION["username"];
-// $p=$_SESSION["password"];
 $result=$conn->query("SELECT * from admin where Username = '$u';");
 $flag=0;
 if($result)
@@ -19,5 +18,4 @@ if($flag==0)
 {
     header("Location: /LibraryManagement/index.php");
 }
-// session_destroy();
 ?>
