@@ -553,9 +553,19 @@ let s=0;
 let interval=setInterval(frame,1000);
 function frame()
 {
-    if(s===600)
+    if(s===300)
     {
-        window.location.reload();
+        $.ajax(
+        {
+            method: "post",
+            url: "Logout.php",
+            data: $(this).serialize(),
+            datatype: "text",
+            success: function(Result)
+            {
+                $("body").html(Result);
+            }
+        });
     }
     document.addEventListener('mousemove',()=>
     {
