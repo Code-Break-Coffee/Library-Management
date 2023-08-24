@@ -1,6 +1,9 @@
 <?php
 @session_start();
-
+if(false){
+    
+}
+else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,3 +132,4 @@
     });
 </script>
 </html>
+<?php }  ?>
