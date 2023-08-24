@@ -359,7 +359,7 @@ document.getElementById("ins").addEventListener("click",()=>
     });
 });
 
-//search
+//--------------------------------------------------------------------------search
 
 document.getElementById("s").addEventListener("click",()=>
 {
@@ -435,7 +435,7 @@ document.getElementById("s").addEventListener("click",()=>
     });
 });
 
-//member
+//----------------------------------------------------------------------------member
 
 document.getElementById("m").addEventListener("click",()=>
 {
@@ -529,7 +529,7 @@ document.getElementById("m").addEventListener("click",()=>
     });
 });
 
-//logout
+//----------------------------------------------------------------------logout
 
 $(document).ready(function()
 {
@@ -567,3 +567,30 @@ function frame()
     });
     s++;
 }
+
+
+//--------------------------------------------------Administrator
+
+document.getElementById("admin_panel").addEventListener("click",()=>
+{
+    let container=document.getElementById("contain");
+    container.innerHTML=`
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="adminstrator" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Add Admin User</h1>
+                    <label>User ID:</label>
+                    <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
+                    <label>Password:</label>
+                    <input required type="text" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <label>Confirm Password:</label>
+                    <input required type="text" name="admin_pass_conf" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response_adminstrator"></div>`;
+});
