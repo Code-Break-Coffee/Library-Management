@@ -15,6 +15,7 @@ else
                     <title>Library</title>
                     <link rel="stylesheet" href="bootstrap.css">
                     <style>
+                        
                         #logoutbtn:hover
                         {
                             border: 2px 2px solid aliceblue;
@@ -134,6 +135,9 @@ else
                                         <a class="dropdown-item dropdown_hover" id="me">Add Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de">Delete Member</a>
                                         </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link hovered" id="admin_panel">Administrator</a>
                                     </li>
                                 </ul>
                             </div>
