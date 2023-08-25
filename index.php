@@ -28,10 +28,7 @@ else {
             font-family: HeadingRegular;
             src: url(BebasNeue-Regular.ttf);
         }
-        body 
-        {
-            overflow: hidden;
-        }
+    
         #contain
         {
             background: url(library.jpg);

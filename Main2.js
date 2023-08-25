@@ -383,7 +383,7 @@ document.getElementById("s").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response5"></div>`;
+    <div style="font-weight: bold;" id="response5"></div>`;
     $(document).ready(function()
     {
         let sb=document.getElementById("sb");
