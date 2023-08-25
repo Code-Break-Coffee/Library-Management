@@ -1,9 +1,5 @@
 <?php
-@session_start();
-if(false){
-    
-}
-else {
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,21 +10,39 @@ else {
     <title>Library</title>
     <link rel="stylesheet" href="bootstrap.css">
     <style>
+        @font-face
+        {
+            font-family: HeadingBold;
+            src: url(BebasNeue-Bold.ttf);
+        }
+        @font-face
+        {
+            font-family: HeadingRegular;
+            src: url(BebasNeue-Regular.ttf);
+        }
+        #logoutbtn:hover
+        {
+            border: 2px 2px solid aliceblue;
+        }
+        #container
+        {
+            background: url(library.jpg);
+            background-repeat: repeat-y ;
+            background-position: center;
+            background-size: cover;
+            width:100%;
+            height:769px;
+        }
         .heading
         {
             font-family: HeadingBold;
             background-color: #092435;
             color: #bbf0e8;
         }
-        @font-face {
-            font-family: HeadingBold;
-            src: url(BebasNeue-Bold.ttf);
+        body 
+        {
+            overflow: hidden;
         }
-        @font-face {
-            font-family: HeadingRegular;
-            src: url(BebasNeue-Regular.ttf);
-        }
-    
         #contain
         {
             background: url(library.jpg);
@@ -48,13 +62,22 @@ else {
         }
         .hovered:hover
         {
-            cursor: pointer;
-            background-color: #5cdb95;
-            color:#05386b;
+            cursor: pointer !important;
+            background-color: #61908a !important;
+            color:#092435 !important;
+        }
+        .dropdown_hover:hover
+        {
+            background-color: #092435;
+            color: aliceblue;
+        }
+        .hovered:focus
+        {
+            color: #61908a;
         }
         .hovered
         {
-            color:#5cdb95;
+            color:#61908a;
         }
         [value="Student"]:hover
         {
@@ -75,7 +98,11 @@ else {
             <h1>Library</h1>
             <form id="Student" method="post" action="student.html" target="_blank">
                 <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
-            </form></div>
+            </form>
+            <form id="logout" method="post" action="Logout.php" style="display:none;">
+                <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
+            </form>
+        </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Devi Ahilya<br>Vishva Vidyalaya</h1>
         </div>
@@ -100,33 +127,29 @@ else {
         </div>
     </div>
 </body>
-<script src="bootstrap.bundle.js"></script>
 <script src="Jquery.js"></script>
-<script>
-    $(document).ready(function()
+<?php
+    if(!empty($_SESSION["TEMP"]))
     {
-        $("#login").submit(function(e)
-        {
-            e.preventDefault();
-            $.ajax(
-            {
-                method: "post",
-                url: "Login.php",
-                data: $(this).serialize(),
-                datatype: "text",
-                success: function(Result)
+            echo'
+            <script>
+                $.ajax(
                 {
-                    $("body").html(Result);
-                }
-            });
-        });
-    });
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('beforeunload',(e)=>
-    {
-        e.preventDefault();
-        e.returnValue="";
-    });
-</script>
+                    method: "post",
+                    url: "Main2.php",
+                    data: $(this).serialize(),
+                    datatype: "text",
+                    success: function(Result)
+                    {
+                        document.getElementById("Student").style.display="none";
+                        document.getElementById("logout").style.display="block";
+                        $("#contain").html(Result);
+                    }
+                });
+            </script>
+            ';
+    }
+?>
+<script src="bootstrap.bundle.js"></script>
+<script src="index.js"></script>
 </html>
-<?php }  ?>
