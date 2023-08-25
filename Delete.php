@@ -41,11 +41,11 @@ else
     {
         $sql="DELETE from books where Book_No = '$bookno';";
         $result=$conn->query($sql);
-        if($result)        echo '
-        <div id="dialog4" style="color:red;" title="Notification">
+        if($result)        echo "
+        <div id='dialog4' style='color:red;' title='Notification'>
             <p>Book $bookno Deleted Succesfully</p>
         </div>
-        '; 
+        "; 
         else echo $conn->error;
     }
     else if(!$bookExist)

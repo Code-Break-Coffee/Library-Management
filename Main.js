@@ -1,8 +1,6 @@
-//------------------------------------------------------------------------------delete
-
 document.getElementById("d").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
         container.innerHTML=`
         <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -48,7 +46,7 @@ document.getElementById("d").addEventListener("click",()=>
 
 document.getElementById("i").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -100,7 +98,7 @@ document.getElementById("i").addEventListener("click",()=>
 
 document.getElementById("r").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -149,7 +147,7 @@ document.getElementById("r").addEventListener("click",()=>
 
 document.getElementById("au").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -200,7 +198,7 @@ document.getElementById("au").addEventListener("click",()=>
 
 document.getElementById("me").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -257,7 +255,7 @@ document.getElementById("me").addEventListener("click",()=>
 
 document.getElementById("ins").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -363,7 +361,7 @@ document.getElementById("ins").addEventListener("click",()=>
 
 document.getElementById("s").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -439,7 +437,7 @@ document.getElementById("s").addEventListener("click",()=>
 
 document.getElementById("m").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
@@ -520,7 +518,7 @@ document.getElementById("m").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
-                    $( "#dialog6" ).dialog( "destroy" );
+                    $("#dialog6").dialog( "destroy" );
                     $("#response6").html(Result);
                     $("#dialog6").dialog();
                 }
@@ -531,24 +529,6 @@ document.getElementById("m").addEventListener("click",()=>
 
 //----------------------------------------------------------------------logout
 
-$(document).ready(function()
-{
-    $("#logout").submit(function(e)
-    {
-        e.preventDefault();
-        $.ajax(
-        {
-            method: "post",
-            url: "Logout.php",
-            data: $(this).serialize(),
-            dataType: "text",
-            success: function(Result)
-            {
-                $("body").html(Result);
-            }
-        });
-    }); 
-});
 let s=0;
 let interval=setInterval(frame,1000);
 function frame()
@@ -563,7 +543,7 @@ function frame()
             datatype: "text",
             success: function(Result)
             {
-                $("body").html(Result);
+                $("html").html(Result);
             }
         });
     }
@@ -583,7 +563,7 @@ function frame()
 
 document.getElementById("admin_panel").addEventListener("click",()=>
 {
-    let container=document.getElementById("contain");
+    let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
