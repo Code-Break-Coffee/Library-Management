@@ -1,7 +1,7 @@
 <?php
-session_start();
+@session_start();
 unset($_SESSION["username"]);
-session_destroy();
-include "index.php";
-echo "<script>window.location.reload();</script>";
+unset($_SESSION["TEMP"]);
+@session_destroy();
+header("Location: /LibraryManagement/index.php");
 ?>

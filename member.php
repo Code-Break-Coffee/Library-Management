@@ -11,7 +11,6 @@ if(!$v)
 }
 else
 {
-    echo "hola again";
 
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {
