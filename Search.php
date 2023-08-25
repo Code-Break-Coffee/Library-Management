@@ -10,14 +10,17 @@ else
     function Book_No($bno)
     {
         include "dbconnect.php";
-        $sql="SELECT * from books;";
+        $sql="SELECT * from books where Book_No = $bno;";
         $result = $conn->query($sql);
-        while($row=$result->fetch_assoc())
+        if(mysqli_num_rows($result)>0)
         {
-            if($row["Book_No"] == $bno)       
+            while($row=$result->fetch_assoc())
             {
-                $result->data_seek(0);
-                return true;
+                if($row["Book_No"] == $bno)       
+                {
+                    $result->data_seek(0);
+                    return true;
+                }
             }
         }
         $result->data_seek(0);
@@ -32,7 +35,8 @@ else
         $result=$conn->query($sql);
         if($result)
         {
-            echo "<table class='table table-responsive table-bordered table-dark table-striped'>
+            echo "
+            <div style='width:100%;overflow:auto;height:650px;'><table>
             <tr>
             <th>B No.</th>
             <th>Title</th>
@@ -40,7 +44,8 @@ else
             <th>Author</th>
             <th>Author</th>
             <th>Author</th>
-            </tr>";
+            </tr>
+            <tbody>";
             $count=0;
             while($row=$result->fetch_assoc())
             {
@@ -57,7 +62,8 @@ else
                 </tr>
                 ";
             }
-            echo"</table>";
+            echo"
+            </tbody></table></div>";
         }
         else echo $conn->error;
     }
@@ -70,7 +76,8 @@ else
         $result=$conn->query($sql);
         if($result)
         {
-            echo "<table class='table table-responsive table-bordered table-dark table-striped'>
+            echo "
+            <div style='width:100%;overflow:auto;height:650px;'><table>
             <tr>
             <th>B No.</th>
             <th>Title</th>
@@ -78,7 +85,8 @@ else
             <th>Author 1</th>
             <th>Author 2</th>
             <th>Author 3</th>
-            </tr>";
+            </tr>
+            <tbody>";
             $count=0;
             while($row=$result->fetch_assoc())
             {
@@ -95,7 +103,7 @@ else
                 </tr>
                 ";
             }
-            echo"</table>";
+            echo"</tbody></table></div>";
         }
         else echo $conn->error;
     }
@@ -108,7 +116,7 @@ else
         $sql="SELECT Status from books where Book_No = $bno;";
         $result=$conn->query($sql);
         $f=0;
-        if($result)
+        if($result && mysqli_num_rows($result)>0)
         {
             while($row=$result->fetch_assoc())
             {
@@ -116,16 +124,38 @@ else
             }
             if($f==1)
             {
-                if($Search){}
-                else echo "";
+                if($Search) echo"
+                <div id='dialog' style='color:green;' title='Available ✅'>
+                    <p><center>Book $bno is Available and can be Issued!!!</center></p>
+                </div>";
+                else echo "
+                <div id='dialog' style='color:red;' title='Not Found 🤡'>
+                    <p><center>Book $bno does not Exist</center></p>
+                </div>";
             }
             else
             {
-                if($Search) echo "";
-                else echo ""; 
+                if($Search) echo "
+                <div id='dialog' style='color:red;' title='Not Available ❌'>
+                    <p><center>Book $bno is been Issued already!!!</center></p>
+                </div>";
+                else echo "
+                <div id='dialog' style='color:red;' title='Not Found ❌'>
+                    <p><center>Book $bno does not Exist</center></p>
+                </div>"; 
             }
         }
-        else echo $conn->error;
+        else if(!$result) echo "
+        <div id='dialog' style='color:red;' title='Error ❌'>
+            <p><center>$conn->error</center></p>
+        </div>";
+        else
+        {
+            echo "
+            <div id='dialog' style='color:red;' title='Not Found ❌'>
+                <p><center>Book $bno does not Exist</center></p>
+            </div>";
+        }
     }
     else if(filter_input(INPUT_POST,"soption")=="Title")
     {
