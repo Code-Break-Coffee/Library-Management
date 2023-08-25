@@ -110,7 +110,7 @@ if($checkedb)
                     $update_book = $conn->query($sql_UpdateB);
 
                     if($update_book)echo "
-                    <div id='dialog1' style='color:green;' title='notification'>
+                    <div id='dialog1' style='color:green;' title='✅Successful'>
                         <p><center>Book Issued By Member $m Succesfull!</center></p>
                     </div>
                     "; 
@@ -124,7 +124,7 @@ if($checkedb)
             else
             {
                 echo "
-                <div id='dialog1' style='color:red;' title='Not Allowed'>
+                <div id='dialog1' style='color:red;' title='⚠️Error'>
                     <p><center>Book Issue Not Allowed!!</center></p>
                 </div>
                 "; 
@@ -138,7 +138,7 @@ if($checkedb)
     else
     {
         echo "
-        <div id='dialog1' style='color:red;' title='Member Not Found'>
+        <div id='dialog1' style='color:red;' title='⚠️Member Not Found'>
             <p><center>Member $m Not Found</center></p>
         </div>
         "; 
@@ -147,7 +147,7 @@ if($checkedb)
 else
 {
     echo "
-    <div id='dialog1' style='color:red;' title='Book Not Available'>
+    <div id='dialog1' style='color:red;' title='⚠️Book Not Available'>
         <p><center>Book $b Is Not Availabe</center></p>
     </div>
     "; 

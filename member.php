@@ -44,7 +44,7 @@ else
                 if($count==0)
                 {
                     echo "
-                    <div id='dialog6' style='color:green;' title='Success'>
+                    <div id='dialog6' style='color:green;' title='✅Success'>
                         <p><center>Member $memberId has NO-DUES</center></p>
                     </div>";
                 }
