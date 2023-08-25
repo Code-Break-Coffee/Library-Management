@@ -29,7 +29,7 @@ else
             {
                 $flag=1;
                 echo "
-                <div id='dialog4' style='color:red;' title='notification'>
+                <div id='dialog4' style='color:red;' title='⚠️Error'>
                     <p><center>Book $bookno is been issued by ".$row["Issue_By"]." so it cannot be deleted!!!</center></p>
                 </div>
                 "; 
@@ -42,7 +42,7 @@ else
         $sql="DELETE from books where Book_No = '$bookno';";
         $result=$conn->query($sql);
         if($result)        echo '
-        <div id="dialog4" style="color:red;" title="Notification">
+        <div id="dialog4" style="color:green;" title="✅Successful">
             <p>Book $bookno Deleted Succesfully</p>
         </div>
         '; 
@@ -51,7 +51,7 @@ else
     else if(!$bookExist)
     {
         echo "
-        <div id='dialog4' style='color:red;' title='notification'>
+        <div id='dialog4' style='color:red;' title='⚠️Error'>
             <p>Book $bookno does not exist</p>
         </div>
         "; 

@@ -54,14 +54,14 @@ else
             {
                 $flag=1;
                 echo "
-                <div id='dialog3' style='color:red;' title='Not Allowed'>
+                <div id='dialog3' style='color:red;' title='⚠️Error'>
                     <p><center>Book $bookno Already Present</center></p>
                 </div>
                 "; }
         }
     }
     else echo "
-    <div id='dialog3' style='color:red;' title='Not Allowed'>
+    <div id='dialog3' style='color:red;' title='⚠️Error'>
         <p><center>$conn->error</center></p>
     </div>
     "; 
@@ -74,14 +74,14 @@ else
         if($result)
         {
             echo "
-            <div id='dialog3' style='color:green;' title='Successful'>
+            <div id='dialog3' style='color:green;' title='✅Successful'>
                 <p><center>Book Inserted Successfully</center></p>
             </div>
             "; }
         else
         {
             echo "
-            <div id='dialog3' style='color:red;' title='Not Allowed'>
+            <div id='dialog3' style='color:red;' title='⚠️Error'>
                 <p><center>$conn->error</center></p>
             </div>
             "; 

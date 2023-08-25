@@ -123,7 +123,7 @@ else
                 else
                 {
                     echo "
-                    <div id='dialog2' style='color:red;' title='Not Allowed'>
+                    <div id='dialog2' style='color:red;' title='⚠️Not Allowed'>
                         <p><center>Book $b Return Not Allowed!!</center></p>
                     </div>
                     "; 
@@ -136,7 +136,7 @@ else
         }
         else
         {
-            echo "<div id='dialog2' style='color:red;' title='notification'>
+            echo "<div id='dialog2' style='color:red;' title='⚠️Error'>
                     <p><center>Member $m not found</center></p>
                 </div>";
         }
@@ -144,7 +144,7 @@ else
     else
     {
         echo "
-        <div id='dialog2' style='color:red;' title='notification'>
+        <div id='dialog2' style='color:red;' title='⚠️Error'>
             <p><center>Book $b is not issued or $m is Incorrect</center></p>
         </div>
         "; 
