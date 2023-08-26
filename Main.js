@@ -539,19 +539,9 @@ let s=0;
 let interval=setInterval(frame,1000);
 function frame()
 {
-    if(s===5)
+    if(s===300)
     {
-        $.ajax(
-        {
-            method: "post",
-            url: "Logout.php",
-            data: $(this).serialize(),
-            datatype: "text",
-            success: function(Result)
-            {
-                $("html").html(Result);
-            }
-        });
+        window.open("Logout.php","_self");
     }
     document.addEventListener('mousemove',()=>
     {
