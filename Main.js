@@ -515,7 +515,10 @@ document.getElementById("m").addEventListener("click",()=>
         $("#memberform").submit(function(e)
         {
             e.preventDefault();
-
+            container.innerHTML +=`<?php>
+            @session_start();
+            $_SESSION["File"] = "HI";    
+            ?>`;
             $.ajax(
             {
                 method: "post",
@@ -539,7 +542,7 @@ let s=0;
 let interval=setInterval(frame,1000);
 function frame()
 {
-    if(s===5)
+    if(s===300)
     {
         $.ajax(
         {

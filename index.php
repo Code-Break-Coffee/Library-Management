@@ -167,7 +167,7 @@ $_SESSION["File"] = "Index.php";
                 $.ajax(
                 {
                     method: "post",
-                    url: "Main2.php",
+                    url: "Main.php",
                     data: $(this).serialize(),
                     datatype: "text",
                     success: function(Result)
