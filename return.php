@@ -111,19 +111,22 @@ else
                     {
                         echo "
                         <div id='dialog2' style='color:green;' title='Success'>
-                            <p><center>Book Issue Successfully!!</center></p>
+                            <p><center>Book $b Returned Successfully!!</center></p>
                         </div>
                         "; 
                     }
                     else
                     {
-                        echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
+                        echo "
+                        <div id='dialog2' style='color:red;' title='Error ❌'>
+                            <p><center>$conn->error</center></p>
+                        </div>";
                     }        
                 }
                 else
                 {
                     echo "
-                    <div id='dialog2' style='color:red;' title='⚠️Not Allowed'>
+                    <div id='dialog2' style='color:red;' title='Not Allowed ❌'>
                         <p><center>Book $b Return Not Allowed!!</center></p>
                     </div>
                     "; 
@@ -131,20 +134,24 @@ else
             }
             else
             {
-                echo "<div style='position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red;'><center>$conn->error</center></div>";
+                echo "
+                <div id='dialog2' style='color:red;' title='Error ❌'>
+                    <p><center>$conn->error</center></p>
+                </div>";
             }
         }
         else
         {
-            echo "<div id='dialog2' style='color:red;' title='⚠️Error'>
-                    <p><center>Member $m not found</center></p>
-                </div>";
+            echo "
+            <div id='dialog2' style='color:red;' title='Notification ❌'>
+                <p><center>Member $m not found</center></p>
+            </div>";
         }
     }
     else
     {
         echo "
-        <div id='dialog2' style='color:red;' title='⚠️Error'>
+        <div id='dialog2' style='color:red;' title='Notification ❌'>
             <p><center>Book $b is not issued or $m is Incorrect</center></p>
         </div>
         "; 

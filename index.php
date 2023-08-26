@@ -83,6 +83,36 @@ session_start();
         {
             border: 2px solid aliceblue;
         }
+        table 
+        {
+            background: #012B39;
+            border-radius: 0.25em;
+            border-collapse: collapse;
+        }
+        th 
+        {
+            border-bottom: 1px solid #364043;
+            color: #E2B842;
+            text-align: center;
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 0.5em 1em;
+        }
+        td 
+        {
+            color: #fff;
+            text-align: center;
+            font-weight: 400;
+            padding: 0.65em 1em;
+        }
+
+        tbody tr 
+        {
+            transition: background 0.25s ease;
+        }
+        tbody tr:hover {
+            background: #014055;
+        }
     </style>
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">
