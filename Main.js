@@ -544,17 +544,7 @@ function frame()
 {
     if(s===300)
     {
-        $.ajax(
-        {
-            method: "post",
-            url: "Logout.php",
-            data: $(this).serialize(),
-            datatype: "text",
-            success: function(Result)
-            {
-                $("html").html(Result);
-            }
-        });
+        window.open("Logout.php","_self");
     }
     document.addEventListener('mousemove',()=>
     {

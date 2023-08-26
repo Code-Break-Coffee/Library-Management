@@ -141,7 +141,7 @@ $_SESSION["File"] = "Index.php";
     </center>
     <div id="contain">
         <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <div style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <form id="login" method="post" action="" autocomplete="off">
                     <center>
                         <h1 style="color:aliceblue;">Login Page</h1>
