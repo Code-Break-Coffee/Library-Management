@@ -9,7 +9,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 {
     $user=$_POST["username"];
     $pass=$_POST["password"];
-    
+  
     $sql="SELECT * from admin where Username = '$user';";
     $result=$conn->query($sql);
     $flag = 0;
@@ -17,7 +17,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
     {
         while($row=$result->fetch_assoc())
         {
-            if($row["Username"] == $user && $row["Password"] == $pass)
+            if($row["Username"] == $user && password_verify("$user"."$pass", $row["Password"]))
             {
                 $_SESSION["username"]=$user;
                 $flag = 1;

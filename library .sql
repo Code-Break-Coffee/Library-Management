@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 22, 2023 at 10:17 AM
+-- Generation Time: Aug 26, 2023 at 08:52 AM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -31,7 +31,6 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `Username` varchar(20) NOT NULL,
   `Password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Log` varchar(40) DEFAULT NULL,
   `User_level` varchar(10) NOT NULL,
   PRIMARY KEY (`Username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -40,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`Username`, `Password`, `Log`, `User_level`) VALUES
-('admin', '12345678', NULL, 'Admin'),
-('admin1', '12345678', NULL, 'Assistent');
+INSERT INTO `admin` (`Username`, `Password`, `User_level`) VALUES
+('admin', '$2y$10$0Qcfoc394YkzFWpvuZx9y.9UOv1iehsmu5rTB54dcZgBS2.KaIYxW', 'Admin'),
+('admin1', '$2y$10$0Qcfoc394YkzFWpvuZx9y.9UOv1iehsmu5rTB54dcZgBS2.KaIYxW', 'Assistant');
 
 -- --------------------------------------------------------
 
@@ -74,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 
 INSERT INTO `books` (`Book_No`, `Author1`, `Author2`, `Author3`, `Title`, `Edition`, `Publisher`, `Cl_No`, `Total_Pages`, `Cost`, `Supplier`, `Bill_No`, `Status`) VALUES
 ('20', 'Nathkhat Kothari', 'Tanishq smuggler', 'NPC', 'CPP', '0', 'Smuggler.org', 0, 696, 6000, NULL, NULL, 'Available'),
-('21', 'Nathkhat Kothari', 'Tanishq smuggler', 'NPC', 'Java', '1', 'Smuggler.org', 1, 696, 6000, NULL, NULL, 'Available'),
+('21', 'Nathkhat Kothari', 'Tanishq smuggler ', 'NPC', 'Java', '1', 'Smuggler.org', 1, 696, 6000, NULL, NULL, 'Available'),
 ('19', 'Nathkhat Kothari', 'Tanishq smuggler', 'NPC', 'Fluter', '9', 'Smuggler.org', 9, 696, 6000, NULL, NULL, 'Available'),
 ('18', 'Nathkhat Kothari', 'Tanishq smuggler', 'NPC', 'Android', '8', 'Smuggler.org', 8, 696, 6000, NULL, NULL, 'Available'),
 ('17', 'Nathkhat Kothari', 'Tanishq smuggler', 'NPC', 'React', '7', 'Smuggler.org', 7, 696, 6000, NULL, NULL, 'Available'),
@@ -184,81 +183,81 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 --
 
 INSERT INTO `faculty` (`Faculty_ID`, `Faculty_Name`, `Faculty_Type`, `Faculty_Fatherorhusband`) VALUES
-('FID75', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID74', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID73', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID72', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID71', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID70', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID69', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID68', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID67', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID66', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID65', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID64', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID63', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID62', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID61', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID60', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID59', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID58', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID57', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID56', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID55', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID54', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID53', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID52', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID51', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID50', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID49', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID48', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID47', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID46', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID45', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID44', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID43', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID42', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID41', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID40', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID39', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID38', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID37', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID36', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID35', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID34', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID33', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID32', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID31', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID30', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID29', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID28', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID27', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID26', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID25', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID24', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID23', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID22', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID21', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID20', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID19', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID18', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID17', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID16', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID15', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID14', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID13', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID12', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID11', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID10', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID09', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID08', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID07', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID06', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID05', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID04', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID03', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID02', 'Nathkhat teacher', 'Assistent', 'NA'),
-('FID01', 'Nathkhat teacher', 'Assistent', 'NA');
+('FID-01', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-02', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-03', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-04', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-05', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-06', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-07', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-08', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-09', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-10', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-11', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-12', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-13', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-14', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-15', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-16', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-17', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-18', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-19', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-20', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-21', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-22', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-23', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-24', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-25', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-26', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-27', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-28', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-29', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-30', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-31', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-32', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-33', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-34', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-35', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-36', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-37', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-38', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-39', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-40', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-41', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-42', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-43', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-44', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-45', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-46', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-47', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-48', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-49', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-50', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-51', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-52', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-53', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-54', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-55', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-56', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-57', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-58', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-59', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-60', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-61', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-62', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-63', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-64', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-65', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-66', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-67', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-68', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-69', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-70', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-71', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-72', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-73', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-74', 'Nathkhat teacher', 'Assistent', 'NA'),
+('FID-75', 'Nathkhat teacher', 'Assistent', 'NA');
 
 -- --------------------------------------------------------
 
@@ -297,31 +296,7 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`Member_ID`, `MemberType`) VALUES
-('FID25', 'Faculty'),
-('FID24', 'Faculty'),
-('FID23', 'Faculty'),
-('FID22', 'Faculty'),
-('FID21', 'Faculty'),
-('FID20', 'Faculty'),
-('FID19', 'Faculty'),
-('FID18', 'Faculty'),
-('FID17', 'Faculty'),
-('FID16', 'Faculty'),
-('FID15', 'Faculty'),
-('FID14', 'Faculty'),
-('FID13', 'Faculty'),
-('FID12', 'Faculty'),
-('FID11', 'Faculty'),
-('FID10', 'Faculty'),
-('FID09', 'Faculty'),
-('FID08', 'Faculty'),
-('FID07', 'Faculty'),
-('FID06', 'Faculty'),
-('FID05', 'Faculty'),
-('FID04', 'Faculty'),
-('FID03', 'Faculty'),
-('FID02', 'Faculty'),
-('FID01', 'Faculty'),
+('FID-01', 'Faculty'),
 ('IT2K2125', 'Student'),
 ('IT2K2124', 'Student'),
 ('IT2K2123', 'Student'),
@@ -346,7 +321,31 @@ INSERT INTO `member` (`Member_ID`, `MemberType`) VALUES
 ('IT2K2104', 'Student'),
 ('IT2K2103', 'Student'),
 ('IT2K2102', 'Student'),
-('IT2K2101', 'Student');
+('IT2K2101', 'Student'),
+('FID-02', 'Faculty'),
+('FID-03', 'Faculty'),
+('FID-04', 'Faculty'),
+('FID-05', 'Faculty'),
+('FID-06', 'Faculty'),
+('FID-07', 'Faculty'),
+('FID-08', 'Faculty'),
+('FID-09', 'Faculty'),
+('FID-10', 'Faculty'),
+('FID-11', 'Faculty'),
+('FID-12', 'Faculty'),
+('FID-13', 'Faculty'),
+('FID-14', 'Faculty'),
+('FID-15', 'Faculty'),
+('FID-16', 'Faculty'),
+('FID-17', 'Faculty'),
+('FID-18', 'Faculty'),
+('FID-19', 'Faculty'),
+('FID-20', 'Faculty'),
+('FID-21', 'Faculty'),
+('FID-22', 'Faculty'),
+('FID-23', 'Faculty'),
+('FID-24', 'Faculty'),
+('FID-25', 'Faculty');
 
 -- --------------------------------------------------------
 
@@ -455,6 +454,7 @@ CREATE TABLE IF NOT EXISTS `temp_keys` (
   `Username` varchar(20) NOT NULL,
   `Key_Session` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `Log` varchar(40) DEFAULT NULL,
+  `Log2` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -462,8 +462,9 @@ CREATE TABLE IF NOT EXISTS `temp_keys` (
 -- Dumping data for table `temp_keys`
 --
 
-INSERT INTO `temp_keys` (`Username`, `Key_Session`, `Log`) VALUES
-('admin', '$2y$10$ceOU6nZOCgIo7o.lyun9yOIWvVyQmy2PlDT2JB1M7zNFV/udm7PSW', 'Sat, 12 Aug 2023 19:26:14 +0530');
+INSERT INTO `temp_keys` (`Username`, `Key_Session`, `Log`, `Log2`) VALUES
+('admin', '$2y$10$rry7Mpu9FN0LSZwofgLDKOuFY9mgjci/yHXg8WInVtWBCkioM5SJ6', 'Sat, 26 Aug 2023 14:14:53 +0530', '23086261453'),
+('admin1', NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
