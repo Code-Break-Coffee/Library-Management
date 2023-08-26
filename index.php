@@ -1,5 +1,6 @@
 <?php
-session_start();
+@session_start();
+$_SESSION["File"] = "Index.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,11 +1,12 @@
 <?php
 @session_start();
-if(empty($_SESSION["username"]))
+if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 {
     header("Location: /LibraryManagement/index.php");
 }
 else
 {
+    $_SESSION["File"] = "Main2.php";
     $_SESSION["TEMP"] = "987";
     ?>
                     <!--navbar-->

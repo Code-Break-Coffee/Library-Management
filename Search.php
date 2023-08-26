@@ -1,12 +1,13 @@
 <?php
-
-date_default_timezone_set("Asia/Kolkata");
-if(empty($_POST["bookno"]) && empty($_POST["author"]) && empty($_POST["title"]))
+@session_start();
+include "auth.php";
+if(!verification())
 {
     header("Location: /LibraryManagement/index.php");
 }
 else
 {
+    date_default_timezone_set("Asia/Kolkata");
     function Book_No($bno)
     {
         include "dbconnect.php";

@@ -1,17 +1,17 @@
 <?php
-
+@session_start();
 include "dbconnect.php";
-
-date_default_timezone_set("Asia/Kolkata");
-$doi = date("Y/m/d");
-$Available=true;
-$sql_mt;
-if(empty($_POST["bookno"]) || empty($_POST["memberid"]) || empty($_POST["membertype"]))
+include "auth.php";
+if(!verification())
 {
     header("Location: /LibraryManagement/index.php");
 }
 else
 {
+    date_default_timezone_set("Asia/Kolkata");
+    $doi = date("Y/m/d");
+    $Available=true;
+    $sql_mt;
     $b=$_POST["bookno"];
     $m=$_POST["memberid"];
     $m = strtoupper($m);

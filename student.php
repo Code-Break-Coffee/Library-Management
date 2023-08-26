@@ -1,6 +1,11 @@
 <?php
 session_start();
 include "dbconnect.php";
+include "auth.php";
+if(!verification())
+{
+    header("Location: /LibraryManagement/index.php");
+}
 
 if(!empty($_POST["data"]))
 {

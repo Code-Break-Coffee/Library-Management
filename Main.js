@@ -533,7 +533,7 @@ let s=0;
 let interval=setInterval(frame,1000);
 function frame()
 {
-    if(s===300)
+    if(s===5)
     {
         $.ajax(
         {

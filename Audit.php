@@ -1,4 +1,10 @@
 <?php
+@session_start();
+include "auth.php";
+if(!verification())
+{
+    header("Location: /LibraryManagement/index.php");
+}
 
 date_default_timezone_set("Asia/Kolkata");
 

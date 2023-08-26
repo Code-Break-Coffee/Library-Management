@@ -1,9 +1,8 @@
 <?php
+@session_start();
 include "dbconnect.php";
-
-if(empty($_POST["bookno"]) || empty($_POST["title"]) || empty($_POST["edition"]) || 
-empty($_POST["author1"]) || empty($_POST["publisher"])||
-empty($_POST["totalpages"]))
+include "auth.php";
+if(!verification())
 {
     header("Location: /LibraryManagement/index.php");
 }

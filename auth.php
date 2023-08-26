@@ -20,7 +20,6 @@
                 $hash = $row["Key_Session"];
                 $d = $row["Log2"];
             }
-            // echo "$u $log $hash $d";
         }
         return password_verify("$u"."$log"."$d", $hash);
     }
