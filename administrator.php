@@ -1,0 +1,45 @@
+<?php
+include "dbconnect.php";
+$user=$_POST["admin_user"];
+$password=$_POST["admin_pass"];
+$pass_confirm=$_POST["admin_pass_conf"];
+function password_check($p,$pc)
+{
+    if($p==$pc)
+    {
+        return true;
+    }
+    return false;
+}
+
+if(password_check($password,$pass_confirm)){
+    $stat="INSERT INTO admin VALUES('$user','$password','Assistant');";
+    $stat1="INSERT INTO temp_keys(Username) VALUES('$user');";
+    $result=$conn->query($stat);
+    $result1=$conn->query($stat1);
+    if($result)
+    {
+        echo "
+        <div id='dialog_adminstrator' style='color:green;' title='✅Successful'>
+            <p><center>Admin Created Successfully</center></p>
+        </div>
+        ";
+    }
+    else{
+        echo "
+        <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
+            <p><center>$conn->error</center></p>
+        </div>
+        "; 
+    }
+}
+else
+{
+    echo "
+    <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
+        <p><center>Confirmation Password Is Not Same as Password</center></p>
+    </div>
+    "; 
+}
+
+?>
