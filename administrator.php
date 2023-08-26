@@ -12,8 +12,14 @@ function password_check($p,$pc)
     return false;
 }
 
+function PHash($use,$pass)
+{
+    return password_hash("$use"."$pass", PASSWORD_BCRYPT);
+}
+
 if(password_check($password,$pass_confirm)){
-    $stat="INSERT INTO admin VALUES('$user','$password','Assistant');";
+    $p = PHash($user,$password);
+    $stat="INSERT INTO admin VALUES('$user','$p','Assistant');";
     $stat1="INSERT INTO temp_keys(Username) VALUES('$user');";
     $result=$conn->query($stat);
     $result1=$conn->query($stat1);
@@ -21,7 +27,7 @@ if(password_check($password,$pass_confirm)){
     {
         echo "
         <div id='dialog_adminstrator' style='color:green;' title='✅Successful'>
-            <p><center>Admin Created Successfully</center></p>
+            <p><center>User Created Successfully</center></p>
         </div>
         ";
     }
