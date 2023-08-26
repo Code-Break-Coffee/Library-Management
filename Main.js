@@ -582,9 +582,9 @@ document.getElementById("admin_panel").addEventListener("click",()=>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
                     <label>Password:</label>
-                    <input required type="text" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required type="password" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <label>Confirm Password:</label>
-                    <input required type="text" name="admin_pass_conf" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required type="password" name="admin_pass_conf" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -592,4 +592,25 @@ document.getElementById("admin_panel").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response_adminstrator"></div>`;
+    $(document).ready(function()
+    {
+        $("#adminstrator").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "administrator.php",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_adminstrator" ).dialog( "destroy" );
+                    $("#response_adminstrator").html(Result);
+                    $("#dialog_adminstrator").dialog();
+                }
+            });
+        });
+    });
 });
+
