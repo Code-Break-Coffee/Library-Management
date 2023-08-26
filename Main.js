@@ -2,7 +2,7 @@ document.getElementById("d").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
         container.innerHTML=`
-        <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
                 <form id="deleteform" method="post" action="" autocomplete="off">
                     <center>
@@ -48,7 +48,7 @@ document.getElementById("i").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="issuebook" method="post" action="" autocomplete="off">
                 <center>
@@ -100,7 +100,7 @@ document.getElementById("r").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="returnform" method="post" action="" autocomplete="off">
                 <center>
@@ -149,7 +149,7 @@ document.getElementById("au").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="auform" method="post" action="" autocomplete="off">
                 <center>
@@ -200,7 +200,7 @@ document.getElementById("me").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="meform" method="post" action="" autocomplete="off">
                 <center>
@@ -257,7 +257,7 @@ document.getElementById("ins").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="insertform" method="post" action="" autocomplete="off">
                 <center>
@@ -363,7 +363,7 @@ document.getElementById("s").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="searchform" method="post" action="" autocomplete="off">
                 <center>
@@ -415,6 +415,7 @@ document.getElementById("s").addEventListener("click",()=>
         });
         $("#searchform").submit(function(e)
         {
+            let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
             $.ajax(
             {
@@ -426,6 +427,11 @@ document.getElementById("s").addEventListener("click",()=>
                 {
                     $( "#dialog" ).dialog( "destroy" );
                     $("#response5").html(Result);
+                    if(sval!=="Book No.")
+                    {
+                        document.getElementById("SearchField").style.transform="translate(-120%,-50%)";
+                        document.getElementById("response5").style.transform="translate(50%,-90%)";
+                    }
                     $("#dialog").dialog();
                 }
             });
@@ -439,7 +445,7 @@ document.getElementById("m").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="memberform" method="post" action="" autocomplete="off">
                 <center>
@@ -565,7 +571,7 @@ document.getElementById("admin_panel").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="adminstrator" method="post" action="" autocomplete="off">
                 <center>
