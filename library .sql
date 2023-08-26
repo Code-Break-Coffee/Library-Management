@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 26, 2023 at 07:34 AM
+-- Generation Time: Aug 26, 2023 at 08:52 AM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`Username`, `Password`, `User_level`) VALUES
-('admin', '12345678', 'Admin'),
-('admin1', '12345678', 'Assistant');
+('admin', '$2y$10$0Qcfoc394YkzFWpvuZx9y.9UOv1iehsmu5rTB54dcZgBS2.KaIYxW', 'Admin'),
+('admin1', '$2y$10$0Qcfoc394YkzFWpvuZx9y.9UOv1iehsmu5rTB54dcZgBS2.KaIYxW', 'Assistant');
 
 -- --------------------------------------------------------
 
@@ -463,7 +463,8 @@ CREATE TABLE IF NOT EXISTS `temp_keys` (
 --
 
 INSERT INTO `temp_keys` (`Username`, `Key_Session`, `Log`, `Log2`) VALUES
-('admin', '$2y$10$pWyLGB9dXsukGimCiURI0O8o9XqfglEBTP02DYsTlIKKzzmDHRZeO', 'Sat, 26 Aug 2023 13:01:54 +0530', '23086260154');
+('admin', '$2y$10$rry7Mpu9FN0LSZwofgLDKOuFY9mgjci/yHXg8WInVtWBCkioM5SJ6', 'Sat, 26 Aug 2023 14:14:53 +0530', '23086261453'),
+('admin1', NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
