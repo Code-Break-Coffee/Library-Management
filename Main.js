@@ -604,3 +604,57 @@ document.getElementById("admin_panel").addEventListener("click",()=>
     });
 });
 
+//------------------------------------  Delete Member
+
+
+document.getElementById("de").addEventListener("click",()=>
+{
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="del" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Delete Member ID</h1>
+                    <label>Member ID:</label>
+                    <input required type="text" name="del_mem" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Member ID"/><br>
+                    <label>Course:</label>
+                    <select name="del_course" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                        <option value="IT">MTech(IT) 5yrs</option>
+                        <option value="IC">MCA 5yrs</option>
+                        <option value="IB">B.com(H)</option>
+                        <option value="TA">MBA(T) 2yrs</option>
+                        <option value="TM">MBA(TM) 5yrs</option>
+                        <option value="FT">MBA(MS) 2yrs</option>
+                        <option value="IM">MBA(MS) 5yrs</option>
+                        <option value="AP">MBA(APR)</option>
+                        <option value="ES">MBA(E-SHIP)</option>
+                    </select><br>
+                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response_del"></div>`;
+    $(document).ready(function()
+    {
+        $("#del").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "mem_del.php",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_del" ).dialog( "destroy" );
+                    $("#response_del").html(Result);
+                    $("#dialog_del").dialog();
+                }
+            });
+        });
+    });
+});
