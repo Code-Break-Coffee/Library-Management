@@ -14,21 +14,20 @@ $doi_to=$_POST["to"];
 $doi_from=$_POST["from"];
 
 
-
-
 function show_table($stat)
 {
     include "dbconnect.php";
     $result=$conn->query($stat);
     if($result)
     {
-        echo "<table class='table table-responsive table-bordered table-dark table-striped'>
+        echo "<table>
         <tr>
         <th>Issue Bookno</th>
         <th>Issue By</th>
         <th>Issue Date</th>
         <th>Return Date</th>
-        </tr>";
+        </tr>
+        <tbody>";
         $count=0;
         while($row=$result->fetch_assoc())
         {
@@ -43,6 +42,8 @@ function show_table($stat)
             </tr>
             ";
         }
+        echo "</tbody>
+        </table>";
     }
     else
     {
