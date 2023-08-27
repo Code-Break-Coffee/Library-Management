@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
@@ -28,7 +29,7 @@ document.getElementById("d").addEventListener("click",()=>
                 {
                     method: "post",
                     url: "Delete.php",
-                    data: $(this).serialize(),
+                    data: $(this).serialize() + "&Access=" +"Main-Delete",
                     datatype: "text",
                     success: function(Result)
                     {
@@ -85,7 +86,7 @@ document.getElementById("i").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Issue.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Issue",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -133,8 +134,8 @@ document.getElementById("r").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Return.php",
-                data: $(this).serialize(),
+                url: "return.php",
+                data: $(this).serialize() + "&Access=" +"Main-return",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -186,7 +187,7 @@ document.getElementById("au").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Audit.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Audit",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -248,7 +249,7 @@ document.getElementById("me").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Membership.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Membership",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -354,7 +355,7 @@ document.getElementById("ins").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Insert.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Insert",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -448,7 +449,7 @@ document.getElementById("s").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Search.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Search",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -544,7 +545,7 @@ document.getElementById("m").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Member.php",
+                url: "member.php",
                 data: $(this).serialize() + "&Access=" +"Main-member",
                 datatype: "text",
                 success: function(Result)
@@ -613,7 +614,7 @@ document.getElementById("admin_panel").addEventListener("click",()=>
             {
                 method: "post",
                 url: "administrator.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-administrator",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -667,8 +668,8 @@ document.getElementById("de").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "mem_del.php",
-                data: $(this).serialize(),
+                url: "delete_member.php",
+                data: $(this).serialize() + "&Access=" +"Main-delete_member",
                 datatype: "text",
                 success: function(Result)
                 {

@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include "auth.php";
-if(!verification())
+if(!verification() || $_POST["Access"] != "Main-Audit" )
 {
     header("Location: /LibraryManagement/index.php");
 }
