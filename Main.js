@@ -60,7 +60,7 @@ document.getElementById("i").addEventListener("click",()=>
                     <input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty" style="color:aliceblue;"/><br><br>
                     
                     <label>Member ID:</label>
-                    <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+                    <input id="issuecheck" required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
 
                     <label>Book Number:</label>
                     <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
@@ -74,6 +74,10 @@ document.getElementById("i").addEventListener("click",()=>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response"></div>`;
     $(document).ready(function()
     {
+        $("#issuecheck").change(function()
+        {
+
+        });
         $("#issuebook").submit(function(e)
         {
             e.preventDefault();
@@ -177,6 +181,7 @@ document.getElementById("au").addEventListener("click",()=>
         $("#auform").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById("response7").style.display="block";
             $.ajax(
             {
                 method: "post",
@@ -436,6 +441,7 @@ document.getElementById("s").addEventListener("click",()=>
         });
         $("#searchform").submit(function(e)
         {
+            document.getElementById("response5").style.display="block";
             let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
             $.ajax(
