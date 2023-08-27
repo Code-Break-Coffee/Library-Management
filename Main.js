@@ -59,9 +59,16 @@ document.getElementById("i").addEventListener("click",()=>
                     <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
                     <input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty" style="color:aliceblue;"/><br><br>
                     
-                    <label>Member ID:</label>
-                    <input id="issuecheck" required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
-
+                    <div class="row">
+                        <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
+                            <label>Member ID:</label>
+                            <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
+                        </div>
+                        <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
+                            <input type="button" id="issuecheck" class="btn" value="Check" style="position:relative;top:23px;color:aliceblue;background-color: black;font-weight: bold;"/>
+                        </div>
+                    </div>
+                        <br>
                     <label>Book Number:</label>
                     <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
@@ -74,9 +81,21 @@ document.getElementById("i").addEventListener("click",()=>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response"></div>`;
     $(document).ready(function()
     {
-        $("#issuecheck").change(function()
+        $("#issuecheck").on('click',()=>
         {
-
+            $.ajax(
+            {
+                method: "post",
+                url: "",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $("#dialog1").dialog("destroy");
+                    $("#response").html(Result);
+                    $("#dialog1").dialog();
+                }
+            });
         });
         $("#issuebook").submit(function(e)
         {
