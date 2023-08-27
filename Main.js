@@ -166,12 +166,12 @@ document.getElementById("au").addEventListener("click",()=>
                     <label>To:</label>
                     <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
-                    <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;" id="resetsearch">Clear</button><br><br>
                 </center>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;height:769px;overflow:auto;" id="response7"></div>`;
+    <div style="font-weight: bold;" id="response7"></div>`;
     $(document).ready(function()
     {
         $("#auform").submit(function(e)
@@ -191,6 +191,11 @@ document.getElementById("au").addEventListener("click",()=>
                 }
             });
         });
+    });
+    $("#resetsearch").click(function()
+    {
+        document.getElementById("response7").style.display="none";
+        document.getElementById("aufield").style.transform="translate(-50%,-50%)";
     });
 });
 
@@ -376,7 +381,7 @@ document.getElementById("s").addEventListener("click",()=>
                     </select><br>
                     <div id="searchcontain"></div>
                     <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="bookno" placeholder='hola'/><br>
-                    <button type="submit" value="Search" class="btn" style="width:80px;background-color: #2B4F8D;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
+                    <button type="submit" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
             </form>
@@ -427,6 +432,7 @@ document.getElementById("s").addEventListener("click",()=>
         {
             document.getElementById("searchcontain").innerHTML="<label>Book Number:</label>";
             document.getElementById("response5").style.display="none";
+            document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
         });
         $("#searchform").submit(function(e)
         {

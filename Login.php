@@ -101,7 +101,6 @@ else
             </div>
         </div>
             `;
-            window.location.reload();
         </script>';
 }
 ?>
