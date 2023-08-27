@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="jquery-ui-1.13.2.custom\jquery-ui.css">
     <script src="jquery-ui-1.13.2.custom\jquery-ui.min.js"></script>
     <style>
+        .btn:hover
+        {
+            border: 2px solid aliceblue;
+        }
          @font-face
          {
             font-family: HeadingBold;
@@ -148,10 +152,10 @@
                 <h2 style="font-weight: bolder;color:#049CE4;text-shadow: 2px 2px #2B4F8D;">Search A Book</h2>
                 <br><br>
                 <form id="studentSearch" action="" method="post" style="color:aliceblue;">
-                    <div style="display: flex; justify-content: center; gap:5px">
-                    <div><input style="color:aliceblue;background-color: #011034;border-radius:5px;height:42px;border-color:black;border-style:solid;" required id="book_s" type="text" placeholder="Search book..." name="data"></div>
+                    <div style="display: flex; justify-content: center;gap:10px;">
+                    <div style="width:60%;"><input style="width:100%;color:aliceblue;background-color: #011034;border-radius:5px;height:42px;border-color:black;border-style:solid;" required id="book_s" type="text" placeholder="Search book..." name="data"></div>
                     <div><button type="submit" value="" class="btn" style="width:80px;background-color: #2B4F8D;"><img src="baseline_search_white_24dp.png" height="30px" width="30px" alt=""></button></div></div><br>
-                    <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:black;font-weight: bold;background: #eb3434;display: none;" value="Clear">
+                    <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:aliceblue;background-color:#800000;font-weight: bold;display: none;" value="Clear">
                 </form>
             </center>
         </div>
