@@ -652,7 +652,7 @@ document.getElementById("de").addEventListener("click",()=>
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="del" method="post" action="" autocomplete="off">
+            <form id="del1" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Delete Member ID</h1>
                     <label>Member ID:</label>
@@ -675,12 +675,13 @@ document.getElementById("de").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response_del"></div>`;
+    <div style="font-weight: bold;" id="response_del"></div>`;
     $(document).ready(function()
     {
-        $("#del").submit(function(e)
+        $("#del1").submit(function(e)
         {
             e.preventDefault();
+            
             $.ajax(
             {
                 method: "post",
@@ -689,6 +690,7 @@ document.getElementById("de").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    
                     $( "#dialog_del" ).dialog( "destroy" );
                     $("#response_del").html(Result);
                     $("#dialog_del").dialog();
