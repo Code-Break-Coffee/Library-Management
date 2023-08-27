@@ -436,13 +436,14 @@ document.getElementById("s").addEventListener("click",()=>
         });
         $("#resetsearch").click(function()
         {
+            let s=document.getElementById("B_Search");
             document.getElementById("searchcontain").innerHTML="<label>Book Number:</label>";
             document.getElementById("response5").style.display="none";
             document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
+            s.setAttribute('name','bookno');
         });
         $("#searchform").submit(function(e)
         {
-            document.getElementById("response5").style.display="block";
             let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
             $.ajax(
@@ -454,13 +455,9 @@ document.getElementById("s").addEventListener("click",()=>
                 success: function(Result)
                 {
                     $( "#dialog" ).dialog( "destroy" );
+                    document.getElementById("response5").style.display="block";
                     $("#response5").html(Result);
-                    if(sval!=="Book No.")
-                    {
-                        document.getElementById("SearchField").style.transform="translate(-120%,-50%)";
-                        document.getElementById("response5").style.transform="translate(50%,-90%)";
-                    }
-                    $("#dialog").dialog();
+                    $("#dialog").dialog();  
                 }
             });
         });

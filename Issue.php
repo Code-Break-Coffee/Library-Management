@@ -4,7 +4,7 @@ include "dbconnect.php";
 include "auth.php";
 if(!verification() || $_POST["Access"] != "Main-Issue" )
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 else
 {

@@ -2,7 +2,7 @@
 @session_start();
 if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 else
 {

@@ -3,7 +3,7 @@
 include "auth.php";
 if(!verification() || $_POST["Access"] != "Main-member" )
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 else
 {
