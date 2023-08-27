@@ -24,7 +24,7 @@ $(document).ready(function(){
         autoFocus: true,
         source: "Suggestions.php",
     });
-});
+}); 
 
 function cleared()
 {

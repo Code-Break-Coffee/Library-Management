@@ -62,7 +62,58 @@ else
                     </div>
                     <div id="container"></div>
                     <script src="./jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+                    <script src="./jquery-ui-1.13.2.custom/jquery-ui.css"></script>
                     <script src="Main.js"></script>
+                    <style>
+                        .ui-autocomplete {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            z-index: 1000;
+                            float: left;
+                            display: none;
+                            min-width: 160px;   
+                            padding: 4px 0;
+                            margin: 0 0 10px 25px;
+                            list-style: none;
+                            background-color: black;
+                            border-color: #ccc;
+                            border-color: rgba(0, 0, 0, 0.2);
+                            border-style: solid;
+                            color: white;
+                            border-width: 1px;
+                            -webkit-border-radius: 5px;
+                            -moz-border-radius: 5px;
+                            border-radius: 5px;
+                            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                            -webkit-background-clip: padding-box;
+                            -moz-background-clip: padding;
+                            background-clip: padding-box;
+                        }
+
+                        .ui-menu-item > a.ui-corner-all {
+                            display: block;
+                            padding: 3px 15px;
+                            clear: both;
+                            font-weight: normal;
+                            line-height: 18px;
+                            color: #555555;
+                            white-space: nowrap;
+                            text-decoration: none;
+                        }
+
+                        .ui-state-hover, .ui-state-active {
+                            color: #ffffff;
+                            text-decoration: none;
+                            background-color: #0088cc;
+                            border-radius: 0px;
+                            -webkit-border-radius: 0px;
+                            -moz-border-radius: 0px;
+                            background-image: none;
+                        }
+                    </style>
     <?php
 }
 ?>

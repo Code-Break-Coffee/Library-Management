@@ -118,6 +118,7 @@ $_SESSION["File"] = "Index.php";
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.theme.css">
+    <script src="jquery-ui-1.13.2.custom\jquery-ui.min.js"></script>
 </head>
 <body>
     <center>

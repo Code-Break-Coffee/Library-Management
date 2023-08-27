@@ -374,14 +374,21 @@ document.getElementById("s").addEventListener("click",()=>
                         <option value="Author">Author</option>
                         <option value="Title">Title</option>
                     </select><br>
-                    <div id="searchcontain"></div><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
+                    <div id="searchcontain"></div>
+                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="bookno" placeholder='hola'/><br>
+                    <button type="submit" value="Search" class="btn" style="width:80px;background-color: #2B4F8D;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
             </form>
         </div>
     </div>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response5"></div>`;
+    $(document).ready(function(){
+        $("#B_Search").autocomplete({
+            autoFocus: true,
+            source: "Suggestions.php",
+        });
+    });
     $(document).ready(function()
     {
         let sb=document.getElementById("sb");
@@ -389,29 +396,37 @@ document.getElementById("s").addEventListener("click",()=>
         let sc=document.getElementById("searchcontain");
         if(sval=="Book No.")
         {
-            sc.innerHTML=`<label>Book Number:</label><input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>`;
+            sc.innerHTML=`<label>Book Number:</label>`;
         }
         $("#sb").click(function()
         {
             let sb=document.getElementById("sb");
             let sval=sb.options[sb.selectedIndex].value;
             let sc=document.getElementById("searchcontain");
+            let si=document.getElementById("B_Search");
             if(sval=="Book No.")
             {
-                sc.innerHTML=`<label>Book Number:</label><input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>`;
+                si.setAttribute('placeholder','Enter or scan Book No.');
+                si.setAttribute('name','bookno');
+                sc.innerHTML=`<label>Book Number:</label>`;
             }
             if(sval=="Author")
             {
-                sc.innerHTML=`<label>Author:</label><input required type="text" name="author" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>`;
+                si.setAttribute('name','author');
+                si.setAttribute('placeholder','Enter Book Author.');
+                sc.innerHTML=`<label>Author:</label>`;
             }
             if(sval=="Title")
             {
-                sc.innerHTML=`<label>Title:</label><input required type="text" name="title" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>`;
+                si.setAttribute('name','title');
+                si.setAttribute('placeholder','Enter Book Title.');
+                sc.innerHTML=`<label>Title:</label>`;
             }
         });
         $("#resetsearch").click(function()
         {
-            document.getElementById("searchcontain").innerHTML="<label>Book Number:</label><input required type='text' name='bookno' class='form-control bg-dark' style='width:100%;color:aliceblue;' placeholder='Scan the Barcode or Enter Book No.'/>";
+            document.getElementById("searchcontain").innerHTML="<label>Book Number:</label>";
+            document.getElementById("response5").style.display="none";
         });
         $("#searchform").submit(function(e)
         {
@@ -438,7 +453,6 @@ document.getElementById("s").addEventListener("click",()=>
         });
     });
 });
-
 //----------------------------------------------------------------------------member
 
 document.getElementById("m").addEventListener("click",()=>
