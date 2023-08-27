@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
 {
     let container=document.getElementById("container");
@@ -28,7 +29,7 @@ document.getElementById("d").addEventListener("click",()=>
                 {
                     method: "post",
                     url: "Delete.php",
-                    data: $(this).serialize(),
+                    data: $(this).serialize() + "&Access=" +"Main-Delete",
                     datatype: "text",
                     success: function(Result)
                     {
@@ -59,9 +60,16 @@ document.getElementById("i").addEventListener("click",()=>
                     <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
                     <input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty" style="color:aliceblue;"/><br><br>
                     
-                    <label>Member ID:</label>
-                    <input id="issuecheck" required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
-
+                    <div class="row">
+                        <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
+                            <label>Member ID:</label>
+                            <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
+                        </div>
+                        <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
+                            <input type="button" id="issuecheck" class="btn" value="Check" style="position:relative;top:23px;color:aliceblue;background-color: black;font-weight: bold;"/>
+                        </div>
+                    </div>
+                        <br>
                     <label>Book Number:</label>
                     <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
@@ -74,9 +82,21 @@ document.getElementById("i").addEventListener("click",()=>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response"></div>`;
     $(document).ready(function()
     {
-        $("#issuecheck").change(function()
+        $("#issuecheck").on('click',()=>
         {
-
+            $.ajax(
+            {
+                method: "post",
+                url: "",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    $("#dialog1").dialog("destroy");
+                    $("#response").html(Result);
+                    $("#dialog1").dialog();
+                }
+            });
         });
         $("#issuebook").submit(function(e)
         {
@@ -85,7 +105,7 @@ document.getElementById("i").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Issue.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Issue",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -133,8 +153,8 @@ document.getElementById("r").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Return.php",
-                data: $(this).serialize(),
+                url: "return.php",
+                data: $(this).serialize() + "&Access=" +"Main-return",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -186,7 +206,7 @@ document.getElementById("au").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Audit.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Audit",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -248,7 +268,7 @@ document.getElementById("me").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Membership.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Membership",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -354,7 +374,7 @@ document.getElementById("ins").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Insert.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Insert",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -435,31 +455,28 @@ document.getElementById("s").addEventListener("click",()=>
         });
         $("#resetsearch").click(function()
         {
+            let s=document.getElementById("B_Search");
             document.getElementById("searchcontain").innerHTML="<label>Book Number:</label>";
             document.getElementById("response5").style.display="none";
             document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
+            s.setAttribute('name','bookno');
         });
         $("#searchform").submit(function(e)
         {
-            document.getElementById("response5").style.display="block";
             let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
             $.ajax(
             {
                 method: "post",
                 url: "Search.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-Search",
                 datatype: "text",
                 success: function(Result)
                 {
                     $( "#dialog" ).dialog( "destroy" );
+                    document.getElementById("response5").style.display="block";
                     $("#response5").html(Result);
-                    if(sval!=="Book No.")
-                    {
-                        document.getElementById("SearchField").style.transform="translate(-120%,-50%)";
-                        document.getElementById("response5").style.transform="translate(50%,-90%)";
-                    }
-                    $("#dialog").dialog();
+                    $("#dialog").dialog();  
                 }
             });
         });
@@ -544,7 +561,7 @@ document.getElementById("m").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Member.php",
+                url: "member.php",
                 data: $(this).serialize() + "&Access=" +"Main-member",
                 datatype: "text",
                 success: function(Result)
@@ -613,7 +630,7 @@ document.getElementById("admin_panel").addEventListener("click",()=>
             {
                 method: "post",
                 url: "administrator.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-administrator",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -669,7 +686,7 @@ document.getElementById("de").addEventListener("click",()=>
             {
                 method: "post",
                 url: "delete_member.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-delete_member",
                 datatype: "text",
                 success: function(Result)
                 {

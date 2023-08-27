@@ -2,9 +2,9 @@
 @session_start();
 include "dbconnect.php";
 include "auth.php";
-if(!verification())
+if(!verification() || $_POST["Access"] != "Main-Delete" )
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 else
 {

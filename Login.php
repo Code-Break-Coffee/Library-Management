@@ -1,5 +1,9 @@
 <?php
 @session_start();
+if($_SESSION["File"] != "Index.php" || $_POST["Access"] != "Index-Login")
+{
+    header("Location: /LibraryManagement/");
+}
 unset($_SESSION["username"]);
 unset($_SESSION["TEMP"]);
 unset($_SESSION["Log"]);
@@ -9,7 +13,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 {
     $user=$_POST["username"];
     $pass=$_POST["password"];
-  
+    
     $sql="SELECT * from admin where Username = '$user';";
     $result=$conn->query($sql);
     $flag = 0;
@@ -49,7 +53,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
                 </div>
             </div>
             <script>
-                window.location.reload();
+                window.open("index.php","_self");
             </script>';
         $flag = 2;
     }
@@ -74,7 +78,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
             </div>
         </div>
         <script>
-            window.location.reload();
+            window.open("index.php","_self");
         </script>';
     }
 }

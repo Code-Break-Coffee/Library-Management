@@ -8,7 +8,7 @@ $(document).ready(function()
         {
             method: "post",
             url: "Login.php",
-            data: $(this).serialize(),
+            data: $(this).serialize() + "&Access=" +"Index-Login",
             datatype: "text",
             success: function(Result)
             {

@@ -1,9 +1,9 @@
 <?php
 @session_start();
 include "auth.php";
-if(!verification())
+if(!verification() || $_POST["Access"] != "Main-Search" )
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 else
 {
@@ -34,7 +34,7 @@ else
         $b ="%".strtolower($bauthor)."%";
         $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
         $result=$conn->query($sql);
-        if($result)
+        if($result && mysqli_num_rows($result) > 0)
         {
             echo "
             <div style='width:100%;overflow:auto;height:650px;'><table>
@@ -64,7 +64,18 @@ else
                 ";
             }
             echo"
-            </tbody></table></div>";
+            </tbody></table></div>
+            <script>
+                document.getElementById('SearchField').style.transform='translate(-120%,-50%)';
+                document.getElementById('response5').style.transform='translate(50%,-90%)';
+            </script>";
+        }
+        else if(mysqli_num_rows($result) <= 0)
+        {
+            echo "
+                <div id='dialog' style='color:red;' title='⚠️Error' background: url(alert.png);>
+                    <p><center>Book data not found</center></p>
+                </div>";
         }
         else echo $conn->error;
     }
@@ -75,7 +86,7 @@ else
         $b ="%".strtolower($bname)."%";
         $sql = "SELECT * from books where Title LIKE '$b'";
         $result=$conn->query($sql);
-        if($result)
+        if($result && mysqli_num_rows($result) > 0)
         {
             echo "
             <div style='width:100%;overflow:auto;height:650px;'><table>
@@ -104,7 +115,18 @@ else
                 </tr>
                 ";
             }
-            echo"</tbody></table></div>";
+            echo"</tbody></table></div>
+                <script>
+                    document.getElementById('SearchField').style.transform='translate(-120%,-50%)';
+                    document.getElementById('response5').style.transform='translate(50%,-90%)';
+                </script>";
+        }
+        else if(mysqli_num_rows($result) <= 0)
+        {
+            echo "
+                <div id='dialog' style='color:red;' title='⚠️Error' background: url(alert.png);>
+                    <p><center>Book data not found</center></p>
+                </div>";
         }
         else echo $conn->error;
     }

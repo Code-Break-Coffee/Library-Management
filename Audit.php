@@ -1,9 +1,9 @@
 <?php
 @session_start();
 include "auth.php";
-if(!verification())
+if(!verification() || $_POST["Access"] != "Main-Audit" )
 {
-    header("Location: /LibraryManagement/index.php");
+    header("Location: /LibraryManagement/");
 }
 
 date_default_timezone_set("Asia/Kolkata");
@@ -18,7 +18,7 @@ function show_table($stat)
 {
     include "dbconnect.php";
     $result=$conn->query($stat);
-    if($result)
+    if($result && mysqli_num_rows($result) > 0)
     {
         echo "
         <div style='width:100%;height:650px;overflow:auto;'><table>
@@ -50,6 +50,13 @@ function show_table($stat)
             document.getElementById('response7').style.transform='translate(50%,-90%)';
         </script>";
     }
+    else if(mysqli_num_rows($result) <= 0)
+        {
+            echo "
+                <div id='dialog7' style='color:red;' title='⚠️Error' background: url(alert.png);>
+                    <p><center>Data not found</center></p>
+                </div>";
+        }
     else
     {
         echo $conn->error;

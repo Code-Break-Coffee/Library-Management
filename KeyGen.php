@@ -1,4 +1,8 @@
 <?php
+if($_SESSION["File"] != "Index.php" || $_POST["Access"] != "Index-Login")
+{
+    header("Location: /LibraryManagement/");
+}
 function Gen()
 {
     date_default_timezone_set("Asia/Kolkata");
