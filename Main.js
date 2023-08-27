@@ -535,7 +535,6 @@ document.getElementById("m").addEventListener("click",()=>
         $("#memberform").submit(function(e)
         {
             e.preventDefault();
-            // document.write($(this).serialize());
             $.ajax(
             {
                 method: "post",
