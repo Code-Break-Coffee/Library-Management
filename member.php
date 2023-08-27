@@ -1,13 +1,12 @@
 <?php
 @session_start();
 include "auth.php";
-if(!verification() || $_SESSION["File"] != "HI")
+if(!verification() || $_POST["Access"] != "Main-member" )
 {
     header("Location: /LibraryManagement/index.php");
 }
 else
 {
-    
     date_default_timezone_set("Asia/Kolkata");
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {

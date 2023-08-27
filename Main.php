@@ -6,7 +6,6 @@ if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 }
 else
 {
-    $_SESSION["File"] = "Main.php";
     $_SESSION["TEMP"] = "987";
     ?>
                     <!--navbar-->

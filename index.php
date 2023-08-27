@@ -1,6 +1,8 @@
 <?php
 @session_start();
 $_SESSION["File"] = "Index.php";
+// date_default_timezone_set("Asia/Kolkata");
+// echo date(DATE_RFC2822);
 ?>
 <!DOCTYPE html>
 <html lang="en">

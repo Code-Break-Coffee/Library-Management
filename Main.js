@@ -529,15 +529,12 @@ document.getElementById("m").addEventListener("click",()=>
         $("#memberform").submit(function(e)
         {
             e.preventDefault();
-            container.innerHTML +=`<?php>
-            @session_start();
-            $_SESSION["File"] = "HI";    
-            ?>`;
+            // document.write($(this).serialize());
             $.ajax(
             {
                 method: "post",
                 url: "Member.php",
-                data: $(this).serialize(),
+                data: $(this).serialize() + "&Access=" +"Main-member",
                 datatype: "text",
                 success: function(Result)
                 {
