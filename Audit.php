@@ -20,7 +20,8 @@ function show_table($stat)
     $result=$conn->query($stat);
     if($result)
     {
-        echo "<table>
+        echo "
+        <div style='width:100%;height:650px;overflow:auto;'><table>
         <tr>
         <th>Issue Bookno</th>
         <th>Issue By</th>
@@ -43,7 +44,11 @@ function show_table($stat)
             ";
         }
         echo "</tbody>
-        </table>";
+        </table></div>
+        <script>
+            document.getElementById('aufield').style.transform='translate(-120%,-50%)';
+            document.getElementById('response7').style.transform='translate(50%,-90%)';
+        </script>";
     }
     else
     {
