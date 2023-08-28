@@ -77,7 +77,7 @@ else
         $year =$_POST["year"];
         $year=strval($year);
         if($year[1] == "0") $year[1] = "k";
-        $batch =strtoupper($course)."-".$year;
+        $batch =strtoupper($course).$year;
         $sql_m="SELECT * from member;";
         $result_m=$conn->query($sql_m);
         $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$batch%'";

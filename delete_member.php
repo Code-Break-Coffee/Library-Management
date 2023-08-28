@@ -1,6 +1,13 @@
 <?php
     include "dbconnect.php";
+    include "auth.php";
+    if(!verification() || $_POST["Access"] != "Main-delete_member" )
+    {
+        header("Location: /LibraryManagement/");
+    }
     $member=$_POST["del_mem"];
+    $member = strtoupper($member);
+    $member = str_replace("-","",$member);
     $course=$_POST["del_course"];
     $mem_exist=false;
     $stat="DELETE FROM member where Member_ID='$member';";
@@ -40,14 +47,10 @@
 
     if(member_check($stat_check,$member))
     {
-        $mem ="";
-        $stat_check2="SELECT Member_ID FROM member where Member_ID='$member';";
-        $r1=$conn->query($stat_check2);
-        while($row=$r1->fetch_assoc()) $mem =$row["Member_ID"];
         $stat_issue="SELECT Issue_By FROM issue_return where Issue_By='$member' and Return_Date is NULL;";
         if(!issue_check($stat_issue,$member))
         {
-            if(substr($mem,0,2)==$course)
+            if(strtoupper(substr($member,0,2))==$course)
             {
                 $result=$conn->query($stat);
                 if($result)
