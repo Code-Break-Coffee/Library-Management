@@ -20,6 +20,7 @@ else
     $total_pages=$_POST["totalpages"];
     $Cl_No=$_POST["CL"];
     $billno;
+    $bookcount;
     if(!empty($_POST["author2"])) $author2=$_POST["author2"];
     else
     {
@@ -41,6 +42,8 @@ else
     else $billno=null;
     if(!empty($_POST["supplier"])) $supplier=$_POST["supplier"];
     else $supplier=null;
+    if(!empty($_POST["bookcount"])) $bookcount=$_POST["bookcount"];
+    else $bookcount=1;
 
     $flag=0;
     $sqlcheck="SELECT Book_No from books where  Book_No='$bookno';";
@@ -66,22 +69,30 @@ else
     "; 
     if($flag==0)
     {
-        $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
-        ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
+        $flagcount=0;
+        for($i=1;$i<=$bookcount;$i++)
+        {
+            $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
+            ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
+            $bookno+
+            $result=$conn->query($sql);
+            if($result) $flagcount++;
+            else echo $conn->error;
+        }
 
-        $result=$conn->query($sql);
-        if($result)
+        if($flagcount!=$bookcount)
         {
             echo "
             <div id='dialog3' style='color:green;' title='✅Successful'>
-                <p><center>Book Inserted Successfully</center></p>
+                <p><center>$bookcount Books Inserted Successfully</center></p>
             </div>
-            "; }
+            "; 
+        }
         else
         {
             echo "
             <div id='dialog3' style='color:red;' title='⚠️Error'>
-                <p><center>$conn->error</center></p>
+                <p><center>Some Error Occured</center></p>
             </div>
             "; 
         }
