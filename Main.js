@@ -400,12 +400,27 @@ document.getElementById("s").addEventListener("click",()=>
                     <h1>Book Search Form</h1>
                     <label>Category:</label>
                     <select id="sb" name="soption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                        <option value="search">Search..</option>
                         <option value="Book No.">Book No.</option>
                         <option value="Author">Author</option>
                         <option value="Title">Title</option>
                     </select><br>
+                    <label>Courses Filter:</label>
+                    <select id="sf" name="foption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                        <option value="filter">Filter..</option>
+                        <option value="IT">MTech(IT) 5yrs</option>
+                        <option value="IC">MCA 5yrs</option>
+                        <option value="IB">B.com(H)</option>
+                        <option value="TA">MBA(T) 2yrs</option>
+                        <option value="TM">MBA(TM) 5yrs</option>
+                        <option value="FT">MBA(MS) 2yrs</option>
+                        <option value="IM">MBA(MS) 5yrs</option>
+                        <option value="AP">MBA(APR)</option>
+                        <option value="ES">MBA(E-SHIP)</option>
+                    </select><br>
+                    
                     <div id="searchcontain"></div>
-                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="bookno" placeholder='hola'/><br>
+                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
                     <button type="submit" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -424,47 +439,60 @@ document.getElementById("s").addEventListener("click",()=>
         let sb=document.getElementById("sb");
         let sval=sb.options[sb.selectedIndex].value;
         let sc=document.getElementById("searchcontain");
-        if(sval=="Book No.")
+        if(sval=="search")
         {
-            sc.innerHTML=`<label>Book Number:</label>`;
+            sc.innerHTML=`<label>Book Search:</label>`;
         }
         $("#sb").click(function()
         {
             let sb=document.getElementById("sb");
             let sval=sb.options[sb.selectedIndex].value;
+            let fval= sf.selectedIndex
             let sc=document.getElementById("searchcontain");
             let si=document.getElementById("B_Search");
             if(sval=="Book No.")
             {
                 si.setAttribute('placeholder','Enter or scan Book No.');
                 si.setAttribute('name','bookno');
+                document.getElementById("sf").style.display= "block";
+                $("#sf").prop('disabled', true);
                 sc.innerHTML=`<label>Book Number:</label>`;
             }
             if(sval=="Author")
             {
                 si.setAttribute('name','author');
+                $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Author.');
                 sc.innerHTML=`<label>Author:</label>`;
             }
             if(sval=="Title")
             {
                 si.setAttribute('name','title');
+                $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
+            }
+            if(sval=="search")
+            {
+                si.setAttribute('name','book');
+                $("#sf").prop('disabled', false);
+                sc.innerHTML=`<label>Book Search:</label>`;
             }
         });
         $("#resetsearch").click(function()
         {
             let s=document.getElementById("B_Search");
-            document.getElementById("searchcontain").innerHTML="<label>Book Number:</label>";
+            document.getElementById("searchcontain").innerHTML="<label>Book Search:</label>";
             document.getElementById("response5").style.display="none";
             document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
-            s.setAttribute('name','bookno');
+            s.setAttribute('name','book');
         });
         $("#searchform").submit(function(e)
         {
             let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
+            document.getElementById("response5").style.display="none";
+            document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
             $.ajax(
             {
                 method: "post",
