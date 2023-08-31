@@ -106,7 +106,7 @@ if($checkedb)
                 $resultIssue=$conn->query($sql_ir);
                 if($resultIssue)
                 {
-                    $sql_UpdateB = "UPDATE books set Status='$m' where Book_No = $b;";
+                    $sql_UpdateB = "UPDATE books set Status='$m' where Book_No = '$b';";
                     $update_book = $conn->query($sql_UpdateB);
 
                     if($update_book)echo "
