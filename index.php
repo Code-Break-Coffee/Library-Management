@@ -96,7 +96,6 @@ $_SESSION["File"] = "Index.php";
         {
             border-bottom: 1px solid #364043;
             color: #E2B842;
-            text-align: center;
             font-size: 0.85em;
             font-weight: 600;
             padding: 0.5em 1em;
@@ -104,7 +103,6 @@ $_SESSION["File"] = "Index.php";
         td 
         {
             color: #fff;
-            text-align: center;
             font-weight: 400;
             padding: 0.65em 1em;
         }

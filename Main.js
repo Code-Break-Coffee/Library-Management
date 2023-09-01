@@ -427,7 +427,7 @@ document.getElementById("s").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response5"></div>`;
+    <div style="font-weight: bold;position: relative; width:700px;" id="response5"></div>`;
     $(document).ready(function(){
         $("#B_Search").autocomplete({
             autoFocus: true,
@@ -447,7 +447,6 @@ document.getElementById("s").addEventListener("click",()=>
         {
             let sb=document.getElementById("sb");
             let sval=sb.options[sb.selectedIndex].value;
-            let fval= sf.selectedIndex
             let sc=document.getElementById("searchcontain");
             let si=document.getElementById("B_Search");
             if(sval=="Book No.")
