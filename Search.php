@@ -11,7 +11,7 @@ else
     function Book_No($bno)
     {
         include "dbconnect.php";
-        $sql="SELECT * from books where Book_No = $bno;";
+        $sql="SELECT * from books where Book_No = '$bno';";
         $result = $conn->query($sql);
         if(mysqli_num_rows($result)>0)
         {
@@ -232,7 +232,7 @@ else
         include "dbconnect.php";
         $bno=$_POST["bookno"];
         $Search=Book_No($bno);
-        $sql="SELECT Status from books where Book_No = $bno;";
+        $sql="SELECT Status from books where Book_No = '$bno';";
         $result=$conn->query($sql);
         $f=0;
         if($result && mysqli_num_rows($result)>0)

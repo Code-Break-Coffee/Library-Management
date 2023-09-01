@@ -726,3 +726,97 @@ document.getElementById("de").addEventListener("click",()=>
         });
     });
 });
+
+
+//--------------------------------------------Add Faculty Member
+
+document.getElementById("me_fac").addEventListener("click",()=>
+{
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="faculty" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Add Faculty Member</h1>
+                    <label>Faculty Name:</label>
+                    <input required type="text" name="fac_name" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty Name"/><br>
+                    <label>Faculty ID:</label>
+                    <input required type="text" name="fac_id" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty ID"/><br>
+                    <label>Type:</label>
+                    <select name="fac_type" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                        <option value="Regular">Regular</option>
+                        <option value="Visiting">Visiting</option>
+                    </select><br>
+
+                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;" id="response_fac"></div>`;
+    $(document).ready(function()
+    {
+        $("#faculty").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "add_faculty.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_fac" ).dialog( "destroy" );
+                    $("#response_fac").html(Result);
+                    $("#dialog_fac").dialog();
+                }
+            });
+        });
+    });
+});
+
+//-----------------------Delete Faculty Member
+
+document.getElementById("de_fac").addEventListener("click",()=>
+{
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="faculty_del" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Delete Faculty Member</h1>
+                    <label>Faculty ID:</label>
+                    <input required type="text" name="fac_id" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty ID"/><br>
+
+                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;" id="response_fac_del"></div>`;
+    $(document).ready(function()
+    {
+        $("#faculty_del").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "delete_faculty.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_fac_del" ).dialog( "destroy" );
+                    $("#response_fac_del").html(Result);
+                    $("#dialog_fac_del").dialog();
+                }
+            });
+        });
+    });
+});

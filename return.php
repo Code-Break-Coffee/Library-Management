@@ -102,9 +102,9 @@ else
             {
                 if($Allowed)
                 {
-                    $sql_ir="UPDATE books set Status='Available' where Book_No = $b;";
+                    $sql_ir="UPDATE books set Status='Available' where Book_No = '$b';";
                     
-                    $sql_ret="UPDATE issue_return set Return_Date= '$doi' where Return_Date is NULL and Issue_Bookno= $b;";
+                    $sql_ret="UPDATE issue_return set Return_Date= '$doi' where Return_Date is NULL and Issue_Bookno= '$b';";
                     $resultReturn=$conn->query($sql_ret);
                     $resultIssue=$conn->query($sql_ir);
                     if($resultIssue && $resultReturn)

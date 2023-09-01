@@ -49,7 +49,9 @@ else
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="me">Add Member</a>
+                                        <a class="dropdown-item dropdown_hover" id="me_fac">Add Faculty Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de">Delete Member</a>
+                                        <a class="dropdown-item dropdown_hover" id="de_fac">Delete Faculty Member</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
