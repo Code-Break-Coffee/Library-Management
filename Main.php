@@ -69,7 +69,7 @@ else
                         .ui-autocomplete {
                             position: absolute;
                             top: 100%;
-                            left: 0;
+                            left: 0; 
                             z-index: 1000;
                             float: left;
                             display: none;
@@ -92,6 +92,14 @@ else
                             -webkit-background-clip: padding-box;
                             -moz-background-clip: padding;
                             background-clip: padding-box;
+                            max-height: 200px;
+                            overflow-y: auto;
+                            /* prevent horizontal scrollbar */
+                            overflow-x: hidden;
+                        }
+
+                        * html .ui-autocomplete {
+                            height: 200px;
                         }
 
                         .ui-menu-item > a.ui-corner-all {
