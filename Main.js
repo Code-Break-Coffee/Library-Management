@@ -465,6 +465,7 @@ document.getElementById("s").addEventListener("click",()=>
                         <option value="Author">Author</option>
                         <option value="Title">Title</option>
                     </select><br>
+                    <div id="onoff">
                     <label>Courses Filter:</label>
                     <select id="sf" name="foption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                         <option value="filter">Filter..</option>
@@ -478,6 +479,7 @@ document.getElementById("s").addEventListener("click",()=>
                         <option value="AP">MBA(APR)</option>
                         <option value="ES">MBA(E-SHIP)</option>
                     </select><br>
+                    </div>
                     
                     <div id="searchcontain"></div>
                     <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
@@ -546,6 +548,7 @@ document.getElementById("s").addEventListener("click",()=>
                 document.getElementById("sf").style.display= "block";
                 $("#sf").prop('disabled', true);
                 sc.innerHTML=`<label>Book Number:</label>`;
+                document.getElementById("onoff").style.display="none";
             }
             if(sval=="Author")
             {
@@ -553,6 +556,7 @@ document.getElementById("s").addEventListener("click",()=>
                 $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Author.');
                 sc.innerHTML=`<label>Author:</label>`;
+                document.getElementById("onoff").style.display="block";
             }
             if(sval=="Title")
             {
@@ -560,12 +564,14 @@ document.getElementById("s").addEventListener("click",()=>
                 $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
+                document.getElementById("onoff").style.display="block";
             }
             if(sval=="search")
             {
                 si.setAttribute('name','book');
                 $("#sf").prop('disabled', false);
                 sc.innerHTML=`<label>Book Search:</label>`;
+                document.getElementById("onoff").style.display="block";
             }
         });
         $("#resetsearch").click(function()
