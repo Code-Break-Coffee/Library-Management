@@ -435,7 +435,7 @@ document.getElementById("s").addEventListener("click",()=>
     //         source: "Suggestions.php",
     //     });
     // });
-    $( function() {
+    $(document).ready(function() {
         $.widget( "custom.catcomplete", $.ui.autocomplete, {
           _create: function() {
             this._super();
@@ -457,12 +457,11 @@ document.getElementById("s").addEventListener("click",()=>
             });
           }
         });
-        
         $( "#B_Search" ).catcomplete({
-          delay: 0,
+          delay: 500,
           autoFocus: true,
-        //   minLength: 3,
-          source: "Suggestions.php"
+          minLength: 3,
+          source: "Suggestions.php",
         });
     } );
     $(document).ready(function()
