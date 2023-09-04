@@ -2,6 +2,7 @@
 @session_start();
 include "dbconnect.php";
 include "auth.php";
+
 if(!verification() || $_POST["Access"] != "Main-Insert" )
 {
     header("Location: /LibraryManagement/");
@@ -13,13 +14,14 @@ else
     if(!empty($_POST["bookno"])) $bookno=$_POST["bookno"];
     else
     {
-        $sql_max_book = "SELECT MAX(Book_No)as bno_max from books;";
+        $sql_max_book = "SELECT Book_No from books;";
         $res=$conn->query($sql_max_book);
         while($row =$res->fetch_assoc())
         {
-            $bookno = (int)$row["bno_max"] +1;
+            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
         }
     }
+    $bookno += 1;
     $title=$_POST["title"];
     $edition=$_POST["edition"];
     $author1=$_POST["author1"];

@@ -2,10 +2,11 @@
 echo preg_replace("/[^0-9]/","",'604-619-5135');
 include "dbconnect.php";
 
-$sql_max_book = "SELECT MAX(Book_No)as bno_max from books;";
+$max_val=0;
+$sql_max_book = "SELECT Book_No from books;";
 $res=$conn->query($sql_max_book);
 while($row =$res->fetch_assoc())
 {
-    $bookno = (int)$row["bno_max"];
+    if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $max_val) $max_val = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
 }
-echo "\n $bookno";
+echo "\n $max_val";
