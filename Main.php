@@ -55,13 +55,16 @@ else
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="nav-link dropdown-toggle hovered" href="#" id="admin_panel"  id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Administrator
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="admin_panel">Add Admin</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin</a>
                                         </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link hovered" id="tools">Support Tools</a>
                                     </li>
                                 </ul>
                             </div>

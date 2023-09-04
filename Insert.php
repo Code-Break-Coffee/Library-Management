@@ -9,7 +9,17 @@ if(!verification() || $_POST["Access"] != "Main-Insert" )
 else
 {
     $sql;
-    $bookno=$_POST["bookno"];
+    $bookno = 0;
+    if(!empty($_POST["bookno"])) $bookno=$_POST["bookno"];
+    else
+    {
+        $sql_max_book = "SELECT MAX(Book_No)as bno_max from books;";
+        $res=$conn->query($sql_max_book);
+        while($row =$res->fetch_assoc())
+        {
+            $bookno = (int)$row["bno_max"] +1;
+        }
+    }
     $title=$_POST["title"];
     $edition=$_POST["edition"];
     $author1=$_POST["author1"];

@@ -5,7 +5,7 @@ $_SESSION["File"] = "Index.php";
 // echo date(DATE_RFC2822);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">   
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -110,7 +110,7 @@ $_SESSION["File"] = "Index.php";
 </head>
 <body>
     <center>
-    <div class="row" style="width:100vw;">
+    <div class="row" style="width:100vw;" id="Title_nev">
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>International Institute of Professional Studies</h1>
         </div>

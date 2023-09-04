@@ -32,6 +32,17 @@ document.getElementById("admin_panel").addEventListener('mouseover',()=>
 {
     let arr=document.getElementsByClassName("dropdown-menu");
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("admin_paneldiv").style.display="block";
+});
+document.getElementById("container").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+});
+document.getElementById("Title_nev").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
 });
 //----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
@@ -342,7 +353,7 @@ document.getElementById("ins").addEventListener("click",()=>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Book Number:</label>
-                            <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>
+                            <input type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Title:</label>

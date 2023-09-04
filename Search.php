@@ -194,6 +194,15 @@ else
         $sql="SELECT Status from books where Book_No = '$bno';";
         $result=$conn->query($sql);
         $f=0;
+        // $bookno = 0;
+
+        //     $sql_max_book = "SELECT MAX(Book_No)as bno_max from books;";
+        //     $res=$conn->query($sql_max_book);
+        //     while($row =$res->fetch_assoc())
+        //     {
+        //         $bookno = (int)$row["bno_max"] ;
+        //     }
+
         if($result && mysqli_num_rows($result)>0)
         {
             while($row=$result->fetch_assoc())
