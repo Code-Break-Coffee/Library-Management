@@ -718,7 +718,7 @@ function frame()
 
 //--------------------------------------------------Administrator
 
-document.getElementById("admin_panel").addEventListener("click",()=>
+document.getElementById("admin_add").addEventListener("click",()=>
 {
     let arr=document.getElementsByClassName("dropdown-menu");
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";

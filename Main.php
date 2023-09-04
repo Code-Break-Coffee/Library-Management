@@ -59,7 +59,7 @@ else
                                             Administrator
                                         </a>
                                         <div id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item dropdown_hover" id="admin_panel">Add Admin</a>
+                                            <a class="dropdown-item dropdown_hover" id="admin_add">Add Admin</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin</a>
                                         </div>
                                     </li>

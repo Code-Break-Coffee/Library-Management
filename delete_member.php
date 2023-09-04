@@ -1,7 +1,8 @@
 <?php
+    @session_start();
     include "dbconnect.php";
     include "auth.php";
-    if(!verification() || $_POST["Access"] != "Main-delete_member" )
+    if(!verification() || $_POST["Access"] != "Main-delete_member")
     {
         header("Location: /LibraryManagement/");
     }

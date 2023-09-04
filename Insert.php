@@ -3,7 +3,19 @@
 include "dbconnect.php";
 include "auth.php";
 
-if(!verification() || $_POST["Access"] != "Main-Insert" )
+function check($b, $count)
+{
+    include "dbconnect.php";
+    for($i = 0; $i <= $count; $i++)
+    {
+        $b += 1;
+        $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
+        $res = $conn->query($sql);
+        if(mysqli_num_rows($res) != 0)return false;
+        else return true;
+    }
+}
+if(!verification() || $_POST["Access"] != "Main-Insert")
 {
     header("Location: /LibraryManagement/");
 }
@@ -16,12 +28,17 @@ else
     {
         $sql_max_book = "SELECT Book_No from books;";
         $res=$conn->query($sql_max_book);
+        if(!$res)echo "
+        <div id='dialog3' style='color:red;' title='⚠️Error'>
+            <p><center>$conn->error</center></p>
+        </div>
+        "; 
         while($row =$res->fetch_assoc())
         {
             if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
         }
+        $bookno += 1;
     }
-    $bookno += 1;
     $title=$_POST["title"];
     $edition=$_POST["edition"];
     $author1=$_POST["author1"];
@@ -32,7 +49,7 @@ else
     $total_pages=$_POST["totalpages"];
     $Cl_No=$_POST["CL"];
     $billno;
-    $bookcount;
+    $bookcount = 1;
     if(!empty($_POST["author2"])) $author2=$_POST["author2"];
     else
     {
@@ -58,7 +75,7 @@ else
     else $bookcount=1;  
 
     $flag=0;
-    $sqlcheck="SELECT Book_No from books where  Book_No='$bookno';";
+    $sqlcheck="SELECT Book_No from books where Book_No='$bookno';";
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck)
     {
@@ -79,20 +96,29 @@ else
         <p><center>$conn->error</center></p>
     </div>
     "; 
+    if(!check($bookno,$bookcount) && $flag == 0)
+    {
+        echo "
+                <div id='dialog3' style='color:red;' title='⚠️Error'>
+                    <p><center>Book Already Present in the given range</center></p>
+                </div>
+                "; 
+        $flag = 1;
+    }
     if($flag==0)
     {
         $flagcount=0;
-        for($i=1;$i<=$bookcount;$i++)
+        for($i=0;$i<$bookcount;$i++)
         {
+            $bno = $bookno + $i;
             $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
-            ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
-            $bookcount=$bookcount."$i";
+            ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
             $result=$conn->query($sql);
             if($result) $flagcount++;
             else echo $conn->error;
         }
 
-        if($flagcount!=$bookcount)
+        if($flagcount==$bookcount)
         {
             echo "
             <div id='dialog3' style='color:green;' title='✅Successful'>
