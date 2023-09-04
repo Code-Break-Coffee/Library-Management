@@ -74,7 +74,7 @@ else
         {
             $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
             ('$bookno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
-            $bookno+
+            $bookcount=$bookcount."$i";
             $result=$conn->query($sql);
             if($result) $flagcount++;
             else echo $conn->error;
