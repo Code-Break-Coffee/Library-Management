@@ -850,3 +850,52 @@ document.getElementById("de_fac").addEventListener("click",()=>
         });
     });
 });
+
+//-------------------------Show admin
+
+document.getElementById("admin_disp").addEventListener("click",()=>{
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="display" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+        <form id="display_adm" method="post" action="" autocomplete="off">
+        <center>
+            <h1>Admin Display</h1>
+            <label>Type:</label>
+            <select name="fac_type" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                <option value="Admin">Admin</option>
+                <option value="Assistant">Assistant</option>
+            </select><br>
+
+            <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Display"/>
+            <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+        </center>
+        <div id="admin_info"></div>
+        </form>
+            
+        </div>
+    </div>
+    <div style="font-weight: bold; position: relative; width:700px;" id="response_admin_disp"></div>`;
+    $("#display_adm").submit(function(e)
+    {
+        e.preventDefault();
+        document.getElementById("response_admin_disp").style.display="none";
+        
+
+        $.ajax(
+        {
+            method: "post",
+            url: "admin_display.php",
+            data: $(this).serialize() ,
+            datatype: "text",
+            success: function(Result)
+            {
+                
+                $( "#dialog_admin_disp" ).dialog( "destroy" );
+                document.getElementById("response_admin_disp").style.display="block";
+                $("#response_admin_disp").html(Result);
+                $("#dialog_admin_disp").dialog();  
+            }
+        });
+    });
+})
