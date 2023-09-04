@@ -17,37 +17,37 @@ else
                                         <a class="nav-link hovered" id="s">Search</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a id="reports" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Reports
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div id="reportsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="au">Audit</a>
                                         <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a id="transactions" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Transactions
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div id="transactionsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="i">Issue</a>
                                         <a class="dropdown-item dropdown_hover" id="r">Return</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a id="book" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Book Manipulation
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div id="bookdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="ins">Insert</a>
                                         <a class="dropdown-item dropdown_hover" id="d">Delete</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a id="membership" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Membership
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div id="membershipdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="me">Add Member</a>
                                         <a class="dropdown-item dropdown_hover" id="me_fac">Add Faculty Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de">Delete Member</a>

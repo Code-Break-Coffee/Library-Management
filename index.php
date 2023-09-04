@@ -23,9 +23,9 @@ $_SESSION["File"] = "Index.php";
             font-family: HeadingRegular;
             src: url(BebasNeue-Regular.ttf);
         }
-        #logoutbtn:hover
+        .btn:hover
         {
-            border: 2px 2px solid aliceblue;
+            border: 2px solid aliceblue;
         }
         #container
         {
@@ -55,14 +55,6 @@ $_SESSION["File"] = "Index.php";
             width:100vw;
             height:828px;
         }
-        [type="submit"]:hover
-        {
-            border: 2px solid aliceblue;
-        }
-        [type="reset"]:hover
-        {
-            border: 2px solid aliceblue;
-        }
         .hovered:hover
         {
             cursor: pointer !important;
@@ -81,10 +73,6 @@ $_SESSION["File"] = "Index.php";
         .hovered
         {
             color:#61908a;
-        }
-        [value="Student"]:hover
-        {
-            border: 2px solid aliceblue;
         }
         table 
         {
@@ -129,10 +117,10 @@ $_SESSION["File"] = "Index.php";
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Library</h1>
             <form id="Student" method="post" action="student.html" target="_blank">
-                <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
+                <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger btn" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
             </form>
             <form id="logout" method="post" action="Logout.php" style="display:none;">
-                <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
+                <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger btn" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
             </form>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">

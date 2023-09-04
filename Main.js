@@ -1,6 +1,43 @@
+//----------------------------------------------------------------------------hover
+document.getElementById("reports").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("reportsdiv").style.display="block";
+});
+document.getElementById("transactions").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("transactionsdiv").style.display="block";
+});
+document.getElementById("book").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("bookdiv").style.display="block";
+});
+document.getElementById("membership").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("membershipdiv").style.display="block";
+});
+document.getElementById("s").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+});
+document.getElementById("admin_panel").addEventListener('mouseover',()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+});
 //----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
         container.innerHTML=`
         <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -47,6 +84,8 @@ document.getElementById("d").addEventListener("click",()=>
 
 document.getElementById("i").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -122,6 +161,8 @@ document.getElementById("i").addEventListener("click",()=>
 
 document.getElementById("r").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -171,6 +212,8 @@ document.getElementById("r").addEventListener("click",()=>
 
 document.getElementById("au").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -228,6 +271,8 @@ document.getElementById("au").addEventListener("click",()=>
 
 document.getElementById("me").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -285,6 +330,8 @@ document.getElementById("me").addEventListener("click",()=>
 
 document.getElementById("ins").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -391,6 +438,8 @@ document.getElementById("ins").addEventListener("click",()=>
 
 document.getElementById("s").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -543,6 +592,8 @@ document.getElementById("s").addEventListener("click",()=>
 
 document.getElementById("m").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -658,6 +709,8 @@ function frame()
 
 document.getElementById("admin_panel").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -705,6 +758,8 @@ document.getElementById("admin_panel").addEventListener("click",()=>
 
 document.getElementById("de").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -762,9 +817,11 @@ document.getElementById("de").addEventListener("click",()=>
 
 document.getElementById("me_fac").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div id="FacultyField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="faculty" method="post" action="" autocomplete="off">
                 <center>
@@ -774,13 +831,12 @@ document.getElementById("me_fac").addEventListener("click",()=>
                     <label>Faculty ID:</label>
                     <input required type="text" name="fac_id" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty ID"/><br>
                     <label>Type:</label>
-                    <select name="fac_type" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                    <select name="fac_type" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                         <option value="Regular">Regular</option>
                         <option value="Visiting">Visiting</option>
                     </select><br>
-
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <button id="resetfaculty" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
             </form>
         </div>
@@ -812,6 +868,8 @@ document.getElementById("me_fac").addEventListener("click",()=>
 
 document.getElementById("de_fac").addEventListener("click",()=>
 {
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
