@@ -939,16 +939,17 @@ document.getElementById("admin_disp").addEventListener("click",()=>{
             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Display"/>
             <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
         </center>
-        <div id="admin_info"></div>
+        
         </form>
             
         </div>
     </div>
-    <div style="font-weight: bold; position: relative; width:700px;" id="response_admin_disp"></div>`;
+    <div style="font-weight: bold; position: relative; width:700px;" id="response_admin_disp"></div>
+    <div id="admin_info" style="font-weight: bold; position: absolute; top:50%;width:50%;transform:translate(-50%,-50%);"></div>`;
     $("#display_adm").submit(function(e)
     {
         e.preventDefault();
-        document.getElementById("response_admin_disp").style.display="none";
+        // document.getElementById("response_admin_disp").style.display="none";
         
 
         $.ajax(
@@ -961,7 +962,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>{
             {
                 
                 $( "#dialog_admin_disp" ).dialog( "destroy" );
-                document.getElementById("response_admin_disp").style.display="block";
+                // document.getElementById("response_admin_disp").style.display="none";
                 $("#response_admin_disp").html(Result);
                 $("#dialog_admin_disp").dialog();  
             }
