@@ -3,7 +3,6 @@
 include "dbconnect.php";
 
 $search = $_GET["term"];
-$search = $_GET["Category"];
 $sql = "SELECT Book_value,category FROM suggestion WHERE Book_value LIKE '%".$search."%' ORDER BY category ASC;"; 
 
 $bookData = array(); 

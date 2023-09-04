@@ -43,7 +43,7 @@ else
     if(!empty($_POST["supplier"])) $supplier=$_POST["supplier"];
     else $supplier=null;
     if(!empty($_POST["bookcount"])) $bookcount=$_POST["bookcount"];
-    else $bookcount=1;
+    else $bookcount=1;  
 
     $flag=0;
     $sqlcheck="SELECT Book_No from books where  Book_No='$bookno';";
