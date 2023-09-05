@@ -6,14 +6,16 @@ include "auth.php";
 function check($b, $count)
 {
     include "dbconnect.php";
+    $Copy = false;
     for($i = 0; $i <= $count; $i++)
     {
         $b += 1;
         $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
         $res = $conn->query($sql);
-        if(mysqli_num_rows($res) != 0)return false;
-        else return true;
+        if(mysqli_num_rows($res) != 0)$Copy = true;
     }
+    if($Copy)return false;
+    else return true;
 }
 if(!verification() || $_POST["Access"] != "Main-Insert")
 {
