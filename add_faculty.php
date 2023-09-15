@@ -27,20 +27,27 @@ else
         else
         {
             $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values('$facId','$facName','$facType');";
-            $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
             $result1=$conn->query($sql1);
+            if(! $result1) echo"
+            <div id='dialog_fac' style='color:red;' title='Error❌'>
+                <p><center>$conn->error</center></p>
+            </div>";
+
+            $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
             $result2=$conn->query($sql2);
+            if(! $result2) echo"
+            <div id='dialog_fac' style='color:red;' title='Error❌'>
+                <p><center>$conn->error</center></p>
+            </div>";
+            
             if($result1 && $result2)
             {
                 echo "
                 <div id='dialog_fac' style='color:green;' title='Successful✅'>
                     <p><center>Faculty $facId added as a member successfully!!!</center></p>
-                </div>";
+                </div>"; 
             }
-            else echo"
-            <div id='dialog_fac' style='color:red;' title='Error❌'>
-                <p><center>$conn->error</center></p>
-            </div>";
+
         }
     }
     else echo"

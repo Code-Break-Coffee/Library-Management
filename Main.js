@@ -70,23 +70,19 @@ document.getElementById("d").addEventListener("click",()=>
         $("#deleteform").submit(function(e)
         {
             e.preventDefault();
-            let conf=window.confirm("Are you sure you want to delete this book?");
-            if(conf)
+            $.ajax(
             {
-                $.ajax(
+                method: "post",
+                url: "delete_book_check.php",
+                data: $(this).serialize() + "&Access=" +"Main-Delete",
+                datatype: "text",
+                success: function(Result)
                 {
-                    method: "post",
-                    url: "Delete.php",
-                    data: $(this).serialize() + "&Access=" +"Main-Delete",
-                    datatype: "text",
-                    success: function(Result)
-                    {
-                        $( "#dialog4" ).dialog( "destroy" );
-                        $("#response4").html(Result);
-                        $("#dialog4").dialog();
-                    }
-                });
-            }
+                    $( "#dialog4" ).dialog( "destroy" );
+                    $("#response4").html(Result);
+                    $("#dialog4").dialog();
+                }
+            });
         });
     });
 });
@@ -737,10 +733,10 @@ document.getElementById("admin_add").addEventListener("click",()=>
                     <h1>Add Admin User</h1>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
-                    <label>Password:</label>
-                    <input required type="password" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
-                    <label>Confirm Password:</label>
-                    <input required type="password" name="admin_pass_conf" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <label for="validationServer01">Password:</label>
+                    <input required id="validationServer01" type="password" name="admin_pass" class="form-control is-valid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <label for="validationServer02" >Confirm Password:</label>
+                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -808,7 +804,7 @@ document.getElementById("de").addEventListener("click",()=>
     $(document).ready(function()
     {
         $("#del1").submit(function(e)
-        {
+        {  
             e.preventDefault();
             
             $.ajax(
