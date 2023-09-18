@@ -73,7 +73,7 @@ document.getElementById("d").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "delete_book_check.php",
+                url: "Book_delete_check.php",
                 data: $(this).serialize() + "&Access=" +"Main-Delete",
                 datatype: "text",
                 success: function(Result)
@@ -87,7 +87,7 @@ document.getElementById("d").addEventListener("click",()=>
     });
 });
 
-//----------------------------------------------------------------------------issue
+//----------------------------------------------------------------------------Book Issue
 
 document.getElementById("i").addEventListener("click",()=>
 {
@@ -150,7 +150,7 @@ document.getElementById("i").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Issue.php",
+                url: "Book_issue.php",
                 data: $(this).serialize() + "&Access=" +"Main-Issue",
                 datatype: "text",
                 success: function(Result)
@@ -164,7 +164,7 @@ document.getElementById("i").addEventListener("click",()=>
     });
 });
 
-//------------------------------------------------------------------------------return
+//------------------------------------------------------------------------------Return of Book
 
 document.getElementById("r").addEventListener("click",()=>
 {
@@ -201,7 +201,7 @@ document.getElementById("r").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "return.php",
+                url: "Book_return.php",
                 data: $(this).serialize() + "&Access=" +"Main-return",
                 datatype: "text",
                 success: function(Result)
@@ -274,7 +274,7 @@ document.getElementById("au").addEventListener("click",()=>
     });
 });
 
-//-------------------------------------------------------------------------membership
+//-------------------------------------------------------------------------add Student member
 
 document.getElementById("me").addEventListener("click",()=>
 {
@@ -319,7 +319,7 @@ document.getElementById("me").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Membership.php",
+                url: "Student_member_add.php",
                 data: $(this).serialize() + "&Access=" +"Main-Membership",
                 datatype: "text",
                 success: function(Result)
@@ -333,7 +333,7 @@ document.getElementById("me").addEventListener("click",()=>
     });
 })
 
-//----------------------------------------------------------------------------------insert
+//---------------------------------------------------------------------------------- Add Books
 
 document.getElementById("ins").addEventListener("click",()=>
 {
@@ -427,7 +427,7 @@ document.getElementById("ins").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "Insert.php",
+                url: "Book_add.php",
                 data: $(this).serialize() + "&Access=" +"Main-Insert",
                 datatype: "text",
                 success: function(Result)
@@ -601,7 +601,7 @@ document.getElementById("s").addEventListener("click",()=>
         });
     });
 });
-//----------------------------------------------------------------------------member
+//---------------------------------------------------------------------------- Show Student Dues And No dues
 
 document.getElementById("m").addEventListener("click",()=>
 {
@@ -682,7 +682,7 @@ document.getElementById("m").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "member.php",
+                url: "Student_dues.php",
                 data: $(this).serialize() + "&Access=" +"Main-member",
                 datatype: "text",
                 success: function(Result)
@@ -718,7 +718,7 @@ function frame()
 }
 
 
-//--------------------------------------------------Administrator
+//--------------------------------------------------Create new Admin
 
 document.getElementById("admin_add").addEventListener("click",()=>
 {
@@ -752,7 +752,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "administrator.php",
+                url: "Admin_create.php",
                 data: $(this).serialize() + "&Access=" +"Main-administrator",
                 datatype: "text",
                 success: function(Result)
@@ -766,7 +766,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
     });
 });
 
-//------------------------------------  Delete Member
+//------------------------------------  Delete Member Student
 
 
 document.getElementById("de").addEventListener("click",()=>
@@ -810,7 +810,7 @@ document.getElementById("de").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "delete_member.php",
+                url: "Student_member_delete.php",
                 data: $(this).serialize() + "&Access=" +"Main-delete_member",
                 datatype: "text",
                 success: function(Result)
@@ -826,7 +826,7 @@ document.getElementById("de").addEventListener("click",()=>
 });
 
 
-//--------------------------------------------Add Faculty Member
+//-------------------------------------------- Insert New Faculty Member
 
 document.getElementById("me_fac").addEventListener("click",()=>
 {
@@ -863,7 +863,7 @@ document.getElementById("me_fac").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "add_faculty.php",
+                url: "Faculty_member_add.php",
                 data: $(this).serialize(),//-------@Kartikey
                 datatype: "text",
                 success: function(Result)
@@ -908,7 +908,7 @@ document.getElementById("de_fac").addEventListener("click",()=>
             $.ajax(
             {
                 method: "post",
-                url: "delete_faculty.php",
+                url: "Faculty_member_delete.php",
                 data: $(this).serialize(),//-------@Kartikey
                 datatype: "text",
                 success: function(Result)
@@ -922,7 +922,7 @@ document.getElementById("de_fac").addEventListener("click",()=>
     });
 });
 
-//-------------------------Show admin
+//-------------------------Display all admins
 
 document.getElementById("admin_disp").addEventListener("click",()=>{
     let container=document.getElementById("container");
@@ -957,7 +957,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>{
         $.ajax(
         {
             method: "post",
-            url: "admin_display.php",
+            url: "Admin_display.php",
             data: $(this).serialize() ,
             datatype: "text",
             success: function(Result)
