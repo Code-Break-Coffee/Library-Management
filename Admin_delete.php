@@ -14,9 +14,9 @@ else
 
     $sqlTemp="DELETE from temp_keys where Username = '$UserName';";
     $resultTemp=$conn->query($sqlTemp);
-    
+
     if($result && $resultTemp) echo "
-        <div id='dialog4' style='color:green;' title='Notification ✅'>
+        <div id='dialog_admin_delete' style='color:green;' title='Notification ✅'>
             <p>Admin $UserName Record Deleted Succesfully</p>
         </div>"; 
     else echo $conn->error;

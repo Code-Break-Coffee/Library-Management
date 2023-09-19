@@ -3,7 +3,6 @@
 include "dbconnect.php";
 include "auth.php";
     
-    
 if(!verification() || $_POST["Access"] != "Main-admin-delete")
 {
     header("Location: /LibraryManagement/");
@@ -13,15 +12,19 @@ else
     $flag=0;
     $AdminExist = false;
     $DeleteAuthantication = false;
-    $UserName=$_POST["UserName"]; //--------------------------------------------------------ajax dependent
+    $UserName=$_POST["admin_user"]; 
     $sqlcheck="SELECT Username from admin where Username = '$UserName';";
     $resultcheck=$conn->query($sqlcheck);
+
     if(mysqli_num_rows($resultcheck)==1)
     {
         $AdminExist=true;
-        $sqlAdminLev = "SELECT Username from admin where Username = ".$_SESSION["username"]." AND User_level = 'Admin' ;";
-        $result = $conn->query($sqlAdminLev);
-        if(mysqli_num_rows($result) == 1){
+        $uLevel = "Admin";
+        $uName = $_SESSION["username"];
+        $sqlAdminLev = "SELECT Username,User_level from admin where Username = '$uName' AND User_level = '$uLevel' ;";
+        $result_lev = $conn->query($sqlAdminLev);
+
+        if(mysqli_num_rows($result_lev) == 1){
             $DeleteAuthantication = true;
         }
         if($UserName == $_SESSION["username"]){
@@ -42,7 +45,7 @@ else
                     width: 400,
                     modal: true,
                     buttons: {
-                      'Delete Book': function() {
+                      'Delete User': function() {
                         $.ajax(
                             {
                                 method: 'post',
@@ -51,9 +54,9 @@ else
                                 datatype: 'text',
                                 success: function(Result)
                                 {
-                                    $( '#dialog' ).dialog( 'destroy' );
-                                    $('#response___________________').html(Result);
-                                    $('#dialog______________________').dialog();
+                                    $( '#dialog_admin_delete' ).dialog( 'destroy' );
+                                    $('#response_admin_delete').html(Result);
+                                    $('#dialog_admin_delete').dialog();
                                 }
                             });
                         $( this ).dialog( 'close' );
@@ -70,7 +73,7 @@ else
     else if(!$AdminExist)
     {
         echo "
-        <div id='dialog_______________________' style='color:red;' title='Notification ❌'>
+        <div id='dialog_admin_delete' style='color:red;' title='Notification ❌'>
             <p>User Admin does not Exist</p>
         </div>
         "; 
@@ -78,7 +81,7 @@ else
     else if(!$DeleteAuthantication)
     {
         echo "
-        <div id='dialog_______________________' style='color:red;' title='Notification ❌'>
+        <div id='dialog_admin_delete' style='color:red;' title='Notification ❌'>
             <p>Your User level Does't have authorisation for this Action</p>
         </div>
         "; 
