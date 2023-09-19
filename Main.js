@@ -286,23 +286,10 @@ document.getElementById("me").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="meform" method="post" action="" autocomplete="off">
                 <center>
-                <h1>Add Member Form</h1>
-                <label>Course:</label>
-                <select name="course1" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="IT">MTech(IT) 5yrs</option>
-                        <option value="IC">MCA 5yrs</option>
-                        <option value="IB">B.com(H)</option>
-                        <option value="TA">MBA(T) 2yrs</option>
-                        <option value="TM">MBA(TM) 5yrs</option>
-                        <option value="FT">MBA(MS) 2yrs</option>
-                        <option value="IM">MBA(MS) 5yrs</option>
-                        <option value="AP">MBA(APR)</option>
-                        <option value="ES">MBA(E-SHIP)</option>
-                    </select><br>
-                    <label>Year:</label>
-                    <input required type="number" name="year" maxlength="4" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-                    <label>Serial No:</label>
-                    <input required type="text" name="Serial No" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+                <h1>Add Student Member Form</h1>
+                    <label>Roll No:</label>
+                    <input required type="text" name="roll_no" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
                     <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                     <div style="color:red;font-weight: bold;" id="response_me"></div>
