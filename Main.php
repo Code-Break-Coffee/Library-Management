@@ -60,6 +60,7 @@ else
                                         </a>
                                         <div id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="admin_add">Add Admin</a>
+                                            <a class="dropdown-item dropdown_hover" id="admin_delete">Delete Admin</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin</a>
                                         </div>
                                     </li>
