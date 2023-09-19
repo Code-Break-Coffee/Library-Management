@@ -1,7 +1,4 @@
 <?php
-
-
-
 function show_table()
 {
     include "dbconnect.php";
