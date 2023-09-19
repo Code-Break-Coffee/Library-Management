@@ -726,7 +726,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="adminstrator" method="post" action="" autocomplete="off">
                 <center>
@@ -766,6 +766,52 @@ document.getElementById("admin_add").addEventListener("click",()=>
     });
 });
 
+//------------------------------------------------------------Delete Admin
+
+document.getElementById("admin_delete").addEventListener("click",()=>
+{
+    let arr=document.getElementsByClassName("dropdown-menu");
+    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="administrator_delete" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Delete Admin User</h1>
+                    <label>User ID:</label>
+                    <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
+                    <label>Password:</label>
+                    <input type="password" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;" id="response_admin_delete"></div>`;
+    $(document).ready(function()
+    {
+        $("#administrator_delete").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Admin_delete_check.php",
+                data: $(this).serialize() + "&Access=" +"Main-admin-delete",
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_admin_delete" ).dialog( "destroy" );
+                    $("#response_admin_delete").html(Result);
+                    $("#dialog_admin_delete").dialog();
+                }
+            });
+        });
+    });
+});
+
 //------------------------------------  Delete Member Student
 
 
@@ -775,7 +821,7 @@ document.getElementById("de").addEventListener("click",()=>
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="del1" method="post" action="" autocomplete="off">
                 <center>
@@ -885,7 +931,7 @@ document.getElementById("de_fac").addEventListener("click",()=>
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="faculty_del" method="post" action="" autocomplete="off">
                 <center>
@@ -909,7 +955,7 @@ document.getElementById("de_fac").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Faculty_member_delete.php",
-                data: $(this).serialize(),//-------@Kartikey
+                data: $(this).serialize()+"&Access=Main-Delete-Faculty-Member",
                 datatype: "text",
                 success: function(Result)
                 {
