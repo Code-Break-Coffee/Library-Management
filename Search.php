@@ -56,7 +56,7 @@ else
                 if(array_key_exists($row["Title"],$Book_No)) $Book_No[$row["Title"]] = $Book_No[$row["Title"]].", ".$row["Book_No"];
                 else $Book_No[$row["Title"]] = $row["Book_No"];
 
-                if(!array_key_exists($row["Title"],$Book_Author)) $Book_Author[$row["Title"]] = $row["Author1"].",".$row["Author2"].",".$row["Author3"];
+                if(!array_key_exists($row["Title"],$Book_Author)) $Book_Author[$row["Title"]] = $row["Author1"].", ".$row["Author2"].", ".$row["Author3"];
                     
                 if(!array_key_exists($row["Title"],$Book_Publisher)) $Book_Publisher[$row["Title"]] = $row["Publisher"];
 
@@ -137,11 +137,11 @@ else
         $sql = "";
         if($Course == "filter"){
             $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
-            or Title like '$b' or Publisher like '$b' ;";
+            or Title like '$b' or Publisher like '$b' ORDER BY Book_No;";
         }
         else{
             $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where (Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
-            or Title like '$b' or Publisher like '$b') and Cl_No IN(SELECT CL_No from course_cl where Course = '$Course');";
+            or Title like '$b' or Publisher like '$b') and Cl_No IN(SELECT CL_No from course_cl where Course = '$Course') ORDER BY Book_No;";
         }
         $result=$conn->query($sql);
         displayTable($result, $conn);
