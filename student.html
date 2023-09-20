@@ -32,8 +32,8 @@
         .heading
         {
             font-family: HeadingBold;
-            background-color: #1A2A5A;
-            color: #D1D562;
+            background-color: #040D12;
+            color: #93B1A6;
         }
         [value="Search"]:hover
         {
@@ -146,7 +146,7 @@
 
     </style>
 </head>
-<body style="width:99.25vw;height:100vh;background-image:url(student.jpg);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;">
+<body style="width:99.25vw;height:100vh;background-image:url(1067098.png);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;">
     <div class="row" style="text-align: center;background-color: #1a1b47;color:#E4E5EA;">
         <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
             <h1>International Institute of Professional Studies</h1>
@@ -158,21 +158,21 @@
             <h1>Devi Ahilya Vishva Vidyalaya</h1>
         </div>
     </div>
-    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:400px;height:400px;top:50%;left:50%;position:relative;transform: translate(-50%,-60%);">
+    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:400px;height:400px;top:50%;left:50%;position:relative;transform:translate(-50%,-60%);">
         <div style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);">
             <center>
-                <h2 style="font-weight: bolder;color:#049CE4;text-shadow: 2px 2px #1A2A5A;">Search A Book</h2>
+                <h2 id="searchtext" style="font-weight: bolder;color:#93B1A6;text-shadow: 2px 2px #040D12;">Search A Book</h2>
                 <br><br>
                 <form id="studentSearch" action="" method="post" style="color:aliceblue;">
                     <div style="display: flex; justify-content: center;gap:10px;">
-                    <div style="width:60%;"><input style="width:100%;color:aliceblue;background-color: #011034;border-radius:5px;height:42px;border-color:black;border-style:solid;" required id="book_s" type="text" placeholder="Search book..." name="data"></div>
-                    <div><button type="submit" value="" class="btn" style="width:80px;background-color: #2B4F8D;"><img src="baseline_search_white_24dp.png" height="30px" width="30px" alt=""></button></div></div><br>
-                    <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:aliceblue;background-color:#800000;font-weight: bold;display: none;" value="Clear">
+                    <div style="width:60%;"><input style="color:aliceblue;width:100%;background-color: #040D12;border-radius:5px;height:42px;border-color:black;border-style:solid;" required id="book_s" type="text" placeholder="Search book by title or author" name="data"></div>
+                    <div><button type="submit" value="" class="btn" style="width:80px;background-color: #183D3D;"><img src="baseline_search_white_24dp.png" height="30px" width="30px" alt=""></button></div></div><br>
+                    <input type="button" class='btn' onclick='cleared();' id="clear2" style="color:aliceblue;background-color:#801818;font-weight: bold;display: none;" value="Clear">
                 </form>
             </center>
         </div>
     </div>
-    <div id="iframeblock" style="width:1050px;display:none;height:650px;overflow: auto;position:relative;top:50%;left:50%;transform:translate(-25%,-120%)"></div>
+    <div id="iframeblock" style="width:1200px;display:none;height:650px;overflow: auto;position:absolute;top:15%;left:50%;"></div>
 </body>
 <script src="student.js"></script>
 </html>
