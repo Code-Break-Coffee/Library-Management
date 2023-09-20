@@ -17,5 +17,5 @@ if($result){
  
 // Return results as json encoded array 
 echo json_encode($bookData); 
-
+  
 ?>

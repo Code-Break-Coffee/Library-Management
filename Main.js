@@ -468,11 +468,11 @@ document.getElementById("s").addEventListener("click",()=>
                     <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
                     <button type="submit" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                </center>
+                </center>  
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative; width:700px;" id="response5"></div>`;
+    <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
     // $(document).ready(function(){
     //     $("#B_Search").autocomplete({
     //         autoFocus: true,

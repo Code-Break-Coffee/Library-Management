@@ -17,35 +17,56 @@ function PHash($use,$pass)
     return password_hash("$use"."$pass", PASSWORD_BCRYPT);
 }
 
-if(password_check($password,$pass_confirm)){
-    $p = PHash($user,$password);
-    $stat="INSERT INTO admin VALUES('$user','$p','Assistant');";
-    $stat1="INSERT INTO temp_keys(Username) VALUES('$user');";
-    $result=$conn->query($stat);
-    $result1=$conn->query($stat1);
-    if($result)
-    {
-        echo "
-        <div id='dialog_adminstrator' style='color:green;' title='✅Successful'>
-            <p><center>User Created Successfully</center></p>
-        </div>
-        ";
+function AdminExist($u){
+    include "dbconnect.php";
+    $sql = "SELECT Username FROM admin WHERE Username = '$u';";
+    $result = $conn->query($sql);
+    if(mysqli_num_rows($result) >= 1){
+        return true;
     }
     else{
+        return false;
+    }
+}
+if(!AdminExist($user)){
+
+    if(password_check($password,$pass_confirm)){
+        $p = PHash($user,$password);
+        $stat="INSERT INTO admin VALUES('$user','$p','Assistant');";
+        $stat1="INSERT INTO temp_keys(Username) VALUES('$user');";
+        $result=$conn->query($stat);
+        $result1=$conn->query($stat1);
+        if($result)
+        {
+            echo "
+            <div id='dialog_adminstrator' style='color:green;' title='✅Successful'>
+                <p><center>User Created Successfully</center></p>
+            </div>
+            ";
+        }
+        else{
+            echo "
+            <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
+                <p><center>$conn->error</center></p>
+            </div>
+            "; 
+        }
+    }
+    else
+    {
         echo "
         <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-            <p><center>$conn->error</center></p>
+            <p><center>Confirmation Password Is Not Same as Password</center></p>
         </div>
         "; 
     }
 }
-else
-{
+else{
     echo "
-    <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-        <p><center>Confirmation Password Is Not Same as Password</center></p>
-    </div>
-    "; 
+        <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
+            <p><center>Admin User alread exist</center></p>
+        </div>
+        ";
 }
 
 ?>

@@ -115,7 +115,8 @@ else
                 </tbody></table></div>
                 <script>
                     document.getElementById('SearchField').style.transform='translate(-120%,-50%)';
-                    document.getElementById('response5').style.transform='translate(130%,-90%)';
+                    document.getElementById('response5').style.top='25%';
+                    document.getElementById('response5').style.left='45%';
                 </script>";
 
         }

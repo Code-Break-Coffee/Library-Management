@@ -23,7 +23,7 @@ else
 {
     $sql;
     $bookno = 0;
-    if(!empty($_POST["bookno"])) $bookno=$_POST["bookno"];
+    if(!empty($_POST["bookno"])) $bookno=$_POST["bookno"]; //-----------------------------------(book number cast varcare-> num)
     else
     {
         $sql_max_book = "SELECT Book_No from books;";
