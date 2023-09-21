@@ -109,7 +109,7 @@ document.getElementById("i").addEventListener("click",()=>
                     <div class="row">
                         <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
                             <label>Member ID:</label>
-                            <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
+                            <input id="memberid" required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
                         </div>
                         <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
                             <input type="button" id="issuecheck" class="btn" value="Check" style="position:relative;top:23px;color:aliceblue;background-color: black;font-weight: bold;"/>
@@ -120,26 +120,31 @@ document.getElementById("i").addEventListener("click",()=>
                     <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Issue"/>
-                    <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response"></div>`;
+    <div style="font-weight: bold;display:none;" id="response"></div>
+    <div style="font-weight: bold;width:1200px;position:absolute;top:25%;left:45%;" id="response_check"></div>
+    `;
     $(document).ready(function()
     {
         $("#issuecheck").on('click',()=>
         {
+            document.getElementById("response").style.display="none";
+            const mi=document.getElementById("memberid").value;
+            $("#dialog1").dialog("destroy");
             $.ajax(
             {
                 method: "post",
-                url: "",
-                data: $(this).serialize(),
+                url: "Book_issue_check.php",
+                data: "&Access=Main-Issue-Check&memberid="+mi,
                 datatype: "text",
                 success: function(Result)
                 {
-                    $("#dialog1").dialog("destroy");
-                    $("#response").html(Result);
+                    document.getElementById("response_check").style.display="block";
+                    $("#response_check").html(Result);
                     $("#dialog1").dialog();
                 }
             });
@@ -147,6 +152,8 @@ document.getElementById("i").addEventListener("click",()=>
         $("#issuebook").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById("response_check").style.display="none";
+            document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
             $.ajax(
             {
                 method: "post",
@@ -155,11 +162,19 @@ document.getElementById("i").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    document.getElementById("response").style.display="block";
                     $( "#dialog1" ).dialog( "destroy" );
                     $("#response").html(Result);
                     $("#dialog1").dialog();
                 }
             });
+        });
+        $("#resetissue").on('click',()=>
+        {
+            $( "#dialog1" ).dialog( "destroy" );
+            document.getElementById("response").style.display="none";
+            document.getElementById("response_check").style.display="none";
+            document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
         });
     });
 });
@@ -297,7 +312,7 @@ document.getElementById("me").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response8"></div>`;
+    <div style="font-weight: bold;" id="response8"></div>`;
     $(document).ready(function()
     {
         $("#meform").submit(function(e)
@@ -405,7 +420,7 @@ document.getElementById("ins").addEventListener("click",()=>
                     </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response3"></div>`;
+    <div style="font-weight: bold;" id="response3"></div>`;
     $(document).ready(function()
     {
         $("#insertform").submit(function(e)
@@ -613,7 +628,7 @@ document.getElementById("m").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response6"></div>`;
+    <div style="font-weight: bold;" id="response6"></div>`;
     $(document).ready(function()
     {
 
@@ -730,7 +745,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
             </form>
         </div>
     </div>
-    <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response_adminstrator"></div>`;
+    <div style="font-weight: bold;" id="response_adminstrator"></div>`;
     $(document).ready(function()
     {
         $("#adminstrator").submit(function(e)
