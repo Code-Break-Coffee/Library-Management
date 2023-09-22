@@ -15,6 +15,44 @@ function check($b, $count)
     }
     return true;
 }
+
+function sugesstion_add($title,$author1,$author2,$author3,$publisher)
+{
+    include "dbconnect.php";
+
+    $stat_title_check = "SELECT * FROM suggestion where  Book_value='$title' and category='Title';";
+    $stat_publish_check = "SELECT * FROM suggestion where  Book_value='$publisher' and category='Publisher';";    
+    
+
+    $res_title = $conn->query($stat_title_check);
+    $res_pulish = $conn->query($stat_publish_check);
+
+
+    if(mysqli_num_rows($res_title)==0)
+    {
+        $stat_title = "INSERT INTO suggestion(Book_value,category) VALUES('$title','Title');";
+        $res_append = $conn->query($stat_title);
+    }
+    if(mysqli_num_rows($res_pulish)==0)
+    {
+        $stat_publish = "INSERT INTO suggestion(Book_value,category) VALUES('$publisher','Publisher');";
+        $res_append_publish = $conn->query($stat_publish);
+    }
+
+    $arr=array_unique(array($author1,$author2,$author3));
+    foreach($arr as $i)
+    {
+        $stat_author_check = "SELECT * FROM suggestion where  Book_value='$i' and category='Author';";
+        $res_auth = $conn->query($stat_author_check);
+        if(mysqli_num_rows($res_auth)==0)
+        {
+            $stat_author = "INSERT INTO suggestion(Book_value,category) VALUES('$i','Author');";
+            $res_append_author = $conn->query($stat_author);
+        }
+    }
+
+}
+
 if(!verification() || $_POST["Access"] != "Main-Insert")
 {
     header("Location: /LibraryManagement/");
@@ -114,6 +152,9 @@ else
             $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
             ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
             $result=$conn->query($sql);
+            
+            sugesstion_add($title,$author1,$author2,$author3,$publisher);
+            
             if($result) $flagcount++;
             else echo $conn->error;
         }
