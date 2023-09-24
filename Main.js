@@ -355,7 +355,7 @@ document.getElementById("ins").addEventListener("click",()=>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Title:</label>
-                            <input required type="text" name="title" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required id="book_title"  type="text" name="title" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                     </div>
                     <div class="row">
@@ -411,7 +411,7 @@ document.getElementById("ins").addEventListener("click",()=>
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
                             <label>Bill Number:</label>
-                            <input type="text" name="billno" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input  type="text" name="billno" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                     </div><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
@@ -423,6 +423,35 @@ document.getElementById("ins").addEventListener("click",()=>
     <div style="font-weight: bold;" id="response3"></div>`;
     $(document).ready(function()
     {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+          ];
+          $( "#book_title" ).autocomplete({
+            source: "Suggestions_book_add.php",
+            // autoFocus:true,
+            // minLength:3
+          });
         $("#insertform").submit(function(e)
         {
             e.preventDefault();
