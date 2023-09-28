@@ -371,23 +371,23 @@ document.getElementById("ins").addEventListener("click",()=>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 1:</label>
-                            <input required type="text" name="author1" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="text" name="author1" id="author1"  class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 2:</label>
-                            <input type="text" name="author2" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="author2"  id="author2" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 3:</label>
-                            <input type="text" name="author3" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="author3" id="author3" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Publisher:</label>
-                            <input required type="text" name="publisher" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="text" name="publisher" id="publisher" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Supplier:</label>
@@ -418,50 +418,62 @@ document.getElementById("ins").addEventListener("click",()=>
                         <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
                             <label>Bill Number:</label>
                             <input  type="text" name="billno" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
-                        </div>
-                    </div><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
-                    <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                    </center>
-                    </form>
-        </div>
-    </div>
+                            </div>
+                            </div><br>
+                            <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
+                            <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                            </center>
+                            </form>
+                            </div>
+                            </div>
     <div style="font-weight: bold;" id="response3"></div>`;
     $(document).ready(function()
     {
-        var availableTags = [
-            "ActionScript",
-            "AppleScript",
-            "Asp",
-            "BASIC",
-            "C",
-            "C++",
-            "Clojure",
-            "COBOL",
-            "ColdFusion",
-            "Erlang",
-            "Fortran",
-            "Groovy",
-            "Haskell",
-            "Java",
-            "JavaScript",
-            "Lisp",
-            "Perl",
-            "PHP",
-            "Python",
-            "Ruby",
-            "Scala",
-            "Scheme"
-          ];
-          $( "#book_title" ).autocomplete({
-            source: "Suggestions_book_add.php",
+        $( "#book_title" ).autocomplete({
+            source: "Suggestions_book_title.php",
+            autoFocus:true,
+            minLength:3,
             select: function( event, ui ) {
                 event.preventDefault();
                 $("#book_title").val(ui.item.id);
             }
-            // autoFocus:true,
-            // minLength:3
-          });
+        });
+        $( "#author1" ).autocomplete({
+          source: "Suggestions_book_author.php",
+          autoFocus:true,
+          minLength:3,
+          select: function( event, ui ) {
+              event.preventDefault();
+              $("#author1").val(ui.item.id);
+            }
+        });
+          $( "#author2" ).autocomplete({
+            source: "Suggestions_book_author.php",
+            autoFocus:true,
+            minLength:3,
+            select: function( event, ui ) {
+                event.preventDefault();
+                $("#author2").val(ui.item.id);
+            }
+        });
+          $( "#author3" ).autocomplete({
+            source: "Suggestions_book_author.php",
+            autoFocus:true,
+            minLength:3,
+            select: function( event, ui ) {
+                event.preventDefault();
+                $("#author3").val(ui.item.id);
+            }
+        });
+          $( "#publisher" ).autocomplete({
+            source: "Suggestions_book_publish.php",
+            autoFocus:true,
+            minLength:3,
+            select: function( event, ui ) {
+                event.preventDefault();
+                $("#publisher").val(ui.item.id);
+            }
+        });
         $("#insertform").submit(function(e)
         {
             e.preventDefault();

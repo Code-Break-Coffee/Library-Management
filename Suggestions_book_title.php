@@ -10,9 +10,11 @@ $bookData = array();
 $result=$conn->query($sql);
 if($result){ 
     while($row = $result->fetch_assoc()){ 
-        $Data['id'] = $row["category"];
-        $Data['value'] = $row['Book_value']; 
-        array_push($bookData, $Data);    
+        if($row["category"] == "Title"){
+            $Data['id'] = $row["category"];
+            $Data['value'] = $row['Book_value']; 
+            array_push($bookData, $Data);    
+        }
     }
 }
 
