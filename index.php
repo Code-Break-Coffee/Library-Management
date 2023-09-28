@@ -102,6 +102,27 @@ $_SESSION["File"] = "Index.php";
         tbody tr:hover {
             background: #014055;
         }
+        .bookfilter
+        {
+            width:300px;
+            font-weight:bold;
+            border-radius: 5px;
+            border: 2px solid black;
+            height:40px;
+        }
+        input::placeholder
+        { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color:aliceblue;
+            opacity: 1;
+        }
+        :-ms-input-placeholder
+        { /* Internet Explorer 10-11 */
+            color:aliceblue;
+        }
+        ::-ms-input-placeholder 
+        { /* Microsoft Edge */
+            color:aliceblue;
+        }
     </style>
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">

@@ -1,10 +1,15 @@
 <?php
-function show_table()
+if(!empty($_POST["level"]))
+{
+    $level=$_POST["level"];
+    show_table($level);
+}
+function show_table($l)
 {
     include "dbconnect.php";
-    $stat="SELECT * FROM admin;";
+    $stat="SELECT * FROM admin where User_level = '$l';";
     $result=$conn->query($stat);
-    if($result && mysqli_num_rows($result) > 0)
+    if($result)
     {
         echo "
         <div style='width:100%;height:650px;overflow:auto;'>
@@ -31,7 +36,6 @@ function show_table()
         </div>
         <script>
             document.getElementById('display').style.transform='translate(-120%,-50%)';
-            document.getElementById('response_admin_disp').style.transform='translate(170%,-89%)';
         </script>";
     }
     else
@@ -43,5 +47,4 @@ function show_table()
         "; 
     }
 }
-show_table();
 ?>
