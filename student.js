@@ -61,3 +61,22 @@ function cleared()
     holder.value="";
     document.getElementById("clear2").style.display="none";
 }
+
+$(document).ready(function(){
+
+  //Theam change
+  $("#select_theam").change(function(){
+
+    // Selected Theam id
+    var theam_id = $(this).val();
+
+    var url_= "/LibraryManagement/student.html";
+    if(theam_id == 1){
+      url_="/LibraryManagement/student.html";
+    }
+    else if(theam_id == 2){
+      url_="/LibraryManagement/student_.html";
+    }
+    window.location.href = url_;
+  });
+});

@@ -130,10 +130,16 @@ document.getElementById("i").addEventListener("click",()=>
     `;
     $(document).ready(function()
     {
+        
         $("#issuecheck").on('click',()=>
         {
-            document.getElementById("response").style.display="none";
             const mi=document.getElementById("memberid").value;
+            if(mi.length === 0){
+                alert("Please Enter Member Id!");
+                return;
+            }
+             
+            document.getElementById("response").style.display="none";
             $("#dialog1").dialog("destroy");
             $.ajax(
             {
@@ -147,7 +153,7 @@ document.getElementById("i").addEventListener("click",()=>
                     $("#response_check").html(Result);
                     $("#dialog1").dialog();
                 }
-            });
+            });    
         });
         $("#issuebook").submit(function(e)
         {
@@ -449,6 +455,10 @@ document.getElementById("ins").addEventListener("click",()=>
           ];
           $( "#book_title" ).autocomplete({
             source: "Suggestions_book_add.php",
+            select: function( event, ui ) {
+                event.preventDefault();
+                $("#book_title").val(ui.item.id);
+            }
             // autoFocus:true,
             // minLength:3
           });

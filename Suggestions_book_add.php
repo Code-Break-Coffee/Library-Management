@@ -3,17 +3,17 @@
 include "dbconnect.php";
 
 $search = $_GET["term"];
-$sql = "SELECT DISTINCT Title FROM books WHERE Title LIKE '%".$search."%' ORDER BY Title ASC"; 
+$sql = "SELECT DISTINCT Book_value, category FROM suggestion WHERE Book_value LIKE '%".$search."%' ORDER BY category ASC"; 
 
 
 $bookData = array(); 
 $result=$conn->query($sql);
 if($result){ 
     while($row = $result->fetch_assoc()){ 
-        $Data['value'] = $row['Title']; 
+        $Data['id'] = $row["category"];
+        $Data['value'] = $row['Book_value']; 
         array_push($bookData, $Data);    
     }
-     
 }
 
 
@@ -23,11 +23,3 @@ echo json_encode($bookData);
 // print_r($bookData);
 // echo"<script>window.alert('Chal gya');</script>";
 ?>
-
-
-<!-- $(document).ready(function(){
-    $("#book_s").autocomplete({
-        autoFocus: true,
-        source: "Suggestions.php",
-    });
-}); -->
