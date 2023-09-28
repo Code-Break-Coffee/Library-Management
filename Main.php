@@ -6,15 +6,24 @@ if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 }
 else
 {
-    $_SESSION["TEMP"] = "987";
+    $_SESSION["TEMP"] = "reload"; //for reload
     ?>
                     <!--navbar-->
                     <div style="background-color: black;font-size: large;font-weight: bold;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
                             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav-fill w-100">
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="nav-link hovered" id="s">Search</a>
+                                    </li> -->
+                                    <li class="nav-item dropdown">
+                                        <a id="books" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Books
+                                        </a>
+                                        <div id="booksdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown_hover" id="s">Search</a>
+                                        <a class="dropdown-item dropdown_hover" id="b">Book Filter</a>
+                                        </div>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a id="reports" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -23,10 +23,11 @@ document.getElementById("membership").addEventListener('mouseover',()=>
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     document.getElementById("membershipdiv").style.display="block";
 });
-document.getElementById("s").addEventListener('mouseover',()=>
+document.getElementById("books").addEventListener('mouseover',()=>
 {
     let arr=document.getElementsByClassName("dropdown-menu");
     for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    document.getElementById("booksdiv").style.display="block";
 });
 document.getElementById("admin_panel").addEventListener('mouseover',()=>
 {
@@ -647,7 +648,7 @@ document.getElementById("m").addEventListener("click",()=>
                     </select><br>
                     <div id="membercontain"></div>
                     <input id="membersubmit" type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>
-                    <button type="reset" id="resetmember" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>                                        
+                    <button type="reset" id="resetmember" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>                                        
                 </center>
             </form>
         </div>
@@ -996,7 +997,8 @@ document.getElementById("de_fac").addEventListener("click",()=>
 
 //-------------------------Display all admins
 
-document.getElementById("admin_disp").addEventListener("click",()=>{
+document.getElementById("admin_disp").addEventListener("click",()=>
+{
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="display" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -1005,27 +1007,25 @@ document.getElementById("admin_disp").addEventListener("click",()=>{
         <center>
             <h1>Admin Display</h1>
             <label>Type:</label>
-            <select name="fac_type" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+            <select name="level" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                 <option value="Admin">Admin</option>
                 <option value="Assistant">Assistant</option>
             </select><br>
-
             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Display"/>
-            <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+            <button id="resetadmin" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
         </center>
-        
         </form>
-            
         </div>
     </div>
-    <div style="font-weight: bold; position: relative; width:700px;" id="response_admin_disp"></div>
-    <div id="admin_info" style="font-weight: bold; position: absolute; top:50%;width:50%;transform:translate(-50%,-50%);"></div>`;
+    <div style="font-weight: bold; position: absolute; width:1200px;top:25%;left:50%;" id="response_admin_disp"></div>`;
+    $("#resetadmin").on('click',()=>
+    {
+        document.getElementById("display").style.transform="translate(-50%,-50%)";
+        document.getElementById("response_admin_disp").style.display="none";
+    });
     $("#display_adm").submit(function(e)
     {
         e.preventDefault();
-        // document.getElementById("response_admin_disp").style.display="none";
-        
-
         $.ajax(
         {
             method: "post",
@@ -1034,12 +1034,77 @@ document.getElementById("admin_disp").addEventListener("click",()=>{
             datatype: "text",
             success: function(Result)
             {
-                
+                document.getElementById("response_admin_disp").style.display="block";
                 $( "#dialog_admin_disp" ).dialog( "destroy" );
-                // document.getElementById("response_admin_disp").style.display="none";
                 $("#response_admin_disp").html(Result);
                 $("#dialog_admin_disp").dialog();  
             }
         });
     });
-})
+});
+
+//-------------------------------------------Book Filter
+
+document.querySelector("#b").addEventListener('click',()=>
+{
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div style='background-color: rgba(0, 0, 0, 0.2);backdrop-filter:blur(5px);'>
+        <form id='bookfilter_form' method='post' action='' style='color:aliceblue;font-weight:bold;' autocomplete='off'>
+            <center>
+                <h1>Book Filter</h1>
+                <div class='row'>
+                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
+                        <label>Title:</label><br>
+                        <input type='text' name='title' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Title or leave Empty'/>
+                    </div>
+                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
+                        <label>Author:</label><br>
+                        <input type='text' name='author' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Author or leave Empty'/>
+                    </div>
+                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
+                        <label>Publisher:</label><br>
+                        <input type='text' name='publisher' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Publisher or leave Empty'/>
+                    </div>
+                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
+                        <label>Supplier:</label><br>
+                        <input type='text' name='title' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
+                    </div>
+                </div><br>
+                <div style='display:flex;justify-content:center;gap:7px;'>
+                    <div>
+                        <input type='submit' style='color:aliceblue;background-color:black;' class='btn'/>
+                    </div>
+                    <div>
+                        <input id='filterreset' type='reset' style='color:aliceblue;background-color:#520702;' class='btn' value='Clear'/>
+                    </div>
+                </div>
+            </center>
+        </form>
+    </div>
+    <div id='response_book_filter' style='font-weight:bold;width:100%;'></div>
+    `;
+    $(document).ready(function()
+    {
+        $("#bookfilter_form").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Book_filter.php",
+                data: $(this).serialize(),
+                datatype: "text",
+                success: function(Result)
+                {
+                    document.getElementById("response_book_filter").style.display="block";
+                    $("#response_book_filter").html(Result);
+                }
+            });
+        });
+        $("#filterreset").on('click',()=>
+        {
+            document.getElementById("response_book_filter").style.display="none";
+        });
+    });
+});
