@@ -415,17 +415,21 @@ document.getElementById("ins").addEventListener("click",()=>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
+                        <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Bill Number:</label>
                             <input  type="text" name="billno" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
-                            </div>
-                            </div><br>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+                            <label>Remark:</label>
+                            <input  type="text" name="remark" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                        </div>
+                    </div><br>
                             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                             <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                            </center>
-                            </form>
-                            </div>
-                            </div>
+                </center>
+            </form>
+        </div>
+    </div>
     <div style="font-weight: bold;" id="response3"></div>`;
     $(document).ready(function()
     {
