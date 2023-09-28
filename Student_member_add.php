@@ -32,7 +32,7 @@ else
             $result=$conn->query($stat);
             echo "
             <div id='dialog8' style='color:green;' title='Successfull'>
-                <p><center>'$roll' Added Successfully</center></p>
+                <p><center>$roll Added Successfully</center></p>
             </div>
             ";
         }

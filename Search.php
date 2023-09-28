@@ -130,62 +130,38 @@ else
         else echo $conn->error;
     }
 
-    function Search($bVal, $Course)
+    function Search($bVal)
     {
         include "dbconnect.php";
         $b = "%".strtolower($bVal)."%";
-        $sql = "";
-        if($Course == "filter"){
-            $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
-            or Title like '$b' or Publisher like '$b' ORDER BY Book_No;";
-        }
-        else{
-            $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where (Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
-            or Title like '$b' or Publisher like '$b') and Cl_No IN(SELECT CL_No from course_cl where Course = '$Course') ORDER BY Book_No;";
-        }
+        $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
+        or Title like '$b' or Publisher like '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
         displayTable($result, $conn);
     }
     
-    function Book_Author($bauthor, $Course)
+    function Book_Author($bauthor)
     {
         include "dbconnect.php";
         $b ="%".strtolower($bauthor)."%";
-        $sql ="";
-        if($Course != "filter")
-        {
-            $sql = "SELECT * from books where (Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b') and Cl_No in (SELECT CL_No  from course_cl where Course ='$Course');";
-        }
-        else
-        {
-            $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
-        }
+        $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
         $result=$conn->query($sql);
         displayTable($result, $conn);
     }
 
-    function Book_Name($bname, $Course)
+    function Book_Name($bname)
     {
         include "dbconnect.php";
         $b ="%".strtolower($bname)."%";
-        $sql ="";
-        if($Course != "filter")
-        {
-            $sql = "SELECT * from books where Title LIKE '$b' and Cl_No in (SELECT CL_No  from course_cl where Course ='$Course');";
-        }
-        else
-        {
-            $sql = "SELECT * from books where Title LIKE '$b';";
-        }
+        $sql = "SELECT * from books where Title LIKE '$b';";
         $result=$conn->query($sql);
         displayTable($result, $conn);
     }
 
     if(filter_input(INPUT_POST,"soption")=="search")
     {
-        $Category= filter_input(INPUT_POST,"foption");
         $book = $_POST["book"];
-        Search($book, $Category);
+        Search($book);
     }
     else if(filter_input(INPUT_POST,"soption")=="Book No.")
     {
@@ -195,14 +171,6 @@ else
         $sql="SELECT Status from books where Book_No = '$bno';";
         $result=$conn->query($sql);
         $f=0;
-        // $bookno = 0;
-
-        //     $sql_max_book = "SELECT MAX(Book_No)as bno_max from books;";
-        //     $res=$conn->query($sql_max_book);
-        //     while($row =$res->fetch_assoc())
-        //     {
-        //         $bookno = (int)$row["bno_max"] ;
-        //     }
 
         if($result && mysqli_num_rows($result)>0)
         {
@@ -248,13 +216,11 @@ else
     else if(filter_input(INPUT_POST,"soption")=="Title")
     {
         $bname=$_POST["title"];
-        $Category= filter_input(INPUT_POST,"foption");
-        Book_Name($bname, $Category);
+        Book_Name($bname);
     }
     else if(filter_input(INPUT_POST,"soption")=="Author")
     {
         $bauthor=$_POST["author"];
-        $Category= filter_input(INPUT_POST,"foption");
-        Book_Author($bauthor, $Category);
+        Book_Author($bauthor);
     }
 }

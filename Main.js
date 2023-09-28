@@ -518,21 +518,6 @@ document.getElementById("s").addEventListener("click",()=>
                         <option value="Author">Author</option>
                         <option value="Title">Title</option>
                     </select><br>
-                    <div id="onoff">
-                    <label>Courses Filter:</label>
-                    <select id="sf" name="foption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="filter">Filter..</option>
-                        <option value="IT">MTech(IT) 5yrs</option>
-                        <option value="IC">MCA 5yrs</option>
-                        <option value="IB">B.com(H)</option>
-                        <option value="TA">MBA(T) 2yrs</option>
-                        <option value="TM">MBA(TM) 5yrs</option>
-                        <option value="FT">MBA(MS) 2yrs</option>
-                        <option value="IM">MBA(MS) 5yrs</option>
-                        <option value="AP">MBA(APR)</option>
-                        <option value="ES">MBA(E-SHIP)</option>
-                    </select><br>
-                    </div>
                     
                     <div id="searchcontain"></div>
                     <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
@@ -543,13 +528,6 @@ document.getElementById("s").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
-    // $(document).ready(function(){
-    //     $("#B_Search").autocomplete({
-    //         autoFocus: true,
-    //         minLength: 3,
-    //         source: "Suggestions.php",
-    //     });
-    // });
     $(document).ready(function() {
         $.widget( "custom.catcomplete", $.ui.autocomplete, {
           _create: function() {
@@ -598,33 +576,24 @@ document.getElementById("s").addEventListener("click",()=>
             {
                 si.setAttribute('placeholder','Enter or scan Book No.');
                 si.setAttribute('name','bookno');
-                document.getElementById("sf").style.display= "block";
-                $("#sf").prop('disabled', true);
                 sc.innerHTML=`<label>Book Number:</label>`;
-                document.getElementById("onoff").style.display="none";
             }
             if(sval=="Author")
             {
                 si.setAttribute('name','author');
-                $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Author.');
                 sc.innerHTML=`<label>Author:</label>`;
-                document.getElementById("onoff").style.display="block";
             }
             if(sval=="Title")
             {
                 si.setAttribute('name','title');
-                $("#sf").prop('disabled', false);
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
-                document.getElementById("onoff").style.display="block";
             }
             if(sval=="search")
             {
                 si.setAttribute('name','book');
-                $("#sf").prop('disabled', false);
                 sc.innerHTML=`<label>Book Search:</label>`;
-                document.getElementById("onoff").style.display="block";
             }
         });
         $("#resetsearch").click(function()
