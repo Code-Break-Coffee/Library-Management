@@ -1,55 +1,55 @@
+//--------------------------------------------------------------------------displayNone
+const displayNone=()=>
+{
+    // let arr=document.getElementsByClassName("dropdown-menu");
+    // for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    let arr=document.querySelectorAll(".dropdown-menu");
+    arr.forEach(elem=>elem.style.display="none");
+}
+
 //----------------------------------------------------------------------------hover
 document.getElementById("reports").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("reportsdiv").style.display="block";
 });
 document.getElementById("transactions").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("transactionsdiv").style.display="block";
 });
 document.getElementById("book").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("bookdiv").style.display="block";
 });
 document.getElementById("membership").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("membershipdiv").style.display="block";
 });
 document.getElementById("books").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("booksdiv").style.display="block";
 });
 document.getElementById("admin_panel").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     document.getElementById("admin_paneldiv").style.display="block";
 });
 document.getElementById("container").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
 });
 document.getElementById("Title_nev").addEventListener('mouseover',()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
 });
 //----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
         container.innerHTML=`
         <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -92,8 +92,7 @@ document.getElementById("d").addEventListener("click",()=>
 
 document.getElementById("i").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -190,8 +189,7 @@ document.getElementById("i").addEventListener("click",()=>
 
 document.getElementById("r").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -241,8 +239,7 @@ document.getElementById("r").addEventListener("click",()=>
 
 document.getElementById("au").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -300,8 +297,7 @@ document.getElementById("au").addEventListener("click",()=>
 
 document.getElementById("me").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -346,8 +342,7 @@ document.getElementById("me").addEventListener("click",()=>
 
 document.getElementById("ins").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -503,8 +498,7 @@ document.getElementById("ins").addEventListener("click",()=>
 
 document.getElementById("s").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -632,8 +626,7 @@ document.getElementById("s").addEventListener("click",()=>
 
 document.getElementById("m").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -749,8 +742,7 @@ function frame()
 
 document.getElementById("admin_add").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -797,8 +789,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
 
 document.getElementById("admin_delete").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -844,8 +835,7 @@ document.getElementById("admin_delete").addEventListener("click",()=>
 
 document.getElementById("de").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -903,8 +893,7 @@ document.getElementById("de").addEventListener("click",()=>
 
 document.getElementById("me_fac").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="FacultyField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -954,8 +943,7 @@ document.getElementById("me_fac").addEventListener("click",()=>
 
 document.getElementById("de_fac").addEventListener("click",()=>
 {
-    let arr=document.getElementsByClassName("dropdown-menu");
-    for(let i=0;i<arr.length;i++) arr[i].style.display="none";
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -999,6 +987,7 @@ document.getElementById("de_fac").addEventListener("click",()=>
 
 document.getElementById("admin_disp").addEventListener("click",()=>
 {
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="display" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
@@ -1047,28 +1036,29 @@ document.getElementById("admin_disp").addEventListener("click",()=>
 
 document.querySelector("#b").addEventListener('click',()=>
 {
+    displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style='background-color: rgba(0, 0, 0, 0.2);backdrop-filter:blur(5px);'>
         <form id='bookfilter_form' method='post' action='' style='color:aliceblue;font-weight:bold;' autocomplete='off'>
             <center>
-                <h1>Book Filter</h1>
+                <h1 style='text-shadow:2px 2px black;'>Book Filter</h1>
                 <div class='row'>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label>Title:</label><br>
+                        <label style='text-shadow:1px 1px black;'>Title:</label><br>
                         <input type='text' name='title' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Title or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label>Author:</label><br>
+                        <label style='text-shadow:1px 1px black;'>Author:</label><br>
                         <input type='text' name='author' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Author or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label>Publisher:</label><br>
+                        <label style='text-shadow:1px 1px black;'>Publisher:</label><br>
                         <input type='text' name='publisher' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Publisher or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label>Supplier:</label><br>
-                        <input type='text' name='title' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
+                        <label style='text-shadow:1px 1px black;'>Supplier:</label><br>
+                        <input type='text' name='supplier' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
                     </div>
                 </div><br>
                 <div style='display:flex;justify-content:center;gap:7px;'>
@@ -1093,7 +1083,7 @@ document.querySelector("#b").addEventListener('click',()=>
             {
                 method: "post",
                 url: "Book_filter.php",
-                data: $(this).serialize(),
+                data: $(this).serialize()+"&Access=Main-Book-Filter",
                 datatype: "text",
                 success: function(Result)
                 {
