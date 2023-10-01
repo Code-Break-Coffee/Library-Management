@@ -679,19 +679,8 @@ document.getElementById("m").addEventListener("click",()=>
             }
             if(mval=="Class")
             {
-                mc.innerHTML=`<label>Course:</label>
-                <select name="course" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="IT">MTech(IT) 5yrs</option>
-                        <option value="IC">MCA 5yrs</option>
-                        <option value="IB">B.com(H)</option>
-                        <option value="TA">MBA(T) 2yrs</option>
-                        <option value="TM">MBA(TM) 5yrs</option>
-                        <option value="FT">MBA(MS) 2yrs</option>
-                        <option value="IM">MBA(MS) 5yrs</option>
-                        <option value="AP">MBA(APR)</option>
-                        <option value="ES">MBA(E-SHIP)</option>
-                    </select><br>
-                <label>Year:</label><input required type="number" name="year" maxlength=4  class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                 mc.innerHTML=`
+                <label>Batch:</label><input required type="text" name="year" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Download");
             }
