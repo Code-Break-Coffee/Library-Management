@@ -85,7 +85,7 @@ else
             echo "
                 <div style='width:100%;overflow:auto;height:650px;'><table>
                 <tr>
-                <th>B No.</th>
+                <th>Book No.</th>
                 <th>Title</th>
                 <th>Author's</th>
                 <th>Publisher</th>

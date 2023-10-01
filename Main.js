@@ -706,6 +706,7 @@ document.getElementById("m").addEventListener("click",()=>
                     $("#dialog6").dialog( "destroy" );
                     $("#response6").html(Result);
                     $("#dialog6").dialog();
+                    download( __DIR__ + '/Doc/' +'Registratinconfirmed.pdf');
                 }
             });
         });

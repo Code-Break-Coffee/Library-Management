@@ -87,16 +87,10 @@ else
         // Add 1 page in your PDF
         $pdf->AddPage();
         $pdf->SetFont("Arial", "B", 22);
-        // $course =filter_input(INPUT_POST,"course");
         $year =$_POST["year"];
         $year=strtoupper($year);
         $year=str_replace("-","",$year);
-        // $year=strval($year);
-        // if($year[1] == "0") $year[1] = "k";
-        // $batch =strtoupper($course).$year;
         
-        $sql_m="SELECT * from member;";
-        $result_m=$conn->query($sql_m);
         $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$year%' order by Student_Rollno;";
         $result_s = $conn->query($sql_s);
 
@@ -108,8 +102,9 @@ else
         {
             while($row = $result_s->fetch_assoc())
             {
+                $sql_m="SELECT * from member WHERE Student_Rollno =".$row["Student_Rollno"].";";
+                $result_m=$conn->query($sql_m);
                 $checkedm=membercheck($result_m,$row["Student_Rollno"]);
-                $result_m->data_seek(0);
                 if($checkedm)
                 {
                     $count = 0;
