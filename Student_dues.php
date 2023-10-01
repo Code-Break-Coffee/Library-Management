@@ -1,6 +1,20 @@
 <?php
 @session_start();
 include "auth.php";
+function membercheck($x,$y)
+{
+    if($x)
+    {
+        while($row=$x->fetch_assoc())
+        {
+            if($row["Member_ID"] == $y)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 if(!verification() || $_POST["Access"] != "Main-member" )
 {
     header("Location: /LibraryManagement/");
@@ -39,14 +53,14 @@ else
                 if($count==0)
                 {
                     echo "
-                    <div id='dialog6' style='color:green;' title='✅Success'>
+                    <div id='dialog6' style='color:green;' title='✅Notification'>
                         <p><center>Member $memberId has NO-DUES</center></p>
                     </div>";
                 }
                 else
                 {
                     echo "
-                    <div id='dialog6' style='color:red;' title='⚠️Error'>
+                    <div id='dialog6' style='color:red;' title='⚠️Notification'>
                         <p><center>Member $memberId has $count Books Dues</center></p>
                     </div>";
                 }
@@ -57,7 +71,7 @@ else
             </div>";
         }
         else echo "
-        <div id='dialog6' style='color:red;' title='⚠️Error' background: url(alert.png);>
+        <div id='dialog6' style='color:red;' title='Not Found' background: url(alert.png);>
             <p><center>Member Not found</center></p>
         </div>";
     }
@@ -73,14 +87,17 @@ else
         // Add 1 page in your PDF
         $pdf->AddPage();
         $pdf->SetFont("Arial", "B", 22);
-        $course =filter_input(INPUT_POST,"course");
+        // $course =filter_input(INPUT_POST,"course");
         $year =$_POST["year"];
-        $year=strval($year);
-        if($year[1] == "0") $year[1] = "k";
-        $batch =strtoupper($course).$year;
+        $year=strtoupper($year);
+        $year=str_replace("-","",$year);
+        // $year=strval($year);
+        // if($year[1] == "0") $year[1] = "k";
+        // $batch =strtoupper($course).$year;
+        
         $sql_m="SELECT * from member;";
         $result_m=$conn->query($sql_m);
-        $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$batch%'";
+        $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$year%' order by Student_Rollno;";
         $result_s = $conn->query($sql_s);
 
         $pdf->Cell(70, 10, "Name", 1, 0, "L");
