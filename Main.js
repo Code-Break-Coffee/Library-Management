@@ -633,7 +633,7 @@ document.getElementById("m").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="memberform" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Book Member Form</h1>
+                    <h1>Dues Member Check</h1>
                     <label>Check Dues:</label>
                     <select name="moption" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                         <option value="Single Member">Single Member</option>
@@ -1022,6 +1022,56 @@ document.getElementById("admin_disp").addEventListener("click",()=>
     });
 });
 
+//--------------------------------------------------- Student Member Details
+
+document.getElementById("std").addEventListener("click",()=>{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+        <div id="std_searchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="std_searchform" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Student Records Page</h1>
+                    
+                    <div id="std_searchcontain"></div>
+                    <label>Batch ID</label>
+                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="std_Search" name="batch_id"/><br>
+                    <button type="submit" id="show_std" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
+                    <button id="std_resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>  
+            </form>
+        </div>
+    </div>
+    <div style="font-weight: bold;position: absolute; width:1200px;" id="response_student_records"></div>
+    `;
+    $(document).ready(function()
+    {
+        $("#std_searchform").submit(function(e)
+        {
+            e.preventDefault();
+            console.log('Hello');
+            $.ajax(
+            {
+                
+                method: "post",
+                url: "Student_members_details.php",
+                data: $(this).serialize() ,
+                datatype: "text",
+                success: function(Result)
+                {
+
+                    document.getElementById("response_student_records").style.display="block";
+                    $( "#dialog_std_disp" ).dialog( "destroy" );
+                    $("#response_student_records").html(Result);
+                    $("#dialog_std_disp").dialog();  
+                }
+            });
+        });
+    });
+})
+
+
 //-------------------------------------------Book Filter
 
 document.querySelector("#b").addEventListener('click',()=>
@@ -1088,3 +1138,5 @@ document.querySelector("#b").addEventListener('click',()=>
         });
     });
 });
+
+

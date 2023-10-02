@@ -32,6 +32,7 @@ else
                                         <div id="reportsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="au">Audit</a>
                                         <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
+                                        <a class="dropdown-item dropdown_hover" id="std">Student Records</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -61,6 +62,7 @@ else
                                         <a class="dropdown-item dropdown_hover" id="me_fac">Add Faculty Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de">Delete Student Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de_fac">Delete Faculty Member</a>
+                                        
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
