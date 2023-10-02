@@ -1046,7 +1046,7 @@ document.getElementById("std").addEventListener("click",()=>{
         $("#std_searchform").submit(function(e)
         {
             e.preventDefault();
-            console.log('Hello');
+            
             $.ajax(
             {
                 
@@ -1063,6 +1063,12 @@ document.getElementById("std").addEventListener("click",()=>{
                     $("#dialog_std_disp").dialog();  
                 }
             });
+        }
+        );
+        $("#std_resetsearch").click(function(){
+            
+            document.getElementById("std_searchField").style.transform="translate(-50%,-50%)";
+            document.getElementById("response_student_records").style.display="none";
         });
     });
 })
