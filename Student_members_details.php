@@ -4,7 +4,7 @@ include "auth.php";
 
 function displayTable($records)
     {
-        if(true)
+        if(count($records) > 0)
         {
             
         
@@ -65,7 +65,7 @@ function membercheck($x,$y)
     }
     return false;
 }
-if(!verification() ){// chaining not done ------------------------------------------------------------------------
+if(!verification()){// chaining not done ------------------------------------------------------------------------
 }
 else
 {
@@ -75,7 +75,7 @@ else
     $batch = $_POST["batch_id"];
     $batch=strtoupper($batch);
     $batch=str_replace("-","",$batch);
-    $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$batch%' order by Student_Rollno;";
+    $sql_s = "SELECT * from student where Student_Rollno like '$batch%' order by Student_Rollno;";
     $result_s = $conn->query($sql_s);
     $records =[];
     
@@ -83,14 +83,18 @@ else
     {
         while($row = $result_s->fetch_assoc())
         {
-            $sql_m="SELECT * from member WHERE Student_Rollno =".$row["Student_Rollno"].";";
+            $id = $row["Student_Rollno"];
+            $sql_m="SELECT * from member WHERE Member_ID ='$id';";
             $result_m=$conn->query($sql_m);
+            echo $conn->error;
             $checkedm=membercheck($result_m,$row["Student_Rollno"]);
             
             if($checkedm){
                 $records[$row["Student_Rollno"]] = array($row["Student_Name"], $row["Student_Course"], $row["Student_Enrollmentno"],"Member");
             }
-            $records[$row["Student_Rollno"]] = array($row["Student_Name"], $row["Student_Course"], $row["Student_Enrollmentno"],"Not a Member");
+            else{
+                $records[$row["Student_Rollno"]] = array($row["Student_Name"], $row["Student_Course"], $row["Student_Enrollmentno"],"Not a Member");
+            }
 
         }
         displayTable($records);
