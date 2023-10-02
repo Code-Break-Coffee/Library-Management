@@ -8,17 +8,49 @@ if(!verification() || $_POST["Access"]!="Main-Book-Filter")
 }
 else
 {
-    //-------------------------------------------------karna he abhi aadha he
-    $title=$_POST["title"];
-    $author=$_POST["author"];
-    $publisher=$_POST["publisher"];
-    $supplier=$_POST["supplier"];
+    $sql="SELECT * from books WHERE ";
+    $bool=false;
 
-    $sql="SELECT * from books where
-    Author1 like '%$author%' and 
-    Title like '%$title%' and
-    Publisher like '%$publisher%' and
-    Supplier like '%$publisher%';";
+    if(!empty($_POST["title"]))
+    {
+        $title=$_POST["title"];
+        $sql=$sql."Title like '%$title%' ";
+        $bool=true;
+    }
+    if(!empty($_POST["author"]))
+    {
+        $author=$_POST["author"];
+        if($bool)
+        {
+            $sql=$sql."and ";
+        }
+        $bool=true;
+        $sql=$sql."(Author1 like '%$author%' or Author2 like '%$author%' or Author3 like '%$author%') ";
+    }
+    if(!empty($_POST["publisher"]))
+    {
+        $publisher=$_POST["publisher"];
+        if($bool)
+        {
+            $sql=$sql."and ";
+        }
+        $bool=true;
+        $sql=$sql."Publisher like '%$publisher%' ";
+    }
+    if(!empty($_POST["supplier"]))
+    {
+        $supplier=$_POST["supplier"];
+        if($bool)
+        {
+            $sql=$sql."and ";
+        }
+        $bool=true;
+        $sql=$sql."Supplier like '%$supplier%' ";
+    }
+    if(empty($_POST["title"]) && empty($_POST["author"]) && empty($_POST["publisher"]) && empty($_POST["supplier"]))
+    {
+        $sql="SELECT * from books;";
+    }
 
     $result=$conn->query($sql);
     if($result)
