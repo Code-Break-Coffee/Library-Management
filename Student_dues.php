@@ -22,24 +22,25 @@ if(!verification() || $_POST["Access"] != "Main-member" )
 else
 {
     date_default_timezone_set("Asia/Kolkata");
+    $m_count =0;
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {
         include "dbconnect.php";
         $memberId = $_POST["memberid"];
         $memberId = strtoupper($memberId);
         $memberId = str_replace("-","",$memberId);
-        if(empty($_POST["memberid"]))
+        if(empty($_POST["memberid"]) || strlen($memberId) < 6)
         {
             echo "
                 <div id='dialog6' style='color:red;' title='⚠️Error'>
-                    <p><center>Please enter Member ID</center></p>
+                    <p><center>Please enter authentic Member ID</center></p>
                 </div>";
+            
         }
         else if(!empty($_POST["memberid"]))
         {
             $member_sql = "SELECT Member_ID from member where Member_ID = '$memberId';";
             $result_m=$conn->query($member_sql);
-            $m_count =0;
             while($row=$result_m->fetch_assoc()) $m_count += 1;
         }
         $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";

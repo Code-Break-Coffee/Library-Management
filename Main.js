@@ -139,19 +139,16 @@ document.getElementById("i").addEventListener("click",()=>
                 return;
             }
              
-            document.getElementById("response").style.display="none";
-            $("#dialog1").dialog("destroy");
             $.ajax(
-            {
-                method: "post",
-                url: "Book_issue_check.php",
-                data: "&Access=Main-Issue-Check&memberid="+mi,
-                datatype: "text",
-                success: function(Result)
                 {
+                    method: "post",
+                    url: "Book_issue_check.php",
+                    data: "&Access=Main-Issue-Check&memberid="+mi,
+                    datatype: "text",
+                    success: function(Result)
+                    {  
                     document.getElementById("response_check").style.display="block";
                     $("#response_check").html(Result);
-                    $("#dialog1").dialog();
                 }
             });    
         });
@@ -177,7 +174,6 @@ document.getElementById("i").addEventListener("click",()=>
         });
         $("#resetissue").on('click',()=>
         {
-            $( "#dialog1" ).dialog( "destroy" );
             document.getElementById("response").style.display="none";
             document.getElementById("response_check").style.display="none";
             document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
@@ -640,7 +636,7 @@ document.getElementById("m").addEventListener("click",()=>
                         <option value="Class">Class</option>
                     </select><br>
                     <div id="membercontain"></div>
-                    <input id="membersubmit" type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>
+                    <input id="membersubmit" type="submit"  class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>
                     <button type="reset" id="resetmember" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>                                        
                 </center>
             </form>
