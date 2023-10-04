@@ -136,7 +136,7 @@ else
                     else echo $conn->error;
                 }
                 else
-                {
+                { 
                     // nodues
                     $pdf->Cell(70, 10, $row["Student_Name"], 1, 0, "L");
                     $pdf->Cell(60, 10, $row["Student_Rollno"], 1, 0, "L");
