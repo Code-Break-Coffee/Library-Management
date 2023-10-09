@@ -1,50 +1,27 @@
 //--------------------------------------------------------------------------displayNone
 const displayNone=()=>
 {
-    // let arr=document.getElementsByClassName("dropdown-menu");
-    // for(let i=0;i<arr.length;i++) arr[i].style.display="none";
     let arr=document.querySelectorAll(".dropdown-menu");
     arr.forEach(elem=>elem.style.display="none");
 }
 
-//----------------------------------------------------------------------------hover
-document.getElementById("reports").addEventListener('mouseover',()=>
+//----------------------------------------------------------------------------mouseover
+const navbar=document.querySelector(".navbar-nav");
+navbar.addEventListener('mouseover',(e)=>
 {
-    displayNone();
-    document.getElementById("reportsdiv").style.display="block";
+    if(e.target.classList.contains("hovered"))
+    {
+        displayNone();
+        document.getElementById(e.target.id+"div").style.display="block";
+    }
 });
-document.getElementById("transactions").addEventListener('mouseover',()=>
-{
-    displayNone();
-    document.getElementById("transactionsdiv").style.display="block";
-});
-document.getElementById("book").addEventListener('mouseover',()=>
-{
-    displayNone();
-    document.getElementById("bookdiv").style.display="block";
-});
-document.getElementById("membership").addEventListener('mouseover',()=>
-{
-    displayNone();
-    document.getElementById("membershipdiv").style.display="block";
-});
-document.getElementById("books").addEventListener('mouseover',()=>
-{
-    displayNone();
-    document.getElementById("booksdiv").style.display="block";
-});
-document.getElementById("admin_panel").addEventListener('mouseover',()=>
-{
-    displayNone();
-    document.getElementById("admin_paneldiv").style.display="block";
-});
-document.getElementById("container").addEventListener('mouseover',()=>
-{
-    displayNone();
-});
-document.getElementById("Title_nev").addEventListener('mouseover',()=>
-{
-    displayNone();
+//---------------------------------------------------------------------------mouseleave
+navbar.addEventListener('mouseleave',(e)=>
+{   
+    if(!e.target.classList.contains("dropdown"))
+    {
+        displayNone();
+    }
 });
 //----------------------------------------------------------------------------delete book
 document.getElementById("d").addEventListener("click",()=>
@@ -1020,7 +997,8 @@ document.getElementById("admin_disp").addEventListener("click",()=>
 
 //--------------------------------------------------- Student Member Details
 
-document.getElementById("std").addEventListener("click",()=>{
+document.getElementById("std").addEventListener("click",()=>
+{
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
