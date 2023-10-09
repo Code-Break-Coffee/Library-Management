@@ -65,7 +65,7 @@ else
                         $( this ).dialog( 'close' );
 
                       },
-                      Cancel: function() {
+                      'Cancel': function() {
                         $( this ).dialog( 'close' );
                       }
                     }

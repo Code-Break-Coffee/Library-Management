@@ -145,7 +145,8 @@ else
             }
             $destination = __DIR__ . "/Doc/" .'Registratinconfirmed.pdf';
             $pdf->Output($destination,'F');
-            echo "<script>window.alert('PDF Downloaded Successfully!!!');</script>";
+            
+            echo "<script>window.open('./Doc/Registratinconfirmed.pdf','_blank');</script>";
         }
         else echo $conn->error;
     }

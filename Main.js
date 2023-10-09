@@ -79,7 +79,7 @@ document.getElementById("d").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
-                    $( "#dialog4" ).dialog( "destroy" );
+                    $( "#dialog4" ).dialog( "destroy" ); 
                     $("#response4").html(Result);
                     $("#dialog4").dialog();
                 }
