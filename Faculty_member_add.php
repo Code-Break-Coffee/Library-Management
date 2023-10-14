@@ -1,5 +1,6 @@
 <?php
 include "dbconnect.php";
+include "auth.php";
 @session_start();
 if(empty(!verification() || $_POST["fac_name"]) || empty($_POST["fac_id"]) || empty(filter_input(INPUT_POST,"fac_type"))|| $_POST["Access"] != "Main-Faculty_member_add")
 {
