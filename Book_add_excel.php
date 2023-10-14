@@ -1,7 +1,4 @@
 <?php
-// echo"<script> window.alert('hi');</script>";
-use PhpSpreadsheet\Reader\Xlsx;
-
 include "dbconnect.php";
 
     print_r($_FILES["file1"]["name"]);
@@ -17,8 +14,8 @@ include "dbconnect.php";
         $targetPath = 'uploads/' . $_FILES['file']['name'];
         move_uploaded_file($_FILES['file1']['tmp_name'], $targetPath);
 
-        $Reader = new \PhpSpreadsheet\Reader\Xlsx();
-
+        // $Reader = new \PhpSpreadsheet\Reader\Xlsx();
+        $Reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadSheet = $Reader->load($targetPath);
         $excelSheet = $spreadSheet->getActiveSheet();
         $spreadSheetAry = $excelSheet->toArray();

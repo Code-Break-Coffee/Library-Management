@@ -1160,7 +1160,8 @@ document.getElementById("tools").addEventListener("click",()=>{
          
             <div Class="input-row">
                 <div>
-                    <input style="background-color: black;color: aliceblue;" type="file" name="file1" id="file" class="file" accept=".xls,.xlsx">
+                    <input style="background-color: black;color: aliceblue;id="fileupload" type="file" name="fileupload" accept=".xls,.xlsx"/> 
+                    <button id="upload-button" onclick="uploadFile()"> Upload </button>
                 </div></br>
             
                 <div class="import">
@@ -1173,7 +1174,15 @@ document.getElementById("tools").addEventListener("click",()=>{
     </div>
     <div style="font-weight: bold;" id="response_exl_records"></div>
     `;
-    
+    async function uploadFile() {
+        let formData = new FormData(); 
+        formData.append("file", fileupload.files[0]);
+        await fetch('upload.php', {
+          method: "POST", 
+          body: formData
+        }); 
+        alert('The file has been uploaded successfully.');
+    }
 
     $(document).ready(function()
     {
@@ -1183,7 +1192,7 @@ document.getElementById("tools").addEventListener("click",()=>{
             $.ajax(
             {
                 method: "post",
-                url: "Excel.php",
+                url: "Book_add_excel.php",
                 data: $(this).serialize(),//-------@Kartikey
                 datatype: "text",
                 success: function(Result)
