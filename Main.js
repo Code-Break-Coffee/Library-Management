@@ -1056,7 +1056,7 @@ document.getElementById("std").addEventListener("click",()=>
                 
                 method: "post",
                 url: "Student_members_details.php",
-                data: $(this).serialize() ,
+                data: $(this).serialize() + "&Access=" +"Main-Student_members_details",
                 datatype: "text",
                 success: function(Result)
                 {
