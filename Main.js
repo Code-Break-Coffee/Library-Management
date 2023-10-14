@@ -1185,25 +1185,25 @@ document.getElementById("tools").addEventListener("click",()=>{
         alert('The file has been uploaded successfully.');
     }
 
-//     $(document).ready(function()
-//     {
-//         $("#frmExcelImport").submit(function(e)
-//         {
-//             e.preventDefault();
-//             $.ajax(
-//             {
-//                 method: "post",
-//                 url: "Book_add_excel.php",
-//                 data: $(this).serialize(),//-------@Kartikey
-//                 datatype: "text",
-//                 success: function(Result)
-//                 {
-//                     console.log("Hello");
-//                     $( "#dialog_exl_disp" ).dialog( "destroy" );
-//                     $("#response_exl_records").html(Result);
-//                     $("#dialog_exl_disp").dialog();  
-//                 }
-//             });
-//         });
-// })
+    $(document).ready(function()
+    {
+        $("#frmExcelImport").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Book_add_excel.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    console.log("Hello");
+                    $( "#dialog_exl_disp" ).dialog( "destroy" );
+                    $("#response_exl_records").html(Result);
+                    $("#dialog_exl_disp").dialog();  
+                }
+            });
+        });
+})
 })
