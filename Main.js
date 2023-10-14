@@ -915,7 +915,7 @@ document.getElementById("me_fac").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Faculty_member_add.php",
-                data: $(this).serialize(),//-------@Kartikey
+                data: $(this).serialize()+ "&Access=" +"Main-Faculty_member_add",
                 datatype: "text",
                 success: function(Result)
                 {
