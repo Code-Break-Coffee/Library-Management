@@ -65,6 +65,32 @@ document.getElementById("d").addEventListener("click",()=>
     });
 });
 
+//----------------------------------------------------------------------------Book Dues
+
+document.getElementById("dueBook").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+        container.innerHTML=`
+        <div style="font-weight: bold;position: relative;" id="response_due_book"></div>`;
+        $(document).ready(function()
+        {
+            $.ajax(
+                {
+                    method: "post",
+                    url: "Book_dues.php",
+                    success: function(Result)
+                    {
+                        $("#response_due_book").html(Result);
+                    }
+                });
+            $("#duereset").on('click',()=>
+            {
+                document.getElementById("response_due_book").style.display="none";
+            });
+    });
+});
+
 //----------------------------------------------------------------------------Book Issue
 
 document.getElementById("i").addEventListener("click",()=>

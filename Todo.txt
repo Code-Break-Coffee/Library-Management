@@ -7,3 +7,6 @@
 7: check record button in issue doesn't work in the scenario(book issue -> clear button pressed -> check button un accessible)
 8: add check for student or faculty radio button in check button issue book page
 caution: with increase in Books issues and returns it will be difficult to iterate table to find book issued or not
+
+Note: Book_filter -> table format
+ 
