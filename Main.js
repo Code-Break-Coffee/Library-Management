@@ -1117,7 +1117,7 @@ document.querySelector("#b").addEventListener('click',()=>
                 </div>
             </center>
         </form>
-    </div>
+    </div>  
     <div id='response_book_filter' style='font-weight:bold;width:100%;'></div>
     `;
     $(document).ready(function()
