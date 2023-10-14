@@ -1008,7 +1008,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
         {
             method: "post",
             url: "Admin_display.php",
-            data: $(this).serialize() ,
+            data: $(this).serialize() + "&Access=" +"Main-Admin_display",
             datatype: "text",
             success: function(Result)
             {
