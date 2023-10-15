@@ -1128,46 +1128,46 @@ document.getElementById("tools").addEventListener("click",()=>{
     container.innerHTML=`
     <div id="exl_srch" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-    <center>   
-    <h1>Support tools</h1>  </br>  
-        <form class="form-horizontal" action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data" onsubmit="return validateFile()">
-         
-            <div Class="input-row">
-                <div>
-                    <input style="background-color: black;color: aliceblue;" type="file" name="file1" id="file" class="file" accept=".xls,.xlsx">
-                </div></br>
-            
-                <div class="import">
-                    <button type="submit" id="submit" name="import" class="btn btn-submit" style="font-weight: bold;background-color: black;color: aliceblue;">Import Excel</button>
-                </div>
-            </center>
-            </div>
-        </form>
-        </div>
+     <center>
+        <h1>Support tools</h1>  </br>  
+        <input id="fileupload" type="file" name="fileupload" /> 
+        <button id="upload-button" onclick="uploadFile()"> Upload </button>
+    </center>
+    </div>
     </div>
     <div style="font-weight: bold;" id="response_exl_records"></div>
     `;
-    
+    document.getElementById("")
+    async function uploadFile() {
+        let formData = new FormData(); 
+        formData.append("file", fileupload.files[0]);
+        await fetch('Excel.php', {
+          method: "POST", 
+          body: formData
+        }); 
+        alert('The file has been uploaded successfully.');
+        }
 
-    $(document).ready(function()
-    {
-        $("#frmExcelImport").submit(function(e)
-        {
-            e.preventDefault();
-            $.ajax(
-            {
-                method: "post",
-                url: "Excel.php",
-                data: $(this).serialize(),//-------@Kartikey
-                datatype: "text",
-                success: function(Result)
-                {
-                    console.log("Hello");
-                    $( "#dialog_exl_disp" ).dialog( "destroy" );
-                    $("#response_exl_records").html(Result);
-                    $("#dialog_exl_disp").dialog();  
-                }
-            });
-        });
-})
+//     $(document).ready(function()
+//     {
+//         $("#frmExcelImport").submit(function(e)
+//         {
+//             uploadFile();
+//             e.preventDefault();
+//             $.ajax(
+//             {
+//                 method: "post",
+//                 url: "Excel.php",
+//                 data: $(this).serialize(),//-------@Kartikey
+//                 datatype: "text",
+//                 success: function(Result)
+//                 {
+//                     console.log("Hello");
+//                     $( "#dialog_exl_disp" ).dialog( "destroy" );
+//                     $("#response_exl_records").html(Result);
+//                     $("#dialog_exl_disp").dialog();  
+//                 }
+//             });
+//         });
+// })
 })
