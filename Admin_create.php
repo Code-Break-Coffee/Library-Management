@@ -16,7 +16,7 @@ function PHash($use,$pass)
 {
     return password_hash("$use"."$pass", PASSWORD_BCRYPT);
 }
-
+ 
 function AdminExist($u){
     include "dbconnect.php";
     $sql = "SELECT Username FROM admin WHERE Username = '$u';";
