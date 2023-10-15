@@ -1148,71 +1148,44 @@ document.querySelector("#b").addEventListener('click',()=>
 
 //------------------------------------------------ Support Tool
 
+
 document.getElementById("tools").addEventListener("click",()=>{
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="exl_srch" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-<<<<<<< HEAD
-     <center>
-        <h1>Support tools</h1>  </br>  
-        <input id="fileupload" type="file" name="fileupload" /> 
-        <button id="upload-button" onclick="uploadFile()"> Upload </button>
-    </center>
-    </div>
-    </div>
-    <div style="font-weight: bold;" id="response_exl_records"></div>
-    `;
-    document.getElementById("")
-    async function uploadFile() {
-        let formData = new FormData(); 
-        formData.append("file", fileupload.files[0]);
-        await fetch('Excel.php', {
-=======
+
     <center>   
-    <h1>Support tools</h1>  </br>  
-        <form class="form-horizontal" action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data" onsubmit="return validateFile()">
-         
-            <div Class="input-row">
-            
-            <div class="import">
-            <button type="submit" id="submit" name="import" class="btn btn-submit" style="font-weight: bold;background-color: black;color: aliceblue;">Import Excel</button>
-            </div>
-            </center>
-            </div>
-        </form>
-            <div>
-                <input style="background-color: black;color: aliceblue;id="fileupload" type="file" name="fileupload" accept=".xls,.xlsx"/> 
-                <button id="upload-button" onclick="uploadFile()"> Upload </button>
-            </div></br>
-        </div>
+        <h1>Support tools</h1>  </br>      
+        <input style="background-color: black;color: aliceblue;id="fileupload1" type="file" name="fileupload1"/> </br>
+        <button id="upload-button"> Upload </button>
+    </center>        
+    </div>
     </div>
     <div style="font-weight: bold;" id="response_exl_records"></div>
     `;
-    
     async function uploadFile() {
         let formData = new FormData(); 
-        formData.append("file", fileupload.files[0]);
+        console.log(fileupload1.files);
+        formData.append("file", fileupload1.files[0]);
+        alert('The file has been uploaded successfully.');
         await fetch('upload.php', {
->>>>>>> 5bb11c60aeeb322cbc08723ce5def949d737f00b
           method: "POST", 
           body: formData
         }); 
-        alert('The file has been uploaded successfully.');
-<<<<<<< HEAD
+        
         }
-
+    document.getElementById("upload-button").addEventListener("click",uploadFile)
 //     $(document).ready(function()
 //     {
 //         $("#frmExcelImport").submit(function(e)
 //         {
-//             uploadFile();
 //             e.preventDefault();
 //             $.ajax(
 //             {
 //                 method: "post",
-//                 url: "Excel.php",
+//                 url: "Book_add_excel.php",
 //                 data: $(this).serialize(),//-------@Kartikey
 //                 datatype: "text",
 //                 success: function(Result)
@@ -1225,29 +1198,4 @@ document.getElementById("tools").addEventListener("click",()=>{
 //             });
 //         });
 // })
-=======
-    }
-
-    $(document).ready(function()
-    {
-        $("#frmExcelImport").submit(function(e)
-        {
-            e.preventDefault();
-            $.ajax(
-            {
-                method: "post",
-                url: "Book_add_excel.php",
-                data: $(this).serialize(),//-------@Kartikey
-                datatype: "text",
-                success: function(Result)
-                {
-                    console.log("Hello");
-                    $( "#dialog_exl_disp" ).dialog( "destroy" );
-                    $("#response_exl_records").html(Result);
-                    $("#dialog_exl_disp").dialog();  
-                }
-            });
-        });
-})
->>>>>>> 5bb11c60aeeb322cbc08723ce5def949d737f00b
 })
