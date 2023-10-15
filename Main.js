@@ -9,7 +9,7 @@ const displayNone=()=>
 const navbar=document.querySelector(".navbar-nav");
 navbar.addEventListener('mouseover',(e)=>
 {
-    if(e.target.classList.contains("hovered"))
+    if(e.target.classList.contains("hovered") && e.target.classList.contains("dropdown-menu"))
     {
         displayNone();
         document.getElementById(e.target.id+"div").style.display="block";
@@ -727,7 +727,7 @@ function frame()
 }
 
 
-//--------------------------------------------------Create new Admin
+//--------------------------------------------------Create new Assistant
 
 document.getElementById("admin_add").addEventListener("click",()=>
 {
@@ -738,7 +738,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="adminstrator" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Add Admin User</h1>
+                    <h1>Add Assistant User</h1>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
                     <label for="validationServer01">Password:</label>
@@ -802,7 +802,7 @@ document.getElementById("admin_delete").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="administrator_delete" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Delete Admin User</h1>
+                    <h1>Delete Assistant User</h1>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
                     <label>Password:</label>
@@ -1000,7 +1000,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
         <form id="display_adm" method="post" action="" autocomplete="off">
         <center>
-            <h1>Admin Display</h1>
+            <h1>Admin/Assistant Display</h1>
             <label>Type:</label>
             <select name="level" class="form-control bg-dark" style="width:100%;color:aliceblue;">
                 <option value="Admin">Admin</option>
@@ -1165,62 +1165,53 @@ document.querySelector("#b").addEventListener('click',()=>
 
 //------------------------------------------------ Support Tool
 
+
 document.getElementById("tools").addEventListener("click",()=>{
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="exl_srch" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+
     <center>   
-    <h1>Support tools</h1>  </br>  
-        <form class="form-horizontal" action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data" onsubmit="return validateFile()">
-         
-            <div Class="input-row">
-            
-            <div class="import">
-            <button type="submit" id="submit" name="import" class="btn btn-submit" style="font-weight: bold;background-color: black;color: aliceblue;">Import Excel</button>
-            </div>
-            </center>
-            </div>
-        </form>
-            <div>
-                <input style="background-color: black;color: aliceblue;id="fileupload" type="file" name="fileupload" accept=".xls,.xlsx"/> 
-                <button id="upload-button" onclick="uploadFile()"> Upload </button>
-            </div></br>
-        </div>
+        <h1>Support tools</h1>  </br>      
+        <input style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1"/> </br>
+        <button id="upload-button"> Upload </button>
+    </center>        
+    </div>
     </div>
     <div style="font-weight: bold;" id="response_exl_records"></div>
     `;
-    
     async function uploadFile() {
         let formData = new FormData(); 
-        formData.append("file", fileupload.files[0]);
+        formData.append("file", fileupload1.files[0]);
+        alert('The file has been uploaded successfully.');
         await fetch('upload.php', {
           method: "POST", 
           body: formData
         }); 
-        alert('The file has been uploaded successfully.');
-    }
-
-    $(document).ready(function()
-    {
-        $("#frmExcelImport").submit(function(e)
-        {
-            e.preventDefault();
-            $.ajax(
-            {
-                method: "post",
-                url: "Book_add_excel.php",
-                data: $(this).serialize(),//-------@Kartikey
-                datatype: "text",
-                success: function(Result)
-                {
-                    console.log("Hello");
-                    $( "#dialog_exl_disp" ).dialog( "destroy" );
-                    $("#response_exl_records").html(Result);
-                    $("#dialog_exl_disp").dialog();  
-                }
-            });
-        });
-})
+        
+        }
+    document.getElementById("upload-button").addEventListener("click",uploadFile)
+//     $(document).ready(function()
+//     {
+//         $("#frmExcelImport").submit(function(e)
+//         {
+//             e.preventDefault();
+//             $.ajax(
+//             {
+//                 method: "post",
+//                 url: "Book_add_excel.php",
+//                 data: $(this).serialize(),//-------@Kartikey
+//                 datatype: "text",
+//                 success: function(Result)
+//                 {
+//                     console.log("Hello");
+//                     $( "#dialog_exl_disp" ).dialog( "destroy" );
+//                     $("#response_exl_records").html(Result);
+//                     $("#dialog_exl_disp").dialog();  
+//                 }
+//             });
+//         });
+// })
 })

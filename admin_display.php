@@ -1,7 +1,9 @@
 <?php
- @session_start();
- include "auth.php";
-if(!empty($_POST["level"]) || !verification() || $_POST["Access"] != "Main-Admin_display")
+@session_start();
+include "auth.php";
+if(empty($_POST["level"]) || !verification() || $_POST["Access"]!="Main-Admin_display")
+header("Location: /LibraryManagement");
+else
 {
     $level=$_POST["level"];
     show_table($level);
@@ -21,7 +23,6 @@ function show_table($l)
         <th>User Level</th>
         </tr>
         <tbody>";
-        $count=1;
         
         while($row=$result->fetch_assoc())
         {
@@ -30,7 +31,6 @@ function show_table($l)
             <td>".$row["Username"]."</td>
             <td>".$row["User_level"]."</td>
             </tr>";
-            $count++;
         }
         echo "
         </tbody>
