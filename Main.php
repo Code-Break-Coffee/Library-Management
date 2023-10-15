@@ -30,6 +30,7 @@ else
                                         <a class="dropdown-item dropdown_hover" id="au">Audit</a>
                                         <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
                                         <a class="dropdown-item dropdown_hover" id="std">Student Records</a>
+                                        <a class="dropdown-item dropdown_hover" id="dueBook">Book Dues</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">

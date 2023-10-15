@@ -65,6 +65,32 @@ document.getElementById("d").addEventListener("click",()=>
     });
 });
 
+//----------------------------------------------------------------------------Book Dues
+
+document.getElementById("dueBook").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+        container.innerHTML=`
+        <div style="font-weight: bold;position: relative;" id="response_due_book"></div>`;
+        $(document).ready(function()
+        {
+            $.ajax(
+                {
+                    method: "post",
+                    url: "Book_dues.php",
+                    success: function(Result)
+                    {
+                        $("#response_due_book").html(Result);
+                    }
+                });
+            $("#duereset").on('click',()=>
+            {
+                document.getElementById("response_due_book").style.display="none";
+            });
+    });
+});
+
 //----------------------------------------------------------------------------Book Issue
 
 document.getElementById("i").addEventListener("click",()=>
@@ -889,7 +915,7 @@ document.getElementById("me_fac").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Faculty_member_add.php",
-                data: $(this).serialize(),//-------@Kartikey
+                data: $(this).serialize()+ "&Access=" +"Main-Faculty_member_add",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -982,7 +1008,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
         {
             method: "post",
             url: "Admin_display.php",
-            data: $(this).serialize() ,
+            data: $(this).serialize() + "&Access=" +"Main-Admin_display",
             datatype: "text",
             success: function(Result)
             {
@@ -1030,7 +1056,7 @@ document.getElementById("std").addEventListener("click",()=>
                 
                 method: "post",
                 url: "Student_members_details.php",
-                data: $(this).serialize() ,
+                data: $(this).serialize() + "&Access=" +"Main-Student_members_details",
                 datatype: "text",
                 success: function(Result)
                 {
@@ -1091,7 +1117,7 @@ document.querySelector("#b").addEventListener('click',()=>
                 </div>
             </center>
         </form>
-    </div>
+    </div>  
     <div id='response_book_filter' style='font-weight:bold;width:100%;'></div>
     `;
     $(document).ready(function()
@@ -1128,6 +1154,7 @@ document.getElementById("tools").addEventListener("click",()=>{
     container.innerHTML=`
     <div id="exl_srch" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+<<<<<<< HEAD
      <center>
         <h1>Support tools</h1>  </br>  
         <input id="fileupload" type="file" name="fileupload" /> 
@@ -1142,10 +1169,38 @@ document.getElementById("tools").addEventListener("click",()=>{
         let formData = new FormData(); 
         formData.append("file", fileupload.files[0]);
         await fetch('Excel.php', {
+=======
+    <center>   
+    <h1>Support tools</h1>  </br>  
+        <form class="form-horizontal" action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data" onsubmit="return validateFile()">
+         
+            <div Class="input-row">
+            
+            <div class="import">
+            <button type="submit" id="submit" name="import" class="btn btn-submit" style="font-weight: bold;background-color: black;color: aliceblue;">Import Excel</button>
+            </div>
+            </center>
+            </div>
+        </form>
+            <div>
+                <input style="background-color: black;color: aliceblue;id="fileupload" type="file" name="fileupload" accept=".xls,.xlsx"/> 
+                <button id="upload-button" onclick="uploadFile()"> Upload </button>
+            </div></br>
+        </div>
+    </div>
+    <div style="font-weight: bold;" id="response_exl_records"></div>
+    `;
+    
+    async function uploadFile() {
+        let formData = new FormData(); 
+        formData.append("file", fileupload.files[0]);
+        await fetch('upload.php', {
+>>>>>>> 5bb11c60aeeb322cbc08723ce5def949d737f00b
           method: "POST", 
           body: formData
         }); 
         alert('The file has been uploaded successfully.');
+<<<<<<< HEAD
         }
 
 //     $(document).ready(function()
@@ -1170,4 +1225,29 @@ document.getElementById("tools").addEventListener("click",()=>{
 //             });
 //         });
 // })
+=======
+    }
+
+    $(document).ready(function()
+    {
+        $("#frmExcelImport").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Book_add_excel.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    console.log("Hello");
+                    $( "#dialog_exl_disp" ).dialog( "destroy" );
+                    $("#response_exl_records").html(Result);
+                    $("#dialog_exl_disp").dialog();  
+                }
+            });
+        });
+})
+>>>>>>> 5bb11c60aeeb322cbc08723ce5def949d737f00b
 })

@@ -65,8 +65,10 @@ function membercheck($x,$y)
     }
     return false;
 }
-if(!verification()){// chaining not done ------------------------------------------------------------------------
-}
+if(!verification() || $_POST["Access"] != "Main-Student_members_details")
+    {
+        header("Location: /LibraryManagement/");
+    }
 else
 {
     date_default_timezone_set("Asia/Kolkata");

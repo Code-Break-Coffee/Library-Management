@@ -1,4 +1,6 @@
 <?php
+@session_start();
+include "auth.php";
 function delete_faculty($sql)
 {
     include "dbconnect.php";
@@ -62,8 +64,6 @@ function checkIssue($fId)
         </div>
     ";
 }
-@session_start();
-include "auth.php";
 if(!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member" )
 {
     header("Location: /LibraryManagement/");

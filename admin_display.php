@@ -1,5 +1,7 @@
 <?php
-if(!empty($_POST["level"]))
+ @session_start();
+ include "auth.php";
+if(!empty($_POST["level"]) || !verification() || $_POST["Access"] != "Main-Admin_display")
 {
     $level=$_POST["level"];
     show_table($level);

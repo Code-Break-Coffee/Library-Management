@@ -51,7 +51,7 @@ else
     {
         $sql="SELECT * from books;";
     }
-
+    
     $result=$conn->query($sql);
     if($result)
     {
