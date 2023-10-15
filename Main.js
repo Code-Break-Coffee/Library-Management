@@ -9,7 +9,7 @@ const displayNone=()=>
 const navbar=document.querySelector(".navbar-nav");
 navbar.addEventListener('mouseover',(e)=>
 {
-    if(e.target.classList.contains("hovered") && e.target.classList.contains("dropdown-menu"))
+    if(e.target.classList.contains("hovered"))
     {
         displayNone();
         document.getElementById(e.target.id+"div").style.display="block";
@@ -745,7 +745,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
                     <input required id="validationServer01" type="password" name="admin_pass" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <label for="validationServer02" >Confirm Password:</label>
                     <input required id="validationServer02" type="password" name="admin_pass_conf" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
+                    <input type="submit" id="insert" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
             </form>
@@ -754,7 +754,7 @@ document.getElementById("admin_add").addEventListener("click",()=>
     <div style="font-weight: bold;" id="response_adminstrator"></div>`;
     $(document).ready(function()
     {
-
+        document.getElementById("insert").disabled = true;
         let pass1 = document.getElementById("validationServer01");
         let pass2 = document.getElementById("validationServer02");
         $('#validationServer01').on('input',()=>{
