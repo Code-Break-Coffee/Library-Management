@@ -766,8 +766,9 @@ document.getElementById("admin_add").addEventListener("click",()=>
         })
         $('#validationServer02').on('input',()=>{
             if(pass1.value == pass2.value){
-                pass1.classList.remove('is-invalid');
-                pass1.classList.add('is-valid');
+                pass2.classList.remove('is-invalid');
+                pass2.classList.add('is-valid');
+                document.getElementById("insert").disabled = false;
             }
             
         })
