@@ -50,7 +50,6 @@ function sugesstion_add($title,$author1,$author2,$author3,$publisher)
             $res_append_author = $conn->query($stat_author);
         }
     }
-
 }
 
 if(!verification() || $_POST["Access"] != "Main-Insert")
@@ -88,6 +87,7 @@ else
     $Cl_No=$_POST["CL"];
     $billno;
     $bookcount = 1;
+    $remark;
     if(!empty($_POST["author2"])) $author2=$_POST["author2"];
     else
     {
@@ -102,6 +102,13 @@ else
     {
         $author2=$_POST["author3"];
         $author3=null;
+    }
+    if(!empty($_POST["remark"]))
+    {
+        $remark=$_POST["remark"];
+    }
+    else{
+        $remark=null;
     }
     if(!empty($_POST["cost"])) $cost=$_POST["cost"];
     else $cost=null;
@@ -149,8 +156,8 @@ else
         for($i=0;$i<$bookcount;$i++)
         {
             $bno = $bookno + $i;
-            $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No) values
-            ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno');";
+            $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No,Remark) values
+            ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
             $result=$conn->query($sql);
             
             sugesstion_add($title,$author1,$author2,$author3,$publisher);
