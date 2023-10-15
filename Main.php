@@ -68,9 +68,9 @@ else
                                             Administrator
                                         </a>
                                         <div id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item dropdown_hover" id="admin_add">Add Admin</a>
-                                            <a class="dropdown-item dropdown_hover" id="admin_delete">Delete Admin</a>
-                                            <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin</a>
+                                            <a class="dropdown-item dropdown_hover" id="admin_add">Add Assistant</a>
+                                            <a class="dropdown-item dropdown_hover" id="admin_delete">Delete Assistant</a>
+                                            <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin/Assistant</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
