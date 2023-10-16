@@ -1171,7 +1171,7 @@ document.querySelector("#b").addEventListener('click',()=>
 
 //------------------------------------------------ Support Tool
 
-document.getElementById("tools").addEventListener("click",()=>{
+document.getElementById("support_book").addEventListener("click",()=>{
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
@@ -1195,7 +1195,7 @@ document.getElementById("tools").addEventListener("click",()=>{
         formData.append("file", fileupload1.files[0]);
         await fetch('upload.php', {
           method: "POST", 
-          body: formData
+          body: formData 
         }); 
         
         }

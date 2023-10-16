@@ -73,8 +73,12 @@ else
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin/Assistant</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link hovered" id="tools">Support Tools</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle hovered" id="tools" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support Tools</a>
+                                        <div id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item dropdown_hover" id="support_book">Book</a>
+                                            <a class="dropdown-item dropdown_hover" id="support_student">Student</a>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
