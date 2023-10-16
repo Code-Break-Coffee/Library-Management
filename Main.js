@@ -762,7 +762,12 @@ document.getElementById("admin_add").addEventListener("click",()=>
                 pass1.classList.remove('is-invalid');
                 pass1.classList.add('is-valid');
             }
-            
+            else{
+                pass1.classList.remove('is-valid');
+                pass1.classList.add('is-invalid');
+                pass2.classList.remove('is-valid');
+                pass2.classList.add('is-invalid');
+            }
         })
         $('#validationServer02').on('input',()=>{
             if(pass1.value == pass2.value){
@@ -770,7 +775,11 @@ document.getElementById("admin_add").addEventListener("click",()=>
                 pass2.classList.add('is-valid');
                 document.getElementById("insert").disabled = false;
             }
-            
+            else{
+                pass2.classList.remove('is-valid');
+                pass2.classList.add('is-invalid');
+                document.getElementById("insert").disabled = true;
+            }
         })
         $("#adminstrator").submit(function(e)
         {
@@ -895,7 +904,6 @@ document.getElementById("de").addEventListener("click",()=>
     });
 });
 
-
 //-------------------------------------------- Insert New Faculty Member
 
 document.getElementById("me_fac").addEventListener("click",()=>
@@ -991,7 +999,6 @@ document.getElementById("de_fac").addEventListener("click",()=>
 });
 
 //-------------------------Display all admins
-
 document.getElementById("admin_disp").addEventListener("click",()=>
 {
     displayNone();
@@ -1040,7 +1047,6 @@ document.getElementById("admin_disp").addEventListener("click",()=>
 });
 
 //--------------------------------------------------- Student Member Details
-
 document.getElementById("std").addEventListener("click",()=>
 {
     displayNone();
@@ -1097,7 +1103,6 @@ document.getElementById("std").addEventListener("click",()=>
 
 
 //-------------------------------------------Book Filter
-
 document.querySelector("#b").addEventListener('click',()=>
 {
     displayNone();
@@ -1166,7 +1171,6 @@ document.querySelector("#b").addEventListener('click',()=>
 
 //------------------------------------------------ Support Tool
 
-
 document.getElementById("tools").addEventListener("click",()=>{
     displayNone();
     let container=document.getElementById("container");
@@ -1190,9 +1194,8 @@ document.getElementById("tools").addEventListener("click",()=>{
         await fetch('upload.php', {
           method: "POST", 
           body: formData
-        }); 
-        
-        }
+        });     
+    }
     document.getElementById("upload-button").addEventListener("click",uploadFile)
 //     $(document).ready(function()
 //     {

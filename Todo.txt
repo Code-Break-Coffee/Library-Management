@@ -1,8 +1,8 @@
-1: add admin color red green check
+1: 
 2: Search Student and Search modification
 3: book number cases alphanumeric -> numeric
 4: book dues table
-5: 
+5: nav bar bug
 6: 
 7: check record button in issue doesn't work in the scenario(book issue -> clear button pressed -> check button un accessible)
 8: add check for student or faculty radio button in check button issue book page
