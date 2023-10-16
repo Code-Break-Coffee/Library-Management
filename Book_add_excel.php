@@ -1,5 +1,6 @@
 <?php
-namespace PhpOffice\PhpSpreadsheetTests\Reader\Xlsx;
+require_once ('vendor/autoload.php');
+// namespace PhpOffice\PhpSpreadsheetTests\Reader\Xlsx;
 include "dbconnect.php";
 
         
@@ -23,7 +24,7 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
         $spreadSheetAry = $excelSheet->toArray();
         $sheetCount = count($spreadSheetAry);
 
-        for ($i = 1; $i <= $sheetCount; $i ++) 
+        for ($i = 1; $i < $sheetCount; $i++) 
         {
 
             $num1=$spreadSheetAry[$i][0];
