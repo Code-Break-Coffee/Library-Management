@@ -1179,9 +1179,12 @@ document.getElementById("tools").addEventListener("click",()=>{
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
 
     <center>   
-        <h1>Support tools</h1>  </br>      
-        <input style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1"/> </br>
-        <button id="upload-button"> Upload </button>
+        <h1>Support tools</h1>  </br> 
+        <form id='frmExcelImport' method='post' action=''>
+        <input style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/> </br>
+        <button type="submit" id="upload-button"> Upload </button>
+        </form>     
+
     </center>        
     </div>
     </div>
@@ -1190,32 +1193,33 @@ document.getElementById("tools").addEventListener("click",()=>{
     async function uploadFile() {
         let formData = new FormData(); 
         formData.append("file", fileupload1.files[0]);
-        alert('The file has been uploaded successfully.');
         await fetch('upload.php', {
           method: "POST", 
           body: formData
-        });     
-    }
-    document.getElementById("upload-button").addEventListener("click",uploadFile)
-//     $(document).ready(function()
-//     {
-//         $("#frmExcelImport").submit(function(e)
-//         {
-//             e.preventDefault();
-//             $.ajax(
-//             {
-//                 method: "post",
-//                 url: "Book_add_excel.php",
-//                 data: $(this).serialize(),//-------@Kartikey
-//                 datatype: "text",
-//                 success: function(Result)
-//                 {
-//                     console.log("Hello");
-//                     $( "#dialog_exl_disp" ).dialog( "destroy" );
-//                     $("#response_exl_records").html(Result);
-//                     $("#dialog_exl_disp").dialog();  
-//                 }
-//             });
-//         });
-// })
+        }); 
+        
+        }
+    // document.getElementById("upload-button").addEventListener("click",uploadFile);
+    $(document).ready(function()
+    {
+        $("#frmExcelImport").submit(function(e)
+        {
+            e.preventDefault();
+            uploadFile();
+            $.ajax(
+            {
+                method: "post",
+                url: "Book_add_excel.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    console.log("Hello");
+                    $( "#dialog_exl_disp" ).dialog( "destroy" );
+                    $("#response_exl_records").html(Result);
+                    $("#dialog_exl_disp").dialog();  
+                }
+            });
+        });
+})
 })
