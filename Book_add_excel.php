@@ -14,10 +14,8 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
     //     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     // ];
 
-
         $flag=1;
         $targetPath = 'Doc/book.xlsx';
-        // $Reader = new \PhpSpreadsheet\Reader\Xlsx();
         $Reader = new Xlsx();
         $spreadSheet = $Reader->load($targetPath);
         $excelSheet = $spreadSheet->getActiveSheet();
