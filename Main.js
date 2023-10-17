@@ -1171,7 +1171,8 @@ document.querySelector("#b").addEventListener('click',()=>
 
 //------------------------------------------------ Support Tool
 
-document.getElementById("support_book").addEventListener("click",()=>{
+document.getElementById("support_book").addEventListener("click",()=>
+{
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
@@ -1181,8 +1182,8 @@ document.getElementById("support_book").addEventListener("click",()=>{
     <center>   
         <h1>Support tools</h1>  </br> 
         <form id='frmExcelImport' method='post' action=''>
-        <input style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/> </br>
-        <button type="submit" id="upload-button"> Upload </button>
+        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/> </br>
+        <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
         </form>     
 
     </center>        
@@ -1190,12 +1191,14 @@ document.getElementById("support_book").addEventListener("click",()=>{
     </div>
     <div style="font-weight: bold;" id="response_exl_records"></div>
     `;
-    async function uploadFile() {
+    async function uploadFile()
+    {
         let formData = new FormData(); 
         formData.append("file", fileupload1.files[0]);
-        await fetch('upload.php', {
-          method: "POST", 
-          body: formData 
+        await fetch('upload.php',
+        {
+            method: "POST", 
+            body: formData 
         }); 
         
         }
@@ -1221,5 +1224,5 @@ document.getElementById("support_book").addEventListener("click",()=>{
                 }
             });
         });
-})
-})
+    });
+});
