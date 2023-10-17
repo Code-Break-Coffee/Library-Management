@@ -8,6 +8,7 @@
 8: add check for student or faculty radio button in check button issue book page
 caution: with increase in Books issues and returns it will be difficult to iterate table to find book issued or not
 9. <a id="upload-button" href="./Doc/book.xlsx" download> Download</a>
+10. If students data is present that one will be skipped!!!
 
 Note: Book_filter -> table format
  
