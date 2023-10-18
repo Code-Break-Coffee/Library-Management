@@ -1217,10 +1217,66 @@ document.getElementById("support_book").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
-                    console.log("Hello");
                     $( "#dialog_exl_disp" ).dialog( "destroy" );
                     $("#response_exl_records").html(Result);
                     $("#dialog_exl_disp").dialog();  
+                }
+            });
+        });
+    });
+});
+
+
+
+//----------------------------------------------- Support Faculty Tool
+
+
+document.getElementById("support_faculty").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="fac_exl" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <center>
+        <h1>Faculty tools</h1>  </br> 
+        <form id='facExcelImport' method='post' action=''>
+        <input class="form-control" style="background-color: black;color: aliceblue;" id="fac_fileupload1" type="file" name="fac_fileupload1" accept=".xls,.xlsx"/> </br>
+        <button class="btn" type="submit" id="fac-upload-button" style='color:aliceblue;background-color:black;'>Upload</button>
+        </form>     
+    </center>        
+    </div>
+    </div>
+    <div style="font-weight: bold;" id="response_exl_faculty"></div>
+    `;
+    async function uploadFile_Fac()
+    {
+        let formData = new FormData(); 
+        formData.append("file", fac_fileupload1.files[0]);
+        await fetch('upload_faculty.php',
+        {
+            method: "POST", 
+            body: formData 
+        }); 
+    }
+    // document.getElementById("upload-button").addEventListener("click",uploadFile);
+    $(document).ready(function()
+    {
+        $("#facExcelImport").submit(function(e)
+        {
+            e.preventDefault();
+            uploadFile_Fac();
+            $.ajax(
+            {
+                method: "post",
+                url: "Faculty_add_excel.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_exl_faculty" ).dialog( "destroy" );
+                    $("#response_exl_faculty").html(Result);
+                    $("#dialog_exl_faculty").dialog();  
                 }
             });
         });
