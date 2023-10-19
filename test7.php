@@ -4,7 +4,30 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
 require_once ('vendor/autoload.php');
 
+$BookIndex =0;
 
+function Book_check($b,$count){
+    include "dbconnect.php";
+    for($i = 0; $i <= $count; $i++)
+    {
+        $b += 1;
+        $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
+        $res = $conn->query($sql);
+        if(mysqli_num_rows($res) != 0)return false;
+    }
+    return true;
+}
+function Book_num(){
+    include "dbconnect.php";
+    global $BookIndex; 
+    $sql = "Select Book_No from books Where Book_No Between $BookIndex and (Select MAX(Book_No) from books);";
+    $res = $conn->query($sql);
+    echo $conn->error;
+    while($row =$res->fetch_assoc()){
+        echo $row["Book_No"]."<br>";
+    }
+    echo $BookIndex;
+}
 function check($b, $count)
 {
     include "dbconnect.php";
@@ -138,6 +161,7 @@ for($i = 1;$i<$sheetCount; $i++){
     if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
     
 }
-    print_r($Book_Record);
+    // print_r($Book_Record);
+    Book_num();
     
 ?>
