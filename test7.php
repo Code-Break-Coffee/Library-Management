@@ -5,6 +5,7 @@ include "dbconnect.php";
 require_once ('vendor/autoload.php');
 
 $BookIndex =0;
+$BookSlots =[]; // Available slots in between
 
 function Book_check($b,$count){
     include "dbconnect.php";
@@ -20,13 +21,20 @@ function Book_check($b,$count){
 function Book_num(){
     include "dbconnect.php";
     global $BookIndex; 
-    $sql = "Select Book_No from books Where Book_No Between $BookIndex and (Select MAX(Book_No) from books);";
+    global $BookSlots;
+    $book_seq = [];
+    $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
     echo $conn->error;
     while($row =$res->fetch_assoc()){
-        echo $row["Book_No"]."<br>";
+        array_push( $book_seq, $row["Book_No"]);
     }
-    echo $BookIndex;
+    $max = max($book_seq);
+    for($i = 1; $i < $max; $i++){
+        if(!in_array($i,$book_seq)) array_push($BookSlots,$i);
+    }
+    print_r($book_seq);
+    print_r($BookSlots);
 }
 function check($b, $count)
 {
