@@ -522,40 +522,11 @@ document.getElementById("s").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
-    let sugg_path = "Suggestions.php";
-    $(document).ready(function() {
-        $.widget( "custom.catcomplete", $.ui.autocomplete, {
-            _create: function() {
-                this._super();
-                this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
-            },
-            _renderMenu: function( ul, items ) {
-                var that = this,
-                currentCategory = "";
-                $.each( items, function( index, item ) {
-                    var li;
-                    if ( item.category != currentCategory ) {
-                        ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-                        currentCategory = item.category;
-                    }
-                    li = that._renderItemData( ul, item );
-              if ( item.category ) {
-                  li.attr( "aria-label", item.category + " : " + item.label );
-                }
-            });
-        }
-    });
-    $( "#B_Search" ).catcomplete({
-        delay: 500,
-        autoFocus: true,
-        minLength: 3,
-        source: sugg_path,
-    });
-} );
-$(document).ready(function()
-{
-    let sb=document.getElementById("sb");
-    let sval=sb.options[sb.selectedIndex].value;
+    var sugg_path = "Suggestions.php";
+    $(document).ready(function()
+    {
+        let sb=document.getElementById("sb");
+        let sval=sb.options[sb.selectedIndex].value;
     let sc=document.getElementById("searchcontain");
     if(sval=="search")
     {
@@ -566,8 +537,8 @@ $(document).ready(function()
         let sb=document.getElementById("sb");
         let sval=sb.options[sb.selectedIndex].value;
         let sc=document.getElementById("searchcontain");
-            let si=document.getElementById("B_Search");
-            if(sval=="Book No.")
+        let si=document.getElementById("B_Search");
+        if(sval=="Book No.")
             {
                 si.setAttribute('placeholder','Enter or scan Book No.');
                 si.setAttribute('name','bookno');
@@ -577,8 +548,8 @@ $(document).ready(function()
             {
                 si.setAttribute('name','author');
                 si.setAttribute('placeholder','Enter Book Author.');
-                sc.innerHTML=`<label>Author:</label>`;
                 sugg_path = "Suggestions_book_author.php";
+                sc.innerHTML=`<label>Author:</label>`;
             }
             if(sval=="Title")
             {
@@ -594,6 +565,39 @@ $(document).ready(function()
                 sugg_path = "Suggestions.php";
             }
         });
+        function path(){
+            console.log("hola")
+            return sugg_path;
+        }
+        $(document).ready(function() {
+            $.widget( "custom.catcomplete", $.ui.autocomplete, {
+                _create: function() {
+                    this._super();
+                    this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+                },
+                _renderMenu: function( ul, items ) {
+                    var that = this,
+                    currentCategory = "";
+                    $.each( items, function( index, item ) {
+                        var li;
+                        if ( item.category != currentCategory ) {
+                            ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                            currentCategory = item.category;
+                        }
+                        li = that._renderItemData( ul, item );
+                        if ( item.category ) {
+                            li.attr( "aria-label", item.category + " : " + item.label );
+                        }
+                    });
+                }
+            });
+        $( "#B_Search" ).catcomplete({
+            delay: 500,
+            autoFocus: true,
+            minLength: 3,
+            source: path()
+        });
+    } );
         $("#resetsearch").click(function()
         {
             let s=document.getElementById("B_Search");

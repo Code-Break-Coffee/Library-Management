@@ -1,14 +1,13 @@
 1: 
-2: Search Student and Search modification ..kartikey
+2: Search Student and Search modification dynamic path for suggestion
 3: book number cases alphanumeric -> numeric
 4: book dues table
 5: 
 6: student excel ___ conditions
 7: check record button in issue doesn't work in the scenario(book issue -> clear button pressed -> check button un accessible)
-8: add check for student or faculty radio button in check button issue book page
-caution: with increase in Books issues and returns it will be difficult to iterate table to find book issued or not
-9. <a id="upload-button" href="./Doc/book.xlsx" download> Download</a>
-10 Warning on fresh run of student dues code if pdf is not already present in doc folder
+8: 
+9. 
+10 
 11 max book issue limit code using ($Available)
 12 administrater page-> sety max book issue limit
 Note: Book_filter -> table format
