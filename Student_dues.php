@@ -143,7 +143,9 @@ else
                     $pdf->Cell(60, 10, "No Dues", 1, 1, "L");
                 }
             }
-            unlink("Doc/Registratinconfirmed.pdf");
+            if (file_exists("Doc/Registratinconfirmed.pdf")) {   
+                unlink("Doc/Registratinconfirmed.pdf");
+            }
             $destination = __DIR__ . "/Doc/" .'Registratinconfirmed.pdf';
             $pdf->Output($destination,'F');
             

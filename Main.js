@@ -522,51 +522,23 @@ document.getElementById("s").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
-    $(document).ready(function() {
-        $.widget( "custom.catcomplete", $.ui.autocomplete, {
-          _create: function() {
-            this._super();
-            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
-          },
-          _renderMenu: function( ul, items ) {
-            var that = this,
-              currentCategory = "";
-            $.each( items, function( index, item ) {
-              var li;
-              if ( item.category != currentCategory ) {
-                ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-                currentCategory = item.category;
-              }
-              li = that._renderItemData( ul, item );
-              if ( item.category ) {
-                li.attr( "aria-label", item.category + " : " + item.label );
-              }
-            });
-          }
-        });
-        $( "#B_Search" ).catcomplete({
-          delay: 500,
-          autoFocus: true,
-          minLength: 3,
-          source: "Suggestions.php",
-        });
-    } );
+    var sugg_path = "Suggestions.php";
     $(document).ready(function()
     {
         let sb=document.getElementById("sb");
         let sval=sb.options[sb.selectedIndex].value;
+    let sc=document.getElementById("searchcontain");
+    if(sval=="search")
+    {
+        sc.innerHTML=`<label>Book Search:</label>`;
+    }
+    $("#sb").click(function()
+    {
+        let sb=document.getElementById("sb");
+        let sval=sb.options[sb.selectedIndex].value;
         let sc=document.getElementById("searchcontain");
-        if(sval=="search")
-        {
-            sc.innerHTML=`<label>Book Search:</label>`;
-        }
-        $("#sb").click(function()
-        {
-            let sb=document.getElementById("sb");
-            let sval=sb.options[sb.selectedIndex].value;
-            let sc=document.getElementById("searchcontain");
-            let si=document.getElementById("B_Search");
-            if(sval=="Book No.")
+        let si=document.getElementById("B_Search");
+        if(sval=="Book No.")
             {
                 si.setAttribute('placeholder','Enter or scan Book No.');
                 si.setAttribute('name','bookno');
@@ -576,6 +548,7 @@ document.getElementById("s").addEventListener("click",()=>
             {
                 si.setAttribute('name','author');
                 si.setAttribute('placeholder','Enter Book Author.');
+                sugg_path = "Suggestions_book_author.php";
                 sc.innerHTML=`<label>Author:</label>`;
             }
             if(sval=="Title")
@@ -583,13 +556,48 @@ document.getElementById("s").addEventListener("click",()=>
                 si.setAttribute('name','title');
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
+                sugg_path = "Suggestions_book_title.php";
             }
             if(sval=="search")
             {
                 si.setAttribute('name','book');
                 sc.innerHTML=`<label>Book Search:</label>`;
+                sugg_path = "Suggestions.php";
             }
         });
+        function path(){
+            console.log("hola")
+            return sugg_path;
+        }
+        $(document).ready(function() {
+            $.widget( "custom.catcomplete", $.ui.autocomplete, {
+                _create: function() {
+                    this._super();
+                    this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+                },
+                _renderMenu: function( ul, items ) {
+                    var that = this,
+                    currentCategory = "";
+                    $.each( items, function( index, item ) {
+                        var li;
+                        if ( item.category != currentCategory ) {
+                            ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                            currentCategory = item.category;
+                        }
+                        li = that._renderItemData( ul, item );
+                        if ( item.category ) {
+                            li.attr( "aria-label", item.category + " : " + item.label );
+                        }
+                    });
+                }
+            });
+        $( "#B_Search" ).catcomplete({
+            delay: 500,
+            autoFocus: true,
+            minLength: 3,
+            source: path()
+        });
+    } );
         $("#resetsearch").click(function()
         {
             let s=document.getElementById("B_Search");
@@ -597,6 +605,7 @@ document.getElementById("s").addEventListener("click",()=>
             document.getElementById("response5").style.display="none";
             document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
             s.setAttribute('name','book');
+            sugg_path = "Suggestions.php";
         });
         $("#searchform").submit(function(e)
         {
@@ -742,9 +751,9 @@ document.getElementById("admin_add").addEventListener("click",()=>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
                     <label for="validationServer01">Password:</label>
-                    <input required id="validationServer01" type="password" name="admin_pass" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required id="validationServer01" type="password" name="admin_pass" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <label for="validationServer02" >Confirm Password:</label>
-                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <input type="submit" id="insert" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -757,30 +766,59 @@ document.getElementById("admin_add").addEventListener("click",()=>
         document.getElementById("insert").disabled = true;
         let pass1 = document.getElementById("validationServer01");
         let pass2 = document.getElementById("validationServer02");
-        $('#validationServer01').on('input',()=>{
-            if(pass1.value.length >= 8){
+        $('#validationServer01').keyup('input',()=>{
+            if(pass1.value.length >= 8)
+            {
                 pass1.classList.remove('is-invalid');
-                pass1.classList.add('is-valid');
+                pass1.classList.add('is-valid'); 
+                if( pass2.value.length>=8 && pass1.value == pass2.value)
+                {
+                    pass2.classList.remove('is-invalid');
+                    pass2.classList.add('is-valid');
+                    document.getElementById("insert").disabled = false;
+                }
+                else
+                {
+                    pass2.classList.remove('is-valid');
+                    pass2.classList.add('is-invalid');
+                    document.getElementById("insert").disabled = true;
+                }
             }
             else{
                 pass1.classList.remove('is-valid');
                 pass1.classList.add('is-invalid');
                 pass2.classList.remove('is-valid');
                 pass2.classList.add('is-invalid');
+                document.getElementById("insert").disabled = true;
             }
         })
-        $('#validationServer02').on('input',()=>{
-            if(pass1.value == pass2.value){
-                pass2.classList.remove('is-invalid');
-                pass2.classList.add('is-valid');
-                document.getElementById("insert").disabled = false;
+        $('#validationServer02').keyup('input',()=>{
+            if(pass1.value.length >= 8)
+            {
+                pass1.classList.remove('is-invalid');
+                pass1.classList.add('is-valid'); 
+                if( pass2.value.length>=8 && pass1.value == pass2.value)
+                {
+                    pass2.classList.remove('is-invalid');
+                    pass2.classList.add('is-valid');
+                    document.getElementById("insert").disabled = false;
+                }
+                else
+                {
+                    pass2.classList.remove('is-valid');
+                    pass2.classList.add('is-invalid');
+                    document.getElementById("insert").disabled = true;
+                }
             }
             else{
+                pass1.classList.remove('is-valid');
+                pass1.classList.add('is-invalid');
                 pass2.classList.remove('is-valid');
                 pass2.classList.add('is-invalid');
                 document.getElementById("insert").disabled = true;
             }
         })
+
         $("#adminstrator").submit(function(e)
         {
             e.preventDefault();
@@ -1190,7 +1228,7 @@ document.getElementById("support_book").addEventListener("click",()=>
     </center>        
     </div>
     </div>
-    <div style="font-weight: bold;" id="response_exl_records"></div>
+    <div style="font-weight: bold;" id="response_exl_records";position: absolute;></div>
     `;
     async function uploadFile()
     {
@@ -1208,19 +1246,78 @@ document.getElementById("support_book").addEventListener("click",()=>
         $("#frmExcelImport").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById("response_exl_records").style.display="block";
+            document.getElementById("response_exl_records").style.transform="translate(50%,-50%)";
             uploadFile();
             $.ajax(
             {
                 method: "post",
                 url: "Book_add_excel.php",
+                data: $(this).serialize()+"&Access=Main-Book_add_excel",
+                datatype: "text",
+                success: function(Result)
+                {
+                    
+                    $( "#dialog_exl_disp" ).dialog( "destroy" );
+                    $("#response_exl_records").html(Result);
+                    $("#dialog_exl_disp").dialog();  
+                }
+            });
+        }); 
+    });
+});
+
+
+
+//----------------------------------------------- Support Faculty Tool
+
+
+document.getElementById("support_faculty").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="fac_exl" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <center>
+        <h1>Faculty tools</h1>  </br> 
+        <form id='facExcelImport' method='post' action=''>
+        <input class="form-control" style="background-color: black;color: aliceblue;" id="fac_fileupload1" type="file" name="fac_fileupload1" accept=".xls,.xlsx"/> </br>
+        <button class="btn" type="submit" id="fac-upload-button" style='color:aliceblue;background-color:black;'>Upload</button>
+        </form>     
+    </center>        
+    </div>
+    </div>
+    <div style="font-weight: bold;" id="response_exl_faculty"></div>
+    `;
+    async function uploadFile_Fac()
+    {
+        let formData = new FormData(); 
+        formData.append("file", fac_fileupload1.files[0]);
+        await fetch('upload_faculty.php',
+        {
+            method: "POST", 
+            body: formData 
+        }); 
+    }
+    // document.getElementById("upload-button").addEventListener("click",uploadFile);
+    $(document).ready(function()
+    {
+        $("#facExcelImport").submit(function(e)
+        {
+            e.preventDefault();
+            uploadFile_Fac();
+            $.ajax(
+            {
+                method: "post",
+                url: "Faculty_add_excel.php",
                 data: $(this).serialize(),//-------@Kartikey
                 datatype: "text",
                 success: function(Result)
                 {
-                    console.log("Hello");
-                    $( "#dialog_exl_disp" ).dialog( "destroy" );
-                    $("#response_exl_records").html(Result);
-                    $("#dialog_exl_disp").dialog();  
+                    $( "#dialog_exl_faculty" ).dialog( "destroy" );
+                    $("#response_exl_faculty").html(Result);
+                    $("#dialog_exl_faculty").dialog();  
                 }
             });
         });

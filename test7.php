@@ -1,10 +1,4 @@
 <?php
-@session_start();
-include "auth.php";
-if(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
-{
-    header("Location: /LibraryManagement/");
-}
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
 require_once ('vendor/autoload.php');
@@ -232,73 +226,10 @@ if(sizeof($temp_array) == sizeof($bookserial))
             echo $error."At Index: ".$i+1;
             break;
         }
-        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
+        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
         
     }
-    // print_r($Book_Record);
-    echo "
-                <div style='width:100%;overflow:auto;height:650px;'><table>
-                <tr>
-                <th>Book No.</th>
-                <th>Author's</th>
-                <th>Title</th>
-                <th>Edition</th>
-                <th>Publisher</th>
-                <th>No of Copies</th>
-                </tr>
-                <tbody>";
-
-            ksort($Book_Record);
-            foreach($Book_Record as $bn=>$b)
-            {
-                echo"
-                <tr>
-                <td>".$bn."</td>
-                <td>".$b[0]." ".$b[1]." ".$b[2]." "."</td>
-                <td>".$b[3]."</td>
-                <td>".$b[4]."</td>
-                <td>".$b[5]."</td>
-                <td>".$b[12]."</td>
-                <td></td>
-                <td></td>
-                </tr>
-                ";
-            }
-
-            echo"
-                </tbody></table>
-                <form id='confirm' method= 'post' action=''>
-                <center>
-                    <button class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
-                </center>
-                </form>
-                <script>
-                $(document).ready(function()
-                {
-                    $('#confirm').submit(function(e)
-                    {
-                        e.preventDefault();
-                        $.ajax(
-                        {
-                            method: 'post',
-                            url: 'Book_add_excel.php',
-                            data: $(this).serialize()+'&Access=Main-Book_add_excel',
-                            datatype: 'text',
-                            success: function(Result)
-                            {
-                                
-                                $( '#dialog_exl_disp' ).dialog( 'destroy');
-                                $('#response_exl_records').html(Result);
-                                $('#dialog_exl_disp').dialog();  
-                            }
-                        });
-                    }); 
-                });
-                </script>
-                </div>
-                ";
-
-
+    print_r($Book_Record);
 }
 else{
     echo "duplicate records";
