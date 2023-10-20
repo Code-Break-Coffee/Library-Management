@@ -76,8 +76,8 @@ else
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle hovered" id="tools" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support Tools</a>
                                         <div id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item dropdown_hover" id="support_book">Book Excel</a>
-                                            <a class="dropdown-item dropdown_hover" id="support_student">Student Excel</a>
+                                            <a class="dropdown-item dropdown_hover" id="support_book">Insert Books` Data</a>
+                                            <a class="dropdown-item dropdown_hover" id="support_student">Insert Students` Data</a>
                                             <a class="dropdown-item dropdown_hover" id="support_faculty">Faculty Excel</a>
                                         </div>
                                     </li>

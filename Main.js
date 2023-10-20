@@ -1207,7 +1207,7 @@ document.querySelector("#b").addEventListener('click',()=>
 });
 
 
-//------------------------------------------------ Support Tool
+//------------------------------------------------ Support Tool Books
 
 document.getElementById("support_book").addEventListener("click",()=>
 {
@@ -1218,9 +1218,10 @@ document.getElementById("support_book").addEventListener("click",()=>
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
 
     <center>   
-        <h1>Support tools</h1>  </br> 
+        <h1>Insert Books' Data Through Excel</h1>  </br> 
         <form id='frmExcelImport' method='post' action=''>
-        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/> </br>
+        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
+        <h6>Note: Excel Format should be same as specified !!!</h6>
         <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
         </form>     
 
@@ -1317,6 +1318,62 @@ document.getElementById("support_faculty").addEventListener("click",()=>
                     $( "#dialog_exl_faculty" ).dialog( "destroy" );
                     $("#response_exl_faculty").html(Result);
                     $("#dialog_exl_faculty").dialog();  
+                }
+            });
+        });
+    });
+});
+
+//--------------------------------------------------------------------Suuport Tool Student
+
+document.getElementById("support_student").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="exl_srch_student" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+
+    <center>   
+        <h1>Insert Students' Data Through Excel</h1>  </br> 
+        <form id='frmExcelImportStudent' method='post' action=''>
+        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
+        <h6>Note: Excel Format should be same as specified !!!</h6>
+        <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
+        </form>     
+    </center>        
+    </div>
+    </div>
+    <div style="font-weight: bold;" id="response_exl_records_student"></div>
+    `;
+    async function uploadFile()
+    {
+        let formData = new FormData(); 
+        formData.append("file", fileupload1.files[0]);
+        await fetch('upload_student.php',
+        {
+            method: "POST", 
+            body: formData 
+        }); 
+        
+        }
+    $(document).ready(function()
+    {
+        $("#frmExcelImportStudent").submit(function(e)
+        {
+            e.preventDefault();
+            uploadFile();
+            $.ajax(
+            {
+                method: "post",
+                url: "Student_add_excel.php",
+                data: $(this).serialize(),//-------@Kartikey
+                datatype: "text",
+                success: function(Result)
+                {
+                    $( "#dialog_exl_disp_student" ).dialog( "destroy" );
+                    $("#response_exl_records_student").html(Result);
+                    $("#dialog_exl_disp_student").dialog();  
                 }
             });
         });
