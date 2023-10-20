@@ -27,18 +27,42 @@ function set_BookIndex($count){
     global $BookSlots;
     global $BookIndex;
     $flag = true;
-    $temp = $BookSlots[0];
     if($count == 1 && count($BookSlots)>=1){
         $BookIndex = $BookSlots[0];
         unset($BookSlots[0]);
         return;
     }
     if(count($BookSlots)>= $count){
-        for($i = 1; $i <$count; $i++){
-            if($temp+1 == $BookSlots[$i]){
-                
+        $a = $BookSlots;
+        array_push($a, 0);
+        $res = [];
+        $stage = [];
+
+        foreach($a as $i) {
+            if(count($stage) > 0 && $i != $stage[count($stage)-1]+1) {
+                if(count($stage) > 1) {
+                    $res[] = $stage;
+                }
+                $stage = [];
+            }
+            $stage[] = $i;
+        }
+        foreach($res as $slot){
+            if(count($slot)>= $count){
+                $BookIndex = $slot[0];
+                return;
             }
         }
+
+        $sql_max_book = "SELECT Book_No from books;";
+        $res=$conn->query($sql_max_book);
+        $bookno = 0;
+        while($row =$res->fetch_assoc())
+        {
+            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
+        }
+        $BookIndex = $bookno +1;
+        return;
     }
     else{
         $sql_max_book = "SELECT Book_No from books;";
@@ -49,14 +73,14 @@ function set_BookIndex($count){
             if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
         }
         $BookIndex = $bookno +1;
+        return;
     }
 }
 
-function Book_num(){
+function Book_num($book_seq){
     include "dbconnect.php";
     global $BookIndex; 
     global $BookSlots;
-    $book_seq = [];
     $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
     echo $conn->error;
@@ -128,7 +152,21 @@ $remark;
 $billno;
 $bookcount;
 
-Book_num();
+$bookserial =[];
+for($i = 1;$i<$sheetCount; $i++){
+    $b = 0;
+    $count = 0;
+    if(!empty($spreadSheetAry[$i][0])){
+        if(!empty($spreadSheetAry[$i][13])) $count=$spreadSheetAry[$i][13];
+        else $count=1;
+        $b = $spreadSheetAry[$i][0];
+        for($j= 0;$j<$count;$j++){
+            array_push($bookserial,$b+$j);
+        }
+    }
+}
+
+Book_num($bookserial);
 // print_r($BookSlots);
 
 for($i = 1;$i<$sheetCount; $i++){
@@ -141,11 +179,13 @@ for($i = 1;$i<$sheetCount; $i++){
         $bno=$spreadSheetAry[$i][0];// cases missing for book no
         if(!Book_check($bno,$bookcount)){
             $error = $error."unable to insert book's at $bno already present!!!";
+            break;
         } 
     }
     else
     {
         set_BookIndex($bookcount);
+        $bno =$BookIndex;
     }
     if(!empty($spreadSheetAry[$i][1])) $title=$spreadSheetAry[$i][1];
     
@@ -200,6 +240,7 @@ for($i = 1;$i<$sheetCount; $i++){
     if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
     
 }
-// print_r($Book_Record);
+print_r($Book_Record);
+
 
 ?>
