@@ -8,6 +8,8 @@
 8: add check for student or faculty radio button in check button issue book page
 caution: with increase in Books issues and returns it will be difficult to iterate table to find book issued or not
 9. <a id="upload-button" href="./Doc/book.xlsx" download> Download</a>
-
+10 Warning on fresh run of student dues code if pdf is not already present in doc folder
+11 max book issue limit code using ($Available)
+12 administrater page-> sety max book issue limit
 Note: Book_filter -> table format
  

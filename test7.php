@@ -1,4 +1,6 @@
 <?php
+
+use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
 use Phppot\DataSource;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
@@ -6,6 +8,7 @@ require_once ('vendor/autoload.php');
 
 $BookIndex =0;
 $BookSlots =[]; // Available slots in between
+$error = "";
 
 function Book_check($b,$count){
     include "dbconnect.php";
@@ -18,6 +21,37 @@ function Book_check($b,$count){
     }
     return true;
 }
+
+function set_BookIndex($count){
+    include "dbconnect.php";
+    global $BookSlots;
+    global $BookIndex;
+    $flag = true;
+    $temp = $BookSlots[0];
+    if($count == 1 && count($BookSlots)>=1){
+        $BookIndex = $BookSlots[0];
+        unset($BookSlots[0]);
+        return;
+    }
+    if(count($BookSlots)>= $count){
+        for($i = 1; $i <$count; $i++){
+            if($temp+1 == $BookSlots[$i]){
+                
+            }
+        }
+    }
+    else{
+        $sql_max_book = "SELECT Book_No from books;";
+        $res=$conn->query($sql_max_book);
+        $bookno = 0;
+        while($row =$res->fetch_assoc())
+        {
+            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
+        }
+        $BookIndex = $bookno +1;
+    }
+}
+
 function Book_num(){
     include "dbconnect.php";
     global $BookIndex; 
@@ -33,8 +67,7 @@ function Book_num(){
     for($i = 1; $i < $max; $i++){
         if(!in_array($i,$book_seq)) array_push($BookSlots,$i);
     }
-    print_r($book_seq);
-    print_r($BookSlots);
+    sort($BookSlots);
 }
 function check($b, $count)
 {
@@ -50,7 +83,7 @@ function check($b, $count)
 }
 
 function ErrorCheck($a1,$a2,$a3,$title,$ed,$pub,$cl,$tpag){
-    $error = "";
+    global $error;
     if($a1 == null && $a2 == null && $a3 == null){
         $error = $error."Author not found";
     }
@@ -95,24 +128,24 @@ $remark;
 $billno;
 $bookcount;
 
+Book_num();
+// print_r($BookSlots);
+
 for($i = 1;$i<$sheetCount; $i++){
     
     $bno = 0;
-    if(!empty($spreadSheetAry[$i][0])) $bno=$spreadSheetAry[$i][0];// cases missing for book no
+    if(!empty($spreadSheetAry[$i][13])) $bookcount=$spreadSheetAry[$i][13];
+    else $bookcount=1; 
+
+    if(!empty($spreadSheetAry[$i][0])){
+        $bno=$spreadSheetAry[$i][0];// cases missing for book no
+        if(!Book_check($bno,$bookcount)){
+            $error = $error."unable to insert book's at $bno already present!!!";
+        } 
+    }
     else
     {
-        $sql_max_book = "SELECT Book_No from books;";
-        $res=$conn->query($sql_max_book);
-        if(!$res)echo "
-        <div id='dialog3' style='color:red;' title='⚠️Error'>
-        <p><center>$conn->error</center></p>
-        </div>
-        "; 
-        while($row =$res->fetch_assoc())
-        {
-            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bno) $bno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
-        }
-        $bno += 1;
+        set_BookIndex($bookcount);
     }
     if(!empty($spreadSheetAry[$i][1])) $title=$spreadSheetAry[$i][1];
     
@@ -158,8 +191,6 @@ for($i = 1;$i<$sheetCount; $i++){
     else $remark=null;
     if(!empty($spreadSheetAry[$i][12])) $billno=$spreadSheetAry[$i][12];
     else $billno=null;
-    if(!empty($spreadSheetAry[$i][13])) $bookcount=$spreadSheetAry[$i][13];
-    else $bookcount=1; 
     
     $error = ErrorCheck($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages);
     if(strlen($error) > 0){
@@ -169,7 +200,6 @@ for($i = 1;$i<$sheetCount; $i++){
     if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
     
 }
-    // print_r($Book_Record);
-    Book_num();
-    
+// print_r($Book_Record);
+
 ?>
