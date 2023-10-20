@@ -1252,7 +1252,7 @@ document.getElementById("support_book").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Book_add_excel.php",
-                data: $(this).serialize(),//-------@Kartikey
+                data: $(this).serialize()+"&Access=Main-Book_add_excel",
                 datatype: "text",
                 success: function(Result)
                 {

@@ -1,4 +1,10 @@
 <?php
+@session_start();
+include "auth.php";
+if(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
+{
+    header("Location: /LibraryManagement/");
+}
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
 require_once ('vendor/autoload.php');
