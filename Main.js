@@ -1198,7 +1198,7 @@ document.getElementById("support_book").addEventListener("click",()=>
     </center>        
     </div>
     </div>
-    <div style="font-weight: bold;" id="response_exl_records" ></div>
+    <div style="font-weight: bold;" id="response_exl_records";position: absolute;></div>
     `;
     async function uploadFile()
     {
@@ -1216,6 +1216,8 @@ document.getElementById("support_book").addEventListener("click",()=>
         $("#frmExcelImport").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById("response_exl_records").style.display="block";
+            document.getElementById("response_exl_records").style.transform="translate(50%,-50%)";
             uploadFile();
             $.ajax(
             {
@@ -1225,6 +1227,7 @@ document.getElementById("support_book").addEventListener("click",()=>
                 datatype: "text",
                 success: function(Result)
                 {
+                    
                     $( "#dialog_exl_disp" ).dialog( "destroy" );
                     $("#response_exl_records").html(Result);
                     $("#dialog_exl_disp").dialog();  
