@@ -751,9 +751,9 @@ document.getElementById("admin_add").addEventListener("click",()=>
                     <label>User ID:</label>
                     <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
                     <label for="validationServer01">Password:</label>
-                    <input required id="validationServer01" type="password" name="admin_pass" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required id="validationServer01" type="password" name="admin_pass" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <label for="validationServer02" >Confirm Password:</label>
-                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="form-control is-invalid bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
                     <input type="submit" id="insert" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -766,30 +766,59 @@ document.getElementById("admin_add").addEventListener("click",()=>
         document.getElementById("insert").disabled = true;
         let pass1 = document.getElementById("validationServer01");
         let pass2 = document.getElementById("validationServer02");
-        $('#validationServer01').on('input',()=>{
-            if(pass1.value.length >= 8){
+        $('#validationServer01').keyup('input',()=>{
+            if(pass1.value.length >= 8)
+            {
                 pass1.classList.remove('is-invalid');
-                pass1.classList.add('is-valid');
+                pass1.classList.add('is-valid'); 
+                if( pass2.value.length>=8 && pass1.value == pass2.value)
+                {
+                    pass2.classList.remove('is-invalid');
+                    pass2.classList.add('is-valid');
+                    document.getElementById("insert").disabled = false;
+                }
+                else
+                {
+                    pass2.classList.remove('is-valid');
+                    pass2.classList.add('is-invalid');
+                    document.getElementById("insert").disabled = true;
+                }
             }
             else{
                 pass1.classList.remove('is-valid');
                 pass1.classList.add('is-invalid');
                 pass2.classList.remove('is-valid');
                 pass2.classList.add('is-invalid');
+                document.getElementById("insert").disabled = true;
             }
         })
-        $('#validationServer02').on('input',()=>{
-            if(pass1.value == pass2.value){
-                pass2.classList.remove('is-invalid');
-                pass2.classList.add('is-valid');
-                document.getElementById("insert").disabled = false;
+        $('#validationServer02').keyup('input',()=>{
+            if(pass1.value.length >= 8)
+            {
+                pass1.classList.remove('is-invalid');
+                pass1.classList.add('is-valid'); 
+                if( pass2.value.length>=8 && pass1.value == pass2.value)
+                {
+                    pass2.classList.remove('is-invalid');
+                    pass2.classList.add('is-valid');
+                    document.getElementById("insert").disabled = false;
+                }
+                else
+                {
+                    pass2.classList.remove('is-valid');
+                    pass2.classList.add('is-invalid');
+                    document.getElementById("insert").disabled = true;
+                }
             }
             else{
+                pass1.classList.remove('is-valid');
+                pass1.classList.add('is-invalid');
                 pass2.classList.remove('is-valid');
                 pass2.classList.add('is-invalid');
                 document.getElementById("insert").disabled = true;
             }
         })
+
         $("#adminstrator").submit(function(e)
         {
             e.preventDefault();
