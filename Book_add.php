@@ -8,9 +8,9 @@ function check($b, $count)
     include "dbconnect.php";
     for($i = 0; $i <= $count; $i++)
     {
-        $b += 1;
         $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
         $res = $conn->query($sql);
+        $b += 1;
         if(mysqli_num_rows($res) != 0)return false;
     }
     return true;

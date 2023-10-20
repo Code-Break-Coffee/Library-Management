@@ -17,7 +17,7 @@ else
     $resultcheck=$conn->query($sqlcheck);
     if($resultcheck && $bookresultcheck)
     {
-        if(mysqli_num_rows($bookresultcheck)==1) $bookExist=true;
+        if(mysqli_num_rows($bookresultcheck)>=1) $bookExist=true;
         if($bookExist)
         {
             while($row=$resultcheck->fetch_assoc())

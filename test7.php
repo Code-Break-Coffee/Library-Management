@@ -9,11 +9,12 @@ $error = "";
 
 function Book_check($b,$count){
     include "dbconnect.php";
-    for($i = 0; $i <= $count; $i++)
+    for($i = 0; $i < $count; $i++)
     {
-        $b += 1;
+        
         $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
         $res = $conn->query($sql);
+        $b++;
         if(mysqli_num_rows($res) != 0)return false;
     }
     return true;
@@ -87,18 +88,6 @@ function Book_num($book_seq){
     }
     sort($BookSlots);
 }
-function check($b, $count)
-{
-    include "dbconnect.php";
-    for($i = 0; $i <= $count; $i++)
-    {
-        $b += 1;
-        $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
-        $res = $conn->query($sql);
-        if(mysqli_num_rows($res) != 0)return false;
-    }
-    return true;
-}
 
 function ErrorCheck($a1,$a2,$a3,$title,$ed,$pub,$cl,$tpag){
     global $error;
@@ -161,7 +150,6 @@ for($i = 1;$i<$sheetCount; $i++){
 }
 
 Book_num($bookserial);
-// print_r($BookSlots);
 
 for($i = 1;$i<$sheetCount; $i++){
     
@@ -173,8 +161,12 @@ for($i = 1;$i<$sheetCount; $i++){
         $bno=$spreadSheetAry[$i][0];// cases missing for book no
         if(!Book_check($bno,$bookcount)){
             $error = $error."unable to insert book's at $bno already present!!!";
+            echo $error;
             break;
         } 
+        else{
+            echo"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%";
+        }
     }
     else
     {
