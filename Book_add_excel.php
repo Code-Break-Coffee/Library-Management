@@ -266,7 +266,36 @@ if(sizeof($temp_array) == sizeof($bookserial))
             }
 
             echo"
-                </tbody></table></div>
+                </tbody></table>
+                <form id='confirm' method= 'post' action=''>
+                <center>
+                    <button class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
+                </center>
+                </form>
+                <script>
+                $(document).ready(function()
+                {
+                    $('#confirm').submit(function(e)
+                    {
+                        e.preventDefault();
+                        $.ajax(
+                        {
+                            method: 'post',
+                            url: 'Book_add_excel.php',
+                            data: $(this).serialize()+'&Access=Main-Book_add_excel',
+                            datatype: 'text',
+                            success: function(Result)
+                            {
+                                
+                                $( '#dialog_exl_disp' ).dialog( 'destroy');
+                                $('#response_exl_records').html(Result);
+                                $('#dialog_exl_disp').dialog();  
+                            }
+                        });
+                    }); 
+                });
+                </script>
+                </div>
                 ";
 
 
