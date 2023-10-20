@@ -522,49 +522,50 @@ document.getElementById("s").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
+    let sugg_path = "Suggestions.php";
     $(document).ready(function() {
         $.widget( "custom.catcomplete", $.ui.autocomplete, {
-          _create: function() {
-            this._super();
-            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
-          },
-          _renderMenu: function( ul, items ) {
-            var that = this,
-              currentCategory = "";
-            $.each( items, function( index, item ) {
-              var li;
-              if ( item.category != currentCategory ) {
-                ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-                currentCategory = item.category;
-              }
-              li = that._renderItemData( ul, item );
+            _create: function() {
+                this._super();
+                this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+            },
+            _renderMenu: function( ul, items ) {
+                var that = this,
+                currentCategory = "";
+                $.each( items, function( index, item ) {
+                    var li;
+                    if ( item.category != currentCategory ) {
+                        ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                        currentCategory = item.category;
+                    }
+                    li = that._renderItemData( ul, item );
               if ( item.category ) {
-                li.attr( "aria-label", item.category + " : " + item.label );
-              }
+                  li.attr( "aria-label", item.category + " : " + item.label );
+                }
             });
-          }
-        });
-        $( "#B_Search" ).catcomplete({
-          delay: 500,
-          autoFocus: true,
-          minLength: 3,
-          source: "Suggestions.php",
-        });
-    } );
-    $(document).ready(function()
+        }
+    });
+    $( "#B_Search" ).catcomplete({
+        delay: 500,
+        autoFocus: true,
+        minLength: 3,
+        source: sugg_path,
+    });
+} );
+$(document).ready(function()
+{
+    let sb=document.getElementById("sb");
+    let sval=sb.options[sb.selectedIndex].value;
+    let sc=document.getElementById("searchcontain");
+    if(sval=="search")
+    {
+        sc.innerHTML=`<label>Book Search:</label>`;
+    }
+    $("#sb").click(function()
     {
         let sb=document.getElementById("sb");
         let sval=sb.options[sb.selectedIndex].value;
         let sc=document.getElementById("searchcontain");
-        if(sval=="search")
-        {
-            sc.innerHTML=`<label>Book Search:</label>`;
-        }
-        $("#sb").click(function()
-        {
-            let sb=document.getElementById("sb");
-            let sval=sb.options[sb.selectedIndex].value;
-            let sc=document.getElementById("searchcontain");
             let si=document.getElementById("B_Search");
             if(sval=="Book No.")
             {
@@ -577,17 +578,20 @@ document.getElementById("s").addEventListener("click",()=>
                 si.setAttribute('name','author');
                 si.setAttribute('placeholder','Enter Book Author.');
                 sc.innerHTML=`<label>Author:</label>`;
+                sugg_path = "Suggestions_book_author.php";
             }
             if(sval=="Title")
             {
                 si.setAttribute('name','title');
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
+                sugg_path = "Suggestions_book_title.php";
             }
             if(sval=="search")
             {
                 si.setAttribute('name','book');
                 sc.innerHTML=`<label>Book Search:</label>`;
+                sugg_path = "Suggestions.php";
             }
         });
         $("#resetsearch").click(function()
@@ -597,6 +601,7 @@ document.getElementById("s").addEventListener("click",()=>
             document.getElementById("response5").style.display="none";
             document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
             s.setAttribute('name','book');
+            sugg_path = "Suggestions.php";
         });
         $("#searchform").submit(function(e)
         {

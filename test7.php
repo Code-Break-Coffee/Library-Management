@@ -1,7 +1,4 @@
 <?php
-
-use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
-use Phppot\DataSource;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
 require_once ('vendor/autoload.php');
@@ -26,7 +23,6 @@ function set_BookIndex($count){
     include "dbconnect.php";
     global $BookSlots;
     global $BookIndex;
-    $flag = true;
     if($count == 1 && count($BookSlots)>=1){
         $BookIndex = $BookSlots[0];
         unset($BookSlots[0]);
@@ -79,11 +75,9 @@ function set_BookIndex($count){
 
 function Book_num($book_seq){
     include "dbconnect.php";
-    global $BookIndex; 
     global $BookSlots;
     $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
-    echo $conn->error;
     while($row =$res->fetch_assoc()){
         array_push( $book_seq, $row["Book_No"]);
     }
