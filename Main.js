@@ -1198,7 +1198,7 @@ document.getElementById("support_book").addEventListener("click",()=>
     </center>        
     </div>
     </div>
-    <div style="font-weight: bold;" id="response_exl_records"></div>
+    <div style="font-weight: bold;" id="response_exl_records" ></div>
     `;
     async function uploadFile()
     {
@@ -1211,7 +1211,6 @@ document.getElementById("support_book").addEventListener("click",()=>
         }); 
         
         }
-    // document.getElementById("upload-button").addEventListener("click",uploadFile);
     $(document).ready(function()
     {
         $("#frmExcelImport").submit(function(e)
@@ -1231,7 +1230,7 @@ document.getElementById("support_book").addEventListener("click",()=>
                     $("#dialog_exl_disp").dialog();  
                 }
             });
-        });
+        }); 
     });
 });
 
