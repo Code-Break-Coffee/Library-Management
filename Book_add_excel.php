@@ -4,6 +4,7 @@ include "auth.php";
 include "dbconnect.php";
 $BookIndex =0;
 $BookSlots =[]; // Available slots in between
+$MaxBookIndex =0;
 $error = "";
 $Data_Status = false;
 if(verification() && $_POST["Access"] == "Book_add_excel-Confirmation"){
@@ -45,9 +46,9 @@ function set_BookIndex($count){
     include "dbconnect.php";
     global $BookSlots;
     global $BookIndex;
+    global $MaxBookIndex;
     if($count == 1 && count($BookSlots)>=1){
         $BookIndex = $BookSlots[0];
-        unset($BookSlots[0]);
         return;
     }
     if(count($BookSlots)>= $count){
@@ -72,25 +73,14 @@ function set_BookIndex($count){
             }
         }
         
-        $sql_max_book = "SELECT Book_No from books;";
-        $res=$conn->query($sql_max_book);
-        $bookno = 0;
-        while($row =$res->fetch_assoc())
-        {
-            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
-        }
-        $BookIndex = $bookno +1;
+        $BookIndex = $MaxBookIndex +1;
+        $MaxBookIndex+=$count;
         return;
     }
     else{
-        $sql_max_book = "SELECT Book_No from books;";
-        $res=$conn->query($sql_max_book);
-        $bookno = 0;
-        while($row =$res->fetch_assoc())
-        {
-            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
-        }
-        $BookIndex = $bookno +1;
+        
+        $BookIndex = $MaxBookIndex +1;
+        $MaxBookIndex+=$count;
         return;
     }
 }
@@ -98,13 +88,14 @@ function set_BookIndex($count){
 function Book_num($book_seq){
     include "dbconnect.php";
     global $BookSlots;
+    global $MaxBookIndex;
     $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
     while($row =$res->fetch_assoc()){
         array_push( $book_seq, $row["Book_No"]);
     }
-    $max = max($book_seq);
-    for($i = 1; $i < $max; $i++){
+    $MaxBookIndex = max($book_seq);
+    for($i = 1; $i < $MaxBookIndex; $i++){
         if(!in_array($i,$book_seq)) array_push($BookSlots,$i);
     }
     sort($BookSlots);
