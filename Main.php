@@ -78,6 +78,7 @@ else
                                         <div id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="support_book">Insert Books` Data</a>
                                             <a class="dropdown-item dropdown_hover" id="support_student">Insert Students` Data</a>
+                                            <a class="dropdown-item dropdown_hover" id="support_faculty">Faculty Excel</a>
                                         </div>
                                     </li>
                                 </ul>

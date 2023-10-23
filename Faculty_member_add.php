@@ -16,9 +16,12 @@ else
     $sqlCheck2="SELECT Member_ID from member where Member_ID = '$facId';";
     $resultCheck1=$conn->query($sqlCheck1);
     $resultCheck2=$conn->query($sqlCheck2);
+    
+    
     if($resultCheck1 && $resultCheck2)
     {
-        if(mysqli_num_rows($resultCheck1)>0 || mysqli_num_rows($resultCheck2)>0)
+        
+        if(mysqli_num_rows($resultCheck2)>0)
         {
             echo"
             <div id='dialog_fac' style='color:red;' title='Not Allowed❌'>
@@ -28,28 +31,38 @@ else
         }
         else
         {
-            $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values('$facId','$facName','$facType');";
-            $result1=$conn->query($sql1);
-            if(! $result1) echo"
-            <div id='dialog_fac' style='color:red;' title='Error❌'>
-                <p><center>$conn->error</center></p>
-            </div>";
+            if(mysqli_num_rows($resultCheck1)>0)
+            {
+                // $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values('$facId','$facName','$facType');";
+                // $result1=$conn->query($sql1);
+                // if(! $result1) echo"
+                // <div id='dialog_fac' style='color:red;' title='Error❌'>
+                //     <p><center>$conn->error</center></p>
+                // </div>";
 
-            $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
-            $result2=$conn->query($sql2);
-            if(! $result2) echo"
-            <div id='dialog_fac' style='color:red;' title='Error❌'>
-                <p><center>$conn->error</center></p>
-            </div>";
-            
-            if($result1 && $result2)
+                $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
+                $result2=$conn->query($sql2);
+                if(! $result2) echo"
+                <div id='dialog_fac' style='color:red;' title='Error❌'>
+                    <p><center>$conn->error</center></p>
+                </div>";
+
+                // $result1 &&
+                if($result2)
+                {
+                    echo "
+                    <div id='dialog_fac' style='color:green;' title='Successful✅'>
+                        <p><center>Faculty $facId added as a member successfully!!!</center></p>
+                    </div>"; 
+                }
+            }
+            else
             {
                 echo "
-                <div id='dialog_fac' style='color:green;' title='Successful✅'>
-                    <p><center>Faculty $facId added as a member successfully!!!</center></p>
+                <div id='dialog_fac' style='color:green;' title='Error❌'>
+                    <p><center>Faculty $facId not found in Faculty Table!!</center></p>
                 </div>"; 
             }
-
         }
     }
     else echo"

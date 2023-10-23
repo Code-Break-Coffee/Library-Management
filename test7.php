@@ -1,29 +1,11 @@
 <?php
-@session_start();
-include "auth.php";
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 include "dbconnect.php";
+require_once ('vendor/autoload.php');
+
 $BookIndex =0;
 $BookSlots =[]; // Available slots in between
-$MaxBookIndex =0;
 $error = "";
-$Data_Status = false;
-if(verification() && $_POST["Access"] == "Book_add_excel-Confirmation"){
-    if($Data_Status && strlen($error) == 0 && count($Book_Record)>0){
-        
-    }
-    else{
-        // return error and reload
-    }
-    
-}
-elseif(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
-{
-    header("Location: /LibraryManagement/");
-}
-
-require_once ('vendor/autoload.php');
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
-
 
 function Book_check($b,$count){
     include "dbconnect.php";
@@ -46,9 +28,9 @@ function set_BookIndex($count){
     include "dbconnect.php";
     global $BookSlots;
     global $BookIndex;
-    global $MaxBookIndex;
     if($count == 1 && count($BookSlots)>=1){
         $BookIndex = $BookSlots[0];
+        unset($BookSlots[0]);
         return;
     }
     if(count($BookSlots)>= $count){
@@ -56,7 +38,7 @@ function set_BookIndex($count){
         array_push($a, 0);
         $res = [];
         $stage = [];
-        
+
         foreach($a as $i) {
             if(count($stage) > 0 && $i != $stage[count($stage)-1]+1) {
                 if(count($stage) > 1) {
@@ -72,15 +54,26 @@ function set_BookIndex($count){
                 return;
             }
         }
-        
-        $BookIndex = $MaxBookIndex +1;
-        $MaxBookIndex+=$count;
+
+        $sql_max_book = "SELECT Book_No from books;";
+        $res=$conn->query($sql_max_book);
+        $bookno = 0;
+        while($row =$res->fetch_assoc())
+        {
+            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
+        }
+        $BookIndex = $bookno +1;
         return;
     }
     else{
-        
-        $BookIndex = $MaxBookIndex +1;
-        $MaxBookIndex+=$count;
+        $sql_max_book = "SELECT Book_No from books;";
+        $res=$conn->query($sql_max_book);
+        $bookno = 0;
+        while($row =$res->fetch_assoc())
+        {
+            if((int)preg_replace("/[^0-9]/","",$row["Book_No"]) > $bookno) $bookno = (int)preg_replace("/[^0-9]/","",$row["Book_No"]);
+        }
+        $BookIndex = $bookno +1;
         return;
     }
 }
@@ -88,14 +81,13 @@ function set_BookIndex($count){
 function Book_num($book_seq){
     include "dbconnect.php";
     global $BookSlots;
-    global $MaxBookIndex;
     $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
     while($row =$res->fetch_assoc()){
         array_push( $book_seq, $row["Book_No"]);
     }
-    $MaxBookIndex = max($book_seq);
-    for($i = 1; $i < $MaxBookIndex; $i++){
+    $max = max($book_seq);
+    for($i = 1; $i < $max; $i++){
         if(!in_array($i,$book_seq)) array_push($BookSlots,$i);
     }
     sort($BookSlots);
@@ -132,6 +124,7 @@ $excelSheet = $spreadSheet->getActiveSheet();
 $spreadSheetAry = $excelSheet->toArray();
 $sheetCount = count($spreadSheetAry);
 $bno =0;
+$Book_Record =[];
 $error;
 $author1;
 $author2;
@@ -145,7 +138,6 @@ $supplier;
 $remark;
 $billno;
 $bookcount;
-$Book_Record =[];
 
 $bookserial =[];
 for($i = 1;$i<$sheetCount; $i++){
@@ -234,82 +226,10 @@ if(sizeof($temp_array) == sizeof($bookserial))
             echo $error."At Index: ".$i+1;
             break;
         }
-        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
+        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
         
     }
-    if(count($Book_Record)> 0){
-        $Data_Status = true;
-        // print_r($Book_Record);
-        echo "
-                    <div style='width:100%;overflow:auto;height:650px;'><table>
-                    <tr>
-                    <th>Book No.</th>
-                    <th>Author's</th>
-                    <th>Title</th>
-                    <th>Edition</th>
-                    <th>Publisher</th>
-                    <th>No of Copies</th>
-                    </tr>
-                    <tbody>";
-    
-                ksort($Book_Record);
-                foreach($Book_Record as $bn=>$b)
-                {
-                    echo"
-                    <tr>
-                    <td>".$bn."</td>
-                    <td>".$b[0]." ".$b[1]." ".$b[2]." "."</td>
-                    <td>".$b[3]."</td>
-                    <td>".$b[4]."</td>
-                    <td>".$b[5]."</td>
-                    <td>".$b[12]."</td>
-                    <td></td>
-                    <td></td>
-                    </tr>
-                    ";
-                }
-    
-                echo"
-                    </tbody></table>
-                    <form id='confirm' method= 'post' action=''>
-                    <center>
-                        <button class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
-                    </center>
-                    </form>
-                    <script>
-                    $(document).ready(function()
-                    {
-                        $('#confirm').submit(function(e)
-                        {
-                            e.preventDefault();
-                            $.ajax(
-                            {
-                                method: 'post',
-                                url: 'Book_add_excel.php',
-                                data: {
-                                    'Access': 'Book_add_excel-Confirmation',
-                                    'Status': 'confirm-Insert'
-                                }
-                                datatype: 'text',
-                                success: function(Result)
-                                {
-                                    
-                                    $( '#dialog_exl_disp' ).dialog( 'destroy');
-                                    $('#response_exl_records').html(Result);
-                                    $('#dialog_exl_disp').dialog();  
-                                }
-                            });
-                        }); 
-                    });
-                    </script>
-                    </div>
-                    ";
-    }
-    else{
-        echo "No data found";
-    }
-
-
+    print_r($Book_Record);
 }
 else{
     echo "duplicate records";
