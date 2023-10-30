@@ -48,7 +48,7 @@ function set_BookIndex($count){
     global $BookIndex;
     global $MaxBookIndex;
     if($count == 1 && count($BookSlots)>=1){
-        $BookIndex = $BookSlots[0];
+        $BookIndex = $BookSlots[0]; 
         return;
     }
     if(count($BookSlots)>= $count){
