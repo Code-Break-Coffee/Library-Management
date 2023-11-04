@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 28, 2023 at 08:06 AM
+-- Generation Time: Nov 04, 2023 at 08:03 AM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -51,7 +51,7 @@ INSERT INTO `admin` (`Username`, `Password`, `User_level`) VALUES
 
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
-  `Book_No` varchar(10) NOT NULL,
+  `Book_No` int NOT NULL,
   `Author1` varchar(50) NOT NULL,
   `Author2` varchar(50) DEFAULT NULL,
   `Author3` varchar(50) DEFAULT NULL,
@@ -73,141 +73,111 @@ CREATE TABLE IF NOT EXISTS `books` (
 --
 
 INSERT INTO `books` (`Book_No`, `Author1`, `Author2`, `Author3`, `Title`, `Edition`, `Publisher`, `Cl_No`, `Total_Pages`, `Cost`, `Supplier`, `Remark`, `Bill_No`, `Status`) VALUES
-('100', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
-('99', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('98', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('96', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('97', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('95', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('93', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('94', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('90', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('91', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('92', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('89', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('88', 'Android', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('87', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('86', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('85', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('84', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
-('83', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('82', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('81', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('80', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('79', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('78', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('77', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('76', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('75', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('74', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('73', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('72', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('71', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('70', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('69', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('68', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('67', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('66', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('65', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('64', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('63', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('62', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('61', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('60', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('59', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('58', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('57', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('56', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('55', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('54', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('53', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('52', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('51', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('50', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('49', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('48', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('47', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('46', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('45', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('44', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('43', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('42', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('41', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('40', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('39', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('38', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('37', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('36', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('35', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('34', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('33', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('32', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('31', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('30', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('29', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('28', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('27', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('26', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('25', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
-('24', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('23', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('22', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('21', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('20', 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
-('19', 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-('18', 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
-('17', 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
-('16', 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
-('15', 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
-('14', 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
-('13', 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
-('12', 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
-('11', 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
-('105', 'cgh', 'fthfh', '', 'jaba', 'hmbn ', 'gh', 4, 56, 56, 'gg', NULL, '', 'Available'),
-('101', 'cgh', 'fthfh', '', 'jaba', 'poonam', 'gh', 4, 56, 56, 'gg', NULL, '', 'Available'),
-('102', 'cgh', 'fthfh', '', 'jaba', 'poonam', 'gh', 4, 56, 56, 'gg', NULL, '', 'Available');
+(100, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
+(99, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(98, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(96, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(97, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(95, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(93, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(94, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(90, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'FID10'),
+(91, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(92, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(89, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(88, 'Android', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(87, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(86, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(85, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(84, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
+(83, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(82, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(81, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(80, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(79, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(78, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(77, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(76, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(75, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(74, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(73, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(72, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(71, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(70, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(69, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(68, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(67, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(66, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(65, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(64, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(63, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(62, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(61, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(60, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(59, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(58, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(57, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(56, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(55, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(54, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(53, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(52, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(51, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(50, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(49, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(48, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(47, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(46, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(45, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(44, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(43, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(42, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(41, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(40, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(39, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(38, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(37, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(36, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(35, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(34, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(33, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(32, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(31, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(30, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(29, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(28, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(27, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(26, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(25, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
+(24, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(23, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(22, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(21, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(20, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'Available'),
+(19, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
+(18, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(17, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
+(16, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
+(15, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
+(14, 'Author Book', 'Author 2', 'NPC', 'PHP', '4', 'Open.org', 4, 666, 6000, NULL, NULL, NULL, 'Available'),
+(13, 'Author Book', 'Author 2', 'NPC', 'JS', '3', 'Open.org', 3, 666, 6000, NULL, NULL, NULL, 'Available'),
+(12, 'Author Book', 'Author 2', 'NPC', 'Python', '2', 'Open.org', 2, 666, 6000, NULL, NULL, NULL, 'Available'),
+(11, 'Author Book', 'Author 2', 'NPC', 'Java', '1', 'Open.org', 1, 666, 6000, NULL, NULL, NULL, 'Available'),
+(101, 'cgh', 'fthfh', '', 'jaba', 'poonam', 'gh', 4, 56, 56, 'gg', NULL, '', 'Available'),
+(102, 'cgh', 'fthfh', '', 'jaba', 'poonam', 'gh', 4, 56, 56, 'gg', NULL, '', 'Available'),
+(250, 'fuyghguk', 'kujgyhjgvuhk', 'kujhygvuk', 'esjknfjkd', 'guykfg', 'ukyguyk', 85, 687, 656, 'ujkhyujhgu', 'rfgdv', '', 'Available');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_category`
+-- Table structure for table `buffer status`
 --
 
-DROP TABLE IF EXISTS `book_category`;
-CREATE TABLE IF NOT EXISTS `book_category` (
-  `Book_No` varchar(10) NOT NULL,
-  `Book` varchar(50) NOT NULL,
-  `Cl_No` double NOT NULL,
-  `category` varchar(15) NOT NULL
+DROP TABLE IF EXISTS `buffer status`;
+CREATE TABLE IF NOT EXISTS `buffer status` (
+  `buffer log` varchar(50) DEFAULT NULL,
+  `buffer status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `course_cl`
---
-
-DROP TABLE IF EXISTS `course_cl`;
-CREATE TABLE IF NOT EXISTS `course_cl` (
-  `Course` varchar(10) NOT NULL,
-  `CL_No` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `course_cl`
---
-
-INSERT INTO `course_cl` (`Course`, `CL_No`) VALUES
-('IT', 0),
-('IC', 1),
-('IB', 2),
-('TA', 3),
-('TM', 4),
-('FT', 5),
-('IM', 6),
-('IT', 7),
-('IC', 8),
-('IT', 9);
 
 -- --------------------------------------------------------
 
@@ -308,6 +278,29 @@ INSERT INTO `faculty` (`Faculty_ID`, `Faculty_Name`, `Faculty_Type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `insert buffer`
+--
+
+DROP TABLE IF EXISTS `insert buffer`;
+CREATE TABLE IF NOT EXISTS `insert buffer` (
+  `val1` varchar(50) DEFAULT NULL,
+  `val2` varchar(50) DEFAULT NULL,
+  `val3` varchar(50) DEFAULT NULL,
+  `val4` varchar(50) DEFAULT NULL,
+  `val5` varchar(50) DEFAULT NULL,
+  `val6` varchar(50) DEFAULT NULL,
+  `val7` double DEFAULT NULL,
+  `val8` int DEFAULT NULL,
+  `val9` int DEFAULT NULL,
+  `val10` varchar(50) DEFAULT NULL,
+  `val11` varchar(50) DEFAULT NULL,
+  `val12` varchar(50) DEFAULT NULL,
+  `val13` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `issue_return`
 --
 
@@ -322,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
   PRIMARY KEY (`Issue_No`),
   KEY `Issue_Book` (`Issue_Bookno`),
   KEY `Issue_member` (`Issue_By`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `issue_return`
@@ -331,7 +324,24 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
 INSERT INTO `issue_return` (`Issue_No`, `Issue_By`, `Member_Type`, `Issue_Bookno`, `Issue_Date`, `Return_Date`) VALUES
 (20, 'IT2K2125', 'Student', 100, '2023-09-02', NULL),
 (21, 'IT2K2125', 'Student', 25, '2023-09-22', NULL),
-(22, 'IT2K2125', 'Student', 84, '2023-09-27', NULL);
+(22, 'IT2K2125', 'Student', 84, '2023-09-27', NULL),
+(23, 'FID10', 'Faculty', 90, '2023-10-02', '2023-10-02'),
+(24, 'FID10', 'Faculty', 90, '2023-10-02', NULL),
+(25, 'FID10', 'Faculty', 91, '2023-10-02', '2023-10-02'),
+(26, 'FID10', 'Faculty', 92, '2023-10-02', '2023-10-02'),
+(27, 'FID10', 'Faculty', 93, '2023-10-02', '2023-10-02'),
+(28, 'FID10', 'Faculty', 94, '2023-10-02', '2023-10-02'),
+(29, 'FID10', 'Faculty', 95, '2023-10-02', '2023-10-02'),
+(30, 'FID10', 'Faculty', 96, '2023-10-02', '2023-10-02'),
+(31, 'FID10', 'Faculty', 97, '2023-10-02', '2023-10-02'),
+(32, 'FID10', 'Faculty', 98, '2023-10-02', '2023-10-02'),
+(33, 'FID10', 'Faculty', 99, '2023-10-02', '2023-10-02'),
+(34, 'FID10', 'Faculty', 11, '2023-10-02', '2023-10-02'),
+(35, 'FID10', 'Faculty', 12, '2023-10-02', '2023-10-02'),
+(36, 'FID10', 'Faculty', 13, '2023-10-02', '2023-10-02'),
+(37, 'FID10', 'Faculty', 14, '2023-10-02', '2023-10-02'),
+(38, 'FID10', 'Faculty', 15, '2023-10-02', '2023-10-02'),
+(39, 'FID10', 'Faculty', 16, '2023-10-02', '2023-10-02');
 
 -- --------------------------------------------------------
 
@@ -398,11 +408,13 @@ INSERT INTO `member` (`Member_ID`, `MemberType`) VALUES
 ('IT2K2105', 'Student'),
 ('IT2K2104', 'Student'),
 ('IT2K2103', 'Student'),
+('IT2K2134', 'Student'),
 ('FID25', 'Faculty'),
 ('FID-567', 'Faculty'),
 ('FID-345', 'Faculty'),
 ('FID-234', 'Faculty'),
 ('FID-789', 'Faculty'),
+('IT2K2175', 'Student'),
 ('ejfhcdbs', 'Faculty'),
 ('hdesgfcb', 'Faculty'),
 ('ukygdvfb', 'Faculty');
@@ -539,7 +551,17 @@ INSERT INTO `suggestion` (`Book_value`, `category`) VALUES
 ('simp kratos', 'Author'),
 ('NPC', 'Author'),
 ('Deep', 'Author'),
-('jhon snow', 'Author');
+('jhon snow', 'Author'),
+('holly cow', 'Title'),
+('sfd', 'Publisher'),
+('fesda', 'Author'),
+('fds', 'Author'),
+('fsd', 'Author'),
+('esjknfjkd', 'Title'),
+('ukyguyk', 'Publisher'),
+('fuyghguk', 'Author'),
+('kujgyhjgvuhk', 'Author'),
+('kujhygvuk', 'Author');
 
 -- --------------------------------------------------------
 
@@ -561,7 +583,7 @@ CREATE TABLE IF NOT EXISTS `temp_keys` (
 --
 
 INSERT INTO `temp_keys` (`Username`, `Key_Session`, `Log`, `Log2`) VALUES
-('admin', '$2y$10$IJrlQFaHoaHt1N1M9YAZhOOPAz3QFuDPeZfh4V/wUmMn8NcQuw9m.', 'Thu, 28 Sep 2023 13:09:09 +0530', '23094280909'),
+('admin', '$2y$10$OmPGHm7Iaqli//RcHFeY..vIASY/e5vcsbKeH4v1sbqN7asE2QDrK', 'Sat, 04 Nov 2023 13:08:58 +0530', '23116040858'),
 ('admin1', NULL, NULL, NULL);
 COMMIT;
 
