@@ -240,7 +240,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
     if(count($Book_Record)> 0){
         $Data_Status = true;
         echo "
-                    <div style='width:100%;overflow:auto;height:650px;'><table>
+                    <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(0%,-35%);'><table>
                     <tr>
                     <th>Book No.</th>
                     <th>Author's</th>
@@ -271,11 +271,6 @@ if(sizeof($temp_array) == sizeof($bookserial))
     
                 echo"
                     </tbody></table>
-                    <form id='confirm' method= 'post' action=''>
-                    <center>
-                        <button class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
-                    </center>
-                    </form>
                     <script>
                     $(document).ready(function()
                     {

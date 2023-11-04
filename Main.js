@@ -1223,6 +1223,8 @@ document.getElementById("support_book").addEventListener("click",()=>
         <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
         <h6>Note: Excel Format should be same as specified !!!</h6>
         <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
+        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+
         </form>     
 
     </center>        
@@ -1240,14 +1242,21 @@ document.getElementById("support_book").addEventListener("click",()=>
             body: formData 
         }); 
         
-        }
+    }
     $(document).ready(function()
     {
+        $("#resetissue").on('click',()=>
+        {
+            document.getElementById("response_exl_records").style.display="none";
+            document.getElementById("exl_srch").style.transform="translate(-50%,-50%)";
+        });
+
         $("#frmExcelImport").submit(function(e)
         {
             e.preventDefault();
             document.getElementById("response_exl_records").style.display="block";
             document.getElementById("response_exl_records").style.transform="translate(50%,-50%)";
+            document.getElementById("exl_srch").style.transform="translate(-130%,-50%)";
             uploadFile();
             $.ajax(
             {
