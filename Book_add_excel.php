@@ -240,7 +240,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
     if(count($Book_Record)> 0){
         $Data_Status = true;
         echo "
-                    <div style='width:100%;overflow:auto;height:650px;'><table>
+                    <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(0%,-35%);'><table>
                     <tr>
                     <th>Book No.</th>
                     <th>Author's</th>
