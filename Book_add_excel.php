@@ -239,7 +239,6 @@ if(sizeof($temp_array) == sizeof($bookserial))
     }
     if(count($Book_Record)> 0){
         $Data_Status = true;
-        // print_r($Book_Record);
         echo "
                     <div style='width:100%;overflow:auto;height:650px;'><table>
                     <tr>
@@ -267,6 +266,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <td></td>
                     </tr>
                     ";
+                    $sql = "INSERT INTO 'insert buffer'(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13) VALUES('$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]',)";
                 }
     
                 echo"
