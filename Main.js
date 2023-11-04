@@ -1379,3 +1379,26 @@ document.getElementById("support_student").addEventListener("click",()=>
         });
     });
 });
+
+//--------------------------------------------------------------------Book Dues
+
+document.querySelector("#dueBook").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div style="font-weight: bold;width:100%;" id="response_book_dues"></div>
+    `;
+    $.ajax(
+    {
+        method: "post",
+        url: "Book_dues.php",
+        data: "&Access=Main-Book-Dues",
+        success: function(Result)
+        {
+            $( "#dialog_book_dues" ).dialog( "destroy" );
+            $("#response_book_dues").html(Result);
+            $("#dialog_book_dues").dialog();
+        }
+    });
+});
