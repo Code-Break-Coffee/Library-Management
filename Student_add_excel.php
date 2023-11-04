@@ -79,8 +79,10 @@ if(check($spreadSheetAry,$sheetCount))
         $name=$spreadSheetAry[$i][1];
         $course=$spreadSheetAry[$i][2];
         $enroll=$spreadSheetAry[$i][3];
-        $sql="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno)
+        $sql="INSERT into `insert buffer`(val1,val2,val3,val4)
         values('$rollno','$name','$course','$enroll');";
+        // $sql="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno)
+        // values('$rollno','$name','$course','$enroll');";
         $result=$conn->query($sql);
         if(!$result)
         {
@@ -97,6 +99,7 @@ if(check($spreadSheetAry,$sheetCount))
     }
     if($flag==0)
     {
+        // print confirmation table and user confirm button ---zakie
         echo
         "
             <div id='dialog_exl_disp_student' style='color:green;' title='✅Successful'>

@@ -35,8 +35,17 @@
                 $incorrect_rows=$incorrect_rows." $i";
             }
         }
+        else{
+            echo "
+            <div id='dialog_exl_faculty' style='color:green;' title='✅Successful'>
+                <p><center>duplicate record found member already exists</center></p>
+            </div>
+            ";
+            break;
+        }
 
     }
+    // print confirmation table and user confirm button ---zakie
     if (strlen($incorrect_rows)==0) 
     {
         echo "

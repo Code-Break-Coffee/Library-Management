@@ -266,29 +266,29 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <td></td>
                     </tr>
                     ";
-                    $sql = "INSERT INTO 'insert buffer'(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13) VALUES('$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]','$b[0]',)";
+                    $sql = "INSERT INTO `insert buffer`(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) VALUES('$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
+                    $res = $conn->query($sql);
+                    if(!$res){
+                        echo $conn->error;
+                    }
                 }
     
                 echo"
                     </tbody></table>
-                    <form id='confirm' method= 'post' action=''>
-                    <center>
-                        <button class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
-                    </center>
-                    </form>
+                    <button id='excelConfirm' class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
                     <script>
                     $(document).ready(function()
                     {
-                        $('#confirm').submit(function(e)
+                        console.log('hoooooooooooooooooooooo');
+                        document.getElementById('exl_srch').style.transform='translate(-120%,-50%)';
+                        $('#excelConfirm').click(function(e)
                         {
-                            e.preventDefault();
                             $.ajax(
                             {
                                 method: 'post',
                                 url: 'Book_add_excel.php',
                                 data: {
-                                    'Access': 'Book_add_excel-Confirmation',
-                                    'Status': 'confirm-Insert'
+                                    
                                 }
                                 datatype: 'text',
                                 success: function(Result)
