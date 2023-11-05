@@ -1,5 +1,7 @@
 <?php
-if($_POST["Access"]!="Main-Book-Dues")
+@session_start();
+include "auth.php";
+if($_POST["Access"]!="Main-Book-Dues" || !verification())
 {
     header("Location: /LibraryManagement/");
 }

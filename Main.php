@@ -71,6 +71,7 @@ else
                                             <a class="dropdown-item dropdown_hover" id="admin_add">Add Assistant</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_delete">Delete Assistant</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin/Assistant</a>
+                                            <a class="dropdown-item dropdown_hover" id="issue_limit">Change Book Issue Limit</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">

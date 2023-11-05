@@ -19,3 +19,16 @@ $(document).ready(function()
         });
     });
 });
+
+// window.addEventListener("beforeunload",(e)=>
+// {
+//     e.preventDefault();
+//     if(performance.navigation.type!=performance.navigation.TYPE_RELOAD)
+//     {
+//         $.ajax(
+//         {
+//             method: "post",
+//             url: "Logout.php",
+//         });
+//     }
+// });
