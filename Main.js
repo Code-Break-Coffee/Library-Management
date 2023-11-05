@@ -1411,3 +1411,47 @@ document.querySelector("#dueBook").addEventListener("click",()=>
         }
     });
 });
+
+//----------------------------------------------------------Issue_Limit
+
+document.querySelector("#issue_limit").addEventListener('click',()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="issue_limit_block" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+
+    <center>   
+        <h1>Change Book Issue Limit</h1>
+        <form id='issue_limit_form' method='post' action='' autocomplete='off'>
+            <label>Limit:</label>
+            <input type='number' name='limit' class='bg-dark form-control' style='color:aliceblue;' required/><br>
+            <button class="btn" type="submit" style='color:aliceblue;background-color:black;'> Change </button>
+        </form>     
+    </center>        
+    </div>
+    </div>
+    <div style="font-weight: bold;" id="response_issue_limit"></div>`;
+
+    $(document).ready(function()
+    {
+        $("#issue_limit_form").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                method: "post",
+                url: "Book_limit.php",
+                data: $(this).serialize()+"&Access=Main-Issue-Limit",
+                datatype: "text",
+                success: function(Result)
+                {
+                    $("#dialog_issue_limit").dialog("destroy");
+                    $("#response_issue_limit").html(Result);
+                    $("#dialog_issue_limit").dialog();
+                }
+            });
+        });
+    });
+});
