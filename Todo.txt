@@ -1,10 +1,10 @@
 1: 
 2: student search book number and duplicate records modification 
 3: book number cases alphanumeric -> numeric
-4: book dues table
+4: 
 5: zakie ka bug student record check not there
 6: student excel ___ conditions
-7: check record button in issue doesn't work in the scenario(book issue -> clear button pressed -> check button un accessible)
+7: 
 8: 
 9. 
 10 
