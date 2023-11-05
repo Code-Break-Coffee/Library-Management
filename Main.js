@@ -522,7 +522,6 @@ document.getElementById("s").addEventListener("click",()=>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
-    var sugg_path = "Suggestions.php";
     $(document).ready(function()
     {
         let sb=document.getElementById("sb");
@@ -531,6 +530,14 @@ document.getElementById("s").addEventListener("click",()=>
     if(sval=="search")
     {
         sc.innerHTML=`<label>Book Search:</label>`;
+    }
+    function setPath(path = "Suggestions.php"){
+        sugg_path = path;
+        console.log(sugg_path);
+        return path;
+    }
+    function getPath(){
+        return sugg_path ="Suggestions.php";
     }
     $("#sb").click(function()
     {
@@ -548,7 +555,7 @@ document.getElementById("s").addEventListener("click",()=>
             {
                 si.setAttribute('name','author');
                 si.setAttribute('placeholder','Enter Book Author.');
-                sugg_path = "Suggestions_book_author.php";
+                 sugg_path =setPath("Suggestions_book_author.php");
                 sc.innerHTML=`<label>Author:</label>`;
             }
             if(sval=="Title")
@@ -556,19 +563,16 @@ document.getElementById("s").addEventListener("click",()=>
                 si.setAttribute('name','title');
                 si.setAttribute('placeholder','Enter Book Title.');
                 sc.innerHTML=`<label>Title:</label>`;
-                sugg_path = "Suggestions_book_title.php";
+                sugg_path = setPath("Suggestions_book_title.php");
             }
             if(sval=="search")
             {
                 si.setAttribute('name','book');
                 sc.innerHTML=`<label>Book Search:</label>`;
-                sugg_path = "Suggestions.php";
+                sugg_path = setPath("Suggestions.php");
             }
         });
-        function path(){
-            console.log("hola")
-            return sugg_path;
-        }
+        
         $(document).ready(function() {
             $.widget( "custom.catcomplete", $.ui.autocomplete, {
                 _create: function() {
@@ -595,7 +599,7 @@ document.getElementById("s").addEventListener("click",()=>
             delay: 500,
             autoFocus: true,
             minLength: 3,
-            source: path()
+            source: getPath()
         });
     } );
         $("#resetsearch").click(function()
