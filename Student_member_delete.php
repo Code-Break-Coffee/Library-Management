@@ -9,7 +9,6 @@
     $member=$_POST["del_mem"];
     $member = strtoupper($member);
     $member = str_replace("-","",$member);
-    $course=$_POST["del_course"];
     $mem_exist=false;
     $stat="DELETE FROM member where Member_ID='$member';";
     $stat_check="SELECT * FROM member where Member_ID='$member';";
@@ -51,30 +50,20 @@
         $stat_issue="SELECT Issue_By FROM issue_return where Issue_By='$member' and Return_Date is NULL;";
         if(!issue_check($stat_issue,$member))
         {
-            if(strtoupper(substr($member,0,2))==$course)
+            $result=$conn->query($stat);
+            if($result)
             {
-                $result=$conn->query($stat);
-                if($result)
-                {
-                    echo "
-                        <div id='dialog_del' style='color:green;' title='✅ Successful'>
-                            <p>Member $member Deleted Succesfully</p>
-                        </div>"; 
-                }
-                else
-                {
-                    echo "
-                        <div id='dialog_del' style='color:red;' title='❌Error'>
-                            <p>$conn->error</p>
-                        </div>"; 
-                }
+                echo "
+                    <div id='dialog_del' style='color:green;' title='✅ Successful'>
+                        <p>Member $member Deleted Succesfully</p>
+                    </div>"; 
             }
             else
             {
                 echo "
                     <div id='dialog_del' style='color:red;' title='❌Error'>
-                        <p>Member $member And Course Do Not Match</p>
-                    </div>";
+                        <p>$conn->error</p>
+                    </div>"; 
             }
         }
         else
@@ -83,7 +72,6 @@
                 <div id='dialog_del' style='color:red;' title='❌Error'>
                     <p>Member $member has a Issued Book</p>
                 </div>";
-
         }
     }
     else

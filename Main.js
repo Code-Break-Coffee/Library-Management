@@ -899,18 +899,6 @@ document.getElementById("de").addEventListener("click",()=>
                     <h1>Delete Member ID</h1>
                     <label>Member ID:</label>
                     <input required type="text" name="del_mem" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Member ID"/><br>
-                    <label>Course:</label>
-                    <select name="del_course" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="IT">MTech(IT) 5yrs</option>
-                        <option value="IC">MCA 5yrs</option>
-                        <option value="IB">B.com(H)</option>
-                        <option value="TA">MBA(T) 2yrs</option>
-                        <option value="TM">MBA(TM) 5yrs</option>
-                        <option value="FT">MBA(MS) 2yrs</option>
-                        <option value="IM">MBA(MS) 5yrs</option>
-                        <option value="AP">MBA(APR)</option>
-                        <option value="ES">MBA(E-SHIP)</option>
-                    </select><br>
                     <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>

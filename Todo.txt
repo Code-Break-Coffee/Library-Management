@@ -9,4 +9,5 @@
 10 
 11 max book issue limit code using ($Available)
 Note: Book_filter -> table format
+12. Remove faculty delete from faculty_delete.php
  
