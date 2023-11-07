@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 04, 2023 at 08:03 AM
+-- Generation Time: Nov 07, 2023 at 06:50 AM
 -- Server version: 8.0.32
 -- PHP Version: 8.0.26
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 INSERT INTO `books` (`Book_No`, `Author1`, `Author2`, `Author3`, `Title`, `Edition`, `Publisher`, `Cl_No`, `Total_Pages`, `Cost`, `Supplier`, `Remark`, `Bill_No`, `Status`) VALUES
 (100, 'Author Book', 'Author 2', 'NPC', 'CPP', '0', 'Open.org', 0, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
 (99, 'Author Book', 'Author 2', 'NPC', 'Fluter', '9', 'Open.org', 9, 666, 6000, NULL, NULL, NULL, 'Available'),
-(98, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'Available'),
+(98, 'Author Book', 'Author 2', 'NPC', 'Android', '8', 'Open.org', 8, 666, 6000, NULL, NULL, NULL, 'IT2K2125'),
 (96, 'Author Book', 'Author 2', 'NPC', 'Sys. Prog', '6', 'Open.org', 6, 666, 6000, NULL, NULL, NULL, 'Available'),
 (97, 'Author Book', 'Author 2', 'NPC', 'React', '7', 'Open.org', 7, 666, 6000, NULL, NULL, NULL, 'Available'),
 (95, 'Author Book', 'Author 2', 'NPC', 'Fortron', '5', 'Open.org', 5, 666, 6000, NULL, NULL, NULL, 'Available'),
@@ -283,6 +283,7 @@ INSERT INTO `faculty` (`Faculty_ID`, `Faculty_Name`, `Faculty_Type`) VALUES
 
 DROP TABLE IF EXISTS `insert buffer`;
 CREATE TABLE IF NOT EXISTS `insert buffer` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `val1` varchar(50) DEFAULT NULL,
   `val2` varchar(50) DEFAULT NULL,
   `val3` varchar(50) DEFAULT NULL,
@@ -295,8 +296,37 @@ CREATE TABLE IF NOT EXISTS `insert buffer` (
   `val10` varchar(50) DEFAULT NULL,
   `val11` varchar(50) DEFAULT NULL,
   `val12` varchar(50) DEFAULT NULL,
-  `val13` int DEFAULT NULL
+  `val13` int DEFAULT NULL,
+  `val14` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `insert buffer`
+--
+
+INSERT INTO `insert buffer` (`id`, `val1`, `val2`, `val3`, `val4`, `val5`, `val6`, `val7`, `val8`, `val9`, `val10`, `val11`, `val12`, `val13`, `val14`) VALUES
+(19, 'hghfchtjgft', 'gfhjgfhgj', 'fhjkgfhjgf', 'rdfglrsdg', 'hgfhjkgfhjgf', 'hgfghgjkfhg', 87, 68, 54, 'nbhijb', 'hjbhj', 'hjbh', 10, 1),
+(20, 'hijfds', 'hghvfhjg', 'hjkgkgvhjgk', 'holly cow', 'hj,vbhjkg', 'hv,bjhjk', 6.4, 97, 351, 'jkkhg', 'hjkgkhjgvgj', 'jkhv', 10, 150),
+(21, 'hgcygfhjdc', 'hytgfhgkf', 'hhgfghkfhg', 'dgs', 'jhghvhgkvhjkg', 'uhjguhjkghj', 545, 544, 654, 'mnbhjm', 'vhbvh', ' vhg', 90, 160);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issue_limit`
+--
+
+DROP TABLE IF EXISTS `issue_limit`;
+CREATE TABLE IF NOT EXISTS `issue_limit` (
+  `Issue_Limit` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `issue_limit`
+--
+
+INSERT INTO `issue_limit` (`Issue_Limit`) VALUES
+(3);
 
 -- --------------------------------------------------------
 
@@ -315,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `issue_return` (
   PRIMARY KEY (`Issue_No`),
   KEY `Issue_Book` (`Issue_Bookno`),
   KEY `Issue_member` (`Issue_By`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `issue_return`
@@ -341,7 +371,8 @@ INSERT INTO `issue_return` (`Issue_No`, `Issue_By`, `Member_Type`, `Issue_Bookno
 (36, 'FID10', 'Faculty', 13, '2023-10-02', '2023-10-02'),
 (37, 'FID10', 'Faculty', 14, '2023-10-02', '2023-10-02'),
 (38, 'FID10', 'Faculty', 15, '2023-10-02', '2023-10-02'),
-(39, 'FID10', 'Faculty', 16, '2023-10-02', '2023-10-02');
+(39, 'FID10', 'Faculty', 16, '2023-10-02', '2023-10-02'),
+(40, 'IT2K2125', 'Student', 98, '2023-11-05', NULL);
 
 -- --------------------------------------------------------
 

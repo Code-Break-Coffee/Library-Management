@@ -70,7 +70,7 @@ else
                                 echo
                                 "
                                     <div title='❌Error' id='dialog_issue_limit' style='color:red;'>
-                                        <p>Fatal Error. Contact the Support!!!</p>
+                                        <p>Fatal Error. Contact the Support(7024888951)!!!</p>
                                     </div>
                                 ";
                             }
