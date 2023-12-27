@@ -99,6 +99,7 @@ if(check($spreadSheetAry,$sheetCount))
     }
     if($flag==0)
     {
+        // jakie will do this................
         // print confirmation table and user confirm button ---zakie
         echo
         "
@@ -110,6 +111,11 @@ if(check($spreadSheetAry,$sheetCount))
                 </p>
             </div>
         ";
+    }
+    if($flag == 1)
+    {
+        $sql_delete = "DELETE from `insert buffer`;";
+        $result=$conn->query($sql_delete);
     }
 }
 ?>

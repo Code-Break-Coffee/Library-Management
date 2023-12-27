@@ -4,7 +4,8 @@
 5: zakie ka bug student record check not there
 6: student excel ___ conditions
 7: class dues/nodues working
-8: 
+8: jakie -> Student /Book add excel file => confirmation table/ duplicate records and 
+    transfering of buffer table data to up-stream table
 9. 
 10 
 11 max book issue limit code using ($Available)

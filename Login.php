@@ -28,6 +28,8 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
                 include "KeyGen.php";
                 Gen();
                 include "Main.php";
+                $sql_delete = "DELETE from `insert buffer`;"; // delete all the records from input buffer
+                $result=$conn->query($sql_delete);
             }
         }
     }
