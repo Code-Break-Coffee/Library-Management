@@ -124,6 +124,10 @@ function ErrorCheck($a1,$a2,$a3,$title,$ed,$pub,$cl,$tpag){
     return $error;
 }
 
+$sql_delete = "DELETE from `insert buffer`;";
+$result=$conn->query($sql_delete);
+
+
 $targetPath = "Book_insert.xlsx";
 $Reader = new Xlsx();
 
@@ -235,12 +239,16 @@ if(sizeof($temp_array) == sizeof($bookserial))
             break;
         }
         if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
-        
     }
     if(count($Book_Record)> 0){
         $Data_Status = true;
         echo "
-                    <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(0%,-35%);'><table>
+                    
+                    <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(0%,-45%);'>
+                    <center>
+                    <h1 style='font-weight:bold;color:white;position:relative;left:-570px'>Confirmation Page</h1><br/>
+                    </center>
+                    <table>
                     <tr>
                     <th>Book No.</th>
                     <th>Author's</th>
@@ -252,6 +260,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <tbody>";
     
                 ksort($Book_Record);
+                $i=1;
                 foreach($Book_Record as $bn=>$b)
                 {
                     echo"
@@ -266,8 +275,9 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <td></td>
                     </tr>
                     ";
-                    $sql = "INSERT INTO `insert buffer`(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) VALUES('$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
+                    $sql = "INSERT INTO `insert buffer`(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) VALUES($i,'$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
                     $res = $conn->query($sql);
+                    $i=$i+1;
                     if(!$res){
                         echo $conn->error;
                     }
@@ -275,10 +285,26 @@ if(sizeof($temp_array) == sizeof($bookserial))
     
                 echo"
                     </tbody></table>
-                  
+                    </br>
+                    <center style='color:white;position:relative;left:-570px'>
+                    <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+                    </center>
+
                     <script>
                     $(document).ready(function()
                     {
+
+
+                        $('#backissue').on('click',()=>
+                        {
+                            
+                            document.getElementById('response_exl_records').style.display='none';
+                            document.getElementById('exl_srch').style.display='block';
+
+                        });
+
+
                         document.getElementById('exl_srch').style.transform='translate(-120%,-50%)';
                         $('#excelConfirm').click(function(e)
                         {
