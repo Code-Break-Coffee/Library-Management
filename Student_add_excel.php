@@ -160,19 +160,6 @@ if(check($spreadSheetAry,$sheetCount))
             ";
     }
 
-
-        // jakie will do this................
-        // print confirmation table and user confirm button ---zakie
-        // echo
-        // "
-        //     <div id='dialog_exl_disp_student' style='color:green;' title='✅Successful'>
-        //         <p>
-        //             <center>
-        //                 All students` data inserted successfully!!!
-        //             </center>
-        //         </p>
-        //     </div>
-        // ";
     }
     if($flag == 1)
     {
