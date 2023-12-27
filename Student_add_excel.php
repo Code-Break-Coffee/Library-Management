@@ -10,6 +10,10 @@ $excelSheet = $spreadSheet->getActiveSheet();
 $spreadSheetAry = $excelSheet->toArray();
 $sheetCount = count($spreadSheetAry);
 
+
+$sql_delete = "DELETE from `insert buffer`;";
+$result=$conn->query($sql_delete);
+
 function check($sArray,$sCount)
 {
     include "dbconnect.php";
@@ -79,8 +83,8 @@ if(check($spreadSheetAry,$sheetCount))
         $name=$spreadSheetAry[$i][1];
         $course=$spreadSheetAry[$i][2];
         $enroll=$spreadSheetAry[$i][3];
-        $sql="INSERT into `insert buffer`(val1,val2,val3,val4)
-        values('$rollno','$name','$course','$enroll');";
+        $sql="INSERT into `insert buffer`(id,val1,val2,val3,val4)
+        values($i,'$rollno','$name','$course','$enroll');";
         // $sql="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno)
         // values('$rollno','$name','$course','$enroll');";
         $result=$conn->query($sql);
@@ -99,18 +103,76 @@ if(check($spreadSheetAry,$sheetCount))
     }
     if($flag==0)
     {
+        //Zakie Works
+        if($sheetCount>0)
+        {
+            echo "
+                    
+            <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(30%,20%);'>
+            <center>
+            <h1 style='font-weight:bold;color:white;position:relative;left:-570px'>Confirmation Page</h1><br/>
+            </center>
+            <center>
+            <table style='position:relative;left:-600px;'>
+            <tr>
+            <th>Roll.</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Course</th>
+            <th>Publisher</th>
+            </tr>
+            <tbody>";
+
+        // ksort($Book_Record);
+        $ignore=0;
+        foreach($spreadSheetAry as $bn=>$b)
+        {
+            if($ignore==0)
+            {
+                $ignore=$ignore+1;
+            }
+            else
+            {
+                echo"
+                <tr>
+                <td>".$bn."</td>
+                <td>".$b[0]."</td>
+                <td>".$b[1]."</td>
+                <td>".$b[2]."</td>
+                <td>".$b[3]."</td>
+    
+                <td></td>
+                <td></td>
+                </tr>
+                ";
+            }
+        }
+        echo"
+            </tbody>
+            </table>
+            </center>
+            </br>
+            <center style='color:white;position:relative;left:-570px'>
+            <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+            <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+            </center>
+
+            ";
+    }
+
+
         // jakie will do this................
         // print confirmation table and user confirm button ---zakie
-        echo
-        "
-            <div id='dialog_exl_disp_student' style='color:green;' title='✅Successful'>
-                <p>
-                    <center>
-                        All students` data inserted successfully!!!
-                    </center>
-                </p>
-            </div>
-        ";
+        // echo
+        // "
+        //     <div id='dialog_exl_disp_student' style='color:green;' title='✅Successful'>
+        //         <p>
+        //             <center>
+        //                 All students` data inserted successfully!!!
+        //             </center>
+        //         </p>
+        //     </div>
+        // ";
     }
     if($flag == 1)
     {

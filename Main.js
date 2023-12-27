@@ -1237,18 +1237,20 @@ document.getElementById("support_book").addEventListener("click",()=>
     }
     $(document).ready(function()
     {
+
         $("#resetissue").on('click',()=>
         {
             document.getElementById("response_exl_records").style.display="none";
-            document.getElementById("exl_srch").style.transform="translate(-50%,-50%)";
+            // document.getElementById("exl_srch").style.transform="translate(-50%,-50%)";
         });
 
         $("#frmExcelImport").submit(function(e)
         {
             e.preventDefault();
             document.getElementById("response_exl_records").style.display="block";
-            document.getElementById("response_exl_records").style.transform="translate(50%,-50%)";
-            document.getElementById("exl_srch").style.transform="translate(-130%,-50%)";
+            document.getElementById("exl_srch").style.display="none";
+            document.getElementById("response_exl_records").style.transform="translate(28%,70%)";
+            // document.getElementById("exl_srch").style.transform="translate(-130%,-50%)";
             uploadFile();
             $.ajax(
             {
@@ -1360,9 +1362,14 @@ document.getElementById("support_student").addEventListener("click",()=>
         }
     $(document).ready(function()
     {
+        $("#upload-button").click(function(e)
+        {
+            document.getElementById('exl_srch_student').style.display='none';
+        })
         $("#frmExcelImportStudent").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById('exl_srch_student').style.display='none';
             uploadFile();
             $.ajax(
             {
