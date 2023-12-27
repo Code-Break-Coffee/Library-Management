@@ -275,11 +275,10 @@ if(sizeof($temp_array) == sizeof($bookserial))
     
                 echo"
                     </tbody></table>
-                    <button id='excelConfirm' class='btn' style='color:aliceblue; background-color:black;' type='submit' >Confirm</button>
+                  
                     <script>
                     $(document).ready(function()
                     {
-                        console.log('hoooooooooooooooooooooo');
                         document.getElementById('exl_srch').style.transform='translate(-120%,-50%)';
                         $('#excelConfirm').click(function(e)
                         {

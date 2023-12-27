@@ -24,7 +24,7 @@ else
         {
             echo "
             <div id='dialog8' style='color:red;' title='Error'>
-                <p><center>Student Already Present</center></p>
+                <p><center>Member Already Present</center></p>
             </div>";
         }
         else

@@ -29,7 +29,7 @@ else
         $memberId = $_POST["memberid"];
         $memberId = strtoupper($memberId);
         $memberId = str_replace("-","",$memberId);
-        if(empty($_POST["memberid"]) || strlen($memberId) < 6)
+        if(empty($_POST["memberid"]))
         {
             echo "
                 <div id='dialog6' style='color:red;' title='⚠️Error'>
@@ -42,39 +42,72 @@ else
             $member_sql = "SELECT Member_ID from member where Member_ID = '$memberId';";
             $result_m=$conn->query($member_sql);
             while($row=$result_m->fetch_assoc()) $m_count += 1;
-        }
-        $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";
-        $result=$conn->query($sql);
-        $count=0;
-        if($m_count > 0)
-        {
-            if($result)
+            $sql="SELECT * from issue_return where Issue_By = '$memberId' and Return_Date is null;";
+            $result=$conn->query($sql);
+            $count=0;
+            if($m_count > 0)
             {
-                while($row=$result->fetch_assoc()) $count += 1;
-                if($count==0)
+                if($result)
                 {
-                    echo "
-                    <div id='dialog6' style='color:green;' title='✅Notification'>
-                        <p><center>Member $memberId has NO-DUES</center></p>
+                    while($row=$result->fetch_assoc()) $count += 1;
+                    if($count==0)
+                    {
+                        echo "<div id='dialog-confirm' title='Remove Membership ⚠️'>
+                    <p><span class='ui-icon ui-icon-alert' style='float:left; margin:12px 12px 20px 0;'></span> 
+                    $memberId has no Book Dues!!!<br>
+                    Member $memberId will be removed from members!!! Are you sure?</p>
                     </div>";
+                echo"<script>
+                $( function() {
+                  $( '#dialog-confirm' ).dialog({
+                    resizable: false,
+                    height: 'auto',
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                      'Remove Membership': function() {
+                        $.ajax(
+                            {
+                                method: 'post',
+                                url: 'Student_member_delete.php',
+                                data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
+                                datatype: 'text',
+                                success: function(Result)
+                                {
+                                    $( '#dialog_del' ).dialog( 'destroy' );
+                                    $('#response6').html(Result);
+                                    $('#dialog_del').dialog();
+                                }
+                            });
+                        $( this ).dialog( 'close' );
+
+                      },
+                      'Cancel': function() {
+                        $( this ).dialog( 'close' );
+                      }
+                    }
+                  });
+                } );
+                </script>";
+                    }
+                    else
+                    {
+                        echo "
+                        <div id='dialog6' style='color:red;' title='⚠️Notification'>
+                            <p><center>Member $memberId has $count Books Dues</center></p>
+                        </div>";
+                    }
                 }
-                else
-                {
-                    echo "
-                    <div id='dialog6' style='color:red;' title='⚠️Notification'>
-                        <p><center>Member $memberId has $count Books Dues</center></p>
-                    </div>";
-                }
+                else echo "
+                <div id='dialog6' style='color:red;' title='⚠️Error'>
+                    <p><center>$conn->error</center></p>
+                </div>";
             }
             else echo "
-            <div id='dialog6' style='color:red;' title='⚠️Error'>
-                <p><center>$conn->error</center></p>
+            <div id='dialog6' style='color:red;' title='❌Not Found'>
+                <p><center>Member Not found</center></p>
             </div>";
         }
-        else echo "
-        <div id='dialog6' style='color:red;' title='Not Found' background: url(alert.png);>
-            <p><center>Member Not found</center></p>
-        </div>";
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {

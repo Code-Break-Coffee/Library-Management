@@ -33,21 +33,12 @@ else
         {
             if(mysqli_num_rows($resultCheck1)>0)
             {
-                // $sql1="INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values('$facId','$facName','$facType');";
-                // $result1=$conn->query($sql1);
-                // if(! $result1) echo"
-                // <div id='dialog_fac' style='color:red;' title='Error❌'>
-                //     <p><center>$conn->error</center></p>
-                // </div>";
-
                 $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
                 $result2=$conn->query($sql2);
                 if(! $result2) echo"
                 <div id='dialog_fac' style='color:red;' title='Error❌'>
                     <p><center>$conn->error</center></p>
                 </div>";
-
-                // $result1 &&
                 if($result2)
                 {
                     echo "
