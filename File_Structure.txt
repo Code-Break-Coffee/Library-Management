@@ -1,0 +1,87 @@
+Members
+|
+|-- Student
+|       Student_member_add.php
+|       Student_member_delete.php
+|       Student_add_excel.php
+|       upload_student.php
+|        
+|-- Faculty
+        Faculty_member_add.php
+        Faculty_member_delete.php
+        Faculty_add_excel.php
+        upload_faculty.php
+Books
+|
+|-- Transactions
+|       Book_issue.php
+|       Book_issue_check.php
+|       Book_return.php
+|       Book_delete_check.php
+|       Book_delete.php
+|       Book_add_excel.php
+|       upload_book.php
+|
+|-- Operations
+        Book_limit.php
+
+auth
+|
+|-- auth.php
+    KeyGen.php
+    Login.php
+    Logout.php
+
+assets
+|
+|-- img
+|       Alert_image.png
+|       alert.png
+|       baseline_search_white_24dp.png
+|       caution.png
+|       check.png
+|       close.png
+|       library.jpg
+|       menu_FILL0_wght400_GRAD0_opsz48.png       
+|       success.png
+|
+|-- fonts
+|       BebasNeue-Bold.ttf
+|       BebasNeue-Regular.ttf
+|       
+|-- js
+|       bootstrap.bundle.js
+|       bootstrap.bundle.js.map
+|       index.js
+|       Jquery.js
+|       Main.js
+|       
+|-- php
+|       SimpleXLSXGen.php
+|       Suggestions_book_author.php
+|       Suggestions_book_publish.php
+|
+|
+
+Student Page
+|
+|-- assets
+|       img
+|               1067098.png     
+|               student.jpg
+|       
+|       js
+|               student.js
+|       
+|       fonts
+|               BebasNeue-Bold.ttf
+|               BebasNeue-Regular.ttf
+|       
+|-- php       
+|       student.php       
+|       Suggestions.php
+|       
+|   student.html              
+|   student_.html              
+     
+

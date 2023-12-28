@@ -1228,7 +1228,7 @@ document.getElementById("support_book").addEventListener("click",()=>
     {
         let formData = new FormData(); 
         formData.append("file", fileupload1.files[0]);
-        await fetch('upload.php',
+        await fetch('upload_book.php',
         {
             method: "POST", 
             body: formData 
