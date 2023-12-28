@@ -48,6 +48,7 @@ assets
 |-- fonts
 |       BebasNeue-Bold.ttf
 |       BebasNeue-Regular.ttf
+|       BebasNeue.zip
 |       
 |-- js
 |       bootstrap.bundle.js
@@ -56,12 +57,20 @@ assets
 |       Jquery.js
 |       Main.js
 |       
+|-- css       
+|      bootstrap.css        
+|      bootstrap.css.map          
+|       
 |-- php
 |       SimpleXLSXGen.php
 |       Suggestions_book_author.php
 |       Suggestions_book_publish.php
+|       InsertBufferExe.php
 |
-|
+|-- data
+        Book_insert.xlsx
+        expr.xlsx
+        library.sql
 
 Student Page
 |
@@ -84,4 +93,41 @@ Student Page
 |   student.html              
 |   student_.html              
      
+Admin
+|    
+|-- Admin_create.php
+|   Admin_delete_check.php
+|   Admin_delete.php
+|   Admin_display.php
 
+Report
+|
+|-- Books 
+|       Audit.php
+|       Book_dues.php
+|       Book_filter.php
+|       Search.php
+|
+|-- Members
+|       Student_dues.php
+|       Student_members_details.php
+|
+|
+|
+
+test
+|
+|-- test1.php
+|-- test2.php
+|-- test3.php
+|-- test4.php
+|-- test5.php
+|-- test6.html
+|-- test7.php
+|-- test8.php
+|-- testDel.php
+|
+
+Extras
+|
+|---------
