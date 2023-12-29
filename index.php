@@ -1,8 +1,7 @@
 <?php
 @session_start();
 $_SESSION["File"] = "Index.php";
-// date_default_timezone_set("Asia/Kolkata");
-// echo date(DATE_RFC2822);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">   
@@ -11,17 +10,17 @@ $_SESSION["File"] = "Index.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="Assets\\css\\bootstrap.css">
     <style>
         @font-face
         {
             font-family: HeadingBold;
-            src: url(BebasNeue-Bold.ttf);
+            src: url(Assets\\fonts\\BebasNeue-Bold.ttf);
         }
         @font-face
         {
             font-family: HeadingRegular;
-            src: url(BebasNeue-Regular.ttf);
+            src: url(Assets\\fonts\\BebasNeue-Regular.ttf);
         }
         .btn:hover
         {
@@ -29,7 +28,7 @@ $_SESSION["File"] = "Index.php";
         }
         #container
         {
-            background: url(library.jpg);
+            background: url(Assets\\img\\library.jpg);
             background-repeat: repeat-y ;
             background-position: center;
             background-size: cover;
@@ -48,7 +47,7 @@ $_SESSION["File"] = "Index.php";
         }
         #contain
         {
-            background: url(library.jpg);
+            background: url(Assets\\img\\library.jpg);
             background-repeat: no-repeat ;
             background-position: center;
             background-size: cover;
@@ -127,7 +126,7 @@ $_SESSION["File"] = "Index.php";
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.theme.css">
-    <script src="jquery-ui-1.13.2.custom\jquery-ui.min.js"></script>
+    <script src="./jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
 </head>
 <body>
     <center>
@@ -137,10 +136,10 @@ $_SESSION["File"] = "Index.php";
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Library</h1>
-            <form id="Student" method="post" action="student.html" target="_blank">
+            <form id="Student" method="post" action="StudentPage\\student.html" target="_blank">
                 <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger btn" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
             </form>
-            <form id="logout" method="post" action="Logout.php" style="display:none;">
+            <form id="logout" method="post" action="Auth\\Logout.php" style="display:none;">
                 <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger btn" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
             </form>
         </div>
@@ -168,7 +167,7 @@ $_SESSION["File"] = "Index.php";
         </div>
     </div>
 </body>
-<script src="Jquery.js"></script>
+<script src="Assets\\js\\Jquery.js"></script>
 <?php
     if(!empty($_SESSION["TEMP"]))
     {
@@ -177,7 +176,7 @@ $_SESSION["File"] = "Index.php";
                 $.ajax(
                 {
                     method: "post",
-                    url: "Main.php",
+                    url: "Assets\\php\\Main.php",
                     data: $(this).serialize(),
                     datatype: "text",
                     success: function(Result)
@@ -191,6 +190,6 @@ $_SESSION["File"] = "Index.php";
             ';
     }
 ?>
-<script src="bootstrap.bundle.js"></script>
-<script src="index.js"></script>
+<script src="Assets\\js\\bootstrap.bundle.js"></script>
+<script src="Assets\\js\\index.js"></script>
 </html>
