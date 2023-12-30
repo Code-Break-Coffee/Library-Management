@@ -7,7 +7,10 @@ if($_SESSION["File"] != "Index.php" || $_POST["Access"] != "Index-Login")
 unset($_SESSION["username"]);
 unset($_SESSION["TEMP"]);
 unset($_SESSION["Log"]);
-include "dbconnect.php";
+
+// include($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Connection/dbconnect.php');
+// require_once 'C:\wamp64\www\LibraryManagement\Connection\dbconnect.php';
+include 'dbconnect.php' ;
 $user;$pass;
 if(!empty($_POST["username"]) && !empty($_POST["password"]))
 {
@@ -25,9 +28,9 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
             {
                 $_SESSION["username"]=$user;
                 $flag = 1;
-                include "Auth\\KeyGen.php";
+                include "KeyGen.php";
                 Gen();
-                include "Assets\\php\\Main.php";
+                include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/php/Main.php";
                 // $sql_delete = "DELETE from `insert buffer`;"; // delete all the records from input buffer
                 // $result=$conn->query($sql_delete);
             }
@@ -86,7 +89,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 }
 else
 {
-    include "index.php";
+    include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/index.php";
     echo '
         <script>
             document.getElementById("contain").innerHTML=`

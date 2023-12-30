@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "Auth\\auth.php";
+include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 if(!verification() || $_POST["Access"] != "Main-Audit" )
 {
     header("Location: /LibraryManagement/");
@@ -11,7 +11,7 @@ date_default_timezone_set("Asia/Kolkata");
 
 $membership=$_POST["membertype"];
 $doi_to=$_POST["to"];
-$doi_from=$_POST["from"];
+$doi_from=$_POST["from"]; 
 
 
 function show_table($stat)

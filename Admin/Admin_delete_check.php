@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include "LibraryManagement\\dbconnect.php";
-include "Auth\\auth.php";
+include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
     
 if(!verification() || $_POST["Access"] != "Main-admin-delete")
 {

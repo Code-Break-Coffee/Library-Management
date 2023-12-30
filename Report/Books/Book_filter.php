@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "Auth\\auth.php";
+include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 include "dbconnect.php";
 if(!verification() || $_POST["Access"]!="Main-Book-Filter")
 {

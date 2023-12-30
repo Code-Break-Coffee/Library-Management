@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "Auth\\auth.php";
+include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 include "dbconnect.php";
 if($_POST["Access"]!="Main-Issue-Limit" || !verification())
 {
