@@ -244,11 +244,10 @@ if(sizeof($temp_array) == sizeof($bookserial))
     if(count($Book_Record)> 0){
         $Data_Status = true;
         echo "
+                    <div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(-50px,-400px);'>
+                    <center >
+                    <h1 style='font-weight:bold;color:white;position:relative;'>Confirmation Page</h1><br/>
                     
-                    <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(0%,-45%);'>
-                    <center>
-                    <h1 style='font-weight:bold;color:white;position:relative;left:-570px'>Confirmation Page</h1><br/>
-                    </center>
                     <table>
                     <tr>
                     <th>Book No.</th>
@@ -287,7 +286,6 @@ if(sizeof($temp_array) == sizeof($bookserial))
                 echo"
                     </tbody></table>
                     </br>
-                    <center style='color:white;position:relative;left:-570px'>
                     <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
                     <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
                     </center>
@@ -306,7 +304,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
                         });
 
 
-                        document.getElementById('exl_srch').style.transform='translate(-120%,-50%)';
+                        
                         $('#excelConfirm').click(function(e)
                         {
                             $.ajax(

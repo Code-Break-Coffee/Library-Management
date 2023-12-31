@@ -7,7 +7,7 @@
     use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
     $flag=1;
-    $targetPath = 'Doc/faculty.xlsx';
+    $targetPath = $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/faculty.xlsx';
     
     $Reader = new Xlsx();
     $spreadSheet = $Reader->load($targetPath);

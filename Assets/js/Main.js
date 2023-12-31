@@ -1249,7 +1249,7 @@ document.getElementById("support_book").addEventListener("click",()=>
             e.preventDefault();
             document.getElementById("response_exl_records").style.display="block";
             document.getElementById("exl_srch").style.display="none";
-            document.getElementById("response_exl_records").style.transform="translate(28%,70%)";
+            // document.getElementById("response_exl_records").style.transform="translate(28%,70%)";
             // document.getElementById("exl_srch").style.transform="translate(-130%,-50%)";
             uploadFile();
             $.ajax(
