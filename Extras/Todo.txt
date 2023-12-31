@@ -6,9 +6,8 @@
 7: class dues/nodues working
 8: jakie -> Student /Book add excel file => confirmation table/ duplicate records and 
     transfering of buffer table data to up-stream table
-9. 
+9. Book insert excel folder Dynamic path allocate karne hai
 10 
 11 max book issue limit code using ($Available)
 Note: Book_filter -> table format
 12. Remove faculty delete from faculty_delete.php
- 
