@@ -8,7 +8,8 @@ $MaxBookIndex =0;
 $error = "";
 $Data_Status = false;
 if(verification() && $_POST["Access"] == "Book_add_excel-Confirmation"){
-    if($Data_Status && strlen($error) == 0 && count($Book_Record)>0){
+    if($Data_Status && strlen($error) == 0 && count($Book_Record)>0)
+    {
         
     }
     else{
@@ -128,7 +129,7 @@ $sql_delete = "DELETE from `insert buffer`;";
 $result=$conn->query($sql_delete);
 
 
-$targetPath = $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/data/Book_insert.xlsx";
+$targetPath = $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Doc/book.xlsx";
 $Reader = new Xlsx();
 
 $spreadSheet = $Reader->load($targetPath);
