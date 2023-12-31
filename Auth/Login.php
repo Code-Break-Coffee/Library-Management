@@ -8,8 +8,6 @@ unset($_SESSION["username"]);
 unset($_SESSION["TEMP"]);
 unset($_SESSION["Log"]);
 
-// include($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Connection/dbconnect.php');
-// require_once 'C:\wamp64\www\LibraryManagement\Connection\dbconnect.php';
 include 'dbconnect.php' ;
 $user;$pass;
 if(!empty($_POST["username"]) && !empty($_POST["password"]))
