@@ -3,18 +3,17 @@
 $filename = $_FILES['file']['name'];
 
 /* Choose where to save the uploaded file */
-$location =  "Doc/" .$filename;
+$location =  $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/'.$filename;
 
 /* Save the uploaded file to the local filesystem */
 if ( move_uploaded_file($_FILES['file']['tmp_name'], $location) ) { 
   echo 'Success'; 
-  rename("Doc/".$filename,"Doc/book.xlsx");
+  rename($location,$_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Doc/book.xlsx");
 
 } 
 else 
 { 
   echo 'Failure'; 
 }
-
 
 ?>
