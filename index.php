@@ -176,7 +176,7 @@ $_SESSION["File"] = "Index.php";
                 $.ajax(
                 {
                     method: "post",
-                    url: "Assets\\php\\Main.php",
+                    url:  $_SERVER[`DOCUMENT_ROOT`]."\LibraryManagement\Assets\php\Main.php",
                     data: $(this).serialize(),
                     datatype: "text",
                     success: function(Result)
@@ -189,6 +189,7 @@ $_SESSION["File"] = "Index.php";
             </script>
             ';
     }
+
 ?>
 <script src="Assets\\js\\bootstrap.bundle.js"></script>
 <script src="Assets\\js\\index.js"></script>

@@ -6,7 +6,7 @@ if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 }
 else
 {
-    $_SESSION["TEMP"] = "reload"; //for reload
+    $_SESSION["TEMP"] = "reload"; //for reload 
     ?>
                     <!--navbar-->
                     <div style="background-color: black;font-size: large;font-weight: bold;">
