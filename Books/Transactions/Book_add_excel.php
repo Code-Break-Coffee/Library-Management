@@ -21,7 +21,7 @@ elseif(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
     header("Location: /LibraryManagement/");
 }
 
-require_once ('vendor/autoload.php');
+require_once ($_SERVER['DOCUMENT_ROOT']."/LibraryManagement/vendor/autoload.php");
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 
@@ -128,7 +128,7 @@ $sql_delete = "DELETE from `insert buffer`;";
 $result=$conn->query($sql_delete);
 
 
-$targetPath = "Assets\\data\\Book_insert.xlsx";
+$targetPath = $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/data/Book_insert.xlsx";
 $Reader = new Xlsx();
 
 $spreadSheet = $Reader->load($targetPath);

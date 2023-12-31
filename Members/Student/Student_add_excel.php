@@ -1,9 +1,9 @@
 <?php
-require_once ('vendor/autoload.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
 include "dbconnect.php";
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
-$targetPath = 'Doc/student.xlsx';
+$targetPath = $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/student.xlsx';
 $Reader = new Xlsx();
 $spreadSheet = $Reader->load($targetPath);
 $excelSheet = $spreadSheet->getActiveSheet();
