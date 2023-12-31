@@ -85,8 +85,7 @@ if(check($spreadSheetAry,$sheetCount))
         $enroll=$spreadSheetAry[$i][3];
         $sql="INSERT into `insert buffer`(id,val1,val2,val3,val4)
         values($i,'$rollno','$name','$course','$enroll');";
-        // $sql="INSERT into student(Student_Rollno,Student_Name,Student_Course,Student_Enrollmentno)
-        // values('$rollno','$name','$course','$enroll');";
+       
         $result=$conn->query($sql);
         if(!$result)
         {
