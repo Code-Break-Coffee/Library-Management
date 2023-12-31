@@ -1,5 +1,5 @@
 <?php
-include "LibraryManagement\\dbconnect.php";
+include "dbconnect.php";
 $user=$_POST["admin_user"];
 $password=$_POST["admin_pass"];
 $pass_confirm=$_POST["admin_pass_conf"];
