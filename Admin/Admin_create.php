@@ -18,7 +18,7 @@ function PHash($use,$pass)
 }
  
 function AdminExist($u){
-    include "LibraryManagement\\dbconnect.php";
+    include "dbconnect.php";
     $sql = "SELECT Username FROM admin WHERE Username = '$u';";
     $result = $conn->query($sql);
     if(mysqli_num_rows($result) >= 1){
