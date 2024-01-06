@@ -8,13 +8,23 @@ $MaxBookIndex =0;
 $error = "";
 $Data_Status = false;
 if(verification() && $_POST["Access"] == "Book_add_excel-Confirmation"){
-    if($Data_Status && strlen($error) == 0 && count($Book_Record)>0)
-    {
-        
-    }
-    else{
-        // return error and reload
-    }
+    // if($Data_Status && strlen($error) == 0 && count($Book_Record)>0)
+    // {
+    //     echo"
+    //     <script>
+    //         console.log('If block');
+    //     </script>
+    //     ";
+    // }
+    // else{
+    //     // return error and reload
+    //     echo"
+    //     <script>
+    //         console.log('Else block');
+    //     </script>
+    //     ";
+    // }
+    echo"hi tvhjtrvgonjfvtreonflnfrelkrendrleeknfelnkrflkenr.krtenfrknjfgkjnuhr4fiujhfiruhfriuhfiurhireufhierufhieruhrfeiuhviuhrvtrvh";
     
 }
 elseif(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
@@ -244,18 +254,18 @@ if(sizeof($temp_array) == sizeof($bookserial))
     if(count($Book_Record)> 0){
         $Data_Status = true;
         echo "
-                    <div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(-50px,-400px);'>
+                    <div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(450px,150px);'>
                     <center >
                     <h1 style='font-weight:bold;color:white;position:relative;'>Confirmation Page</h1><br/>
                     
                     <table>
                     <tr>
-                    <th>Book No.</th>
-                    <th>Author's</th>
-                    <th>Title</th>
-                    <th>Edition</th>
-                    <th>Publisher</th>
-                    <th>No of Copies</th>
+                        <th>Book No.</th>
+                        <th>Author's</th>
+                        <th>Title</th>
+                        <th>Edition</th>
+                        <th>Publisher</th>
+                        <th>No of Copies</th>
                     </tr>
                     <tbody>";
     
@@ -310,10 +320,8 @@ if(sizeof($temp_array) == sizeof($bookserial))
                             $.ajax(
                             {
                                 method: 'post',
-                                url: 'Books\\Transactions\\Book_add_excel.php',
-                                data: {
-                                    
-                                }
+                                url: './Books/Transactions/Book_add_excel.php',
+                                data: 'hi',
                                 datatype: 'text',
                                 success: function(Result)
                                 {

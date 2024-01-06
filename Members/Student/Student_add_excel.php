@@ -110,9 +110,9 @@ if(check($spreadSheetAry,$sheetCount))
             <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(30%,20%);'>
             <center>
             <h1 style='font-weight:bold;color:white;position:relative;left:-570px'>Confirmation Page</h1><br/>
-            </center>
-            <center>
-            <table style='position:relative;left:-600px;'>
+            
+            
+            <table style='position:relative;left:-560px;'>
             <tr>
             <th>Roll.</th>
             <th>Name</th>
@@ -149,13 +149,31 @@ if(check($spreadSheetAry,$sheetCount))
         echo"
             </tbody>
             </table>
-            </center>
             </br>
-            <center style='color:white;position:relative;left:-570px'>
-            <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
-            <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+            <div style='color:white;position:relative;,display:inline-flex;left:-570px'>
+                <form id='std_buffer' method='post' action=''>
+                    <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+                </form>
+                <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+            </div>
             </center>
-
+            <script>
+            $(document).ready(function()
+            {
+                
+                $('#std_buffer').click(function(e)
+                {
+                    e.preventDefault();
+                    console.log('Testing');
+                    $.ajax({
+                        
+                        method: 'post',
+                        url: './Members/Student/Student_insert_buffer.php',
+                    })
+                    
+                })
+            })
+            </script>
             ";
     }
 
