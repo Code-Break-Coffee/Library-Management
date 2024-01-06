@@ -52,7 +52,7 @@ else
                         $.ajax(
                             {
                                 method: 'post',
-                                url: 'Books\\Transactions\\Book_delete.php',
+                                url: './Books/Transactions/Book_delete.php',
                                 data: $(this).serialize() + '&Access=' +'Delete-DSucc&' +'&bookno=' +'$bookno',
                                 datatype: 'text',
                                 success: function(Result)
