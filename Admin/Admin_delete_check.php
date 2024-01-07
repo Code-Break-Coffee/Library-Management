@@ -49,7 +49,7 @@ else
                         $.ajax(
                             {
                                 method: 'post',
-                                url: 'Admin\\Admin_delete.php',
+                                url: './Admin/Admin_delete.php',
                                 data: $(this).serialize() + '&Access=' +'Admin-Delete&' +'&UserName=' +'$UserName',
                                 datatype: 'text',
                                 success: function(Result)

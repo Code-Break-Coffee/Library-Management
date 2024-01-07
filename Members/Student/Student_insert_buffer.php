@@ -1,10 +1,6 @@
 <?php
     include "dbconnect.php";
-    echo"
-    <script>
-        window.alert('Clicked');
-    </script>
-    ";
+    echo"fvkjfkjfslknvlkfbvlknfmgvlkfnmdlkvfdmvlbkmnfdlknmvblkdnmblkfdnmbvlknm";
     // $stat='SELECT * FROM insert_buffer;';
     // $result=$conn->query($stat);
     // $types = array();

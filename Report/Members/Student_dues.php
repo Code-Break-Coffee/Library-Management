@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "Auth\\auth.php";
+include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 function membercheck($x,$y)
 {
     if($x)
@@ -113,7 +113,7 @@ else
     {
         include "dbconnect.php";
         // Include the PDF class
-        require_once "FPDF-master/fpdf.php";
+        require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
 
         // Create instance of PDF class
         $pdf = new FPDF();
@@ -176,13 +176,13 @@ else
                     $pdf->Cell(60, 10, "No Dues", 1, 1, "L");
                 }
             }
-            if (file_exists("Doc/Registratinconfirmed.pdf")) {   
-                unlink("Doc/Registratinconfirmed.pdf");
+            if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf")) {   
+                unlink($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf");
             }
-            $destination = __DIR__ . "/Doc/" .'Registratinconfirmed.pdf';
+            $destination = $_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf";
             $pdf->Output($destination,'F');
             
-            echo "<script>window.open('./Doc/Registratinconfirmed.pdf','_blank');</script>";
+            echo "<script>window.open('/LibraryManagement/Doc/Registratinconfirmed.pdf','_blank');</script>";
         }
         else echo $conn->error;
     }
