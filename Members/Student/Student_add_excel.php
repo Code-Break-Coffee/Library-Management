@@ -164,12 +164,18 @@ if(check($spreadSheetAry,$sheetCount))
                 $('#std_buffer').click(function(e)
                 {
                     e.preventDefault();
-                    console.log('Testing');
                     $.ajax({
                         
                         method: 'post',
-                        url: './Members/Student/Student_insert_buffer.php',
+                        url: 'Members/Student/Student_insert_buffer.php',
+                        data:'hi',
+                        datatype:'text',
+                        success: function(Result)
+                        {
+                            console.log('Success');
+                        }
                     })
+                    
                     
                 })
             })
