@@ -167,7 +167,7 @@ if(check($spreadSheetAry,$sheetCount))
                     $.ajax({
                         
                         method: 'post',
-                        url: 'Members/Student/Student_insert_buffer.php',
+                        url: './Members/Student/Student_insert_buffer.php',
                         data:'hi',
                         datatype:'text',
                         success: function(Result)

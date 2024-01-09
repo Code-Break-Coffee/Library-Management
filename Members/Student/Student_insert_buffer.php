@@ -1,5 +1,5 @@
 <?php
-    include "dbconnect.php";
+    // include "dbconnect.php";
     echo"fvkjfkjfslknvlkfbvlknfmgvlkfnmdlkvfdmvlbkmnfdlknmvblkdnmblkfdnmbvlknm";
     // $stat='SELECT * FROM insert_buffer;';
     // $result=$conn->query($stat);
