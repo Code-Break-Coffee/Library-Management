@@ -3,6 +3,7 @@
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 function membercheck($x,$y)
 {
+    include "dbconnect.php";
     if($x)
     {
         while($row=$x->fetch_assoc())
@@ -13,6 +14,7 @@ function membercheck($x,$y)
             }
         }
     }
+    
     return false;
 }
 if(!verification() || $_POST["Access"] != "Main-member" )
@@ -136,11 +138,13 @@ else
         {
             while($row = $result_s->fetch_assoc())
             {
-                $sql_m="SELECT * from member WHERE Student_Rollno =".$row["Student_Rollno"].";";
+                $sr=$row["Student_Rollno"];
+                $sql_m="SELECT * from member WHERE Member_ID ='$sr';";
                 $result_m=$conn->query($sql_m);
                 $checkedm=membercheck($result_m,$row["Student_Rollno"]);
                 if($checkedm)
                 {
+
                     $count = 0;
                     $id =$row["Student_Rollno"];
                     $issue_sql = "SELECT * from issue_return where Return_Date is NULL and Issue_By ='$id'";
@@ -156,7 +160,7 @@ else
                             // dues $count
                             $pdf->Cell(70, 10, $row["Student_Name"], 1, 0, "L");
                             $pdf->Cell(60, 10, $row["Student_Rollno"], 1, 0, "L");
-                            $pdf->Cell(60, 10, "Dues: ".$count, 1, 1, "L");
+                            $pdf->Cell(60, 10, "Dues : ".$count, 1, 1, "L");
                         }
                         else
                         {
