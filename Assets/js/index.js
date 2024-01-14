@@ -19,3 +19,21 @@ $(document).ready(function()
         });
     });
 });
+
+let s=0;
+const x=setInterval(()=>
+{
+    document.addEventListener("keydown",()=>
+    {
+        s=0;
+    });
+    document.addEventListener("mousemove",()=>
+    {
+        s=0;
+    });
+    if(s===300)
+    {
+        window.open("Auth\\Logout.php","_self");
+    }
+    s++;
+},1000);
