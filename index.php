@@ -1,7 +1,6 @@
 <?php
 @session_start();
 $_SESSION["File"] = "Index.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">   
@@ -166,31 +165,30 @@ $_SESSION["File"] = "Index.php";
             </div>
         </div>
     </div>
-</body>
-<script src="Assets\\js\\Jquery.js"></script>
+    <script src="Assets\\js\\Jquery.js"></script>
 <?php
-    if(!empty($_SESSION["TEMP"]))
+    if($_SESSION["TEMP"] == "reload")
     {
-            echo'
+        $x=$_SERVER["DOCUMENT_ROOT"];
+            echo"
             <script>
                 $.ajax(
                 {
-                    method: "post",
-                    url:  $_SERVER[`DOCUMENT_ROOT`]."\LibraryManagement\Assets\php\Main.php",
-                    data: $(this).serialize(),
-                    datatype: "text",
+                    method: 'post',
+                    url: './Assets/php/Main.php',
                     success: function(Result)
                     {
-                        document.getElementById("Student").style.display="none";
-                        document.getElementById("logout").style.display="block";
-                        $("#contain").html(Result);
+                        document.querySelector('#Student').style.display='none';
+                        document.querySelector('#logout').style.display='block';
+                        $('#contain').html(Result);
                     }
                 });
             </script>
-            ';
+            ";
     }
 
 ?>
+</body>
 <script src="Assets\\js\\bootstrap.bundle.js"></script>
 <script src="Assets\\js\\index.js"></script>
 </html>
