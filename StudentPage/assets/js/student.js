@@ -6,13 +6,9 @@ $(document).ready(function()
         $.ajax(
         {
             method: "post",
-            url: ".///php/student.php",
+            url: "StudentPage\\php\\student.php",
             data: $(this).serialize(),
             datatype: "text",
-            error: function()
-            {
-              window.alert('test');
-            },
             success: function(Response)
             {
                 document.getElementById("formblock").style.transform="translate(-185%,-60%)";
@@ -51,7 +47,7 @@ $( function() {
     $( "#book_s" ).catcomplete({
       delay: 0,
       autoFocus: true,
-      source: ".///php/Suggestions.php"
+      source: "StudentPage\\php\\Suggestions.php"
     });
   } );
 

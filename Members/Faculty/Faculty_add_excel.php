@@ -1,7 +1,7 @@
 <?php
     require_once ('vendor/autoload.php');
     // namespace PhpOffice\PhpSpreadsheetTests\Reader\Xlsx;
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     
             
     use PhpOffice\PhpSpreadsheet\Reader\Xlsx;

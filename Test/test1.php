@@ -1,5 +1,5 @@
 <?php
-include "../connection/dbconnect.php";
+include "dbconnect.php";
 
 $member=1;
 $name="Nathkhat Kothari";

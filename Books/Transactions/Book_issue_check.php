@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
-include "../../connection/dbconnect.php";
+include "dbconnect.php";
 
 if(!verification() || $_POST["Access"]!="Main-Issue-Check")
 {

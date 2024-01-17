@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
-include "../../connection/dbconnect.php";
+include "dbconnect.php";
 $BookIndex =0;
 $BookSlots =[]; // Available slots in between
 $MaxBookIndex =0;
@@ -18,7 +18,7 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 
 function Book_check($b,$count){
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     global $error;
     for($i = 0; $i < $count; $i++)
     {
@@ -35,7 +35,7 @@ function Book_check($b,$count){
 }
 
 function set_BookIndex($count){
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     global $BookSlots;
     global $BookIndex;
     global $MaxBookIndex;
@@ -78,7 +78,7 @@ function set_BookIndex($count){
 }
 
 function Book_num($book_seq){
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     global $BookSlots;
     global $MaxBookIndex;
     $sql = "Select Book_No from books Order By Book_No ASC;";

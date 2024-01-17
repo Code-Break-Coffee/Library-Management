@@ -135,7 +135,9 @@ $_SESSION["File"] = "Index.php";
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
             <h1>Library</h1>
-            <button type="submit" id="Student" value="Student" class="bg-danger btn" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;">Student</button>
+            <form id="Student" method="post" action="StudentPage\\student.html" target="_blank">
+                <input type="submit" id="studentbtn" value="Student" class="form-control bg-danger btn" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;"/>
+            </form>
             <form id="logout" method="post" action="Auth\\Logout.php" style="display:none;">
                 <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger btn" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
             </form>

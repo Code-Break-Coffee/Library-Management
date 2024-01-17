@@ -3,7 +3,7 @@
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 function delete_faculty($sql)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     $result=$conn->query($sql);
     if($result)
     {
@@ -14,7 +14,7 @@ function delete_faculty($sql)
 
 function check($fId)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     $sql1="SELECT Member_ID from member where Member_ID = '$fId';";
     $result1=$conn->query($sql1);
     $sql2="SELECT Faculty_ID from faculty where Faculty_ID = '$fId';";
@@ -46,7 +46,7 @@ function check($fId)
 
 function checkIssue($fId)
 {   
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     $sql="SELECT * from issue_return where Issue_By = '$fId' and Return_Date is NULL";
     $result=$conn->query($sql);
     if($result)

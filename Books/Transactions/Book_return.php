@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "../../connection/dbconnect.php";
+include "dbconnect.php";
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 if(!verification() || $_POST["Access"] != "Main-return" )
 {

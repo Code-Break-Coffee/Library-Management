@@ -7,7 +7,7 @@ if($_POST["Access"]!="Main-Book-Dues" || !verification())
 }
 else
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     $sql="SELECT * from books where Status!='Available';";
     $result=$conn->query($sql);
     if($result)

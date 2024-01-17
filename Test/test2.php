@@ -1,5 +1,5 @@
 <?php
-include "../connection/dbconnect.php";
+include "dbconnect.php";
 // $books = array("CPP", "Java", "Python", "JS", "PHP", "Fortron", "Sys. Prog", "React", "Android", "Fluter");
 // $author = array("jhon", "nathkat soham", "smuggler overload", "joe", "homelander", "rick", "simp kratos", "NPC", "Deep", "jhon snow");
 // // for($i=11;$i<101;$i++)

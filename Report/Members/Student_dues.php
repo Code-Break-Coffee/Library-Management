@@ -3,7 +3,7 @@
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 function membercheck($x,$y)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     if($x)
     {
         while($row=$x->fetch_assoc())
@@ -27,7 +27,7 @@ else
     $m_count =0;
     if(filter_input(INPUT_POST,"moption")=="Single Member")
     {
-        include "../../connection/dbconnect.php";
+        include "dbconnect.php";
         $memberId = $_POST["memberid"];
         $memberId = strtoupper($memberId);
         $memberId = str_replace("-","",$memberId);
@@ -113,7 +113,7 @@ else
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {
-        include "../../connection/dbconnect.php";
+        include "dbconnect.php";
         // Include the PDF class
         require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
 

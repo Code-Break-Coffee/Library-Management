@@ -16,7 +16,7 @@ $doi_from=$_POST["from"];
 
 function show_table($stat)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     $result=$conn->query($stat);
     if($result && mysqli_num_rows($result) > 0)
     {

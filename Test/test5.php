@@ -1,6 +1,6 @@
 <?php
 echo preg_replace("/[^0-9]/","",'604-619-5135');
-include "../connection/dbconnect.php";
+include "dbconnect.php";
 
 $max_val=0;
 $sql_max_book = "SELECT Book_No from books;";
