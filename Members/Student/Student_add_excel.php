@@ -1,6 +1,6 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
-include "dbconnect.php";
+include "../../connection/dbconnect.php";
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 $targetPath = $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/student.xlsx';
@@ -16,7 +16,7 @@ $result=$conn->query($sql_delete);
 
 function check($sArray,$sCount)
 {
-    include "dbconnect.php";
+    include "../../connection/dbconnect.php";
     for($i=1;$i<$sCount;$i++)
     {
         $rollno=$sArray[$i][0];
