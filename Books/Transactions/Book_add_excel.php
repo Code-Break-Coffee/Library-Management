@@ -7,27 +7,8 @@ $BookSlots =[]; // Available slots in between
 $MaxBookIndex =0;
 $error = "";
 $Data_Status = false;
-if(verification() && $_POST["Access"] == "Book_add_excel-Confirmation"){
-    // if($Data_Status && strlen($error) == 0 && count($Book_Record)>0)
-    // {
-    //     echo"
-    //     <script>
-    //         console.log('If block');
-    //     </script>
-    //     ";
-    // }
-    // else{
-    //     // return error and reload
-    //     echo"
-    //     <script>
-    //         console.log('Else block');
-    //     </script>
-    //     ";
-    // }
-    echo"hi tvhjtrvgonjfvtreonflnfrelkrendrleeknfelnkrflkenr.krtenfrknjfgkjnuhr4fiujhfiruhfriuhfiurhireufhierufhieruhrfeiuhviuhrvtrvh";
-    
-}
-elseif(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
+
+if(!verification() || $_POST["Access"] != "Main-Book_add_excel" )
 {
     header("Location: /LibraryManagement/");
 }
@@ -249,7 +230,8 @@ if(sizeof($temp_array) == sizeof($bookserial))
             echo $error."At Index: ".$i+1;
             break;
         }
-        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= array($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
+        if(!array_key_exists($bno,$Book_Record))$Book_Record[$bno]= 
+            array($author1,$author2,$author3,$title,$edition,$publisher,$cl_no,$total_pages,$cost,$supplier,$remark,$billno,$bookcount);
     }
     if(count($Book_Record)> 0){
         $Data_Status = true;
@@ -285,7 +267,8 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <td></td>
                     </tr>
                     ";
-                    $sql = "INSERT INTO `insert buffer`(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) VALUES($i,'$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
+                    $sql = "INSERT INTO `insert buffer`(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) 
+                        VALUES($i,'$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
                     $res = $conn->query($sql);
                     $i=$i+1;
                     if(!$res){
@@ -320,8 +303,8 @@ if(sizeof($temp_array) == sizeof($bookserial))
                             $.ajax(
                             {
                                 method: 'post',
-                                url: './Books/Transactions/Book_add_excel.php',
-                                data: 'hi',
+                                url: './Books/Transactions/Book_insert_buffer.php',
+                                data: 'Access=Book_add_excel-insert_buffer',
                                 datatype: 'text',
                                 success: function(Result)
                                 {
