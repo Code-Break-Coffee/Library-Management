@@ -20,20 +20,20 @@ $(document).ready(function()
     });
 });
 
-let s=0;
+let sec=0;
 const x=setInterval(()=>
 {
     document.addEventListener("keydown",()=>
     {
-        s=0;
+        sec=0;
     });
     document.addEventListener("mousemove",()=>
     {
-        s=0;
+        sec=0;
     });
-    if(s===300)
+    if(sec===300)
     {
         window.open("Auth\\Logout.php","_self");
     }
-    s++;
+    sec++;
 },1000);
