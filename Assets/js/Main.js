@@ -1238,7 +1238,10 @@ document.getElementById("support_faculty").addEventListener("click",()=>
         <h1>Faculty tools</h1>  </br> 
         <form id='facExcelImport' method='post' action=''>
         <input class="form-control" style="background-color: black;color: aliceblue;" id="fac_fileupload1" type="file" name="fac_fileupload1" accept=".xls,.xlsx"/> </br>
+        <h6>Note: Excel Format should be same as specified !!!</h6>
         <button class="btn" type="submit" id="fac-upload-button" style='color:aliceblue;background-color:black;'>Upload</button>
+        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+
         </form>     
     </center>        
     </div>
@@ -1295,6 +1298,8 @@ document.getElementById("support_student").addEventListener("click",()=>
         <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
         <h6>Note: Excel Format should be same as specified !!!</h6>
         <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
+        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+
         </form>     
     </center>        
     </div>

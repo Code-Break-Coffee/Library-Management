@@ -1,6 +1,9 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
 include "../../connection/dbconnect.php";
+$sql_delete = "DELETE from `insert buffer`;";
+$result=$conn->query($sql_delete);
+
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 $targetPath = $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/student.xlsx';
@@ -114,11 +117,11 @@ if(check($spreadSheetAry,$sheetCount))
             
             <table style='position:relative;left:-560px;'>
             <tr>
+            <th>Id</th>
             <th>Roll.</th>
             <th>Name</th>
-            <th>Title</th>
             <th>Course</th>
-            <th>Publisher</th>
+            <th>Enrollment</th>
             </tr>
             <tbody>";
 
@@ -150,20 +153,39 @@ if(check($spreadSheetAry,$sheetCount))
             </tbody>
             </table>
             </br>
-            <div style='color:white;position:relative;,display:inline-flex;left:-570px'>
+            <div style='color:white;position:relative;display:inline-flex;left:-570px'>
                 <form id='std_buffer' method='post' action=''>
                     <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+                </form> &nbsp;&nbsp;&nbsp;
+                <form id='buff_back' method='post' action=''>
+                    <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
                 </form>
-                <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
-            </div>
+                </div>
+            <div style='font-weight: bold;' id='response_student_excel'></div>`;
             </center>
             <script>
             $(document).ready(function()
             {
                 
+                $('#buff_back').click(function(e)
+                {
+                    $.ajax({
+
+                        method: 'post',
+                        url: './Members/Student/Student_empty_buffer.php',
+                        data:'hi',
+                        datatype:'text',
+                        success: function(Result)
+                        {
+                            
+                            
+                        }
+                    })
+                })
+                
                 $('#std_buffer').click(function(e)
                 {
-                    e.preventDefault();
+                    
                     $.ajax({
                         
                         method: 'post',
@@ -172,13 +194,16 @@ if(check($spreadSheetAry,$sheetCount))
                         datatype:'text',
                         success: function(Result)
                         {
-                            console.log('Success');
+                            
+                            $('#dialog_student_excel').dialog('destroy');
+                            $('#response_student_excel').html(Result);
+                            $('#dialog_student_excel').dialog();
+                            
                         }
-                    })
-                    
-                    
+                    }) 
                 })
             })
+            
             </script>
             ";
     }
