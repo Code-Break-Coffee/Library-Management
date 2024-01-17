@@ -8,7 +8,7 @@
         $u =$_SESSION["username"];
         $log =$_SESSION["Log"];
         date_default_timezone_set("Asia/Kolkata");
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $d = null;
         $hash = null;
         $sql_key = "SELECT Key_Session, Log2 FROM temp_keys WHERE Username ='$u';";
