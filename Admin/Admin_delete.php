@@ -9,7 +9,6 @@ if(!verification(1) || $_POST["Access"] != "Admin-Delete" )
 else
 {  
     $UserName = $_POST["UserName"];
-    $pass = $_POST["AdminPass"];
     $sql="DELETE from admin where Username = '$UserName';";
     $result=$conn->query($sql);
 
