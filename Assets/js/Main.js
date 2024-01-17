@@ -718,28 +718,6 @@ document.getElementById("m").addEventListener("click",()=>
     });
 });
 
-//----------------------------------------------------------------------logout
-
-let s=0;
-let interval=setInterval(frame,1000);
-function frame()
-{
-    if(s===300)
-    {
-        window.open("Auth\\Logout.php","_self");
-    }
-    document.addEventListener('mousemove',()=>
-    {
-        s=0;
-    });
-    document.addEventListener('keydown',()=>
-    {
-        s=0;
-    });
-    s++;
-}
-
-
 //--------------------------------------------------Create new Assistant
 
 document.getElementById("admin_add").addEventListener("click",()=>

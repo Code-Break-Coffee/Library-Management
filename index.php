@@ -167,6 +167,8 @@ $_SESSION["File"] = "Index.php";
     </div>
     <script src="Assets\\js\\Jquery.js"></script>
 <?php
+if(!empty($_SESSION["TEMP"]))
+{
     if($_SESSION["TEMP"] == "reload")
     {
         $x=$_SERVER["DOCUMENT_ROOT"];
@@ -186,7 +188,7 @@ $_SESSION["File"] = "Index.php";
             </script>
             ";
     }
-
+}
 ?>
 </body>
 <script src="Assets\\js\\bootstrap.bundle.js"></script>
