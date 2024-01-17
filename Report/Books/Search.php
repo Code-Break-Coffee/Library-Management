@@ -10,7 +10,7 @@ else
     date_default_timezone_set("Asia/Kolkata");
     function Book_No($bno)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $sql="SELECT * from books where Book_No = '$bno';";
         $result = $conn->query($sql);
         if(mysqli_num_rows($result)>0)
@@ -132,7 +132,7 @@ else
 
     function Search($bVal)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $b = "%".strtolower($bVal)."%";
         $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
         or Title like '$b' or Publisher like '$b' ORDER BY Book_No;";
@@ -142,7 +142,7 @@ else
     
     function Book_Author($bauthor)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $b ="%".strtolower($bauthor)."%";
         $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
         $result=$conn->query($sql);
@@ -151,7 +151,7 @@ else
 
     function Book_Name($bname)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $b ="%".strtolower($bname)."%";
         $sql = "SELECT * from books where Title LIKE '$b';";
         $result=$conn->query($sql);
@@ -165,7 +165,7 @@ else
     }
     else if(filter_input(INPUT_POST,"soption")=="Book No.")
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $bno=$_POST["bookno"];
         $Search=Book_No($bno);
         $sql="SELECT Status from books where Book_No = '$bno';";

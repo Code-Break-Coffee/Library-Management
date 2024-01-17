@@ -73,7 +73,7 @@ else
 {
     date_default_timezone_set("Asia/Kolkata");
     
-    include "dbconnect.php";
+    include "../../connection/dbconnect.php";
     $batch = $_POST["batch_id"];
     $batch=strtoupper($batch);
     $batch=str_replace("-","",$batch);

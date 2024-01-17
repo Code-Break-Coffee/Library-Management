@@ -10,7 +10,7 @@ else
 }
 function show_table($l)
 {
-    include "dbconnect.php";
+    include "../connection/dbconnect.php";
     $stat="SELECT * FROM admin where User_level = '$l';";
     $result=$conn->query($stat);
     if($result)

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "dbconnect.php";
+include "../../connection/dbconnect.php";
 
 if(!empty($_POST["data"]))
 {

@@ -8,7 +8,7 @@ unset($_SESSION["username"]);
 unset($_SESSION["TEMP"]);
 unset($_SESSION["Log"]);
 
-include 'dbconnect.php' ;
+include '../../connection/dbconnect.php' ;
 $user;$pass;
 if(!empty($_POST["username"]) && !empty($_POST["password"]))
 {
