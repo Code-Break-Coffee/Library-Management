@@ -1,11 +1,11 @@
 <?php
 @session_start();
-include "../../connection/dbconnect.php";
+include "dbconnect.php";
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 
 function check($b, $count)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
     for($i = 0; $i <= $count; $i++)
     {
         $sql = "SELECT Book_No from books WHERE Book_No = '$b';";
@@ -18,7 +18,7 @@ function check($b, $count)
 
 function sugesstion_add($title,$author1,$author2,$author3,$publisher)
 {
-    include "../../connection/dbconnect.php";
+    include "dbconnect.php";
 
     $stat_title_check = "SELECT * FROM suggestion where  Book_value='$title' and category='Title';";
     $stat_publish_check = "SELECT * FROM suggestion where  Book_value='$publisher' and category='Publisher';";    

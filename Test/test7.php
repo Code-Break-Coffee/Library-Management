@@ -1,6 +1,6 @@
 <?php
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
-include "../connection/dbconnect.php";
+include "dbconnect.php";
 require_once ('vendor/autoload.php');
 
 $BookIndex =0;
@@ -8,7 +8,7 @@ $BookSlots =[]; // Available slots in between
 $error = "";
 
 function Book_check($b,$count){
-    include "../connection/dbconnect.php";
+    include "dbconnect.php";
     global $error;
     for($i = 0; $i < $count; $i++)
     {
@@ -25,7 +25,7 @@ function Book_check($b,$count){
 }
 
 function set_BookIndex($count){
-    include "../connection/dbconnect.php";
+    include "dbconnect.php";
     global $BookSlots;
     global $BookIndex;
     if($count == 1 && count($BookSlots)>=1){
@@ -79,7 +79,7 @@ function set_BookIndex($count){
 }
 
 function Book_num($book_seq){
-    include "../connection/dbconnect.php";
+    include "dbconnect.php";
     global $BookSlots;
     $sql = "Select Book_No from books Order By Book_No ASC;";
     $res = $conn->query($sql);
