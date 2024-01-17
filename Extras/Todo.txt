@@ -3,7 +3,7 @@
 3: book number cases alphanumeric -> numeric [Book insert form]
 5: zakie ka bug student record check not there
 6: student excel ___ conditions
-7: 
+7: add admin crosscheck userId and password
 8: 
 9. Book/Student insert excel format error exception 
 10 

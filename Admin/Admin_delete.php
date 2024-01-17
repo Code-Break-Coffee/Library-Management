@@ -2,13 +2,14 @@
 @session_start();
 include "../connection/dbconnect.php";
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
-if(!verification() || $_POST["Access"] != "Admin-Delete" )
+if(!verification(1) || $_POST["Access"] != "Admin-Delete" )
 {
     header("Location: /LibraryManagement/");
 }
 else
 {  
     $UserName = $_POST["UserName"];
+    $pass = $_POST["AdminPass"];
     $sql="DELETE from admin where Username = '$UserName';";
     $result=$conn->query($sql);
 
