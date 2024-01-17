@@ -20,6 +20,8 @@ $(document).ready(function()
     });
 });
 
+document.querySelector("#Student").addEventListener('click',()=>{window.open("StudentPage\\student.html","_blank");});
+
 let sec=0;
 const x=setInterval(()=>
 {

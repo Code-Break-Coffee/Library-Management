@@ -1,6 +1,6 @@
 <?php
     @session_start();
-    include "dbconnect.php";
+    include "../../connection/dbconnect.php";
     include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
     if(!verification() || $_POST["Access"] != "Main-delete_member")
     {
@@ -14,7 +14,7 @@
     $stat_check="SELECT * FROM member where Member_ID='$member';";
     function member_check($s,$m)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $r=$conn->query($s);
         if($r)
         {
@@ -30,7 +30,7 @@
     }
     function issue_check($s1,$m)
     {
-        include "dbconnect.php";
+        include "../../connection/dbconnect.php";
         $r3=$conn->query($s1);
         if($r3)
         {

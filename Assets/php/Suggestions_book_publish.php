@@ -1,6 +1,6 @@
 <?php
 
-include "dbconnect.php";
+include "../../connection/dbconnect.php";
 
 $search = $_GET["term"];
 $sql = "SELECT DISTINCT Book_value, category FROM suggestion WHERE Book_value LIKE '%".$search."%' ORDER BY category ASC"; 
