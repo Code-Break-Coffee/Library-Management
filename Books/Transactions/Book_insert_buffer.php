@@ -40,13 +40,13 @@ function sugesstion_add($title, $author1, $author2, $author3, $publisher)
 }
 
 $sql = "SELECT * FROM `insert buffer`";
-$result = $conn->query($sql);
+$result_buff= $conn->query($sql);
 
-if(!$result){
+if(!$result_buff){
     echo $conn->error;
 }
-if (mysqli_num_rows($result) > 0) {
-    while ($row = $result->fetch_assoc()) {
+if (mysqli_num_rows($result_buff) > 0) {
+    while ($row = $result_buff->fetch_assoc()) {
         $sql_book;
         $bookno = 0;
         $bookno = $row["val14"];
@@ -84,4 +84,3 @@ if (mysqli_num_rows($result) > 0) {
         }
     }
 }
-$result->data_seek(0);
