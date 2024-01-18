@@ -39,10 +39,12 @@ function sugesstion_add($title, $author1, $author2, $author3, $publisher)
     }
 }
 
-$sql = "SELECT * FROM insert buffer";
+$sql = "SELECT * FROM `insert buffer`";
 $result = $conn->query($sql);
 
-
+if(!$result){
+    echo $conn->error;
+}
 if (mysqli_num_rows($result) > 0) {
     while ($row = $result->fetch_assoc()) {
         $sql_book;
@@ -76,6 +78,9 @@ if (mysqli_num_rows($result) > 0) {
                 if ($result) $flagcount++;
                 else echo $conn->error;
             }
+        }
+        if($flagcount==$bookcount){
+            echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehg";
         }
     }
 }

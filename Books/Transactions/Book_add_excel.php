@@ -161,7 +161,6 @@ $temp_array = array_unique($bookserial);
 if(sizeof($temp_array) == sizeof($bookserial))
 {
     Book_num($bookserial);
-    
     for($i = 1;$i<$sheetCount; $i++){
         
         $bno = 0;
@@ -252,6 +251,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
                     <tbody>";
     
                 ksort($Book_Record);
+                print_r($Book_Record);
                 $i=1;
                 foreach($Book_Record as $bn=>$b)
                 {
@@ -279,7 +279,7 @@ if(sizeof($temp_array) == sizeof($bookserial))
                 echo"
                     </tbody></table>
                     </br>
-                    <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+                    <button class='btn' type='submit' id='excelConfirm' style='color:aliceblue;background-color:black;'> Confirm </button>
                     <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
                     </center>
 
@@ -306,9 +306,11 @@ if(sizeof($temp_array) == sizeof($bookserial))
                                 url: './Books/Transactions/Book_insert_buffer.php',
                                 data: 'Access=Book_add_excel-insert_buffer',
                                 datatype: 'text',
-                                success: function(Result)
-                                {
-                                    
+                                error: function(){  
+                            },
+                            success: function(Result)
+                            {
+                                
                                     $( '#dialog_exl_disp' ).dialog( 'destroy');
                                     $('#response_exl_records').html(Result);
                                     $('#dialog_exl_disp').dialog();  
