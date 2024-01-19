@@ -30,10 +30,11 @@ function check($sArray,$sCount)
         $enroll=$sArray[$i][3];
         if(empty($rollno) || empty($name) || empty($course) || empty($enroll))
         {
+            $index =$i+1;
             echo
             "
                 <div id='dialog_exl_disp_student' style='color:red;' title='❌Not Allowed'>
-                    <p><center>An Excel Field is Empty!!!</center></p>
+                    <p><center>An Excel Field is Empty at Index $index!!!</center></p>
                 </div>
             ";
             return false;
@@ -89,14 +90,13 @@ if(check($spreadSheetAry,$sheetCount))
         $sql="INSERT into `insert buffer`(id,val1,val2,val3,val4)
         values($i,'$rollno','$name','$course','$enroll');";
        
-        $result=$conn->query($sql);
+        $result=$conn->query($sql); 
         if(!$result)
         {
             echo
             "
                 <div id='dialog_exl_disp_student' style='color:red;' title='❌Error'>
-                    <p><center>There was en error in the excel data format in the row of Roll No '$rollno'.
-                    Rows after this record will not be inserted!!! Please reupload the excel.</center></p>
+                    <p><center>There was en error in the excel data format in the row of Roll No '$rollno'.</center></p>
                 </div>
             ";
             $flag=1;
@@ -105,7 +105,6 @@ if(check($spreadSheetAry,$sheetCount))
     }
     if($flag==0)
     {
-        //Zakie Works
         if($sheetCount>0)
         {
             echo "
@@ -181,13 +180,6 @@ if(check($spreadSheetAry,$sheetCount))
 
                         method: 'post',
                         url: './Members/Student/Student_empty_buffer.php',
-                        data:'hi',
-                        datatype:'text',
-                        success: function(Result)
-                        {
-                            
-                            
-                        }
                     })
                 })
                 
@@ -222,5 +214,10 @@ if(check($spreadSheetAry,$sheetCount))
         $sql_delete = "DELETE from `insert buffer`;";
         $result=$conn->query($sql_delete);
     }
+}
+else
+{
+    $sql_delete = "DELETE from `insert buffer`;";
+    $result=$conn->query($sql_delete);
 }
 ?>
