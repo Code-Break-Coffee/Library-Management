@@ -112,22 +112,22 @@ function ErrorCheck($a1, $a2, $a3, $title, $ed, $pub, $cl, $tpag)
 {
     global $error;
     if ($a1 == null && $a2 == null && $a3 == null) {
-        $error = $error . "Author not found";
+        $error = $error . "Author not found ";
     }
     if ($title == null) {
-        $error = $error . "Title not found";
+        $error = $error . "Title not found ";
     }
     if ($ed == null) {
-        $error = $error . "edition not found";
+        $error = $error . "edition not found ";
     }
     if ($pub == null) {
-        $error = $error . "publisher not found";
+        $error = $error . "publisher not found ";
     }
     if ($cl == null) {
-        $error = $error . "Cl No of book not found";
+        $error = $error . "Cl No of book not found ";
     }
     if ($tpag == null) {
-        $error = $error . "Total No of Book pages missing";
+        $error = $error . "Total No of Book pages missing ";
     }
     return $error;
 }
@@ -242,7 +242,13 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
 
         $error = ErrorCheck($author1, $author2, $author3, $title, $edition, $publisher, $cl_no, $total_pages);
         if (strlen($error) > 0) {
-            echo $error . "At Index: " . $i + 1;
+            $index=$i+1;
+            echo "
+            
+            <div id='dialog_exl_disp' style='color:red;' title='❌Not Allowed'>
+                <p><center>$error At Index: $index</center></p>
+            </div>
+            ";
             break;
         }
         if (!array_key_exists($bno, $Book_Record)) $Book_Record[$bno] =
@@ -286,8 +292,12 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                         VALUES($i,'$b[0]','$b[1]','$b[2]','$b[3]','$b[4]','$b[5]',$b[6],$b[7],$b[8],'$b[9]','$b[10]','$b[11]',$b[12],$bn)";
             $res = $conn->query($sql);
             $i = $i + 1;
-            if (!$res) {
-                echo $conn->error;
+            if (!$res) 
+            {
+                echo "
+                <div id='dialog_exl_disp' style='color:red;' title='❌Not Allowed'>
+                    <p><center>$conn->error</center></p>
+                </div>";;
             }
         }
 
@@ -304,11 +314,9 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
 
 
                         $('#backissue').on('click',()=>
-                        {
-                            
+                        { 
                             document.getElementById('response_exl_records').style.display='none';
                             document.getElementById('exl_srch').style.display='block';
-
                         });
 
 
@@ -337,8 +345,15 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                     </div>
                     ";
     } else {
-        echo "No data found";
+        echo "
+        <div id='dialog_exl_disp' style='color:red;' title='❌Not Allowed'>
+            <p><center>Excel File is Empty!!!</center></p>
+        </div>
+        ";
     }
 } else {
-    echo "duplicate records";
+    echo "
+    <div id='dialog_exl_disp' style='color:red;' title='❌Not Allowed'>
+        <p><center>Duplicate Records</center></p>
+    </div>";;
 }

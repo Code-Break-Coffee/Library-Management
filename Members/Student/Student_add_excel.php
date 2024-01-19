@@ -106,7 +106,7 @@ if(check($spreadSheetAry,$sheetCount))
     if($flag==0)
     {
         //Zakie Works
-        if($sheetCount>0)
+        if($sheetCount>1)
         {
             echo "
             <style>
@@ -214,6 +214,14 @@ if(check($spreadSheetAry,$sheetCount))
             
             </script>
             ";
+    }
+    else
+    {
+        echo"
+        <div id='dialog_exl_disp_student' style='color:red;' title='❌Not Allowed'>
+            <p><center>Excel File is Empty!!!</center></p>
+        </div>
+        ";
     }
 
     }
