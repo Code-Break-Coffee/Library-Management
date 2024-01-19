@@ -99,7 +99,7 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
-            if($Available)
+            if($Available) //tanishq------------------------------
             {
                 $sql_ir="INSERT INTO issue_return (Issue_By,Member_Type,Issue_Bookno,Issue_Date)
                 values ('$m','$MemberType','$b','$doi');";
