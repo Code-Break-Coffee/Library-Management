@@ -1038,7 +1038,7 @@ document.getElementById("std").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="std_searchform" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Student Records Page</h1>
+                    <h1>Member/Not Member Check Page</h1>
                     
                     <div id="std_searchcontain"></div>
                     <label>Batch ID</label>
@@ -1411,3 +1411,66 @@ document.querySelector("#issue_limit").addEventListener('click',()=>
         });
     });
 });
+
+//----------------------------------------------------------------Student Issue Check
+
+document.querySelector("#sbc").addEventListener("click",()=>
+{
+    displayNone();
+    let container=document.getElementById("container");
+    container.innerHTML=`
+    <div id="member_books_check" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <center>   
+                <h1>Member Books Check Page</h1>
+                <form id='sbc_form' method='post' action='' autocomplete='off'>
+                    <label>Member ID:</label>
+                    <input type='text' name='mem_id' class='bg-dark form-control' style='color:aliceblue;' required/><br>
+                    <button class="btn" type="submit" style='color:aliceblue;background-color:black;'>Check</button>
+                </form>     
+            </center>        
+        </div>
+    </div>
+    <div style="font-weight: bold;position: absolute; width:1200px;" id="response_member_books_check"></div>`;
+
+    $(document).ready(function()
+    {
+        $("#sbc_form").submit(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+                {
+                    method: "post",
+                    url: ".//Report/Members/Member_books_check.php",
+                    data: $(this).serialize()+"&Access=Main-Member-Books-Check",
+                    datatype: "text",
+                    success: function(Result)
+                    {
+                        $("#dialog_member_books_check").dialog("destroy");
+                        $("#response_member_books_check").html(Result);
+                        $("#dialog_member_books_check").dialog();
+                    }  
+                }
+            );
+        });
+    });
+});
+
+//----------------------------------------------------Logout
+let sec=0;
+const x=setInterval(()=>
+{
+    document.addEventListener("keydown",()=>
+    {
+        sec=0;
+    });
+    document.addEventListener("mousemove",()=>
+    {
+        sec=0;
+    });
+    if(sec===300)
+    {
+        window.open("Auth\\Logout.php","_self");
+    }
+    sec++;
+},1000);

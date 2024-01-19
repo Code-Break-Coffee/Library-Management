@@ -29,7 +29,8 @@ else
                                         <div id="reportsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="au">Audit</a>
                                         <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
-                                        <a class="dropdown-item dropdown_hover" id="std">Student Records</a>
+                                        <a class="dropdown-item dropdown_hover" id="std">Member/Not Member</a>
+                                        <a class="dropdown-item dropdown_hover" id="sbc">Member Issue Check</a>
                                         <a class="dropdown-item dropdown_hover" id="dueBook">Book Dues</a>
                                         </div>
                                     </li>

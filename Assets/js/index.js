@@ -21,21 +21,3 @@ $(document).ready(function()
 });
 
 document.querySelector("#Student").addEventListener('click',()=>{window.open("StudentPage\\student.html","_blank");});
-
-let sec=0;
-const x=setInterval(()=>
-{
-    document.addEventListener("keydown",()=>
-    {
-        sec=0;
-    });
-    document.addEventListener("mousemove",()=>
-    {
-        sec=0;
-    });
-    if(sec===300)
-    {
-        window.open("Auth\\Logout.php","_self");
-    }
-    sec++;
-},1000);
