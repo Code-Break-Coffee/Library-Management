@@ -109,13 +109,20 @@ if(check($spreadSheetAry,$sheetCount))
         if($sheetCount>0)
         {
             echo "
-                    
-            <div style='width:100%;overflow:auto;height:650px;postion:relative;transform:translate(30%,20%);'>
-            <center>
-            <h1 style='font-weight:bold;color:white;position:relative;left:-570px'>Confirmation Page</h1><br/>
+            <style>
+            .gola::-webkit-scrollbar {
+                display: none; /* for Chrome, Safari, and Opera */
+              }
+            </style>   
+            <center>     
+            <div style='background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);width:700px;height:700px;'>
             
+            <br/>
+            <br/>
+            <h1 style='font-weight:bold;color:white;position:relative;'>Confirm Submission?</h1><br/>
             
-            <table style='position:relative;left:-560px;'>
+            <div class='gola' style='overflow-y:auto;height:50vh;'>
+            <table style='position:relative;width:50vh;'>
             <tr>
             <th>Id</th>
             <th>Roll.</th>
@@ -152,8 +159,9 @@ if(check($spreadSheetAry,$sheetCount))
         echo"
             </tbody>
             </table>
+            </div>
             </br>
-            <div style='color:white;position:relative;display:inline-flex;left:-570px'>
+            <div style='display:inline-flex;'>
                 <form id='std_buffer' method='post' action=''>
                     <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
                 </form> &nbsp;&nbsp;&nbsp;
@@ -161,7 +169,7 @@ if(check($spreadSheetAry,$sheetCount))
                     <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
                 </form>
                 </div>
-            <div style='font-weight: bold;' id='response_student_excel'></div>`;
+            <div style='font-weight: bold;' id='response_student_excel'></div>
             </center>
             <script>
             $(document).ready(function()
