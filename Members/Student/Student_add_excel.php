@@ -1,6 +1,15 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
 include "../../connection/dbconnect.php";
+
+@session_start();
+include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+
+if (!verification() || $_POST["Access"] != "Main-Book_add_excel") {
+    header("Location: /LibraryManagement/");
+}
+
+
 $sql_delete = "DELETE from `insert buffer`;";
 $result=$conn->query($sql_delete);
 
