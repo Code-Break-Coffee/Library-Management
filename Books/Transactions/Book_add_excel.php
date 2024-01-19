@@ -273,7 +273,7 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
             echo "
                     <tr>
                     <td>" . $bn . "</td>
-                    <td>" . $b[0] . " " . $b[1] . " " . $b[2] . " " . "</td>
+                    <td>" . $b[0] . ", " . $b[1] . ", " . $b[2] . " " . "</td>
                     <td>" . $b[3] . "</td>
                     <td>" . $b[4] . "</td>
                     <td>" . $b[5] . "</td>

@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
-include "dbconnect.php"; //-------------------------------------------------------------------------------------------------------------------------------------
+include "../../connection/dbconnect.php";
 
 if (!verification() || $_POST["Access"] != "Book_add_excel-insert_buffer") {
     header("Location: /LibraryManagement/");
@@ -9,7 +9,7 @@ if (!verification() || $_POST["Access"] != "Book_add_excel-insert_buffer") {
 
 function sugesstion_add($title, $author1, $author2, $author3, $publisher)
 {
-    include "dbconnect.php"; //-----------------------------------------------------------------------------------------------------------------------------------
+    include "../../connection/dbconnect.php";
 
     $stat_title_check = "SELECT * FROM suggestion where  Book_value='$title' and category='Title';";
     $stat_publish_check = "SELECT * FROM suggestion where  Book_value='$publisher' and category='Publisher';";
@@ -80,7 +80,8 @@ if (mysqli_num_rows($result_buff) > 0) {
             }
         }
         if($flagcount==$bookcount){
-            echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehg";
+            echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttttttt";//Soham Pdf!!!!!!!!
+            
         }
     }
 }

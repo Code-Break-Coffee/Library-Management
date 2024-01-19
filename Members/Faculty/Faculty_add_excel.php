@@ -58,7 +58,7 @@
     {
         echo "
         <div id='dialog_exl_faculty' style='color:green;' title='✅Successful'>
-            <p><center>$incorrect_rows rows not inserted.Rest Inserted</center></p>
+            <p><center>$incorrect_rows rows not inserted. Rest Inserted</center></p>
         </div>
         ";
     }
