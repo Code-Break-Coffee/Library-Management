@@ -1377,7 +1377,6 @@ document.querySelector("#issue_limit").addEventListener('click',()=>
     container.innerHTML=`
     <div id="issue_limit_block" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
     <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-
     <center>   
         <h1>Change Book Issue Limit</h1>
         <form id='issue_limit_form' method='post' action='' autocomplete='off'>
@@ -1398,7 +1397,7 @@ document.querySelector("#issue_limit").addEventListener('click',()=>
             $.ajax(
             {
                 method: "post",
-                url: "Books\\Operations\Book_limit.php",
+                url: "Books\\Operations\\Book_limit.php",
                 data: $(this).serialize()+"&Access=Main-Issue-Limit",
                 datatype: "text",
                 success: function(Result)
@@ -1427,6 +1426,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
                     <label>Member ID:</label>
                     <input type='text' name='mem_id' class='bg-dark form-control' style='color:aliceblue;' required/><br>
                     <button class="btn" type="submit" style='color:aliceblue;background-color:black;'>Check</button>
+                    <button type="reset" id="reset_sbc" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>
                 </form>     
             </center>        
         </div>
@@ -1435,6 +1435,11 @@ document.querySelector("#sbc").addEventListener("click",()=>
 
     $(document).ready(function()
     {
+        $("#reset_sbc").on("click",function()
+        {
+            document.querySelector("#response_member_books_check").style.display="none";
+            document.querySelector("#member_books_check").style.transform="translate(-50%,-50%)";
+        });
         $("#sbc_form").submit(function(e)
         {
             e.preventDefault();
@@ -1446,6 +1451,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
                     datatype: "text",
                     success: function(Result)
                     {
+                        document.querySelector("#response_member_books_check").style.display="block";
                         $("#dialog_member_books_check").dialog("destroy");
                         $("#response_member_books_check").html(Result);
                         $("#dialog_member_books_check").dialog();
