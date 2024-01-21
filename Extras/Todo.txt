@@ -6,7 +6,7 @@
 7: add admin crosscheck userId and password
 8: add error function in all ajax
 9. Book/Student insert excel format error exception 
-10 clear button member issue check -> tanishq
+10 
 11 max book issue limit code using ($Available) -> tanishq
 Note: Book_filter -> table format
 12. Remove faculty delete from faculty_delete.php.

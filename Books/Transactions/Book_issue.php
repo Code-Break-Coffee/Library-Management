@@ -87,6 +87,24 @@ function memberTypeCheck($x,$y,$z)
     return false;
 }
 
+function issueLimit($s)
+{
+    $sql="SELECT Issue_Limit from issue_limit;";
+    $result=$GLOBALS["conn"]->query($sql);
+    $check="SELECT Book_No from books where Status = '$s';";
+    $check_result=$GLOBALS["conn"]->query($check);
+    if($check_result)
+    {
+        if($result)
+        {
+            $row=$result->fetch_array();
+            if(mysqli_num_rows($check_result)>=$row["Issue_Limit"])
+            {
+                $GLOBALS["Available"]=false;
+            }
+        }
+    }
+}
 
 // $result_m->data_seek(0);
 $checkedb=bookcheck($result_b,$b);
@@ -99,7 +117,8 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
-            if($Available) //tanishq------------------------------
+            issueLimit($m);
+            if($Available)
             {
                 $sql_ir="INSERT INTO issue_return (Issue_By,Member_Type,Issue_Bookno,Issue_Date)
                 values ('$m','$MemberType','$b','$doi');";
