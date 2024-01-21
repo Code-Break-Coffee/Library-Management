@@ -5,7 +5,7 @@ include "../../connection/dbconnect.php";
 @session_start();
 include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
 
-if (!verification() || $_POST["Access"] != "Main-Book_add_excel") {
+if (!verification() || $_POST["Access"] != "Main-Student_add_excel") {
     header("Location: /LibraryManagement/");
 }
 

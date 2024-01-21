@@ -1332,7 +1332,7 @@ document.getElementById("support_student").addEventListener("click",()=>
             {
                 method: "post",
                 url: "Members\\Student\\Student_add_excel.php",
-                data: $(this).serialize(),//-------@Kartikey
+                data: $(this).serialize()+"&Access=Main-Student_add_excel",//-------@Kartikey
                 datatype: "text",
                 success: function(Result)
                 {
