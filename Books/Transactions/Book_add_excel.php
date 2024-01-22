@@ -8,6 +8,9 @@ $MaxBookIndex = 0;
 $error = "";
 $Data_Status = false;
 
+$sql_delete = "DELETE from `insert buffer`;";
+$result = $conn->query($sql_delete);
+
 if (!verification() || $_POST["Access"] != "Main-Book_add_excel") {
     header("Location: /LibraryManagement/");
 }
@@ -132,8 +135,7 @@ function ErrorCheck($a1, $a2, $a3, $title, $ed, $pub, $cl, $tpag)
     return $error;
 }
 
-$sql_delete = "DELETE from `insert buffer`;";
-$result = $conn->query($sql_delete);
+
 
 
 $targetPath = $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Doc/book.xlsx";
@@ -257,11 +259,20 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
     if (count($Book_Record) > 0) {
         $Data_Status = true;
         echo "
-                    <div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(450px,150px);'>
+                    <div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(450px,90px);'>
                     <center >
-                    <h1 style='font-weight:bold;color:white;position:relative;'>Confirmation Page</h1><br/>
+                    <h1 style='font-weight:bold;color:white;position:relative;'>Book Confirmation Page</h1><br/>
                     
-                    <table>
+                    <table style='background-color:black;'>
+                    <tr>
+                        <th colspan='6'>
+                            <center>
+                                <h2 style='color:white;'>
+                                    Are You Sure You want to Submit?
+                                </h2>
+                            </center>
+                        </th>
+                    </tr>
                     <tr>
                         <th>Book No.</th>
                         <th>Author's</th>
@@ -284,8 +295,6 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                     <td>" . $b[4] . "</td>
                     <td>" . $b[5] . "</td>
                     <td>" . $b[12] . "</td>
-                    <td></td>
-                    <td></td>
                     </tr>
                     ";
             $sql = "INSERT INTO `insert buffer`(id,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14) 
