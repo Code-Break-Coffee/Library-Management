@@ -1264,6 +1264,7 @@ document.getElementById("support_faculty").addEventListener("click",()=>
         $("#facExcelImport").submit(function(e)
         {
             e.preventDefault();
+            document.getElementById("fac_exl").style.display="none";
             uploadFile_Fac();
             $.ajax(
             {

@@ -84,4 +84,6 @@ if (mysqli_num_rows($result_buff) > 0) {
             
         }
     }
+    $sql_delete = "DELETE from `insert buffer`;";
+    $result = $conn->query($sql_delete);
 }

@@ -119,24 +119,33 @@ if(check($spreadSheetAry,$sheetCount))
             echo "
             <style>
             .gola::-webkit-scrollbar {
-                display: none; /* for Chrome, Safari, and Opera */
+                display: none; 
               }
             </style>   
             <center>     
-            <div style='background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);width:700px;height:700px;'>
+            <div style='border-radius:50%;width:700px;height:700px;'>
             
             <br/>
             <br/>
-            <h1 style='font-weight:bold;color:white;position:relative;'>Confirm Submission?</h1><br/>
-            
+            <br/>
+            <h1 style='font-weight:bold;color:white;position:relative;'>Student Confirmation Page</h1><br/>
             <div class='gola' style='overflow-y:auto;height:50vh;'>
-            <table style='position:relative;width:50vh;'>
+            <table style='position:relative;width:80vh;background-color:black'>
             <tr>
-            <th>Id</th>
-            <th>Roll.</th>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Enrollment</th>
+            <th colspan='5'>
+              <center>
+                <h3 style='color:white;'>
+                    Are You Sure You want to Submit?
+                </h3>
+              </center>
+            </th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Roll.</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Enrollment</th>
             </tr>
             <tbody>";
 
@@ -158,8 +167,6 @@ if(check($spreadSheetAry,$sheetCount))
                 <td>".$b[2]."</td>
                 <td>".$b[3]."</td>
     
-                <td></td>
-                <td></td>
                 </tr>
                 ";
             }
@@ -176,7 +183,7 @@ if(check($spreadSheetAry,$sheetCount))
                 <form id='buff_back' method='post' action=''>
                     <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
                 </form>
-                </div>
+            </div>
             <div style='font-weight: bold;' id='response_student_excel'></div>
             </center>
             <script>
