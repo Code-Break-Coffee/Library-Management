@@ -25,6 +25,7 @@ $sheetCount = count($spreadSheetAry);
 
 $sql_delete = "DELETE from `insert buffer`;";
 $result=$conn->query($sql_delete);
+$already_exist=0;
 
 function check($sArray,$sCount)
 {
@@ -34,6 +35,7 @@ function check($sArray,$sCount)
         $rollno=$sArray[$i][0];
         $rollno=strtoupper($rollno);
         $rollno=str_replace("-","",$rollno);
+        $rollno=preg_replace('/[^A-Za-z0-9\-]/', '', $rollno);
         $name=$sArray[$i][1];
         $course=$sArray[$i][2];
         $enroll=$sArray[$i][3];
@@ -64,6 +66,7 @@ function check($sArray,$sCount)
                         </p>
                     </div>
                 ";
+                
                 return false;
             }
         }
@@ -93,6 +96,7 @@ if(check($spreadSheetAry,$sheetCount))
         $rollno=$spreadSheetAry[$i][0];
         $rollno=strtoupper($rollno);
         $rollno=str_replace("-","",$rollno);
+        $rollno=preg_replace('/[^A-Za-z0-9\-]/', '', $rollno);
         $name=$spreadSheetAry[$i][1];
         $course=$spreadSheetAry[$i][2];
         $enroll=$spreadSheetAry[$i][3];
@@ -162,11 +166,10 @@ if(check($spreadSheetAry,$sheetCount))
                 echo"
                 <tr>
                 <td>".$bn."</td>
-                <td>".$b[0]."</td>
+                <td>".preg_replace('/[^A-Za-z0-9\-]/', '', $b[0])."</td>
                 <td>".$b[1]."</td>
                 <td>".$b[2]."</td>
                 <td>".$b[3]."</td>
-    
                 </tr>
                 ";
             }
