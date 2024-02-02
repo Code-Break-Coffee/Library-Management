@@ -10,4 +10,3 @@
 11 max book issue limit code using ($Available) -> tanishq
 Note: Book_filter -> table format
 12. Remove faculty delete from faculty_delete.php.
-13. Javaboi -> Student Buffer/Book Buffer php file not working. 

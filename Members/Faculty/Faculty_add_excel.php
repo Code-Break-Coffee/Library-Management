@@ -17,6 +17,7 @@ $excelSheet = $spreadSheet->getActiveSheet();
 $spreadSheetAry = $excelSheet->toArray();
 $sheetCount = count($spreadSheetAry);
 $incorrect_rows = "";
+$already_exist=0;
 for ($i = 1; $i < $sheetCount; $i++) 
 {
 
@@ -27,11 +28,13 @@ for ($i = 1; $i < $sheetCount; $i++)
     $result_check = $conn->query($id_check);
     if (mysqli_num_rows($result_check) > 0) 
     {
+
         echo "
-            <div id='dialog_exl_faculty' style='color:green;' title='✅Successful'>
+            <div id='dialog_exl_faculty' style='color:red;' title='Member Already Exist'>
                 <p><center>$fac_id  member already exists</center></p>
             </div>
             ";
+            $already_exist=1;
         break;
     }
     if (!empty($fac_id) && !empty($fac_name) && !empty($fac_type)) 
@@ -44,7 +47,7 @@ for ($i = 1; $i < $sheetCount; $i++)
     }
 }
 // print confirmation table and user confirm button ---zakie
-if (strlen($incorrect_rows) == 0) 
+if (strlen($incorrect_rows) == 0 && $already_exist==0) 
 {
     echo "
     <style>
@@ -110,6 +113,42 @@ if (strlen($incorrect_rows) == 0)
                 </form>
             </div>
         </center>
+
+
+        <script>
+        $(document).ready(function()
+        {
+            
+            $('#buff_back').click(function(e)
+            {
+                $.ajax({
+
+                    method: 'post',
+                    url: './Members/Faculty/Faculty_empty_buffer.php',
+                })
+            })
+            
+            $('#fac_buffer').click(function(e)
+            {
+                
+                $.ajax({
+                    
+                    method: 'post',
+                    url: './Members/Faculty/Faculty_insert_buffer.php',
+                    data:'hi',
+                    datatype:'text',
+                    success: function(Result)
+                    {
+                        
+                        $('#dialog_student_excel').dialog('destroy');
+                        $('#response_student_excel').html(Result);
+                        $('#dialog_student_excel').dialog();
+                        
+                    }
+                }) 
+            })
+        })
+        </script>
         ";
 }
 else
