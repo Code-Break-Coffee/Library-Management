@@ -1,12 +1,11 @@
-1: 
-2: student search book number and duplicate records modification 
-3: book number cases alphanumeric -> numeric [Book insert form]
-5: zakie ka bug student record check not there
-6: student excel ___ conditions
-7: add admin crosscheck userId and password
-8: add error function in all ajax
-9. Book/Student insert excel format error exception 
-10 
-11 max book issue limit code using ($Available) -> tanishq
+
+1: student search book number and duplicate records modification 
+
+2: zakie ka bug student record check not there
+3: student excel ___ conditions
+4: add admin crosscheck userId and password
+5: add error function in all ajax
+6: Book/Student insert excel format error exception 
+7: max book issue limit code using ($Available) -> tanishq
 Note: Book_filter -> table format
-12. Remove faculty delete from faculty_delete.php.
+

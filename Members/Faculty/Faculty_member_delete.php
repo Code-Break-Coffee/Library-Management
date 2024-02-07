@@ -77,7 +77,7 @@ else
         {
             if(checkIssue($Fac_Id))
             {
-                if(delete_faculty("DELETE from member where Member_ID = '$Fac_Id';") && delete_faculty("DELETE from faculty where Faculty_ID = '$Fac_Id';"))
+                if(delete_faculty("DELETE from member where Member_ID = '$Fac_Id';"))
                 {
                     echo
                     "

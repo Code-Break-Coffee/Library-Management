@@ -22,6 +22,7 @@ for ($i = 1; $i < $sheetCount; $i++)
 {
 
     $fac_id = $spreadSheetAry[$i][0];
+    $fac_id=preg_replace('/[^A-Za-z0-9\-]/', '', $fac_id);
     $fac_name = $spreadSheetAry[$i][1];
     $fac_type = $spreadSheetAry[$i][2];
     $id_check = "SELECT * FROM faculty where Faculty_ID='$fac_id';";
@@ -87,6 +88,7 @@ if (strlen($incorrect_rows) == 0 && $already_exist==0)
         for ($i = 1; $i < $sheetCount; $i++)
         {
             $fac_id = $spreadSheetAry[$i][0];
+            $fac_id=preg_replace('/[^A-Za-z0-9\-]/', '', $fac_id);
             $fac_name = $spreadSheetAry[$i][1];
             $fac_type = $spreadSheetAry[$i][2];
             echo"
