@@ -9,7 +9,3 @@ If they are not accessible, the SetFont() method will produce the following erro
 FPDF error: Could not include font definition file
 
 
-Remarks:
-
-- Only the files corresponding to the fonts actually used are necessary
-- The tutorials provided in this package are ready to be executed
