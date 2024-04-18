@@ -27,24 +27,7 @@ if (mysqli_num_rows($result) > 0) {
         $billno = $row["val12"];
         $bookcount = $row["val13"];
 
-        // $flag = 0;
-        // if ($flag == 0) {
-        //     $flagcount = 0;
-        //     for ($i = 0; $i < $bookcount; $i++) {
-        //         $bno = $bookno + $i;
-        //         $sql_book = "INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No,Remark) values
-        //     ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
-        //         $result = $conn->query($sql_book);
-
-        //         sugesstion_add($title, $author1, $author2, $author3, $publisher);
-
-        //         if ($result) $flagcount++;
-        //         else echo $conn->error;
-        //     }
-        // }
-        // if($flagcount==$bookcount){
-        //     echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehg";
-        // }
+   
     }
 }
 $result->data_seek(0);
