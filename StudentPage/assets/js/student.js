@@ -11,7 +11,7 @@ $(document).ready(function()
             datatype: "text",
             error: function()
             {
-              window.alert('test');
+                alert('Some Error Occurred!!!');
             },
             success: function(Response)
             {

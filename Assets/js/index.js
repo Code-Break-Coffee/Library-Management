@@ -10,6 +10,10 @@ $(document).ready(function()
             url: "Auth\\Login.php",
             data: $(this).serialize() + "&Access=" +"Index-Login",
             datatype: "text",
+            error: function()
+            {
+                alert('Some Error Occurred!!!');
+            },
             success: function(Result)
             {
                 document.getElementById("Student").style.display="none";

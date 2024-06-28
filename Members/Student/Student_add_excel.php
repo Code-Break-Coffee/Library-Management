@@ -199,6 +199,10 @@ if(check($spreadSheetAry,$sheetCount))
 
                         method: 'post',
                         url: './Members/Student/Student_empty_buffer.php',
+                        error: function()
+                        {
+                            alert('Some Error Occurred!!!');
+                        }
                     })
                 })
                 
@@ -211,6 +215,10 @@ if(check($spreadSheetAry,$sheetCount))
                         url: './Members/Student/Student_insert_buffer.php',
                         data:'hi',
                         datatype:'text',
+                        error: function()
+                        {
+                            alert('Some Error Occurred!!!');
+                        },
                         success: function(Result)
                         {
                             

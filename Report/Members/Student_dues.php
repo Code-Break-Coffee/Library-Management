@@ -74,6 +74,10 @@ else
                                 url: 'Members\\Student\\Student_member_delete.php',
                                 data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
                                 datatype: 'text',
+                                error: function()
+                                {
+                                    alert('Some Error Occurred!!!');
+                                },
                                 success: function(Result)
                                 {
                                     $( '#dialog_del' ).dialog( 'destroy' );

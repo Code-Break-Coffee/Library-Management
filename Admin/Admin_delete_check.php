@@ -68,6 +68,10 @@ else
                                     url: './Admin/Admin_delete.php',
                                     data: $(this).serialize() + '&Access=' +'Admin-Delete&' +'&UserName=' +'$UserName',
                                     datatype: 'text',
+                                    error: function()
+                                    {
+                                        alert('Some Error Occurred!!!');
+                                    },
                                     success: function(Result)
                                     {
                                         $( '#dialog_admin_delete' ).dialog( 'destroy' );

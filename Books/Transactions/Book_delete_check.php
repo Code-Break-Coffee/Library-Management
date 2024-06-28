@@ -55,6 +55,10 @@ else
                                 url: './Books/Transactions/Book_delete.php',
                                 data: $(this).serialize() + '&Access=' +'Delete-DSucc&' +'&bookno=' +'$bookno',
                                 datatype: 'text',
+                                error: function()
+                                {
+                                    alert('Some Error Occurred!!!');
+                                },
                                 success: function(Result)
                                 {
                                     $( '#dialog4' ).dialog( 'destroy' );
