@@ -117,7 +117,10 @@ if($checkedb)
     {
         if($result_b && $result_m)
         {
-            issueLimit($m);
+            if($MemberType=="Student")
+            {
+                issueLimit($m);
+            }
             if($Available)
             {
                 $sql_ir="INSERT INTO issue_return (Issue_By,Member_Type,Issue_Bookno,Issue_Date)
