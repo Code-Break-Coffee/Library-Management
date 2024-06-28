@@ -338,8 +338,10 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                                 url: './Books/Transactions/Book_insert_buffer.php',
                                 data: 'Access=Book_add_excel-insert_buffer',
                                 datatype: 'text',
-                                error: function(){  
-                            },
+                                error: function()
+                                {
+                                    alert('Some Error Occurred!!!');
+                                },
                             success: function(Result)
                             {
                                 

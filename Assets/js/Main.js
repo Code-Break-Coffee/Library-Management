@@ -54,6 +54,10 @@ document.getElementById("d").addEventListener("click",()=>
                 url: "Books\\Transactions\\Book_delete_check.php",
                 data: $(this).serialize() + "&Access=" +"Main-Delete",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog4" ).dialog( "destroy" ); 
@@ -122,6 +126,10 @@ document.getElementById("i").addEventListener("click",()=>
                     url: "Books\\Transactions\\Book_issue_check.php",
                     data: "&Access=Main-Issue-Check&memberid="+mi,
                     datatype: "text",
+                    error: function()
+                    {
+                        alert('Some Error Occurred!!!');
+                    },
                     success: function(Result)
                     {  
                     document.getElementById("response_check").style.display="block";
@@ -140,6 +148,10 @@ document.getElementById("i").addEventListener("click",()=>
                 url: "Books\\Transactions\\Book_issue.php",
                 data: $(this).serialize() + "&Access=" +"Main-Issue",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     document.getElementById("response").style.display="block";
@@ -197,6 +209,10 @@ document.getElementById("r").addEventListener("click",()=>
                 url: "Books\\Transactions\\Book_return.php",
                 data: $(this).serialize() + "&Access=" +"Main-return",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog2" ).dialog( "destroy" );
@@ -250,6 +266,10 @@ document.getElementById("au").addEventListener("click",()=>
                 url: "Report\\Books\\Audit.php",
                 data: $(this).serialize() + "&Access=" +"Main-Audit",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog7" ).dialog( "destroy" );
@@ -300,6 +320,10 @@ document.getElementById("me").addEventListener("click",()=>
                 url: "Members\\Student\\Student_member_add.php",
                 data: $(this).serialize() + "&Access=" +"Main-Membership",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog8" ).dialog( "destroy" );
@@ -456,6 +480,10 @@ document.getElementById("ins").addEventListener("click",()=>
                 url: "Books\\Transactions\\Book_add.php",
                 data: $(this).serialize() + "&Access=" +"Main-Insert",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog3" ).dialog( "destroy" );
@@ -597,6 +625,10 @@ document.getElementById("s").addEventListener("click",()=>
                 url: "Report\\Books\\Search.php",
                 data: $(this).serialize() + "&Access=" +"Main-Search",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog" ).dialog( "destroy" );
@@ -680,6 +712,10 @@ document.getElementById("m").addEventListener("click",()=>
                 url: "Report\\Members\\Student_dues.php",
                 data: $(this).serialize() + "&Access=" +"Main-member",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $("#dialog6").dialog( "destroy" );
@@ -784,6 +820,10 @@ document.getElementById("admin_add").addEventListener("click",()=>
                 url: "Admin\\Admin_create.php",
                 data: $(this).serialize() + "&Access=" +"Main-administrator",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_adminstrator" ).dialog( "destroy" );
@@ -829,6 +869,10 @@ document.getElementById("admin_delete").addEventListener("click",()=>
                 url: "Admin\\Admin_delete_check.php",
                 data: $(this).serialize() + "&Access=" +"Main-admin-delete",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_admin_delete" ).dialog( "destroy" );
@@ -874,6 +918,10 @@ document.getElementById("de").addEventListener("click",()=>
                 url: "Members\\Student\\Student_member_delete.php",
                 data: $(this).serialize() + "&Access=" +"Main-delete_member",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     
@@ -925,6 +973,10 @@ document.getElementById("me_fac").addEventListener("click",()=>
                 url: "Members\\Faculty\\Faculty_member_add.php",
                 data: $(this).serialize()+ "&Access=" +"Main-Faculty_member_add",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_fac" ).dialog( "destroy" );
@@ -969,6 +1021,10 @@ document.getElementById("de_fac").addEventListener("click",()=>
                 url: "Members\\Faculty\\Faculty_member_delete.php",
                 data: $(this).serialize()+"&Access=Main-Delete-Faculty-Member",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_fac_del" ).dialog( "destroy" );
@@ -1017,6 +1073,10 @@ document.getElementById("admin_disp").addEventListener("click",()=>
             url: "Admin\\Admin_display.php",
             data: $(this).serialize() + "&Access=" +"Main-Admin_display",
             datatype: "text",
+            error: function()
+            {
+                alert('Some Error Occurred!!!');
+            },
             success: function(Result)
             {
                 document.getElementById("response_admin_disp").style.display="block";
@@ -1064,6 +1124,10 @@ document.getElementById("std").addEventListener("click",()=>
                 url: "Report\\Members\\Student_members_details.php",
                 data: $(this).serialize() + "&Access=" +"Main-Student_members_details",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
 
@@ -1136,6 +1200,10 @@ document.querySelector("#b").addEventListener('click',()=>
                 url: "Report\\Books\\Book_filter.php",
                 data: $(this).serialize()+"&Access=Main-Book-Filter",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     document.getElementById("response_book_filter").style.display="block";
@@ -1210,6 +1278,10 @@ document.getElementById("support_book").addEventListener("click",()=>
                 url: "Books\\Transactions\\Book_add_excel.php",
                 data: $(this).serialize()+"&Access=Main-Book_add_excel",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     
@@ -1272,6 +1344,10 @@ document.getElementById("support_faculty").addEventListener("click",()=>
                 url: "Members\\Faculty\\Faculty_add_excel.php",
                 data: $(this).serialize(),//-------@Kartikey
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_exl_faculty" ).dialog( "destroy" );
@@ -1335,6 +1411,10 @@ document.getElementById("support_student").addEventListener("click",()=>
                 url: "Members\\Student\\Student_add_excel.php",
                 data: $(this).serialize()+"&Access=Main-Student_add_excel",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $( "#dialog_exl_disp_student" ).dialog( "destroy" );
@@ -1360,6 +1440,10 @@ document.querySelector("#dueBook").addEventListener("click",()=>
         method: "post",
         url: "Report\\Books\\Book_dues.php",
         data: "&Access=Main-Book-Dues",
+        error: function()
+        {
+            alert('Some Error Occurred!!!');
+        },
         success: function(Result)
         {
             $( "#dialog_book_dues" ).dialog( "destroy" );
@@ -1401,6 +1485,10 @@ document.querySelector("#issue_limit").addEventListener('click',()=>
                 url: "Books\\Operations\\Book_limit.php",
                 data: $(this).serialize()+"&Access=Main-Issue-Limit",
                 datatype: "text",
+                error: function()
+                {
+                    alert('Some Error Occurred!!!');
+                },
                 success: function(Result)
                 {
                     $("#dialog_issue_limit").dialog("destroy");
@@ -1450,6 +1538,10 @@ document.querySelector("#sbc").addEventListener("click",()=>
                     url: ".//Report/Members/Member_books_check.php",
                     data: $(this).serialize()+"&Access=Main-Member-Books-Check",
                     datatype: "text",
+                    error: function()
+                    {
+                        alert('Some Error Occurred!!!');
+                    },
                     success: function(Result)
                     {
                         document.querySelector("#response_member_books_check").style.display="block";

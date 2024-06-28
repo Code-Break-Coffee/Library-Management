@@ -178,6 +178,10 @@ if(!empty($_SESSION["TEMP"]))
                 {
                     method: 'post',
                     url: './Assets/php/Main.php',
+                    error: function()
+                    {
+                        alert('Some Error Occurred!!!');
+                    },
                     success: function(Result)
                     {
                         document.querySelector('#Student').style.display='none';

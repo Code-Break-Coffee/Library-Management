@@ -127,6 +127,10 @@ if (strlen($incorrect_rows) == 0 && $already_exist==0)
 
                     method: 'post',
                     url: './Members/Faculty/Faculty_empty_buffer.php',
+                    error: function()
+                    {
+                        alert('Some Error Occurred!!!');
+                    }
                 })
             })
             
@@ -139,6 +143,10 @@ if (strlen($incorrect_rows) == 0 && $already_exist==0)
                     url: './Members/Faculty/Faculty_insert_buffer.php',
                     data:'hi',
                     datatype:'text',
+                    error: function()
+                    {
+                        alert('Some Error Occurred!!!');
+                    },
                     success: function(Result)
                     {
                         
