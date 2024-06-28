@@ -126,14 +126,28 @@ else
         
         // Add 1 page in your PDF
         $pdf->AddPage();
-        $pdf->SetFont("Arial", "B", 22);
+        $pdf->SetFont("Arial", "B", 18);
+
+        
         $year =$_POST["year"];
         $year=strtoupper($year);
         $year=str_replace("-","",$year);
         
         $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$year%' order by Student_Rollno;";
         $result_s = $conn->query($sql_s);
+        $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
 
+        // Set the position for the text cell
+        $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
+
+        // Add the text cell
+        $pdf->Cell(166, 5, 'International Institute of Professional Studies,Davv', 0, 0, 'C');
+
+        $pdf->Ln(); 
+        $pdf->Ln(); 
+        $pdf->Ln(); 
+        $pdf->Ln(); 
+        $pdf->Ln(); 
         $pdf->Cell(70, 10, "Name", 1, 0, "L");
         $pdf->Cell(60, 10, "Roll Number", 1, 0, "L");
         $pdf->Cell(60, 10, "Dues / Nodues", 1, 1, "L");
