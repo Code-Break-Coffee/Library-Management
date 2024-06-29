@@ -8,10 +8,17 @@ if(!verification() || $_POST["Access"]!="Main-Book-Filter")
 }
 else
 {
+    if((strlen($_POST["title"])>=1 && strlen($_POST["title"])<3) || (strlen($_POST["author"])>=1 && strlen($_POST["author"])<3) || (strlen($_POST["publisher"])>=1 && strlen($_POST["publisher"])<3) || (strlen($_POST["supplier"])>=1 && strlen($_POST["supplier"])<3))  {
+        echo" 
+        <div id='dialog_filter_disp' style='color:white;' title='❌Not Allowed'>
+            <p><center>Minimum 3 letter input must be given in any input field</center></p>
+        </div>";
+    } 
+    else{
     $sql="SELECT * from books WHERE ";
     $bool=false;
 
-    if(!empty($_POST["title"]))
+    if(!empty($_POST["title"]) )
     {
         $title=$_POST["title"];
         $sql=$sql."Title like '%$title%' ";
@@ -47,6 +54,7 @@ else
         $bool=true;
         $sql=$sql."Supplier like '%$supplier%' ";
     }
+
     if(empty($_POST["title"]) && empty($_POST["author"]) && empty($_POST["publisher"]) && empty($_POST["supplier"]))
     {
         $sql="SELECT * from books;";
@@ -57,6 +65,7 @@ else
     {
         echo
         "
+            
             <div style='overflow:auto;width:100%;height:587px;'>
             <center>
                 <table style='width:95%;'>
@@ -108,5 +117,12 @@ else
             </div>
         ";
     }
+    else{
+        echo" 
+        <div id='dialog_filter_disp' style='color:white;' title='❌Not Allowed'>
+            <p><center>Something Went Wrong</center></p>
+        </div>";
+    }
+}
 }
 ?>
