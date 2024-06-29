@@ -38,7 +38,7 @@ else
     $pass_confirm = $_POST["admin_pass_conf"];
     if (!AdminExist($user)) {
 
-        if (password_check($password, $pass_confirm)) {
+        if (password_check($password, $pass_confirm) && $password==$pass_confirm) {
             $p = PHash($user, $password);
             $stat = "INSERT INTO admin VALUES('$user','$p','Assistant');";
             $stat1 = "INSERT INTO temp_keys(Username) VALUES('$user');";

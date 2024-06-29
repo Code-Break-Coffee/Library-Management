@@ -79,7 +79,8 @@ if (mysqli_num_rows($result_buff) > 0) {
                 else echo $conn->error;
             }
         }
-        if($flagcount==$bookcount){
+        if($flagcount==$bookcount)
+        {
             echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttttttt";//Soham Pdf!!!!!!!!
             
         }
