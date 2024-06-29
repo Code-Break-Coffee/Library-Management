@@ -1206,8 +1206,10 @@ document.querySelector("#b").addEventListener('click',()=>
                 },
                 success: function(Result)
                 {
+                    $( "#dialog_filter_disp" ).dialog( "destroy" );
                     document.getElementById("response_book_filter").style.display="block";
                     $("#response_book_filter").html(Result);
+                    $("#dialog_filter_disp").dialog();  
                 }
             });
         });
