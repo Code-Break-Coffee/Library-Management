@@ -179,7 +179,7 @@ $temp_array = array_unique($bookserial);
 if (sizeof($temp_array) == sizeof($bookserial)) {
     Book_num($bookserial,0);
     for ($i = 1; $i < $sheetCount; $i++) {
-        echo $i;
+        // echo $i;
         $bno = 0;
         if (!empty($spreadSheetAry[$i][13])) $bookcount = $spreadSheetAry[$i][13];
         else $bookcount = 1;
@@ -187,8 +187,11 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
         if (!empty($spreadSheetAry[$i][0])) {
             $bno = $spreadSheetAry[$i][0]; // cases missing for book no
             if (!Book_check($bno, $bookcount)) {
-                echo $error;
-                break;
+                echo" 
+                <div id='dialog_exl_disp' style='color:red;' title='❌Not Allowed'>
+                    <p><center>$error</center></p>
+                </div>";
+                return;
             }
         } else {
             set_BookIndex($bookcount);
@@ -251,7 +254,7 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                 <p><center>$error At Index: $index</center></p>
             </div>
             ";
-            break;
+            return;
         }
         if (!array_key_exists($bno, $Book_Record)) $Book_Record[$bno] =
             array($author1, $author2, $author3, $title, $edition, $publisher, $cl_no, $total_pages, $cost, $supplier, $remark, $billno, $bookcount);
