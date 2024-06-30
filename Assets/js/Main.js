@@ -1571,6 +1571,9 @@ const x=setInterval(()=>
     });
     if(sec===300)
     {
+        window.addEventListener('beforeunload', function(event) {
+            navigator.sendBeacon('Auth\\Logout.php');
+        });
         window.open("Auth\\Logout.php","_self");
     }
     sec++;
