@@ -3,6 +3,7 @@
 include "../../connection/dbconnect.php";
 include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 
+
 function check($b, $count)
 {
     include "../../connection/dbconnect.php";
@@ -58,6 +59,7 @@ if(!verification() || $_POST["Access"] != "Main-Insert")
 }
 else
 {
+
     $sql;
     $bookno = 0;
     if(!empty($_POST["bookno"])) $bookno=$_POST["bookno"]; //-----------------------------------(book number cast varcare-> num)
@@ -152,14 +154,16 @@ else
     }
     if($flag==0)
     {
+        $pdf_arr=array();
         $flagcount=0;
         for($i=0;$i<$bookcount;$i++)
         {
             $bno = $bookno + $i;
+            $bno=$bno*(pow(10,8-strlen("$bno")));
             $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No,Remark) values
             ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
             $result=$conn->query($sql);
-            
+            array_push($pdf_arr,array($bno,$title));
             sugesstion_add($title,$author1,$author2,$author3,$publisher);
             
             if($result) $flagcount++;
@@ -168,11 +172,49 @@ else
 
         if($flagcount==$bookcount)
         {
+
+            require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
             echo "
             <div id='dialog3' style='color:green;' title='✅Successful'>
                 <p><center>$bookcount Books Inserted Successfully</center></p>
             </div>
-            "; 
+            ";
+
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont("Arial", "B", 18);
+            $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
+            $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
+            // Set the position for the text cell
+            $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
+    
+            // Add the text cell
+            $pdf->Cell(166, 5, 'International Institute of Professional Studies,Davv', 0, 0, 'C');
+    
+            $pdf->Ln(); 
+            $pdf->Ln(); 
+            $pdf->Ln(); 
+            $pdf->Ln(); 
+            $pdf->Ln(); 
+            $pdf->Cell(70, 10,"Book No", 1, 0, "L");
+            $pdf->Cell(60, 10, "Title", 1, 0, "L");
+            $pdf->Cell(60, 10, "Bar Code", 1, 0, "L");
+            $pdf->Ln();
+            for($i=0;$i<$bookcount;$i++){
+                $pdf->Cell(70, 10, $pdf_arr[$i][0], 1, 0, "L");
+                $pdf->Cell(60, 10, $pdf_arr[$i][1], 1, 0, "L");
+                $pdf->setFont("LibreBarcode39-Regular","",36);
+                $pdf->Cell(60, 10, $pdf_arr[$i][0], 1, 0,"L");
+                $pdf->SetFont("Arial", "B", 18);
+                $pdf->Ln();
+            }
+            if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf")) {   
+                unlink($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf");
+            }
+            $destination = $_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf";
+            $pdf->Output($destination,'F');
+            
+            echo "<script>window.open('/LibraryManagement/Doc/btest.pdf','_blank');</script>";
         }
         else
         {
