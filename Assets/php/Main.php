@@ -6,6 +6,16 @@ if(empty($_SESSION["username"]) || $_SESSION["File"] != "Index.php")
 }
 else
 {
+    @include "../../connection/dbconnect.php";
+    $user=$_SESSION["username"];
+    $sql="SELECT User_level from admin where Username = '$user';";
+    $result=$conn->query($sql);
+    $lebel;
+    if($result)
+    {
+        $row=$result->fetch_array();
+        $lebel=$row["User_level"];
+    }
     $_SESSION["TEMP"] = "reload"; //for reload 
     ?>
                     <!--navbar-->
@@ -52,7 +62,7 @@ else
                                         <a class="dropdown-item dropdown_hover" id="d">Delete</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown assistant">
                                         <a id="membership" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Membership
                                         </a>
@@ -64,7 +74,7 @@ else
                                         
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown assistant">
                                         <a class="nav-link dropdown-toggle hovered" href="#" id="admin_panel"  id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Administrator
                                         </a>
@@ -75,7 +85,7 @@ else
                                             <a class="dropdown-item dropdown_hover" id="issue_limit">Change Book Issue Limit</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown assistant">
                                         <a class="nav-link dropdown-toggle hovered" id="tools" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support Tools</a>
                                         <div id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="support_book">Insert Books` Data</a>
@@ -91,6 +101,16 @@ else
                     <script src="./jquery-ui-1.13.2.custom/jquery-ui.js"></script>
                     <script src="./jquery-ui-1.13.2.custom/jquery-ui.css"></script>
                     <script src="Assets\\js\\Main.js"></script>
+                    <script>
+                        <?php
+                            if($lebel == "Assistant")
+                            {
+                                ?>
+                                document.querySelectorAll(".assistant").forEach((elem)=>{elem.style.display="none";});
+                                <?php
+                            }
+                        ?>
+                    </script>
                     <style>
                         .ui-autocomplete {
                             position: absolute;
