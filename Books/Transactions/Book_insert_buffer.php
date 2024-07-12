@@ -46,6 +46,8 @@ if(!$result_buff){
     echo $conn->error;
 }
 if (mysqli_num_rows($result_buff) > 0) {
+    $pdf_count=0;
+    $pdf_arr=array();
     while ($row = $result_buff->fetch_assoc()) {
         $sql_book;
         $bookno = 0;
@@ -70,21 +72,67 @@ if (mysqli_num_rows($result_buff) > 0) {
             for ($i = 0; $i < $bookcount; $i++) {
                 $bno = $bookno + $i;
                 $sql_book = "INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No,Remark) values
-            ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
+                ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
                 $result = $conn->query($sql_book);
-
+                array_push($pdf_arr,array($bno,$title));
                 sugesstion_add($title, $author1, $author2, $author3, $publisher);
 
-                if ($result) $flagcount++;
+                if ($result) {
+                    $flagcount++;
+                    $pdf_count++;
+                }
                 else echo $conn->error;
             }
         }
-        if($flagcount==$bookcount)
-        {
-            echo "yeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttttttt";//Soham Pdf!!!!!!!!
-            
-        }
+        // if($flagcount==$bookcount)
+        // {
+
+        // }
     }
+
+
+    require_once "barcode.php";
+    $pdf=new PDF_Code128();//Soham Pdf!!!!!!!!
+    $pdf->AddPage();
+    $pdf->SetFont("Arial", "B", 18);
+    $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
+
+    // Add the text cell
+    $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
+    
+    // $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
+    // Set the position for the text cell
+    $pdf->Cell(166, 5, 'International Institute of Professional Studies,Davv', 0, 0, 'C');
+    $pdf->Ln();  
+    $pdf->Cell(166, 5, 'Information of ', 0, 0, 'C');
+    $pdf->Ln(); 
+    $pdf->Ln(); 
+    $pdf->Ln(); 
+    $pdf->Ln(); 
+    $pdf->Ln(); 
+
+
+    $pdf->Cell(70, 10,"Book No", 1, 0, "L");
+    $pdf->Cell(60, 10, "Title", 1, 0, "L");
+    $pdf->Cell(60, 10, "Bar Code", 1, 0, "L");
+    $pdf->Ln();
+
+
+    for($i=0;$i<$pdf_count;$i++){
+        $pdf->Cell(70, 10, $pdf_arr[$i][0], 1, 0, "L");
+        $pdf->Cell(60, 10, $pdf_arr[$i][1], 1, 0, "L");
+        $barcode = $pdf->Code128($pdf->GetX() + 2, $pdf->GetY()+1,$pdf_arr[$i][0], 40, 8);
+        $pdf->Cell(60, 10, $barcode, 1, 0, "L");            
+        $pdf->Ln();
+    }
+    
+    if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\insert_book.pdf")) {   
+        unlink($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\insert_book.pdf");
+    }
+    $destination = $_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\insert_book.pdf";
+    $pdf->Output($destination,'F');
+    
+    echo "<script>window.open('/LibraryManagement/Doc/insert_book.pdf','_blank');</script>";
     $sql_delete = "DELETE from `insert buffer`;";
     $result = $conn->query($sql_delete);
 }
