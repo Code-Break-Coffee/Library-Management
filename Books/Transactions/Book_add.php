@@ -159,7 +159,7 @@ else
         for($i=0;$i<$bookcount;$i++)
         {
             $bno = $bookno + $i;
-            $bno=$bno*(pow(10,8-strlen("$bno")));
+            // $bno=$bno*(pow(10,8-strlen("$bno")));
             $sql="INSERT into books(Book_No,Author1,Author2,Author3,Title,Edition,Publisher,Cl_No,Total_Pages,Cost,Supplier,Bill_No,Remark) values
             ('$bno','$author1','$author2','$author3','$title','$edition','$publisher',$Cl_No,$total_pages,$cost,'$supplier','$billno','$remark');";
             $result=$conn->query($sql);
@@ -173,18 +173,18 @@ else
         if($flagcount==$bookcount)
         {
 
-            require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
+            require_once "barcode.php";
             echo "
             <div id='dialog3' style='color:green;' title='✅Successful'>
                 <p><center>$bookcount Books Inserted Successfully</center></p>
             </div>
             ";
 
-            $pdf = new FPDF();
+            $pdf=new PDF_Code128();
             $pdf->AddPage();
             $pdf->SetFont("Arial", "B", 18);
             $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
-            $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
+            // $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
             // Set the position for the text cell
             $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
     
@@ -203,9 +203,13 @@ else
             for($i=0;$i<$bookcount;$i++){
                 $pdf->Cell(70, 10, $pdf_arr[$i][0], 1, 0, "L");
                 $pdf->Cell(60, 10, $pdf_arr[$i][1], 1, 0, "L");
-                $pdf->setFont("LibreBarcode39-Regular","",36);
-                $pdf->Cell(60, 10, $pdf_arr[$i][0], 1, 0,"L");
-                $pdf->SetFont("Arial", "B", 18);
+                // $pdf->setFont("LibreBarcode39-Regular","",36);
+                $barcode = $pdf->Code128($pdf->GetX() + 2, $pdf->GetY()+1,$pdf_arr[$i][0], 40, 8);
+                $pdf->Cell(60, 10, $barcode, 1, 0, "L");
+            
+                // Insert the barcode image into the cell
+                // $pdf->Image($barcode, $pdf->GetX() + 2, $pdf->GetY() + 2, 56, 14);
+            
                 $pdf->Ln();
             }
             if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf")) {   
