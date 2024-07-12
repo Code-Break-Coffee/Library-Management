@@ -2,4 +2,3 @@
 2: zakie ka bug student record check not there
 3: student excel ___ conditions
 6: Book/Student insert excel format error exception 
-7: For assistant remove membership,admistrator,Support Tools from nav bar ->Tanishq
