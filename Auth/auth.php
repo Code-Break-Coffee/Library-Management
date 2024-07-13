@@ -22,21 +22,7 @@ function verification($a = 0)
                 $d = $row["Log2"];
                 $log = $row["Log"];
             }
-            $current = date(DATE_RFC2822);
-            $interval = (new DateTime($current))->diff(new DateTime($log));
-            if ((int)($interval->format("%Y%M%D%H%i%s")) > 5) {
-                unset($_SESSION["username"]);
-                unset($_SESSION["RELOAD"]);
-                unset($_SESSION["Log"]);
-                unset($_SESSION["File"]);
-                @session_destroy();
-                echo "
-                <script>
-                    window.alert('you have been logged out');
-                    window.location.reload();
-                </script>";
-                return true;
-            }
+            
         }
 
         return password_verify("$u" . "$log" . "$d", $hash);
@@ -61,7 +47,7 @@ function logCheck($a = 0)
             $log = $row["Log"];
         }
         $interval = (new DateTime($current))->diff(new DateTime($log));
-        if ((int)($interval->format("%Y%M%D%H%i%s")) > 10) {
+        if ((int)($interval->format("%Y%M%D%H%i%s")) > 20) {
             unset($_SESSION["username"]);
             unset($_SESSION["RELOAD"]);
             unset($_SESSION["Log"]);
@@ -74,10 +60,16 @@ function logCheck($a = 0)
                 </script>";
             return false;
         }
+        else
+        {
+            $sql= "UPDATE temp_keys SET Log = '$current hello' WHERE Username ='$u';";
+            $conn->query($sql);
+            echo "
+            <script>
+                window.alert('you have been logged out 22');
+            </script>";
+            return true;
+        }
     }
-    else
-    {
-        $sql_key = "UPDATE temp_keys SET Log = '$result_key' WHERE Username ='$u';";
-        $result_key = $conn->query($sql_key);
-    }
+
 }
