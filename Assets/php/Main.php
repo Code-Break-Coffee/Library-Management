@@ -16,7 +16,8 @@ else
         $row=$result->fetch_array();
         $lebel=$row["User_level"];
     }
-    $_SESSION["TEMP"] = "reload"; //for reload 
+    
+    $_SESSION["RELOAD"] = "reload"; //for reload 
     ?>
                     <!--navbar-->
                     <div style="background-color: black;font-size: large;font-weight: bold;">

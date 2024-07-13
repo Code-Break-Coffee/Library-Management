@@ -167,9 +167,10 @@ $_SESSION["File"] = "Index.php";
     </div>
     <script src="Assets\\js\\Jquery.js"></script>
 <?php
-if(!empty($_SESSION["TEMP"]))
+
+if(!empty($_SESSION["RELOAD"]))
 {
-    if($_SESSION["TEMP"] == "reload")
+    if($_SESSION["RELOAD"] == "reload")
     {
         $x=$_SERVER["DOCUMENT_ROOT"];
             echo"

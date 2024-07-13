@@ -5,7 +5,7 @@ if($_SESSION["File"] != "Index.php" || $_POST["Access"] != "Index-Login")
     header("Location: /LibraryManagement/");
 }
 unset($_SESSION["username"]);
-unset($_SESSION["TEMP"]);
+unset($_SESSION["RELOAD"]);
 unset($_SESSION["Log"]);
 
 include '../connection/dbconnect.php' ;

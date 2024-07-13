@@ -4,6 +4,10 @@ include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 if(!verification() || $_POST["Access"] != "Main-Search" )
 {
     header("Location: /LibraryManagement/");
+
+}
+elseif(!logCheck()){
+    return;
 }
 else
 {
