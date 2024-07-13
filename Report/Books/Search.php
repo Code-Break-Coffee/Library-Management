@@ -7,7 +7,11 @@ if(!verification() || $_POST["Access"] != "Main-Search" )
 
 }
 elseif(!logCheck()){
-    return;
+    echo "
+    <script>
+        window.alert('you have been searched out');
+ 
+    </script>";
 }
 else
 {
