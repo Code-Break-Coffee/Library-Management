@@ -62,8 +62,9 @@ function logCheck($a = 0)
         }
         else
         {
-            $sql= "UPDATE temp_keys SET Log = '$current hello' WHERE Username ='$u';";
+            $sql= "UPDATE temp_keys SET Log = '$current' WHERE Username ='$u';";
             $conn->query($sql);
+            $_SESSION["Log"] = $current;
             echo "
             <script>
                 window.alert('you have been logged out 22');
