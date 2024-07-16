@@ -6,13 +6,13 @@ if(!verification() || $_POST["Access"] != "Main-Search" )
     header("Location: /LibraryManagement/");
 
 }
-elseif(!logCheck()){
-    echo "
-    <script>
-        window.alert('you have been searched out');
+// elseif(!logCheck()){
+//     echo "
+//     <script>
+//         window.alert('you have been searched out');
  
-    </script>";
-}
+//     </script>";
+// }
 else
 {
     date_default_timezone_set("Asia/Kolkata");
