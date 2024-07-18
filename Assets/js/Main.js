@@ -1098,7 +1098,7 @@ document.getElementById("std").addEventListener("click",()=>
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="std_searchform" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Member/Not Member Check Page</h1>
+                    <h1>Student Member/Not Student Member Check Page</h1>
                     
                     <div id="std_searchcontain"></div>
                     <label>Batch ID</label>
@@ -1206,8 +1206,8 @@ document.querySelector("#b").addEventListener('click',()=>
                 },
                 success: function(Result)
                 {
-                    $( "#dialog_filter_disp" ).dialog( "destroy" );
                     document.getElementById("response_book_filter").style.display="block";
+                    $( "#dialog_filter_disp" ).dialog( "destroy" );
                     $("#response_book_filter").html(Result);
                     $("#dialog_filter_disp").dialog();  
                 }

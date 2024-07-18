@@ -10,7 +10,7 @@ else
 {
     if((strlen($_POST["title"])>=1 && strlen($_POST["title"])<3) || (strlen($_POST["author"])>=1 && strlen($_POST["author"])<3) || (strlen($_POST["publisher"])>=1 && strlen($_POST["publisher"])<3) || (strlen($_POST["supplier"])>=1 && strlen($_POST["supplier"])<3))  {
         echo" 
-        <div id='dialog_filter_disp' style='color:white;' title='❌Not Allowed'>
+        <div id='dialog_filter_disp' style='color:red;' title='❌Not Allowed'>
             <p><center>Minimum 3 letter input must be given in any input field</center></p>
         </div>";
     } 

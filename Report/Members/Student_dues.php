@@ -71,12 +71,12 @@ else
                         $.ajax(
                             {
                                 method: 'post',
-                                url: 'Members\\Student\\Student_member_delete.php',
+                                url: './Members/Student/Student_member_delete.php',
                                 data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
                                 datatype: 'text',
                                 error: function()
                                 {
-                                    alert('Some Error Occurred!!!');
+                                    alert('Error Occured');
                                 },
                                 success: function(Result)
                                 {
