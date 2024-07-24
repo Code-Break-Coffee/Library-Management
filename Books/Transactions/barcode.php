@@ -43,6 +43,13 @@ require $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
 
 class PDF_Code128 extends FPDF {
 
+    function Footer()
+    {
+        $this->SetY(-15);
+        $this->SetFont("Arial","B",15);
+        $this->Cell(0,1,"Signature",0,0,"R");
+    }
+    
 protected $T128;                                         // Tableau des codes 128
 protected $ABCset = "";                                  // jeu des caractères éligibles au C128
 protected $Aset = "";                                    // Set A du jeu des caractères éligibles
