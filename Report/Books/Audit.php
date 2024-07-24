@@ -50,6 +50,13 @@ function show_table($stat)
             document.getElementById('response7').style.transform='translate(50%,-90%)';
         </script>";
     }
+    else if(!$result)
+    {
+        echo "
+        <div id='dialog7' style='color:red;' title='⚠️Error'>
+            <p><center>$conn->error</center></p>
+        </div>";
+    }
     else if(mysqli_num_rows($result) <= 0)
         {
             echo "
@@ -66,15 +73,15 @@ function show_table($stat)
 if($membership=="Student")
 {
     $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return 
-        where Member_Type='Student' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
-            or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
+        where Member_Type='Student' and (Issue_Date>='$doi_from' and Issue_Date<='$doi_to'
+            or Return_Date<='$doi_to' and Return_Date>='$doi_from');";
     show_table($sql_mem);
 }
 else if($membership=="Faculty")
 {
     $sql_mem="SELECT Issue_Bookno,Issue_By,Issue_Date,Return_Date FROM issue_return 
-        where Member_Type='Faculty' and Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
-            or Return_Date<='$doi_to' and Return_Date>='$doi_from';";
+        where Member_Type='Faculty' and (Issue_Date>='$doi_from' and Issue_Date<='$doi_to' 
+            or Return_Date<='$doi_to' and Return_Date>='$doi_from');";
     show_table($sql_mem);
 }
 else
