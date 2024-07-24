@@ -92,6 +92,7 @@ if (mysqli_num_rows($result_buff) > 0) {
 
 
     require_once "barcode.php";
+
     $pdf=new PDF_Code128();//Soham Pdf!!!!!!!!
     $pdf->AddPage();
     $pdf->SetFont("Arial", "B", 18);
@@ -104,7 +105,8 @@ if (mysqli_num_rows($result_buff) > 0) {
     // Set the position for the text cell
     $pdf->Cell(166, 5, 'International Institute of Professional Studies,Davv', 0, 0, 'C');
     $pdf->Ln();  
-    $pdf->Cell(166, 5, 'Information of ', 0, 0, 'C');
+    $pdf->Ln();  
+    $pdf->Cell(166, 5, 'Book Insert Records Excel', 0, 0, 'C');
     $pdf->Ln(); 
     $pdf->Ln(); 
     $pdf->Ln(); 

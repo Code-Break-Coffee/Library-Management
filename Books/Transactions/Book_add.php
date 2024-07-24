@@ -179,7 +179,7 @@ else
                 <p><center>$bookcount Books Inserted Successfully</center></p>
             </div>
             ";
-
+            
             $pdf=new PDF_Code128();
             $pdf->AddPage();
             $pdf->SetFont("Arial", "B", 18);
@@ -193,6 +193,8 @@ else
     
             $pdf->Ln(); 
             $pdf->Ln(); 
+            $pdf->Ln(); 
+            $pdf->Cell(166, 5, 'Book Insert Records Manual', 0, 0, 'C');
             $pdf->Ln(); 
             $pdf->Ln(); 
             $pdf->Ln(); 
