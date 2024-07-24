@@ -4,4 +4,4 @@
 4: Book/Student insert excel format error exception 
 5: Audit Form Student/Faculty Filter not working properly
 6: Student /Faculty membership deletion  merge into single page (file duplicate)
-7: Student Dues Single Class feature not working
+7: Book Return member type input Removal
