@@ -28,7 +28,7 @@ else
                                         <a id="books" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Books
                                         </a>
-                                        <div id="booksdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="booksdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="s">Search</a>
                                         <a class="dropdown-item dropdown_hover" id="b">Book Filter</a>
                                         </div>
@@ -37,7 +37,7 @@ else
                                         <a id="reports" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Reports
                                         </a>
-                                        <div id="reportsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="reportsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="au">Audit</a>
                                         <a class="dropdown-item dropdown_hover" id="m">Dues/NoDues</a>
                                         <a class="dropdown-item dropdown_hover" id="std">Member/Not Member</a>
@@ -45,11 +45,11 @@ else
                                         <a class="dropdown-item dropdown_hover" id="dueBook">Book Dues</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li  class="nav-item dropdown">
                                         <a id="transactions" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Transactions
                                         </a>
-                                        <div id="transactionsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="transactionsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="i">Issue</a>
                                         <a class="dropdown-item dropdown_hover" id="r">Return</a>
                                         </div>
@@ -58,7 +58,7 @@ else
                                         <a id="book" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Book Manipulation
                                         </a>
-                                        <div id="bookdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="bookdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="ins">Insert</a>
                                         <a class="dropdown-item dropdown_hover" id="d">Delete</a>
                                         </div>
@@ -67,7 +67,7 @@ else
                                         <a id="membership" class="nav-link dropdown-toggle hovered" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Membership
                                         </a>
-                                        <div id="membershipdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="membershipdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item dropdown_hover" id="me">Add Student Member</a>
                                         <a class="dropdown-item dropdown_hover" id="me_fac">Add Faculty Member</a>
                                         <a class="dropdown-item dropdown_hover" id="de">Delete Student Member</a>
@@ -79,7 +79,7 @@ else
                                         <a class="nav-link dropdown-toggle hovered" href="#" id="admin_panel"  id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Administrator
                                         </a>
-                                        <div id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="admin_paneldiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="admin_add">Add Assistant</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_delete">Delete Assistant</a>
                                             <a class="dropdown-item dropdown_hover" id="admin_disp">Show Admin/Assistant</a>
@@ -88,7 +88,7 @@ else
                                     </li>
                                     <li class="nav-item dropdown assistant">
                                         <a class="nav-link dropdown-toggle hovered" id="tools" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Support Tools</a>
-                                        <div id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <div style="width:100%;" id="toolsdiv" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item dropdown_hover" id="support_book">Insert Books` Data</a>
                                             <a class="dropdown-item dropdown_hover" id="support_student">Insert Students` Data</a>
                                             <a class="dropdown-item dropdown_hover" id="support_faculty">Faculty Excel</a>
