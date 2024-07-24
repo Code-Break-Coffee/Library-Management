@@ -10,8 +10,8 @@ if (!verification() || $_POST["Access"] != "Main-Student_add_excel") {
 }
 
 
-$sql_delete = "DELETE from `insert buffer`;";
-$result=$conn->query($sql_delete);
+// $sql_delete = "DELETE from `insert buffer`;";
+// $result=$conn->query($sql_delete);
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
@@ -35,6 +35,7 @@ function check($sArray,$sCount)
         $rollno=$sArray[$i][0];
         $rollno=strtoupper($rollno);
         $rollno=str_replace("-","",$rollno);
+        $rollno=str_replace("_","",$rollno);
         $rollno=preg_replace('/[^A-Za-z0-9\-]/', '', $rollno);
         $name=$sArray[$i][1];
         $course=$sArray[$i][2];

@@ -47,8 +47,9 @@ $( function() {
     });
     
     $( "#book_s" ).catcomplete({
-      delay: 0,
-      autoFocus: true,
+      delay: 500,
+      // autoFocus: true,
+      minLength: 3,
       source: ".///php/Suggestions.php"
     });
   } );

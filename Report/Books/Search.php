@@ -175,12 +175,13 @@ else
     {
         include "../../connection/dbconnect.php";
         $bno=$_POST["bookno"];
+        $isNum = is_numeric($bno);
         $Search=Book_No($bno);
         $sql="SELECT Status from books where Book_No = '$bno';";
         $result=$conn->query($sql);
         $f=0;
 
-        if($result && mysqli_num_rows($result)>0)
+        if($result && mysqli_num_rows($result)>0 && $isNum==1)
         {
             while($row=$result->fetch_assoc())
             {
@@ -212,6 +213,10 @@ else
         else if(!$result) echo "
         <div id='dialog' style='color:red;' title='Error ❌'>
             <p><center>$conn->error</center></p>
+        </div>";
+        else if($isNum != 1)echo "
+        <div id='dialog' style='color:red;' title='Error ❌'>
+            <p><center>Enter a Valid Book Number</center></p>
         </div>";
         else
         {

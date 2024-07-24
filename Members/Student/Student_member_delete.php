@@ -15,8 +15,10 @@
     function member_check($s,$m)
     {
         include "../../connection/dbconnect.php";
+        $sql_check="SELECT Student_Rollno from student where Student_Rollno = '$m';";
+        $result_check=$conn->query($sql_check);
         $r=$conn->query($s);
-        if($r)
+        if($r && mysqli_num_rows($result_check)== 1)
         {
             while($row=$r->fetch_assoc()){
                 if($row["Member_ID"]==$m) 
@@ -78,7 +80,7 @@
     {
         echo "
         <div id='dialog_del' style='color:red;' title='❌Error'>
-            <p>Member $member not found</p>
+            <p>Member $member not found or is not a Student</p>
         </div>
         ";
     }

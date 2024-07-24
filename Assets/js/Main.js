@@ -599,7 +599,7 @@ document.getElementById("s").addEventListener("click",()=>
             });
         $( "#B_Search" ).catcomplete({
             delay: 500,
-            autoFocus: true,
+            // autoFocus: true,
             minLength: 3,
             source: getPath()
         });

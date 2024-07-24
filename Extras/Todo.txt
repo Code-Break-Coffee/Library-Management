@@ -1,7 +1,7 @@
-1: student search book number and duplicate records modification 
-2: zakie ka bug student record check not there
-3: student excel ___ conditions
-4: Book/Student insert excel format error exception 
-5: Audit Form Student/Faculty Filter not working properly
-6: Student /Faculty membership deletion  merge into single page (file duplicate)
+1: student search book number and duplicate records modification --UI
+2: 
+3: 
+4: 
+5: 
+6: 
 7: Book Return member type input Removal

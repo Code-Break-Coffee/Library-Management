@@ -1,13 +1,16 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
-function delete_faculty($sql)
+include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+function delete_faculty($id)
 {
     include "../../connection/dbconnect.php";
-    $result=$conn->query($sql);
-    if($result)
-    {
-        return true;
+    $result_member = $conn->query("DELETE from member where Member_ID = '$id';");
+    $result_faculty = $conn->query("DELETE from faculty where Faculty_ID = '$id';");
+    if ($result_member) {
+        if ($result_faculty) {
+            return true;
+        } else
+            return false;
     }
     return false;
 }
@@ -15,29 +18,26 @@ function delete_faculty($sql)
 function check($fId)
 {
     include "../../connection/dbconnect.php";
-    $sql1="SELECT Member_ID from member where Member_ID = '$fId';";
-    $result1=$conn->query($sql1);
-    $sql2="SELECT Faculty_ID from faculty where Faculty_ID = '$fId';";
-    $result2=$conn->query($sql2);
-    if($result1)
-    {
-        if($result2)
-        {
-            if(mysqli_num_rows($result1)==1 && mysqli_num_rows($result2)==1)
-            {
+    $sql1 = "SELECT Member_ID from member where Member_ID = '$fId';";
+    $result1 = $conn->query($sql1);
+    $sql2 = "SELECT Faculty_ID from faculty where Faculty_ID = '$fId';";
+    $result2 = $conn->query($sql2);
+    if ($result1) {
+        if ($result2) {
+            if (mysqli_num_rows($result1) == 1 && mysqli_num_rows($result2) == 1) {
                 return true;
             }
             return false;
-        }
-        else echo
-        "
+        } else
+            echo
+                "
             <div title='Error❌' id='dialog_fac_del'>
                 <p>$conn->error</p>
             </div>
         ";
-    }
-    else echo
-    "
+    } else
+        echo
+            "
         <div title='Error❌' id='dialog_fac_del'>
             <p>$conn->error</p>
         </div>
@@ -45,73 +45,59 @@ function check($fId)
 }
 
 function checkIssue($fId)
-{   
+{
     include "../../connection/dbconnect.php";
-    $sql="SELECT * from issue_return where Issue_By = '$fId' and Return_Date is NULL";
-    $result=$conn->query($sql);
-    if($result)
-    {
-        if(mysqli_num_rows($result)!=0)
-        {
+    $sql = "SELECT * from issue_return where Issue_By = '$fId' and Return_Date is NULL";
+    $result = $conn->query($sql);
+    if ($result) {
+        if (mysqli_num_rows($result) != 0) {
             return false;
         }
         return true;
-    }
-    else echo
-    "
+    } else
+        echo
+            "
         <div title='Error❌' id='dialog_fac_del'>
             <p>$conn->error</p>
         </div>
     ";
 }
-if(!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member" )
-{
+if (!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member") {
     header("Location: /LibraryManagement/");
-}
-else
-{
-    if(!empty($_POST["fac_id"]))
-    {
-        $Fac_Id=$_POST["fac_id"];
-        if(check($Fac_Id))
-        {
-            if(checkIssue($Fac_Id))
-            {
-                if(delete_faculty("DELETE from member where Member_ID = '$Fac_Id';"))
-                {
+} else {
+    if (!empty($_POST["fac_id"])) {
+        $Fac_Id = $_POST["fac_id"];
+        if (check($Fac_Id)) {
+            if (checkIssue($Fac_Id)) {
+                if (delete_faculty($Fac_Id)) {
                     echo
-                    "
+                        "
                         <div title='Success✅' id='dialog_fac_del'>
                             <p style='color:green;'>Faculty '$Fac_Id' deleted successfully!!!</p>
                         </div>
                     ";
-                }
-                else
-                {
+                } else {
                     echo
-                    "
+                        "
                         <div title='Error❌' id='dialog_fac_del'>
-                            <p style='color:red;'>Some Error Occurred!!!</p>
+                            <p style='color:red;'>Some error occurred!!!</p>
                         </div>
                     ";
                 }
-            }
-            else
-            echo
-            "
+            } else
+                echo
+                    "
                 <div title='Error❌' id='dialog_fac_del'>
                     <p style='color:red;'>Faculty $Fac_Id has not returned a book, so it can`t be deleted!!!</p>
                 </div>
             ";
-        }
-        else
-        echo
-            "
+        } else
+            echo
+                "
                 <div title='Error❌' id='dialog_fac_del'>
-                    <p style='color:red;'>Faculty '$Fac_Id' not Found, Please check Once!!!</p>
+                    <p style='color:red;'>Faculty '$Fac_Id' Record not found, Please check once!!!</p>
                 </div>
             ";
-    }
-    else header("Location: /LibraryManagement/");
+    } else
+        header("Location: /LibraryManagement/");
 }
-?>
