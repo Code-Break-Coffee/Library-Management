@@ -122,9 +122,9 @@ else
             echo"
                 </tbody></table></div>
                 <script>
-                    document.getElementById('SearchField').style.transform='translate(-120%,-50%)';
+                    document.getElementById('SearchField').style.transform='translate(-160%,-55%)';
                     document.getElementById('response5').style.top='25%';
-                    document.getElementById('response5').style.left='45%';
+                    document.getElementById('response5').style.left='32%';
                 </script>";
 
         }
