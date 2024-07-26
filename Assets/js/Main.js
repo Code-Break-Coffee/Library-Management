@@ -414,7 +414,13 @@ document.getElementById("ins").addEventListener("click",()=>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Remark:</label>
-                            <input  type="text" name="remark" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <select class="form-control bg-dark" style="width:100%;color:aliceblue;" name="remark">
+                                <option value="null">Select Remark</option>
+                                <option value="main library">Main Library</option>
+                                <option value="reference library">Reference Library</option>
+                                <option value="donation">Donation</option>
+                                <option value="others">Others</option>
+                            </select>
                         </div>
                     </div><br>
                             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>

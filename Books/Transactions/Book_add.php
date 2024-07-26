@@ -105,12 +105,12 @@ else
         $author2=$_POST["author3"];
         $author3=null;
     }
-    if(!empty($_POST["remark"]))
+    if($_POST["remark"] != "null")
     {
         $remark=$_POST["remark"];
     }
     else{
-        $remark=null;
+        $remark=NULL;
     }
     if(!empty($_POST["cost"])) $cost=$_POST["cost"];
     else $cost=null;

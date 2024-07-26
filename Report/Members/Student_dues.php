@@ -120,9 +120,17 @@ else
         include "../../connection/dbconnect.php";
         // Include the PDF class
         require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
-
+        class PDF extends FPDF
+        {
+            function Footer()
+            {
+                $this->SetY(-15);
+                $this->SetFont("Arial","B",15);
+                $this->Cell(0,1,"Signature",0,0,"R");
+            }
+        }
         // Create instance of PDF class
-        $pdf = new FPDF();
+        $pdf = new PDF();
         
         // Add 1 page in your PDF
         $pdf->AddPage();
