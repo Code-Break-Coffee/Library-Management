@@ -1,7 +1,6 @@
-1: student search book number and duplicate records modification --UI
+1: student search book number and duplicate records table modification --UI
 2: 
 3: 
 4: 
-5: 
-6: 
+5: Roll Back 
 7: Book Return member type input Removal
