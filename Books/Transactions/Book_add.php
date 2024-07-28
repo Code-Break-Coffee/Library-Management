@@ -107,11 +107,20 @@ else
     }
     if($_POST["remark"] != "null")
     {
-        $remark=$_POST["remark"];
+        if($_POST["remark"]=="others")
+        {
+            $remark=$_POST["other"];
+        }
+        else
+        {
+            $remark=$_POST["remark"];
+        }
     }
-    else{
+    else
+    {
         $remark=NULL;
     }
+
     if(!empty($_POST["cost"])) $cost=$_POST["cost"];
     else $cost=null;
     if(!empty($_POST["billno"])) $billno=$_POST["billno"];
