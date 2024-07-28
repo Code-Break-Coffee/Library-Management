@@ -414,7 +414,7 @@ document.getElementById("ins").addEventListener("click",()=>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Remark:</label>
-                            <select class="form-control bg-dark" style="width:100%;color:aliceblue;" name="remark">
+                            <select class="form-control bg-dark" style="width:100%;color:aliceblue;" name="remark" id="remark_change">
                                 <option value="null">Select Remark</option>
                                 <option value="main library">Main Library</option>
                                 <option value="reference library">Reference Library</option>
@@ -422,7 +422,14 @@ document.getElementById("ins").addEventListener("click",()=>
                                 <option value="others">Others</option>
                             </select>
                         </div>
-                    </div><br>
+                    </div>
+                    <div class="row" id="remark" style="display:none;">
+                        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
+                            <label>Other Remark:</label>
+                            <input type="text" name="other" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                        </div>
+                    </div>
+                    <br>
                             <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
                             <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>
@@ -432,6 +439,17 @@ document.getElementById("ins").addEventListener("click",()=>
     <div style="font-weight: bold;" id="response3"></div>`;
     $(document).ready(function()
     {
+        $("#remark_change").on("change",()=>
+        {
+            if(document.querySelector("#remark_change").value==="others")
+            {
+                document.querySelector("#remark").style.display="block";
+            }
+            else
+            {
+                document.querySelector("#remark").style.display="none";
+            }
+        });
         $( "#book_title" ).autocomplete({
             source: "Assets\\php\\Suggestions_book_title.php",
             autoFocus:true,
