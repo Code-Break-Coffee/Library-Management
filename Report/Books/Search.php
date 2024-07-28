@@ -91,7 +91,11 @@ else
                 }
             }
             echo "
-                <div style='width:100%;overflow:auto;height:650px;'><table>
+                <head>
+                    <link rel='stylesheet' href='../../Assets/DataTables/jquery-ui.css'>
+                    <link rel='stylesheet' href='../../Assets/DataTables/jquery.dataTables_themeroller.css'>
+                </head>
+                <div style='width:100%;overflow:auto;height:650px;'><table id='example'>
                 <tr>
                 <th>Book No.</th>
                 <th>Title</th>
@@ -121,6 +125,16 @@ else
 
             echo"
                 </tbody></table></div>
+                <script src='../../Assets/DataTables/jquery.js'></script>
+                <script src='../../Assets/DataTables/jquery.dataTables.js'></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#example').dataTable( {
+                            jQueryUI: true
+                        } );
+                    } );
+                </script>   
                 <script>
                     document.getElementById('SearchField').style.transform='translate(-160%,-55%)';
                     document.getElementById('response5').style.top='25%';
