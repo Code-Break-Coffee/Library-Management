@@ -1,41 +1,44 @@
 <?php
-    include "../../connection/dbconnect.php";
+include "../../connection/dbconnect.php";
 
-    $stat="select val1,val2,val3 from `insert buffer`;";
-    $result=$conn->query($stat);
-    
-    if($result)
-    {
-        while($row= $result->fetch_array())
-        {
-            $sArray[]=$row;
-        }
-        
-        for($i=0;$i<count($sArray);$i++)
-        {
-            $fcaId=$sArray[$i][0];
-            $fcaId=strtoupper($fcaId);
-            $fcaId=str_replace("-","",$fcaId);
-            $fName=$sArray[$i][1];
-            $fType=$sArray[$i][2];
+$stat = "SELECT val1, val2, val3 FROM `insert buffer`;";
+$result = $conn->query($stat);
 
-            $stat1="insert into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values ('$fcaId','$fName','$fType');";
-            $res=$conn->query($stat1);
-            if($res)
-            {
-                // echo"
-                // <div id='dialog_student_excel' style='color:green;' title='Succesfull'>
-                //     <p><center>Data Inserted Successfully</center></p>
-                // </div>;
-                // ";
-                $sql_delete = "DELETE from `insert buffer`;";
-                $result=$conn->query($sql_delete);
-            }
-            else
-            {
-                echo"error";
-            }
-        }
+if ($result) {
+    while ($row = $result->fetch_array()) {
+        $sArray[] = $row;
     }
 
+    $conn->begin_transaction(); // Start transaction
+
+    try {
+        for ($i = 0; $i < count($sArray); $i++) {
+            $fcaId = $sArray[$i][0];
+            $fcaId = strtoupper($fcaId);
+            $fcaId = str_replace("-", "", $fcaId);
+            $fName = $sArray[$i][1];
+            $fType = $sArray[$i][2];
+
+            $stat1 = "INSERT INTO faculty(Faculty_ID,Faculty_Name,Faculty_Type) VALUES ('$fcaId','$fName','$fType');";
+            $res = $conn->query($stat1);
+            if (!$res) {
+                throw new Exception($conn->error);
+            }
+        }
+
+        $sql_delete = "DELETE FROM `insert buffer`;";
+        $result = $conn->query($sql_delete);
+        if (!$result) {
+            throw new Exception($conn->error);
+        }
+
+        $conn->commit(); // Commit transaction
+        echo "<div style='color:green;' title='Successful'><p><center>Data Inserted Successfully</center></p></div>";
+    } catch (Exception $e) {
+        $conn->rollback(); // Rollback transaction on error
+        echo "<div style='color:red;' title='Error'><p><center>Transaction failed: " . $e->getMessage() . "</center></p></div>";
+    }
+} else {
+    echo "<div style='color:red;' title='Error'><p><center>No records found in insert buffer.</center></p></div>";
+}
 ?>
