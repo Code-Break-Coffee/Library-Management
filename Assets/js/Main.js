@@ -1268,6 +1268,11 @@ document.getElementById("support_book").addEventListener("click",()=>
     </center>        
     </div>
     </div>
+
+    <div id="spinner_load" style="height:70vh;align-items:center;justify-content:center;display:none;">
+        <div class="spinner-border text-warning" role="status"></div>
+    </div>
+
     <div style="font-weight: bold;" id="response_exl_records";position: absolute;></div>
     `;
     async function uploadFile()
@@ -1292,6 +1297,7 @@ document.getElementById("support_book").addEventListener("click",()=>
 
         $("#frmExcelImport").submit(function(e)
         {
+            document.getElementById("spinner_load").style.display = "flex";
             e.preventDefault();
             document.getElementById("response_exl_records").style.display="block";
             document.getElementById("exl_srch").style.display="none";
@@ -1306,11 +1312,12 @@ document.getElementById("support_book").addEventListener("click",()=>
                 datatype: "text",
                 error: function()
                 {
+                    document.getElementById("spinner_load").style.display = "none";
                     alert('Some Error Occurred!!!');
                 },
                 success: function(Result)
                 {
-                    
+                    document.getElementById("spinner_load").style.display = "none";
                     $( "#dialog_exl_disp" ).dialog( "destroy" );
                     $("#response_exl_records").html(Result);
                     $("#dialog_exl_disp").dialog();  
@@ -1344,6 +1351,11 @@ document.getElementById("support_faculty").addEventListener("click",()=>
     </center>        
     </div>
     </div>
+    
+    <div id="spinner_load" style="height:70vh;align-items:center;justify-content:center;display:none;">
+        <div class="spinner-border text-warning" role="status"></div>
+    </div>
+
     <div style="font-weight: bold;" id="response_exl_faculty"></div>
     `;
     async function uploadFile_Fac()
@@ -1361,6 +1373,7 @@ document.getElementById("support_faculty").addEventListener("click",()=>
     {
         $("#facExcelImport").submit(function(e)
         {
+            document.getElementById("spinner_load").style.display = "flex";
             e.preventDefault();
             document.getElementById("fac_exl").style.display="none";
             uploadFile_Fac();
@@ -1372,10 +1385,12 @@ document.getElementById("support_faculty").addEventListener("click",()=>
                 datatype: "text",
                 error: function()
                 {
+                    document.getElementById("spinner_load").style.display = "none";
                     alert('Some Error Occurred!!!');
                 },
                 success: function(Result)
                 {
+                    document.getElementById("spinner_load").style.display = "none";
                     $( "#dialog_exl_faculty" ).dialog( "destroy" );
                     $("#response_exl_faculty").html(Result);
                     $("#dialog_exl_faculty").dialog();  
@@ -1407,7 +1422,12 @@ document.getElementById("support_student").addEventListener("click",()=>
     </center>        
     </div>
     </div>
-    <div style="font-weight: bold;" id="response_exl_records_student"></div>
+
+    <div id="spinner_load" style="height:80vh;align-items:center;justify-content:center;display:none;">
+        <div class="spinner-border text-warning" role="status"></div>
+    </div>
+
+        <div style="font-weight: bold;" id="response_exl_records_student"></div>
     `;
     async function uploadFile()
     {
@@ -1428,6 +1448,7 @@ document.getElementById("support_student").addEventListener("click",()=>
         })
         $("#frmExcelImportStudent").submit(function(e)
         {
+            document.getElementById("spinner_load").style.display = "flex";
             e.preventDefault();
             document.getElementById('exl_srch_student').style.display='none';
             uploadFile();
@@ -1440,9 +1461,11 @@ document.getElementById("support_student").addEventListener("click",()=>
                 error: function()
                 {
                     alert('Some Error Occurred!!!');
+                    document.getElementById("spinner_load").style.display="none";
                 },
                 success: function(Result)
                 {
+                    document.getElementById("spinner_load").style.display="none";
                     $( "#dialog_exl_disp_student" ).dialog( "destroy" );
                     $("#response_exl_records_student").html(Result);
                     $("#dialog_exl_disp_student").dialog();  
