@@ -231,26 +231,28 @@ document.getElementById("au").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="aufield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="auform" method="post" action="" autocomplete="off">
-                <center>
-                    <h1>Audit Form</h1>
-                    <label>Member Type:</label><br>
-                    <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
-                    &nbsp;
-                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/>
-                    &nbsp;
-                    <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
-                    <br><br>                                   
-                    <label>From:</label>
-                    <input required type="date" name="from" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-                    <label>To:</label>
-                    <input required type="date" name="to" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Search"/>
-                    <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;" id="resetsearch">Clear</button><br><br>
-                </center>
-            </form>
+    <div style="display:flex;justify-content:center;align-items:center;height:80vh;">
+        <div id="aufield" style="font-weight:bold;width:500px;height:500px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
+            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:70%;">
+                <form id="auform" method="post" action="" autocomplete="off">
+                    <center>
+                        <h1>Audit Form</h1>
+                        <label>Member Type:</label><br>
+                        <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
+                        &nbsp;
+                        <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/>
+                        &nbsp;
+                        <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
+                        <br><br>                                   
+                        <label>From:</label>
+                        <input required type="date" name="from" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;" /><br>
+                        <label>To:</label>
+                        <input required type="date" name="to" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;" /><br>
+                        <input type="submit" class="btn" style="color:black;background-color: white;font-weight: bold;" value="Search"/>
+                        <button type="reset" class="btn " style="font-weight: bold;background-color: white;color: black;" id="resetsearch">Clear</button><br><br>
+                    </center>
+                </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response7"></div>`;
@@ -282,7 +284,7 @@ document.getElementById("au").addEventListener("click",()=>
     $("#resetsearch").click(function()
     {
         document.getElementById("response7").style.display="none";
-        document.getElementById("aufield").style.transform="translate(-50%,-50%)";
+        document.getElementById("aufield").style.transform="translate(0%,0%)";
     });
 });
 
@@ -526,25 +528,29 @@ document.getElementById("s").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="searchform" method="post" action="" autocomplete="off">
-                <center>
-                    <h1>Book Search Form</h1>
-                    <label>Category:</label>
-                    <select id="sb" name="soption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="search">Search..</option>
-                        <option value="Book No.">Book No.</option>
-                        <option value="Author">Author</option>
-                        <option value="Title">Title</option>
-                    </select><br>
-                    
-                    <div id="searchcontain"></div>
-                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
-                    <button type="submit" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="Assets\\img\\baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                </center>  
-            </form>
+    <div style='font-size:15px;height:80vh;display:flex;align-items:center;justify-content:center;'>
+        <div id="SearchField" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
+            <div style="width:70%;position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <form id="searchform" method="post" action="" autocomplete="off">
+                    <center>
+                        <h1>Book Search Form</h1>
+                        <label>Category:</label>
+                        <select id="sb" name="soption" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;">
+                            <option value="search">Search..</option>
+                            <option value="Book No.">Book No.</option>
+                            <option value="Author">Author</option>
+                            <option value="Title">Title</option>
+                        </select><br>
+                        
+                        <div id="searchcontain"></div>
+                        <input required type="text" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;" id="B_Search" name="book"/><br>
+
+                        <button type="submit" value="Search" class="btn" style="margin:10px;width:80px;background-color:white;border: 2px solid #401B00;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
+                        <button id="resetsearch" type="reset" class="btn " style="margin:10px;font-weight: bold;background-color: white;color: black;">Clear</button><br><br>
+ 
+                    </center>  
+                </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
@@ -633,7 +639,7 @@ document.getElementById("s").addEventListener("click",()=>
             let s=document.getElementById("B_Search");
             document.getElementById("searchcontain").innerHTML="<label>Book Search:</label>";
             document.getElementById("response5").style.display="none";
-            document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
+            document.getElementById("SearchField").style.transform="translate(0%,0%)";
             s.setAttribute('name','book');
             sugg_path = "Assets\\php\\Suggestions.php";
         });
@@ -642,7 +648,7 @@ document.getElementById("s").addEventListener("click",()=>
             let sval=sb.options[sb.selectedIndex].value;
             e.preventDefault();
             document.getElementById("response5").style.display="none";
-            document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
+            // document.getElementById("SearchField").style.transform="translate(-50%,-50%)";
             $.ajax(
             {
                 method: "post",
@@ -671,21 +677,23 @@ document.getElementById("m").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="memberfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="memberform" method="post" action="" autocomplete="off">
-                <center>
-                    <h1>Dues Member Check</h1>
-                    <label>Check Dues:</label>
-                    <select name="moption" id="mb" class="form-control bg-dark" style="width:100%;color:aliceblue;">
-                        <option value="Single Member">Single Member</option>
-                        <option value="Class">Class</option>
-                    </select><br>
-                    <div id="membercontain"></div>
-                    <input id="membersubmit" type="submit"  class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Check"/>
-                    <button type="reset" id="resetmember" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>                                        
-                </center>
-            </form>
+    <div style='display:flex;justify-content:center;align-items:center;height:80vh;'>
+        <div id="memberfield" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
+            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:80%;">
+                <form id="memberform" method="post" action="" autocomplete="off">
+                    <center>
+                        <h1>Dues Member Check</h1>
+                        <label>Check Dues:</label>
+                        <select name="moption" id="mb" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;">
+                            <option value="Single Member">Single Member</option>
+                            <option value="Class">Class</option>
+                        </select><br>
+                        <div id="membercontain"></div>
+                        <input id="membersubmit" type="submit"  class="btn" style="color:black;background-color: white;font-weight: bold;" value="Check"/>
+                        <button type="reset" id="resetmember" class="btn" style="font-weight: bold;background-color: white;color: black;">Clear</button>                                        
+                    </center>
+                </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response6"></div>`;
@@ -697,7 +705,7 @@ document.getElementById("m").addEventListener("click",()=>
         let mc=document.getElementById("membercontain");
         if(mval=="Single Member")
         {
-            mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+            mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
             <br>`;
             document.getElementById("membersubmit").setAttribute("value","Check");
         }
@@ -708,14 +716,14 @@ document.getElementById("m").addEventListener("click",()=>
             let mc=document.getElementById("membercontain");
             if(mval=="Single Member")
             {
-                mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Check");
             }
             if(mval=="Class")
             {
                  mc.innerHTML=`
-                <label>Batch:</label><input required type="text" name="year" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                <label>Batch:</label><input required type="text" name="year" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Download");
             }
@@ -1178,34 +1186,34 @@ document.querySelector("#b").addEventListener('click',()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='background-color: rgba(0, 0, 0, 0.2);backdrop-filter:blur(5px);'>
+    <div style='background-color: rgba(120, 62, 18, 0.7);backdrop-filter:blur(5px);'>
         <form id='bookfilter_form' method='post' action='' style='color:aliceblue;font-weight:bold;' autocomplete='off'>
             <center>
-                <h1 style='text-shadow:2px 2px black;'>Book Filter</h1>
+                <h1 style='text-shadow:2px 2px black;' class='p-2'>Book Filter</h1>
                 <div class='row'>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Title:</label><br>
-                        <input type='text' name='title' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Title or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='title' class=' bookfilter' style='color:aliceblue;' placeholder='Enter Title or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Author:</label><br>
-                        <input type='text' name='author' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Author or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='author' class='bookfilter' style='color:aliceblue;' placeholder='Enter Author or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Publisher:</label><br>
-                        <input type='text' name='publisher' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Publisher or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='publisher' class=' bookfilter' style='color:aliceblue;' placeholder='Enter Publisher or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Supplier:</label><br>
-                        <input type='text' name='supplier' class='bg-dark bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='supplier' class='bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
                     </div>
                 </div><br>
                 <div style='display:flex;justify-content:center;gap:7px;'>
                     <div>
-                        <input type='submit' style='color:aliceblue;background-color:black;' class='btn'/>
+                        <input type='submit' style='color:aliceblue;background-color:white;color:black;' class='btn'/>
                     </div>
                     <div>
-                        <input id='filterreset' type='reset' style='color:aliceblue;background-color:#520702;' class='btn' value='Clear'/>
+                        <input id='filterreset' type='reset' style='color:aliceblue;background-color:white;color:black;' class='btn' value='Clear'/>
                     </div>
                 </div>
             </center>

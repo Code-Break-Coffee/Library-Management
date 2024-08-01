@@ -1,0 +1,100 @@
+@font-face {
+    font-family: product;
+    src: url(../../Assets/fonts/Product\ Sans\ Regular.ttf);
+}
+@font-face {
+    font-family: product_bold;
+    src: url(../../Assets/fonts/Product\ Sans\ Bold.ttf);
+}
+.heading
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #783e12;
+    color: #ffffff;
+}
+.heading div
+{
+    width:500px;
+}
+.heading_sub
+{
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+#container
+{
+    background: url(../img/image.png);
+    width:100%;
+    height:100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+#contain
+{
+    background: url(../img/image.png);
+    width:100%;
+    height:100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* -------------------Logout-------------------------- */
+
+#logoutbtn
+{
+    width:200px;
+    font-size: large;
+    color: #ffffff;
+    background-color: #401b00;
+    font-family:product_bold;
+}
+#logoutbtn:hover
+{
+    background-color:#ffffff;
+    color: black;
+}
+#Student:hover
+{
+    background-color:#ffffff;
+    color: black;
+}
+
+#Student
+{
+    width:200px;
+    font-size: large;
+    color: #ffffff;
+    background-color: #401b00;
+    font-family:product_bold;
+}
+
+/* ------------------Navbar ------------------------*/
+
+.dropdown-menu
+{
+    background-color: black;
+}
+.nav-link
+{
+    color: #ffffff;
+}
+.nav-link:hover
+{
+    color: black;
+    background-color: #ffffff;
+}
+.dropdown_hover
+{
+    color:#ffffff;
+}
+.dropdown_hover:hover
+{
+    color:black;
+}
