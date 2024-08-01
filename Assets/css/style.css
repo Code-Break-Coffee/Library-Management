@@ -1,0 +1,128 @@
+@font-face {
+    font-family: product;
+    src: url(../../Assets/fonts/Product\ Sans\ Regular.ttf);
+}
+@font-face {
+    font-family: product_bold;
+    src: url(../../Assets/fonts/Product\ Sans\ Bold.ttf);
+}
+.heading
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #783e12;
+    color: #ffffff;
+}
+.heading div
+{
+    width:500px;
+}
+.heading_sub
+{
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+#container
+{
+    background: url(../img/image.png);
+    width:100%;
+    height:100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+#contain
+{
+    background: url(../img/image.png);
+    width:100%;
+    height:100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* -------------------Logout-------------------------- */
+
+#logoutbtn
+{
+    width:200px;
+    font-size: large;
+    color: #ffffff;
+    background-color: #401b00;
+    font-family:product_bold;
+}
+#logoutbtn:hover
+{
+    background-color:#ffffff;
+    color: black;
+}
+#Student:hover
+{
+    background-color:#ffffff;
+    color: black;
+}
+
+#Student
+{
+    width:200px;
+    font-size: large;
+    color: #ffffff;
+    background-color: #401b00;
+    font-family:product_bold;
+}
+
+/* ------------------Navbar ------------------------*/
+
+.dropdown-menu
+{
+    background-color: black;
+}
+.nav-link
+{
+    color: #ffffff;
+}
+.nav-link:hover
+{
+    color: black;
+    background-color: #ffffff;
+}
+.dropdown_hover
+{
+    color:#ffffff;
+}
+.dropdown_hover:hover
+{
+    color:black;
+}
+
+/* ----------------Dabbe--------------------- */
+.dabbe
+{
+    font-size:15px;
+    height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.dabbe_ka_dabba
+{
+    font-weight:bold;
+    width:450px;
+    height:450px;
+    background-color: rgba(120, 62, 18, 0.7);
+    border-radius:10%;
+    backdrop-filter: blur(5px);
+    color:aliceblue;
+}
+.dabbe_k_dabbe_ka_dabba
+{
+    width:70%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    translate: -50% -50%;
+}

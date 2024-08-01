@@ -526,6 +526,7 @@ document.getElementById("s").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
+<<<<<<< Updated upstream
     <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="searchform" method="post" action="" autocomplete="off">
@@ -545,6 +546,31 @@ document.getElementById("s").addEventListener("click",()=>
                     <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
                 </center>  
             </form>
+=======
+    <div class="dabbe">
+        <div id="SearchField" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
+                <form id="searchform" method="post" action="" autocomplete="off">
+                    <center>
+                        <h1>Book Search Form</h1>
+                        <label>Category:</label>
+                        <select id="sb" name="soption" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;">
+                            <option value="search">Search..</option>
+                            <option value="Book No.">Book No.</option>
+                            <option value="Author">Author</option>
+                            <option value="Title">Title</option>
+                        </select><br>
+                        
+                        <div id="searchcontain"></div>
+                        <input required type="text" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;" id="B_Search" name="book"/><br>
+
+                        <button type="submit" value="Search" class="btn" style="margin:10px;width:80px;background-color:white;border: 2px solid #401B00;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
+                        <button id="resetsearch" type="reset" class="btn " style="margin:10px;font-weight: bold;background-color: white;color: black;">Clear</button><br><br>
+ 
+                    </center>  
+                </form>
+            </div>
+>>>>>>> Stashed changes
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
