@@ -95,7 +95,7 @@ else
                     <link rel='stylesheet' href='../../Assets/DataTables/jquery-ui.css'>
                     <link rel='stylesheet' href='../../Assets/DataTables/jquery.dataTables_themeroller.css'>
                 </head>
-                <div style='width:100%;overflow:auto;height:650px;'><table id='example'>
+                <div style='width:80%;overflow:auto;height:650px;'><table id='example'>
                 <tr>
                 <th>Book No.</th>
                 <th>Title</th>
@@ -136,7 +136,7 @@ else
                     } );
                 </script>   
                 <script>
-                    document.getElementById('SearchField').style.transform='translate(-160%,-55%)';
+                    document.getElementById('SearchField').style.transform='translate(-130%,-0%)';
                     document.getElementById('response5').style.top='25%';
                     document.getElementById('response5').style.left='32%';
                 </script>";

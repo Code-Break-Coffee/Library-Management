@@ -528,9 +528,29 @@ document.getElementById("s").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='font-size:15px;height:80vh;display:flex;align-items:center;justify-content:center;'>
-        <div id="SearchField" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
-            <div style="width:70%;position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="SearchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <form id="searchform" method="post" action="" autocomplete="off">
+                <center>
+                    <h1>Book Search Form</h1>
+                    <label>Category:</label>
+                    <select id="sb" name="soption" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                        <option value="search">Search..</option>
+                        <option value="Book No.">Book No.</option>
+                        <option value="Author">Author</option>
+                        <option value="Title">Title</option>
+                    </select><br>
+                    
+                    <div id="searchcontain"></div>
+                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="B_Search" name="book"/><br>
+                    <button type="submit" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="Assets\\img\\baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
+                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                </center>  
+            </form>
+
+    <div class="dabbe">
+        <div id="SearchField" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="searchform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Book Search Form</h1>

@@ -46,7 +46,7 @@ function show_table($stat)
         echo "</tbody>
         </table></div>
         <script>
-            document.getElementById('aufield').style.transform='translate(-120%,-50%)';
+            document.getElementById('aufield').style.transform='translate(-70%,0%)';
             document.getElementById('response7').style.transform='translate(50%,-90%)';
         </script>";
     }
