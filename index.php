@@ -10,155 +10,48 @@ $_SESSION["File"] = "Index.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="Assets\\css\\bootstrap.css">
-    <style>
-        @font-face
-        {
-            font-family: HeadingBold;
-            src: url(Assets\\fonts\\BebasNeue-Bold.ttf);
-        }
-        @font-face
-        {
-            font-family: HeadingRegular;
-            src: url(Assets\\fonts\\BebasNeue-Regular.ttf);
-        }
-        .btn:hover
-        {
-            border: 2px solid aliceblue;
-        }
-        #container
-        {
-            /* background: url(Assets\\img\\library.jpg); */
-            background: url(Assets\\img\\1339726.png);
-            background-repeat: repeat-y ;
-            background-position: center;
-            background-size: cover;
-            width:100%;
-            height:769px;
-        }
-        .heading
-        {
-            font-family: HeadingBold;
-            background-color: #092435;
-            color: #bbf0e8;
-        }
-        body 
-        {
-            overflow: hidden;
-        }
-        #contain
-        {
-            /* background: url(Assets\\img\\library.jpg); */
-            background: url(Assets\\img\\1339726.png);
-            background-repeat: no-repeat ;
-            background-position: center;
-            background-size: cover;
-            width:100vw;
-            height:828px;
-        }
-        .hovered:hover
-        {
-            cursor: pointer !important;
-            background-color: #61908a !important;
-            color:#092435 !important;
-        }
-        .dropdown_hover:hover
-        {
-            background-color: #092435;
-            color: aliceblue;
-        }
-        .hovered:focus
-        {
-            color: #61908a;
-        }
-        .hovered
-        {
-            color:#61908a;
-        }
-        table 
-        {
-            background: #012B39;
-            border-radius: 0.25em;
-            border-collapse: collapse;
-        }
-        th 
-        {
-            border-bottom: 1px solid #364043;
-            color: #E2B842;
-            font-size: 0.85em;
-            font-weight: 600;
-            padding: 0.5em 1em;
-        }
-        td 
-        {
-            color: #fff;
-            font-weight: 400;
-            padding: 0.65em 1em;
-        }
-
-        tbody tr 
-        {
-            transition: background 0.25s ease;
-        }
-        tbody tr:hover {
-            background: #014055;
-        }
-        .bookfilter
-        {
-            width:300px;
-            font-weight:bold;
-            border-radius: 5px;
-            border: 2px solid black;
-            height:40px;
-        }
-        input::placeholder
-        { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color:aliceblue;
-            opacity: 1;
-        }
-        :-ms-input-placeholder
-        { /* Internet Explorer 10-11 */
-            color:aliceblue;
-        }
-        ::-ms-input-placeholder 
-        { /* Microsoft Edge */
-            color:aliceblue;
-        }
-    </style>
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.structure.css">
     <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.theme.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
     <script src="./jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
 </head>
 <body>
     <center>
-    <div class="row" style="width:100vw;" id="Title_nev">
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
-            <h1>International Institute of Professional Studies</h1>
+    <div class="heading" style="width:100%;" id="Title_nev">
+        <div class="heading_sub">
+            <img src="./Assets/img/iips_logo2.png" alt="logo" width="100" height="100"/>
+            <div style="text-align: left;font-family:product;font-size:x-large;">International Institute of Professional Studies</div>
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
-            <h1>Library</h1>
-            <button type="submit" id="Student" value="Student" class="bg-danger btn" style="width:50%;font-size: large;font-weight: bolder;color: aliceblue;">Student</button>
-            <form id="logout" method="post" action="Auth\\Logout.php" style="display:none;">
-                <input type="submit" id="logoutbtn" value="Logout" class="form-control bg-danger btn" style="width:200px; font-size: large;font-weight: bolder;color: aliceblue;"/>
-            </form>
+        <div>
+            <div>
+                <div style="font-family: product_bold;font-size:x-large;">Library</div>
+            </div>
+            <div>
+                <button type="submit" id="Student" value="Student" class="btn">Student</button>
+                <form id="logout" method="post" action="Auth\\Logout.php" style="display:none;">
+                    <input type="submit" id="logoutbtn" value="Logout" class="form-control btn" />
+                </form>
+            </div>
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 heading">
-            <h1>Devi Ahilya<br>Vishva Vidyalaya</h1>
+        <div class="heading_sub" style="justify-content: end;">
+            <div style="text-align: right;font-family:product;font-size:x-large;">Devi Ahilya<br>Vishva Vidyalaya</div>
+            <img src="./Assets/img/Davv_Logo.png" alt="logo" width="100" height="100"/>
         </div>
     </div>
     </center>
     <div id="contain">
-        <div style="font-weight:bold;width:600px;height:600px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div style="font-weight:bold;width:500px;height:500px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color:rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
             <div style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <form id="login" method="post" action="" autocomplete="off">
                     <center>
-                        <h1 style="color:aliceblue;">Login Page</h1>
+                        <h1 style="color:aliceblue;">Login Page</h1><br>
                         <label style="font-weight: bold;">Username:</label>
-                        <input required type="text" name="username" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Username"/><br>
+                        <input required type="text" name="username" class="form-control" style="background-color:#401B00;width:100%;color:aliceblue;" placeholder="Enter Username"/><br>
                         <label style="font-weight: bold;">Password:</label>
-                        <input required type="password" name="password" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Password"/><br>
-                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Login"/>
-                        <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>
+                        <input required type="password" name="password" class="form-control" style="background-color:#401B00;width:100%;color:aliceblue;" placeholder="Enter Password"/><br>
+                        <input type="submit" class="btn" style="color:black;background-color: white;font-weight: bold;" value="Login"/>
+                        <button type="reset" class="btn" style="font-weight: bold;background-color: white;color: black;">Clear</button>
                         <br><br>
                     </center>
                 </form>

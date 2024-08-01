@@ -20,7 +20,7 @@ else
     $_SESSION["RELOAD"] = "reload"; //for reload 
     ?>
                     <!--navbar-->
-                    <div style="background-color: black;font-size: large;font-weight: bold;">
+                    <div style="background-color: black;font-size: large;font-family:product;">
                         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xl navbar-expand">
                             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav-fill w-100">
@@ -170,6 +170,7 @@ else
                             background-image: none;
                         }
                     </style>
+                    <link rel="stylesheet" href="../css/style.css">
     <?php
 }
 ?>
