@@ -37,7 +37,7 @@ function show_table($l)
         </table>
         </div>
         <script>
-            document.getElementById('display').style.transform='translate(-120%,-50%)';
+            document.getElementById('display').style.transform='translate(-30%,0%)';
         </script>";
     }
     else

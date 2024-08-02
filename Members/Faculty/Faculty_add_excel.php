@@ -119,10 +119,10 @@ try {
                 <br/>
                 <div style='display:inline-flex;'>
                     <form id='fac_buffer' method='post' action=''>
-                        <button class='btn' type='submit' id='upload-button' style='color:aliceblue;background-color:black;'> Confirm </button>
+                        <button class='btn' type='submit' id='upload-button' style='color:#ffffff;background-color:black;'> Confirm </button>
                     </form> &nbsp;&nbsp;&nbsp;
                     <form id='buff_back' method='post' action=''>
-                        <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+                        <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: #ffffff;'>Back</button>
                     </form>
                 </div>
             </center>

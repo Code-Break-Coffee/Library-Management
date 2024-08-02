@@ -21,7 +21,7 @@ else
             echo
             "
                 <div style='width:100%;overflow:auto;height:650px;'>
-                    <h6 style='color:aliceblue;background-color:black;width:100px;'><center>$mi</center></h6>
+                    <h6 style='color:#ffffff;background-color:black;width:100px;'><center>$mi</center></h6>
                     <table>
                         <tr>
                             <th>Book No</th>

@@ -36,7 +36,7 @@ document.getElementById("d").addEventListener("click",()=>
                         <center>
                             <h1>Book Delete Form</h1>
                             <label>Book Number:</label>
-                            <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                            <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
                             <input type="submit" class="btn new_css_btn" value="Delete"/>
                             <button type="reset" class="btn new_css_btn">Clear</button><br><br>
                         </center>
@@ -86,14 +86,14 @@ document.getElementById("i").addEventListener("click",()=>
                         <h1>Book Issue Form</h1>
                         <br>
                         <label>Member Type:</label><br><label class="form-check-label">Student:</label>&nbsp;
-                        <input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student" style="color:aliceblue;"/>
+                        <input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student" style="color:#ffffff;"/>
                         <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
-                        <input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty" style="color:aliceblue;"/><br><br>
+                        <input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty" style="color:#ffffff;"/><br><br>
                         
                         <div class="row">
                             <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
                                 <label>Member ID:</label>
-                                <input id="memberid" required type="text" name="memberid" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
+                                <input id="memberid" required type="text" name="memberid" class="form-control new_css_input" style="width:100%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/>
                             </div>
                             <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
                                 <input type="button" id="issuecheck" class="btn new_css_btn" value="Check"  style="position:relative;top:23px;font-weight: bold;"/>
@@ -101,7 +101,7 @@ document.getElementById("i").addEventListener("click",()=>
                         </div>
                             <br>
                         <label>Book Number:</label>
-                        <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                        <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
                         <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Issue"/>
                         <button type="reset" id="resetissue" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
@@ -190,10 +190,10 @@ document.getElementById("r").addEventListener("click",()=>
                     <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
                     <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
                     <label>Member ID:</label>
-                    <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+                    <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/><br>
 
                     <label>Book Number:</label>
-                    <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                    <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
                     <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
                     <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
@@ -236,7 +236,7 @@ document.getElementById("au").addEventListener("click",()=>
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style="display:flex;justify-content:center;align-items:center;height:80vh;">
-        <div id="aufield" style="font-weight:bold;width:500px;height:500px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div id="aufield" style="font-weight:bold;width:500px;height:500px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:70%;">
                 <form id="auform" method="post" action="" autocomplete="off">
                     <center>
@@ -249,9 +249,9 @@ document.getElementById("au").addEventListener("click",()=>
                         <label class="form-check-label">All:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="All"/>
                         <br><br>                                   
                         <label>From:</label>
-                        <input required type="date" name="from" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;" /><br>
+                        <input required type="date" name="from" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;" /><br>
                         <label>To:</label>
-                        <input required type="date" name="to" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;" /><br>
+                        <input required type="date" name="to" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;" /><br>
                         <input type="submit" class="btn" style="color:black;background-color: white;font-weight: bold;" value="Search"/>
                         <button type="reset" class="btn " style="font-weight: bold;background-color: white;color: black;" id="resetsearch">Clear</button><br><br>
                     </center>
@@ -299,19 +299,21 @@ document.getElementById("me").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="mefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="meform" method="post" action="" autocomplete="off">
-                <center>
-                <h1>Add Student Member Form</h1>
-                    <label>Roll No:</label>
-                    <input required type="text" name="roll_no" class="form-control bg-dark" style="width:100%;color:aliceblue;" /><br>
+    <div id="mefield" class="dabbe">
+        <div class="dabbe_ka_dabba">
+        <div class="dabbe_k_dabbe_ka_dabba">
+        <form id="meform" method="post" action="" autocomplete="off">
+            <center>
+            <h1>Add Student Member Form</h1>
+                <label>Roll No:</label>
+                <input required type="text" placeholder="Scan the Barcode or enter the roll no." name="roll_no" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" /><br>
 
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
-                    <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                    <div style="color:red;font-weight: bold;" id="response_me"></div>
-                </center>
-            </form>
+                <input type="submit" class="btn new_css_btn" value="Add"/>
+                <button type="reset" class="btn new_css_btn">Clear</button><br><br>
+                <div style="color:red;font-weight: bold;" id="response_me"></div>
+            </center>
+        </form>
+        </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response8"></div>`;
@@ -348,79 +350,80 @@ document.getElementById("ins").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="InsertField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="InsertField" class="dabbe">
+        <div class="dabbe_ka_dabba" style="height:675px;width:675px;">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="insertform" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Book Insert Form</h1>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Book Number:</label>
-                            <input type="number" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/>
+                            <input type="number" name="bookno" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Scan the Barcode or Enter Book No."/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Title:</label>
-                            <input required id="book_title"  type="text" name="title" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required id="book_title"  type="text" name="title" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Edition:</label>
-                            <input required type="text" name="edition" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="text" name="edition" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 1:</label>
-                            <input required type="text" name="author1" id="author1"  class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="text" name="author1" id="author1"  class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 2:</label>
-                            <input type="text" name="author2"  id="author2" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="author2"  id="author2" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Author 3:</label>
-                            <input type="text" name="author3" id="author3" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="author3" id="author3" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Publisher:</label>
-                            <input required type="text" name="publisher" id="publisher" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="text" name="publisher" id="publisher" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Supplier:</label>
-                            <input type="text" name="supplier" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="supplier" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Cost:</label>
-                            <input type="number" name="cost" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="number" name="cost" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Total Pages:</label>
-                            <input required type="number" name="totalpages" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input required type="number" name="totalpages" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>No. of Copy:</label>
-                            <input type="number" name="bookcount" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="number" name="bookcount" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>CL No.</label>
-                            <input required type="number" name="CL" class="form-control bg-dark" step="0.0000001" style="width:100%;color:aliceblue;"/>
+                            <input required type="number" name="CL" class="form-control" step="0.0000001" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Bill Number:</label>
-                            <input  type="text" name="billno" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input  type="text" name="billno" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Remark:</label>
-                            <select class="form-control bg-dark" style="width:100%;color:aliceblue;" name="remark" id="remark_change">
+                            <select class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" name="remark" id="remark_change">
                                 <option value="null">Select Remark</option>
                                 <option value="main library">Main Library</option>
                                 <option value="reference library">Reference Library</option>
@@ -432,14 +435,15 @@ document.getElementById("ins").addEventListener("click",()=>
                     <div class="row" id="remark" style="display:none;">
                         <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
                             <label>Other Remark:</label>
-                            <input type="text" name="other" class="form-control bg-dark" style="width:100%;color:aliceblue;"/>
+                            <input type="text" name="other" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/>
                         </div>
                     </div>
                     <br>
-                            <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
-                            <button type="reset" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                            <input type="submit" class="btn new_css_btn" value="Insert"/>
+                            <button type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response3"></div>`;
@@ -539,7 +543,7 @@ document.getElementById("s").addEventListener("click",()=>
                     <center>
                         <h1>Book Search Form</h1>
                         <label>Category:</label>
-                        <select id="sb" name="soption" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;">
+                        <select id="sb" name="soption" class="form-control " style="width:100%;color:#ffffff;background-color:#401B00;">
                             <option value="search">Search..</option>
                             <option value="Book No.">Book No.</option>
                             <option value="Author">Author</option>
@@ -547,7 +551,7 @@ document.getElementById("s").addEventListener("click",()=>
                         </select><br>
                         
                         <div id="searchcontain"></div>
-                        <input required type="text" class="form-control " style="width:100%;color:aliceblue;background-color:#401B00;" id="B_Search" name="book"/><br>
+                        <input required type="text" class="form-control " style="width:100%;color:#ffffff;background-color:#401B00;" id="B_Search" name="book"/><br>
 
                         <button type="submit" value="Search" class="btn" style="margin:10px;width:80px;background-color:white;border: 2px solid #401B00;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
                         <button id="resetsearch" type="reset" class="btn " style="margin:10px;font-weight: bold;background-color: white;color: black;">Clear</button><br><br>
@@ -682,13 +686,13 @@ document.getElementById("m").addEventListener("click",()=>
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style='display:flex;justify-content:center;align-items:center;height:80vh;'>
-        <div id="memberfield" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:aliceblue;">
+        <div id="memberfield" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
             <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:80%;">
                 <form id="memberform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Dues Member Check</h1>
                         <label>Check Dues:</label>
-                        <select name="moption" id="mb" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;">
+                        <select name="moption" id="mb" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;">
                             <option value="Single Member">Single Member</option>
                             <option value="Class">Class</option>
                         </select><br>
@@ -709,7 +713,7 @@ document.getElementById("m").addEventListener("click",()=>
         let mc=document.getElementById("membercontain");
         if(mval=="Single Member")
         {
-            mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
+            mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;"/>
             <br>`;
             document.getElementById("membersubmit").setAttribute("value","Check");
         }
@@ -720,14 +724,14 @@ document.getElementById("m").addEventListener("click",()=>
             let mc=document.getElementById("membercontain");
             if(mval=="Single Member")
             {
-                mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
+                mc.innerHTML=`<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Check");
             }
             if(mval=="Class")
             {
                  mc.innerHTML=`
-                <label>Batch:</label><input required type="text" name="year" class="form-control" style="width:100%;color:aliceblue;background-color:#401B00;"/>
+                <label>Batch:</label><input required type="text" name="year" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;"/>
                 <br>`;
                 document.getElementById("membersubmit").setAttribute("value","Download");
             }
@@ -735,7 +739,7 @@ document.getElementById("m").addEventListener("click",()=>
 
         $("#resetmember").click(function()
         {
-            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;"/><br>';
+            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:#ffffff;"/><br>';
             document.getElementById("membersubmit").setAttribute("value","Check");
         });
 
@@ -771,21 +775,23 @@ document.getElementById("admin_add").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div class="dabbe">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="adminstrator" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Add Assistant User</h1>
                     <label>User ID:</label>
-                    <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
+                    <input required type="text" name="admin_user" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter User ID"/><br>
                     <label for="validationServer01">Password:</label>
-                    <input required id="validationServer01" type="password" name="admin_pass" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
+                    <input required id="validationServer01" type="password" name="admin_pass" class="is-invalid form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter the Password"/><br>
                     <label for="validationServer02" >Confirm Password:</label>
-                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="is-invalid form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
-                    <input type="submit" id="insert" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Insert"/>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input required id="validationServer02" type="password" name="admin_pass_conf" class="is-invalid form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter the Password"/><br>
+                    <input type="submit" id="insert" class="btn new_css_btn" value="Insert"/>
+                    <button id="resetsearch" type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response_adminstrator"></div>`;
@@ -878,19 +884,21 @@ document.getElementById("admin_delete").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div class="dabbe">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="administrator_delete" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Delete Assistant User</h1>
                     <label>User ID:</label>
-                    <input required type="text" name="admin_user" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter User ID"/><br>
+                    <input required type="text" name="admin_user" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter User ID"/><br>
                     <label>Password:</label>
-                    <input type="password" name="admin_pass" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter the Password"/><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input type="password" name="admin_pass" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter the Password"/><br>
+                    <input type="submit" class="btn new_css_btn" value="Delete"/>
+                    <button id="resetsearch" type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response_admin_delete"></div>`;
@@ -928,17 +936,19 @@ document.getElementById("de").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div class="dabbe">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="del1" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Delete Member ID</h1>
                     <label>Member ID:</label>
-                    <input required type="text" name="del_mem" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Member ID"/><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input required type="text" name="del_mem" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter Member ID"/><br>
+                    <input type="submit" class="btn new_css_btn" value="Delete"/>
+                    <button id="resetsearch" type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response_del"></div>`;
@@ -977,24 +987,26 @@ document.getElementById("me_fac").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="FacultyField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="FacultyField" class="dabbe">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="faculty" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Add Faculty Member</h1>
                     <label>Faculty Name:</label>
-                    <input required type="text" name="fac_name" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty Name"/><br>
+                    <input required type="text" name="fac_name" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter Faculty Name"/><br>
                     <label>Faculty ID:</label>
-                    <input required type="text" name="fac_id" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty ID"/><br>
+                    <input required type="text" name="fac_id" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter Faculty ID"/><br>
                     <label>Type:</label>
-                    <select name="fac_type" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+                    <select name="fac_type" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;">
                         <option value="Regular">Regular</option>
                         <option value="Visiting">Visiting</option>
                     </select><br>
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Add"/>
-                    <button id="resetfaculty" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input type="submit" class="btn new_css_btn" value="Add"/>
+                    <button id="resetfaculty" type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response_fac"></div>`;
@@ -1031,18 +1043,20 @@ document.getElementById("de_fac").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div class="dabbe">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
             <form id="faculty_del" method="post" action="" autocomplete="off">
                 <center>
                     <h1>Delete Faculty Member</h1>
                     <label>Faculty ID:</label>
-                    <input required type="text" name="fac_id" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Enter Faculty ID"/><br>
+                    <input required type="text" name="fac_id" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter Faculty ID"/><br>
 
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
-                    <button id="resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input type="submit" class="btn new_css_btn" value="Delete"/>
+                    <button id="resetsearch" type="reset" class="btn new_css_btn">Clear</button><br><br>
                 </center>
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;" id="response_fac_del"></div>`;
@@ -1078,20 +1092,22 @@ document.getElementById("admin_disp").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="display" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="display" class="dabbe">
+        <div class="dabbe_ka_dabba">
+        <div class="dabbe_k_dabbe_ka_dabba">
         <form id="display_adm" method="post" action="" autocomplete="off">
         <center>
             <h1>Admin/Assistant Display</h1>
             <label>Type:</label>
-            <select name="level" class="form-control bg-dark" style="width:100%;color:aliceblue;">
+            <select name="level" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;">
                 <option value="Admin">Admin</option>
                 <option value="Assistant">Assistant</option>
             </select><br>
-            <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Display"/>
-            <button id="resetadmin" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+            <input type="submit" class="btn new_css_btn" value="Display"/>
+            <button id="resetadmin" type="reset" class="btn new_css_btn">Clear</button><br><br>
         </center>
         </form>
+        </div>
         </div>
     </div>
     <div style="font-weight: bold; position: absolute; width:1200px;top:25%;left:50%;" id="response_admin_disp"></div>`;
@@ -1139,7 +1155,7 @@ document.getElementById("std").addEventListener("click",()=>
                     
                     <div id="std_searchcontain"></div>
                     <label>Batch ID</label>
-                    <input required type="text" class="form-control new_css_input" style="width:100%;color:aliceblue;" id="std_Search" name="batch_id"/><br>
+                    <input required type="text" class="form-control new_css_input" style="width:100%;color:#ffffff;" id="std_Search" name="batch_id"/><br>
                     <button type="submit" id="show_std" value="Search" class="btn new_css_btn" style="width:80px;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
                     <button id="std_resetsearch" type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
                 </center>  
@@ -1193,33 +1209,33 @@ document.querySelector("#b").addEventListener('click',()=>
     let container=document.getElementById("container");
     container.innerHTML=`
     <div style='background-color: rgba(120, 62, 18, 0.7);backdrop-filter:blur(5px);'>
-        <form id='bookfilter_form' method='post' action='' style='color:aliceblue;font-weight:bold;' autocomplete='off'>
+        <form id='bookfilter_form' method='post' action='' style='color:#ffffff;font-weight:bold;' autocomplete='off'>
             <center>
                 <h1 style='text-shadow:2px 2px black;' class='p-2'>Book Filter</h1>
                 <div class='row'>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Title:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='title' class=' bookfilter' style='color:aliceblue;' placeholder='Enter Title or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='title' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Title or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Author:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='author' class='bookfilter' style='color:aliceblue;' placeholder='Enter Author or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='author' class='bookfilter' style='color:#ffffff;' placeholder='Enter Author or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Publisher:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='publisher' class=' bookfilter' style='color:aliceblue;' placeholder='Enter Publisher or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='publisher' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Publisher or leave Empty'/>
                     </div>
                     <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
                         <label style='text-shadow:1px 1px black;'>Supplier:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='supplier' class='bookfilter' style='color:aliceblue;' placeholder='Enter Supplier or leave Empty'/>
+                        <input style="background-color:#401B00;" type='text' name='supplier' class='bookfilter' style='color:#ffffff;' placeholder='Enter Supplier or leave Empty'/>
                     </div>
                 </div><br>
                 <div style='display:flex;justify-content:center;gap:7px;'>
                     <div>
-                        <input type='submit' style='color:aliceblue;background-color:white;color:black;' class='btn'/>
+                        <input type='submit' style='color:#ffffff;background-color:white;color:black;' class='btn'/>
                     </div>
                     <div>
-                        <input id='filterreset' type='reset' style='color:aliceblue;background-color:white;color:black;' class='btn' value='Clear'/>
+                        <input id='filterreset' type='reset' style='color:#ffffff;background-color:white;color:black;' class='btn' value='Clear'/>
                     </div>
                 </div>
             </center>
@@ -1272,7 +1288,7 @@ document.getElementById("support_book").addEventListener("click",()=>
     <center>   
         <h1>Insert Books' Data Through Excel</h1>  </br> 
         <form id='frmExcelImport' method='post' action=''>
-        <input class="form-control" style="background-color: #401b00;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
+        <input class="form-control" style="background-color: #401b00;color: #ffffff;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
         <h6>Note: Excel Format should be same as specified !!!</h6>
         <button class="btn new_css_btn" type="submit" id="upload-button"> Upload </button>
         <button type="reset" id="resetissue" class="btn new_css_btn">Clear</button><br><br>
@@ -1353,18 +1369,19 @@ document.getElementById("support_faculty").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="fac_exl" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="fac_exl" class="dabbe">
+    <div class="dabbe_ka_dabba">
+    <div class="dabbe_k_dabbe_ka_dabba">
     <center>
-        <h1>Faculty tools</h1>  </br> 
+        <h1>Insert Faculties' Data</h1></br> 
         <form id='facExcelImport' method='post' action=''>
-        <input class="form-control" style="background-color: black;color: aliceblue;" id="fac_fileupload1" type="file" name="fac_fileupload1" accept=".xls,.xlsx"/> </br>
+        <input class="form-control" style="background-color: #401b00;color: #ffffff;" id="fac_fileupload1" type="file" name="fac_fileupload1" accept=".xls,.xlsx"/> </br>
         <h6>Note: Excel Format should be same as specified !!!</h6>
-        <button class="btn" type="submit" id="fac-upload-button" style='color:aliceblue;background-color:black;'>Upload</button>
-        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-
+        <button class="btn new_css_btn" type="submit" id="fac-upload-button">Upload</button>
+        <button type="reset" id="resetissue" class="btn new_css_btn">Clear</button><br><br>
         </form>     
     </center>        
+    </div>
     </div>
     </div>
     
@@ -1423,19 +1440,21 @@ document.getElementById("support_student").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="exl_srch_student" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-
+    <div id="exl_srch_student" class="dabbe">
+    <div class="dabbe_ka_dabba">
+    <div class="dabbe_k_dabbe_ka_dabba">
     <center>   
         <h1>Insert Students' Data Through Excel</h1>  </br> 
         <form id='frmExcelImportStudent' method='post' action=''>
-        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
+        <input class="form-control" style="background-color: #401b00;color: #ffffff;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
         <h6>Note: Excel Format should be same as specified !!!</h6>
-        <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
-        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+        <button class="btn new_css_btn" type="submit" id="upload-button"> Upload </button>
+        <button type="reset" id="resetissue" class="btn new_css_btn">Clear</button><br><br>
 
         </form>     
     </center>        
+    </div>
+
     </div>
     </div>
 
@@ -1525,16 +1544,18 @@ document.querySelector("#issue_limit").addEventListener('click',()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="issue_limit_block" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="issue_limit_block" class="dabbe">
+    <div class="dabbe_ka_dabba">
+    <div class="dabbe_k_dabbe_ka_dabba">
     <center>   
         <h1>Change Book Issue Limit</h1>
         <form id='issue_limit_form' method='post' action='' autocomplete='off'>
             <label>Limit:</label>
-            <input type='number' name='limit' class='bg-dark form-control' style='color:aliceblue;' required/><br>
-            <button class="btn" type="submit" style='color:aliceblue;background-color:black;'> Change </button>
+            <input type='number' name='limit' class='form-control' style='color:#ffffff;background-color:#401b00;' required/><br>
+            <button class="btn new_css_btn" type="submit"> Change </button>
         </form>     
     </center>        
+    </div>
     </div>
     </div>
     <div style="font-weight: bold;" id="response_issue_limit"></div>`;
@@ -1579,7 +1600,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
                     <h1>Member Books Check Page</h1>
                     <form id='sbc_form' method='post' action='' autocomplete='off'>
                         <label>Member ID:</label>
-                        <input type='text' name='mem_id' class='new_css_input form-control' style='color:aliceblue;' required/><br>
+                        <input type='text' name='mem_id' class='new_css_input form-control' style='color:#ffffff;' required/><br>
                         <button class="btn new_css_btn" style="font-weight: bold;" type="submit">Check</button>
                         <button type="reset" id="reset_sbc" class="btn new_css_btn" style="font-weight: bold;">Clear</button>
                     </form>     

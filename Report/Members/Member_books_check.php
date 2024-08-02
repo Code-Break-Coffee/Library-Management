@@ -37,7 +37,7 @@ if (!verification() || $_POST["Access"] != "Main-Member-Books-Check") {
                     echo
                         "
                         <div style='width:100%;overflow:auto;height:650px;'>
-                            <h1 style='color:aliceblue;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);width:200px;'><center>$memid</center></h1>
+                            <h1 style='color:#ffffff;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);width:200px;'><center>$memid</center></h1>
                             <table>
                                 <tr>
                                     <th>Book No</th>

@@ -115,7 +115,7 @@
     background-color: rgba(120, 62, 18, 0.7);
     border-radius:10%;
     backdrop-filter: blur(5px);
-    color:aliceblue;
+    color:#ffffff;
 }
 .dabbe_k_dabbe_ka_dabba
 {
@@ -130,6 +130,10 @@
     font-weight: bold;
     background-color: #ffffff;
     color: black;
+}
+label
+{
+    font-size:large;
 }
 
 *
@@ -175,16 +179,16 @@ tbody tr:hover {
 }
 input::placeholder
 { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color:aliceblue;
+    color:#ffffff;
     opacity: 1;
 }
 :-ms-input-placeholder
 { /* Internet Explorer 10-11 */
-    color:aliceblue;
+    color:#ffffff;
 }
 ::-ms-input-placeholder 
 { /* Microsoft Edge */
-    color:aliceblue;
+    color:#ffffff;
 }
 
 .new_css_btn
