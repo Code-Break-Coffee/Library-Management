@@ -84,8 +84,8 @@
 }
 .nav-link:hover
 {
-    color: black;
-    background-color: #ffffff;
+    color: black !important;
+    background-color: #ffffff !important;
 }
 .dropdown_hover
 {
