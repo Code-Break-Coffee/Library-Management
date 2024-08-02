@@ -38,7 +38,8 @@ navbar.addEventListener('mouseover',(e)=>
 });
 //---------------------------------------------------------------------------mouseleave
 navbar.addEventListener('mouseleave',(e)=>
-{   
+{ 
+    linking();  
     if(!e.target.classList.contains("dropdown"))
     {
         displayNone();
