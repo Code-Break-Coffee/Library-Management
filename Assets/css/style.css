@@ -110,7 +110,6 @@
 }
 .dabbe_ka_dabba
 {
-    font-weight:bold;
     width:450px;
     height:450px;
     background-color: rgba(120, 62, 18, 0.7);
@@ -126,8 +125,17 @@
     left:50%;
     translate: -50% -50%;
 }
+.dabbe_wala_khatka
+{
+    font-weight: bold;
+    background-color: #ffffff;
+    color: black;
+}
 
-
+*
+{
+    font-family: product;
+}
 
 table 
 {
@@ -181,16 +189,15 @@ input::placeholder
 
 .new_css_btn
 {
-    background-color: aliceblue;
+    background-color: #ffffff;
     color:black;
-    font-weight: bold;
+    font-family: product_bold;
 }
 
 .new_css_btn:hover
 {
     background-color: black;
-    color: aliceblue;
-    font-weight: bold;
+    color: #ffffff;
 }
 
 .new_css_input

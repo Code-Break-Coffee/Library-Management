@@ -1266,20 +1266,22 @@ document.getElementById("support_book").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="exl_srch" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-    <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-
+    <div id="exl_srch" class="dabbe">
+    <div class="dabbe_ka_dabba">
+    <div class="dabbe_k_dabbe_ka_dabba">
     <center>   
         <h1>Insert Books' Data Through Excel</h1>  </br> 
         <form id='frmExcelImport' method='post' action=''>
-        <input class="form-control" style="background-color: black;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
+        <input class="form-control" style="background-color: #401b00;color: aliceblue;" id="fileupload1" type="file" name="fileupload1" accept=".xls,.xlsx"/>
         <h6>Note: Excel Format should be same as specified !!!</h6>
-        <button class="btn" type="submit" id="upload-button" style='color:aliceblue;background-color:black;'> Upload </button>
-        <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+        <button class="btn new_css_btn" type="submit" id="upload-button"> Upload </button>
+        <button type="reset" id="resetissue" class="btn new_css_btn">Clear</button><br><br>
 
         </form>     
 
     </center>        
+    </div>
+
     </div>
     </div>
 

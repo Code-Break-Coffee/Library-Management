@@ -21,7 +21,7 @@ $_SESSION["File"] = "Index.php";
     <div class="heading" style="width:100%;" id="Title_nev">
         <div class="heading_sub">
             <img src="./Assets/img/iips_logo2.png" alt="logo" width="100" height="100"/>
-            <div style="text-align: left;font-family:product;font-size:x-large;">International Institute of Professional Studies</div>
+            <div style="text-align: left;font-family:product;font-size:x-large;">International Institute<br> of Professional Studies</div>
         </div>
         <div>
             <div>
