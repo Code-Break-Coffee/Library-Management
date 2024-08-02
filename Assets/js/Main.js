@@ -4,14 +4,35 @@ const displayNone=()=>
     let arr=document.querySelectorAll(".dropdown-menu");
     arr.forEach(elem=>elem.style.display="none");
 }
-
-//----------------------------------------------------------------------------mouseover
 const navbar=document.querySelector(".navbar-nav");
+
+//--------------------------------------------------------------------------mouseclick
+const links=document.getElementsByClassName("nav-link");
+const linking=()=>
+{
+    for(let i=0;i<links.length;i++)
+    {
+        links[i].style.backgroundColor="black";
+        links[i].style.color="#ffffff";
+    }
+}
+
+navbar.addEventListener("click",(e)=>
+{
+    if(e.target.classList.contains("nav-link"))
+    {
+        linking();
+        e.target.style.backgroundColor="#ffffff";
+        e.target.style.color="black";
+    }
+});
+//----------------------------------------------------------------------------mouseover
 navbar.addEventListener('mouseover',(e)=>
 {
     if(e.target.classList.contains("hovered"))
     {
         displayNone();
+        linking();
         document.getElementById(e.target.id+"div").style.display="block";
     }
 });
