@@ -18,7 +18,7 @@ $_SESSION["File"] = "Index.php";
 </head>
 <body>
     <center>
-    <div class="heading" style="width:100%;" id="Title_nev">
+    <div class="heading" id="Title_nev">
         <div class="heading_sub">
             <img src="./Assets/img/iips_logo2.png" alt="logo" width="100" height="100"/>
             <div style="text-align: left;font-family:product;font-size:x-large;">International Institute<br> of Professional Studies</div>
@@ -34,7 +34,7 @@ $_SESSION["File"] = "Index.php";
                 </form>
             </div>
         </div>
-        <div class="heading_sub" style="justify-content: end;">
+        <div class="heading_sub">
             <div style="text-align: right;font-family:product;font-size:x-large;">Devi Ahilya<br>Vishva Vidyalaya</div>
             <img src="./Assets/img/Davv_Logo.png" alt="logo" width="100" height="100"/>
         </div>
