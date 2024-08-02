@@ -102,7 +102,7 @@ document.getElementById("i").addEventListener("click",()=>
     container.innerHTML=`
     <div class='dabbe'>
         <div class='dabbe_ka_dabba' id="issuefield">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="issuebook" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Book Issue Form</h1>
