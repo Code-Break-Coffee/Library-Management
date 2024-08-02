@@ -41,20 +41,22 @@ $_SESSION["File"] = "Index.php";
     </div>
     </center>
     <div id="contain">
-        <div style="font-weight:bold;width:500px;height:500px;position:absolute;top:50%;left:50%;translate: -50% -35%;background-color:rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
-            <div style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
-                <form id="login" method="post" action="" autocomplete="off">
-                    <center>
-                        <h1 style="color:#ffffff;">Login Page</h1><br>
-                        <label style="font-weight: bold;">Username:</label>
-                        <input required type="text" name="username" class="form-control" style="background-color:#401B00;width:100%;color:#ffffff;" placeholder="Enter Username"/><br>
-                        <label style="font-weight: bold;">Password:</label>
-                        <input required type="password" name="password" class="form-control" style="background-color:#401B00;width:100%;color:#ffffff;" placeholder="Enter Password"/><br>
-                        <input type="submit" class="btn" style="color:black;background-color: white;font-weight: bold;" value="Login"/>
-                        <button type="reset" class="btn" style="font-weight: bold;background-color: white;color: black;">Clear</button>
-                        <br><br>
-                    </center>
-                </form>
+        <div class="dabbe">
+            <div class="dabbe_ka_dabba">
+                <div class="dabbe_k_dabbe_ka_dabba">
+                    <form id="login" method="post" action="" autocomplete="off">
+                        <center>
+                            <h1 style="color:#ffffff;">Login Page</h1><br>
+                            <label>Username:</label>
+                            <input required type="text" name="username" class="form-control" style="background-color:#401B00;width:100%;color:#ffffff;" placeholder="Enter Username"/><br>
+                            <label>Password:</label>
+                            <input required type="password" name="password" class="form-control" style="background-color:#401B00;width:100%;color:#ffffff;" placeholder="Enter Password"/><br>
+                            <input type="submit" class="btn new_css_btn" value="Login"/>
+                            <button type="reset" class="btn new_css_btn">Clear</button>
+                            <br><br>
+                        </center>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
