@@ -53,7 +53,7 @@ document.getElementById("d").addEventListener("click",()=>
         container.innerHTML=`
         <div class="dabbe">
             <div class="dabbe_ka_dabba" id="deletefield">
-                <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <div class="dabbe_k_dabbe_ka_dabba">
                     <form id="deleteform" method="post" action="" autocomplete="off">
                         <center>
                             <h1>Book Delete Form</h1>
@@ -205,22 +205,24 @@ document.getElementById("r").addEventListener("click",()=>
     container.innerHTML=`
     <div id="returnfield" class="dabbe">
         <div class="dabbe_ka_dabba">
-            <form id="returnform" method="post" action="" autocomplete="off">
-                <center>
-                    <h1 class="pt-4">Book Return Form</h1>
-                    <label>Member Type:</label><br>
-                    <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
-                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
-                    <label>Member ID:</label>
-                    <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+        <div class="dabbe_k_dabbe_ka_dabba">
+        <form id="returnform" method="post" action="" autocomplete="off">
+            <center>
+                <h1 class="pt-4">Book Return Form</h1>
+                <label>Member Type:</label><br>
+                <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
+                <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
+                <label>Member ID:</label>
+                <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/><br>
 
-                    <label>Book Number:</label>
-                    <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                <label>Book Number:</label>
+                <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
-                    <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
-                    <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
-                </center>
-            </form>
+                <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
+                <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
+            </center>
+        </form>
+        </div>
         </div>
     </div>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response2"></div>`;
@@ -257,9 +259,9 @@ document.getElementById("au").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="display:flex;justify-content:center;align-items:center;height:80vh;">
-        <div id="aufield" style="font-weight:bold;width:500px;height:500px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:70%;">
+    <div class="dabbe">
+        <div id="aufield" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="auform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Audit Form</h1>
@@ -707,9 +709,9 @@ document.getElementById("m").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='display:flex;justify-content:center;align-items:center;height:80vh;'>
-        <div id="memberfield" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:80%;">
+    <div class="dabbe">
+        <div id="memberfield" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="memberform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Dues Member Check</h1>
@@ -761,7 +763,7 @@ document.getElementById("m").addEventListener("click",()=>
 
         $("#resetmember").click(function()
         {
-            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:#ffffff;"/><br>';
+            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/><br>';
             document.getElementById("membersubmit").setAttribute("value","Check");
         });
 
@@ -1170,7 +1172,7 @@ document.getElementById("std").addEventListener("click",()=>
     container.innerHTML=`
     <div class="dabbe">
         <div id="std_searchField" class="dabbe_ka_dabba">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+        <div class="dabbe_k_dabbe_ka_dabba">
             <form id="std_searchform" method="post" action="" autocomplete="off">
                 <center>
                     <h2>Student Member/Not Student Member Check Page</h2>
@@ -1617,7 +1619,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
     container.innerHTML=`
     <div class="dabbe">
         <div id="member_books_check" class="dabbe_ka_dabba">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <center>   
                     <h1>Member Books Check Page</h1>
                     <form id='sbc_form' method='post' action='' autocomplete='off'>
