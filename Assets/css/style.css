@@ -110,13 +110,12 @@
 }
 .dabbe_ka_dabba
 {
-    font-weight:bold;
     width:450px;
     height:450px;
     background-color: rgba(120, 62, 18, 0.7);
     border-radius:10%;
     backdrop-filter: blur(5px);
-    color:aliceblue;
+    color:#ffffff;
 }
 .dabbe_k_dabbe_ka_dabba
 {
@@ -126,8 +125,21 @@
     left:50%;
     translate: -50% -50%;
 }
+.dabbe_wala_khatka
+{
+    font-weight: bold;
+    background-color: #ffffff;
+    color: black;
+}
+label
+{
+    font-size:large;
+}
 
-
+*
+{
+    font-family: product;
+}
 
 table 
 {
@@ -167,30 +179,29 @@ tbody tr:hover {
 }
 input::placeholder
 { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color:aliceblue;
+    color:#ffffff;
     opacity: 1;
 }
 :-ms-input-placeholder
 { /* Internet Explorer 10-11 */
-    color:aliceblue;
+    color:#ffffff;
 }
 ::-ms-input-placeholder 
 { /* Microsoft Edge */
-    color:aliceblue;
+    color:#ffffff;
 }
 
 .new_css_btn
 {
-    background-color: aliceblue;
+    background-color: #ffffff;
     color:black;
-    font-weight: bold;
+    font-family: product_bold;
 }
 
 .new_css_btn:hover
 {
     background-color: black;
-    color: aliceblue;
-    font-weight: bold;
+    color: #ffffff;
 }
 
 .new_css_input

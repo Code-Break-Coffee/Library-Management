@@ -208,8 +208,8 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
             }
 
             echo "</tbody></table></br>
-                    <button class='btn' type='submit' id='excelConfirm' style='color:aliceblue;background-color:black;'> Confirm </button>
-                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: aliceblue;'>Back</button>
+                    <button class='btn' type='submit' id='excelConfirm' style='color:#ffffff;background-color:black;'> Confirm </button>
+                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: #ffffff;'>Back</button>
                     </center>
                     <script>
                     $(document).ready(function() {

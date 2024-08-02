@@ -67,7 +67,7 @@ else
     } else {
         echo "
         <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-            <p><center>Admin User alread exist</center></p>
+            <p><center>User already exists</center></p>
         </div>
         ";
     }
