@@ -183,12 +183,14 @@ input::placeholder
 {
     background-color: aliceblue;
     color:black;
+    font-weight: bold;
 }
 
 .new_css_btn:hover
 {
     background-color: black;
     color: aliceblue;
+    font-weight: bold;
 }
 
 .new_css_input
