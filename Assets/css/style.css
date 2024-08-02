@@ -126,3 +126,77 @@
     left:50%;
     translate: -50% -50%;
 }
+
+
+
+table 
+{
+    background: #012B39;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+}
+th 
+{
+    border-bottom: 1px solid #364043;
+    color: #E2B842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+}
+td 
+{
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+}
+
+tbody tr 
+{
+    transition: background 0.25s ease;
+}
+tbody tr:hover {
+    background: #014055;
+}
+.bookfilter
+{
+    width:300px;
+    font-weight:bold;
+    border-radius: 5px;
+    border: 2px solid black;
+    height:40px;
+}
+input::placeholder
+{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:aliceblue;
+    opacity: 1;
+}
+:-ms-input-placeholder
+{ /* Internet Explorer 10-11 */
+    color:aliceblue;
+}
+::-ms-input-placeholder 
+{ /* Microsoft Edge */
+    color:aliceblue;
+}
+
+.new_css_btn
+{
+    background-color: aliceblue;
+    color:black;
+}
+
+.new_css_btn:hover
+{
+    background-color: black;
+    color: aliceblue;
+}
+
+.new_css_input
+{
+    background-color: #401b00;
+}
+
+.new_css_input:focus
+{
+    background-color: #401b00;
+}

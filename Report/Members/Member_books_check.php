@@ -68,7 +68,7 @@ if (!verification() || $_POST["Access"] != "Main-Member-Books-Check") {
                             </table>
                         </div>
                         <script>
-                            document.getElementById('member_books_check').style.transform='translate(-120%,-50%)';
+                            document.getElementById('member_books_check').style.transform='translate(-100%,0%)';
                             document.getElementById('response_member_books_check').style.top='25%';
                             document.getElementById('response_member_books_check').style.left='45%';
                         </script>
