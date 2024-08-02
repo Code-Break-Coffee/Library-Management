@@ -1126,19 +1126,21 @@ document.getElementById("std").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-        <div id="std_searchField" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
+    <div class="dabbe">
+        <div id="std_searchField" class="dabbe_ka_dabba">
         <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
             <form id="std_searchform" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Student Member/Not Student Member Check Page</h1>
+                    <h2>Student Member/Not Student Member Check Page</h2>
                     
                     <div id="std_searchcontain"></div>
                     <label>Batch ID</label>
-                    <input required type="text" class="form-control bg-dark" style="width:100%;color:aliceblue;" id="std_Search" name="batch_id"/><br>
-                    <button type="submit" id="show_std" value="Search" class="btn" style="width:80px;background-color: #092435;"><img src="Assets\\img\\baseline_search_white_24dp.png" height="25px" width="30px" alt=""></button>
-                    <button id="std_resetsearch" type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input required type="text" class="form-control new_css_input" style="width:100%;color:aliceblue;" id="std_Search" name="batch_id"/><br>
+                    <button type="submit" id="show_std" value="Search" class="btn new_css_btn" style="width:80px;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
+                    <button id="std_resetsearch" type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
                 </center>  
             </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response_student_records"></div>
@@ -1173,7 +1175,7 @@ document.getElementById("std").addEventListener("click",()=>
         );
         $("#std_resetsearch").click(function(){
             
-            document.getElementById("std_searchField").style.transform="translate(-50%,-50%)";
+            document.getElementById("std_searchField").style.transform="translate(0%,0%)";
             document.getElementById("response_student_records").style.display="none";
         });
     });
@@ -1564,17 +1566,19 @@ document.querySelector("#sbc").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="member_books_check" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <center>   
-                <h1>Member Books Check Page</h1>
-                <form id='sbc_form' method='post' action='' autocomplete='off'>
-                    <label>Member ID:</label>
-                    <input type='text' name='mem_id' class='bg-dark form-control' style='color:aliceblue;' required/><br>
-                    <button class="btn" type="submit" style='color:aliceblue;background-color:black;'>Check</button>
-                    <button type="reset" id="reset_sbc" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button>
-                </form>     
-            </center>        
+    <div class="dabbe">
+        <div id="member_books_check" class="dabbe_ka_dabba">
+            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <center>   
+                    <h1>Member Books Check Page</h1>
+                    <form id='sbc_form' method='post' action='' autocomplete='off'>
+                        <label>Member ID:</label>
+                        <input type='text' name='mem_id' class='new_css_input form-control' style='color:aliceblue;' required/><br>
+                        <button class="btn new_css_btn" style="font-weight: bold;" type="submit">Check</button>
+                        <button type="reset" id="reset_sbc" class="btn new_css_btn" style="font-weight: bold;">Clear</button>
+                    </form>     
+                </center>        
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;position: absolute; width:1200px;" id="response_member_books_check"></div>`;

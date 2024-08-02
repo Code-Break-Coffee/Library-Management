@@ -37,7 +37,7 @@ function displayTable($records)
             echo"
                 </tbody></table></div>
                 <script>
-                    document.getElementById('std_searchField').style.transform='translate(-120%,-50%)';
+                    document.getElementById('std_searchField').style.transform='translate(-90%,0%)';
                     document.getElementById('response_student_records').style.top='25%';
                     document.getElementById('response_student_records').style.left='45%';
                 </script>";
