@@ -170,7 +170,7 @@ else
                             background-image: none;
                         }
                     </style>
-                    <link rel="stylesheet" href="../css/style.css">
+                    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <?php
 }
 ?>
