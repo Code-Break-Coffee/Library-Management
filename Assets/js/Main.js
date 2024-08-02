@@ -29,17 +29,19 @@ document.getElementById("d").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
         container.innerHTML=`
-        <div id="deletefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-                <form id="deleteform" method="post" action="" autocomplete="off">
-                    <center>
-                        <h1>Book Delete Form</h1>
-                        <label>Book Number:</label>
-                        <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
-                        <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Delete"/>
-                        <button type="reset" class="btn " style="font-weight: bold; background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                    </center>
-                </form>
+        <div class="dabbe">
+            <div class="dabbe_ka_dabba" id="deletefield">
+                <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                    <form id="deleteform" method="post" action="" autocomplete="off">
+                        <center>
+                            <h1>Book Delete Form</h1>
+                            <label>Book Number:</label>
+                            <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                            <input type="submit" class="btn new_css_btn" value="Delete"/>
+                            <button type="reset" class="btn new_css_btn">Clear</button><br><br>
+                        </center>
+                    </form>
+                </div>
             </div>
         </div>
         <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response4"></div>`;
@@ -76,34 +78,36 @@ document.getElementById("i").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="issuefield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
-            <form id="issuebook" method="post" action="" autocomplete="off">
-                <center>
-                    <h1>Book Issue Form</h1>
-                    <br>
-                    <label>Member Type:</label><br><label class="form-check-label">Student:</label>&nbsp;
-                    <input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student" style="color:aliceblue;"/>
-                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
-                    <input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty" style="color:aliceblue;"/><br><br>
-                    
-                    <div class="row">
-                        <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
-                            <label>Member ID:</label>
-                            <input id="memberid" required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
-                        </div>
-                        <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
-                            <input type="button" id="issuecheck" class="btn" value="Check" style="position:relative;top:23px;color:aliceblue;background-color: black;font-weight: bold;"/>
-                        </div>
-                    </div>
+    <div class='dabbe'>
+        <div class='dabbe_ka_dabba' id="issuefield">
+            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <form id="issuebook" method="post" action="" autocomplete="off">
+                    <center>
+                        <h1>Book Issue Form</h1>
                         <br>
-                    <label>Book Number:</label>
-                    <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                        <label>Member Type:</label><br><label class="form-check-label">Student:</label>&nbsp;
+                        <input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student" style="color:aliceblue;"/>
+                        <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;
+                        <input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty" style="color:aliceblue;"/><br><br>
+                        
+                        <div class="row">
+                            <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xl-8">
+                                <label>Member ID:</label>
+                                <input id="memberid" required type="text" name="memberid" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/>
+                            </div>
+                            <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xl-4">
+                                <input type="button" id="issuecheck" class="btn new_css_btn" value="Check"  style="position:relative;top:23px;font-weight: bold;"/>
+                            </div>
+                        </div>
+                            <br>
+                        <label>Book Number:</label>
+                        <input required type="text" name="bookno" class="form-control new_css_input" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Issue"/>
-                    <button type="reset" id="resetissue" class="btn" style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
-                </center>
-            </form>
+                        <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Issue"/>
+                        <button type="reset" id="resetissue" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
+                    </center>
+                </form>
+            </div>
         </div>
     </div>
     <div style="font-weight: bold;display:none;" id="response"></div>
@@ -165,7 +169,7 @@ document.getElementById("i").addEventListener("click",()=>
         {
             document.getElementById("response").style.display="none";
             document.getElementById("response_check").style.display="none";
-            document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
+            document.getElementById("issuefield").style.transform="translate(0%,0%)";
         });
     });
 });
@@ -177,22 +181,22 @@ document.getElementById("r").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div id="returnfield" style="font-weight:bold;width:600px;height:600px;position:relative;top:50%;left:50%;transform: translate(-50%,-50%);border-radius: 5px;background-color: rgba(0, 0, 0, 0.2);border-radius:50%;backdrop-filter: blur(5px);color:aliceblue;">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+    <div id="returnfield" class="dabbe">
+        <div class="dabbe_ka_dabba">
             <form id="returnform" method="post" action="" autocomplete="off">
                 <center>
-                    <h1>Book Return Form</h1>
+                    <h1 class="pt-4">Book Return Form</h1>
                     <label>Member Type:</label><br>
-                    <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input bg-dark" value="Student"/>
-                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input bg-dark" value="Faculty"/><br><br>
+                    <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
+                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
                     <label>Member ID:</label>
-                    <input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+                    <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:aliceblue;" placeholder="Scan the Barcode or Enter Member ID"/><br>
 
                     <label>Book Number:</label>
-                    <input required type="text" name="bookno" class="form-control bg-dark" style="width:100%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                    <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:aliceblue;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
-                    <input type="submit" class="btn" style="color:aliceblue;background-color: black;font-weight: bold;" value="Return"/>
-                    <button type="reset" class="btn " style="font-weight: bold;background-color: #520702;color: aliceblue;">Clear</button><br><br>
+                    <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
+                    <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
                 </center>
             </form>
         </div>

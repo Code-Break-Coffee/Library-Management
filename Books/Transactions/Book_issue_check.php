@@ -51,7 +51,7 @@ else
                         </tbody>
                     </table>
                 </div>
-                <script>document.getElementById('issuefield').style.transform='translate(-120%,-50%)';</script>
+                <script>document.getElementById('issuefield').style.transform='translate(-100%,0%)';</script>
             ";
         }
         else
