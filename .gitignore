@@ -8,3 +8,6 @@ Assets/data/Faculty_Insert.xlsx
 Doc/book.xlsx
 Doc/faculty.xlsx
 Doc/student.xlsx
+*.xlsx
+/Assets/data
+/Doc
