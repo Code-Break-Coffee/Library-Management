@@ -41,12 +41,12 @@ if ($result) {
         $sql_delete = "DELETE FROM `insert buffer`;";
         $result = $conn->query($sql_delete);
 
+        // Commit transaction
+        $conn->commit();
+
         if (!$result) {
             throw new Exception("Failed to delete from buffer: " . $conn->error);
         }
-
-        // Commit transaction
-        $conn->commit();
 
         echo "
             <div id='dialog_student_excel' style='color:green;' title='Successful'>

@@ -1,5 +1,5 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/LibraryManagement/vendor/autoload.php');
 include "../../connection/dbconnect.php";
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
@@ -55,10 +55,16 @@ try {
             $result = $conn->query($sql);
 
             if (!$result) {
-                throw new Exception("Failed to insert into buffer: " . $conn->error);
-            }
+                echo "
+                    <div id='dialog_exl_faculty' style='color:green;' title='❌Error'>
+                        <p><center>$conn->error</center></p>
+                    </div>
+                ";
+                break;
+            } 
         } else {
-            $incorrect_rows = $incorrect_rows . " $i";
+            $incorrect_rows = $incorrect_rows . ($i+1);
+            break;
         }
     }
 
@@ -161,17 +167,11 @@ try {
     } else {
         if (strlen($incorrect_rows) > 0) {
             echo "
-                <div id='dialog_exl_faculty' style='color:green;' title='✅ Successful'>
-                    <p><center>$incorrect_rows rows not inserted. Rest inserted</center></p>
+                <div id='dialog_exl_faculty' style='color:green;' title='❌Error'>
+                    <p><center>Failed to insert record $incorrect_rows check excel again</center></p>
                 </div>
             ";
-        } else {
-            echo "
-                <div id='dialog_exl_faculty' style='color:green;' title='✅ Successful'>
-                    <p><center>$conn->error</center></p>
-                </div>
-            ";
-        }
+        } 
     }
 
     // Commit the transaction
@@ -181,4 +181,3 @@ try {
     $conn->rollback();
     echo "Transaction failed: " . $e->getMessage();
 }
-?>

@@ -1,3 +1,10 @@
 # git config --global core.excludesFile ~/.gitignore
 
 dbconnect.php
+Assets/data/Book_insert.xlsx
+
+Assets/data/expr.xlsx
+Assets/data/Faculty_Insert.xlsx
+Doc/book.xlsx
+Doc/faculty.xlsx
+Doc/student.xlsx
