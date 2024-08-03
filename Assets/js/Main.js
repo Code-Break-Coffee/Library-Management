@@ -1232,39 +1232,40 @@ document.querySelector("#b").addEventListener('click',()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='background-color: rgba(120, 62, 18, 0.7);backdrop-filter:blur(5px);'>
-        <form id='bookfilter_form' method='post' action='' style='color:#ffffff;font-weight:bold;' autocomplete='off'>
-            <center>
-                <h1 style='text-shadow:2px 2px black;' class='p-2'>Book Filter</h1>
-                <div class='row'>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Title:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='title' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Title or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Author:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='author' class='bookfilter' style='color:#ffffff;' placeholder='Enter Author or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Publisher:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='publisher' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Publisher or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Supplier:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='supplier' class='bookfilter' style='color:#ffffff;' placeholder='Enter Supplier or leave Empty'/>
-                    </div>
-                </div><br>
-                <div style='display:flex;justify-content:center;gap:7px;'>
-                    <div>
-                        <input type='submit' style='color:#ffffff;background-color:white;color:black;' class='btn'/>
-                    </div>
-                    <div>
-                        <input id='filterreset' type='reset' style='color:#ffffff;background-color:white;color:black;' class='btn' value='Clear'/>
-                    </div>
-                </div>
-            </center>
-        </form>
-    </div>  
+    <div id='zak_container' class="container" style="margin-top:30px;background-color: rgba(120, 62, 18, 0.7); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; max-width: 600px;">
+        <div class="card" style="background-color: transparent; border: none;">
+            <div class="card-body" style="color: #ffffff; font-weight: bold;">
+                <form id='bookfilter_form' method='post' action='' autocomplete='off'>
+                    <center>
+                        <h1 class='p-2'>Book Filter</h1>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Title:</label>
+                                <input type="text" name="title" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Title or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Author:</label>
+                                <input type="text" name="author" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Author or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Publisher:</label>
+                                <input type="text" name="publisher" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Publisher or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Supplier:</label>
+                                <input type="text" name="supplier" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Supplier or leave Empty"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn" style="background-color: white; color: black;">Submit</button>
+                            <button type="reset" id="filterreset" class="btn" style="background-color: white; color: black;">Clear</button>
+                        </div>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
     <div id='response_book_filter' style='font-weight:bold;width:100%;'></div>
     `;
     $(document).ready(function()
@@ -1284,6 +1285,8 @@ document.querySelector("#b").addEventListener('click',()=>
                 },
                 success: function(Result)
                 {
+                    document.getElementById("bookfilter_form").style.display="none";
+                    document.getElementById("zak_container").style.display="none";
                     document.getElementById("response_book_filter").style.display="block";
                     $( "#dialog_filter_disp" ).dialog( "destroy" );
                     $("#response_book_filter").html(Result);

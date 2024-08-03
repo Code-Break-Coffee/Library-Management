@@ -66,9 +66,21 @@ else
         echo
         "
             
-            <div style='overflow:auto;width:100%;height:587px;'>
+            <div id='filt_table' style='overflow:auto;width:100%;height:587px;'>
             <center>
                 <table style='width:95%;'>
+                    <tr>
+                        <th colspan='1'>
+                            <button class='btn' style='background-color:#401b00;font-weight:bold;' onclick='GetBack()'>X</button>
+                        </th>
+                        <th colspan='13'>
+                            <center>
+                                <h2>
+                                    The Filtered Books
+                                </h2>
+                            </center>
+                        </th>
+                    </tr>
                     <tr>
                         <th>Book No.</th>
                         <th>Title</th>
@@ -115,6 +127,14 @@ else
                 </table>
             </center>
             </div>
+            <script>
+                function GetBack()
+                {
+                    document.getElementById('bookfilter_form').style.display='block';
+                    document.getElementById('zak_container').style.display='block';
+                    document.getElementById('filt_table').style.display='none';
+                }
+            </script>
         ";
     }
     else{
