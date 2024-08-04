@@ -167,7 +167,7 @@ document.getElementById("i").addEventListener("click",()=>
         {
             e.preventDefault();
             document.getElementById("response_check").style.display="none";
-            document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
+            document.getElementById("issuefield").style.transform="translate(0%,0%)";
             $.ajax(
             {
                 method: "post",
@@ -1137,7 +1137,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
     <div style="font-weight: bold; position: absolute; width:1200px;top:25%;left:50%;" id="response_admin_disp"></div>`;
     $("#resetadmin").on('click',()=>
     {
-        document.getElementById("display").style.transform="translate(-50%,-50%)";
+        document.getElementById("display").style.transform="translate(0%,0%)";
         document.getElementById("response_admin_disp").style.display="none";
     });
     $("#display_adm").submit(function(e)
@@ -1642,7 +1642,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
         $("#reset_sbc").on("click",function()
         {
             document.querySelector("#response_member_books_check").style.display="none";
-            document.querySelector("#member_books_check").style.transform="translate(-50%,-50%)";
+            document.querySelector("#member_books_check").style.transform="translate(0%,0%)";
         });
         $("#sbc_form").submit(function(e)
         {

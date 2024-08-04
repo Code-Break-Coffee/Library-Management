@@ -136,11 +136,11 @@ if($checkedb)
                         <p><center>Book Issued By Member $m Succesfull!</center></p>
                     </div>
                     "; 
-                    else echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
+                    else echo "<div style='position:relative;top:50%;left:50%;transform:translate(0%, 0%);color:red;'><center>$conn->error</center></div>";
                 }
                 else
                 {
-                    echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
+                    echo "<div style='position:relative;top:50%;left:50%;transform:translate(0%,0%);color:red;'><center>$conn->error</center></div>";
                 }        
             }
             else
@@ -154,7 +154,7 @@ if($checkedb)
         }
         else
         {
-            echo "<div style='position:relative;top:50%;left:50%;transform:translate(-50%, -50%);color:red;'><center>$conn->error</center></div>";
+            echo "<div style='position:relative;top:50%;left:50%;transform:translate(0%,0%);color:red;'><center>$conn->error</center></div>";
         }
     }
     else
