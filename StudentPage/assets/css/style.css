@@ -1,0 +1,10 @@
+video
+{
+    position: fixed;
+    width: 100vw;
+    height: 110vh;
+    bottom: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: -1;
+}
