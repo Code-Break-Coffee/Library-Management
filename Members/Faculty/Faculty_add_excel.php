@@ -82,7 +82,7 @@ try {
             <center>
                 <h1 style='font-weight:bold;color:white;position:relative;'>Faculty Confirmation Page</h1><br/>
                 <div class='gola' style='height:50vh;overflow:auto;'>
-                    <table style='background-color:black;width:80vh;'>
+                    <table style='background-color:#783E12;width:80vh;'>
                         <tr>
                             <th colspan='4'>
                                 <center>
