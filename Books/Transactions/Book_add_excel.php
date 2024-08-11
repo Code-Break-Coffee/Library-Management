@@ -190,7 +190,7 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
             echo "<div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(450px,90px);'>
                     <center>
                     <h1 style='font-weight:bold;color:white;position:relative;'>Book Confirmation Page</h1><br/>
-                    <table style='background-color:black;'>
+                    <table style='background-color:#783E12;'>
                     <tr><th colspan='6'><center><h2 style='color:white;'>Are You Sure You want to Submit?</h2></center></th></tr>
                     <tr><th>Book No.</th><th>Author's</th><th>Title</th><th>Edition</th><th>Publisher</th><th>No of Copies</th></tr>
                     <tbody>";
@@ -208,8 +208,8 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
             }
 
             echo "</tbody></table></br>
-                    <button class='btn' type='submit' id='excelConfirm' style='color:#ffffff;background-color:black;'> Confirm </button>
-                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: #ffffff;'>Back</button>
+                    <button class='btn' type='submit' id='excelConfirm' style='font-weight: bold;color:black;background-color:#ffffff;'> Confirm </button>
+                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color:#ffffff;color: black;'>Back</button>
                     </center>
                     <script>
                     $(document).ready(function() {
