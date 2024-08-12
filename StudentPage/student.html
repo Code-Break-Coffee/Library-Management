@@ -183,7 +183,42 @@
     <video autoplay muted loop> 
         <source src="./assets/video/2024-08-10 13-02-50.mkv" type="video/mp4">
     </video>
-    <div id="iframeblock" style="width:1200px;display:none;height:650px;overflow: auto;position:absolute;top:15%;left:50%;"></div>
+    <div class="heading">
+        <div class="sub-heading left">
+            <img src="../Assets/img/iips_logo2.png" width="100" height="100"/>
+            <div>International Institute<br>of Professional Studies</div>
+        </div>
+        <div style="font-family: product_bold;">Library</div>
+        <div class="sub-heading right">
+            <div>Devi Ahilya<br>Vishva Vidyalaya</div>
+            <img src="../Assets/img/Davv_Logo.png" width="100" height="100"/>
+        </div>
+    </div>
+    <div id="formblock">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
+                <center>
+                    <div style="font-family: product_bold;font-size: 40px;">Search A Book</div>
+                    <br>
+                    <form id="studentSearch" action="" method="post">
+                        <div>
+                            <div>
+                                <input class="form-control inputs" required id="book_s" type="text" placeholder="Search book by title or author" name="data">
+                            </div>
+                            <br>
+                            <div style="display: flex;justify-content: center;gap:16px;">
+                                <button type="submit" value="" class="btn" id="subbtn">
+                                    <img src="Assets\\img\\icon-black.png" height="30" width="30" alt="" id="subbtnimg">
+                                </button>
+                                <input type="button" class='btn' onclick='cleared();' id="clear2" value="Clear">
+                            </div>
+                        </div>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div id="iframeblock"></div>
 </body>
 <script src="./assets/js/student.js"></script>
 </html>

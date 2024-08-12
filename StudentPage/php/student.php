@@ -31,13 +31,11 @@ if(!empty($_POST["data"]))
     {
         echo "
             <script>document.getElementById('clear2').style.display='block';</script>
-            <table>
-                <tr>
+            <table class='table table-responsive table-bordered bg-dark' style='width:100%;height:100%;'>
+                <tr class='thead'>
                     <th>Title</th>
                     <th>Edition</th>
-                    <th>Author 1</th>
-                    <th>Author 2</th>
-                    <th>Author 3</th>
+                    <th>Authors</th>
                     <th>Publisher</th>
                     <th>Status</th>
                 </tr>
@@ -45,12 +43,10 @@ if(!empty($_POST["data"]))
         while($row=$result->fetch_assoc())
         {
             echo "
-                <tr>
+                <tr class='tbody'>
                     <td>".$row["Title"]."</td>
                     <td>".$row["Edition"]."</td>
-                    <td>".$row["Author1"]."</td>
-                    <td>".$row["Author2"]."</td>
-                    <td>".$row["Author3"]."</td>
+                    <td>".$row["Author1"].", ".$row["Author2"].", ".$row["Author3"]."</td>
                     <td>".$row["Publisher"]."</td>
                     ";
                     if($row["Status"]!="Available")
