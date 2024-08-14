@@ -215,9 +215,7 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
                     $(document).ready(function() {
                         $('#backissue').on('click', function() {
                             document.getElementById('response_exl_records').style.display='none';
-                            document.getElementById('exl_srch').style.alignItems = 'center';
-                            document.getElementById('exl_srch').style.justifyContent = 'center';
-                            document.getElementById('exl_srch').style.display = 'flex';
+                            document.getElementById('exl_srch').style.display='block';
                         });
                         $('#excelConfirm').click(function(e) {
                             $.ajax({
