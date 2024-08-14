@@ -107,7 +107,7 @@ try {
             <br/>
             <h1 style='font-weight:bold;color:white;position:relative;'>Student Confirmation Page</h1><br/>
             <div class='gola' style='overflow-y:auto;height:50vh;'>
-            <table style='position:relative;width:80vh;background-color:black'>
+            <table style='position:relative;width:80vh;background-color:#783E12'>
             <tr>
             <th colspan='5'>
               <center>
@@ -150,10 +150,10 @@ try {
             </br>
             <div style='display:inline-flex;'>
                 <form id='std_buffer' method='post' action=''>
-                    <button class='btn' type='submit' id='upload-button' style='color:#ffffff;background-color:black;'> Confirm </button>
+                    <button class='btn' type='submit' id='upload-button' style='font-weight:bold;color:black;background-color:#ffffff;'> Confirm </button>
                 </form> &nbsp;&nbsp;&nbsp;
                 <form id='buff_back' method='post' action=''>
-                    <button id='backissue' class='btn' style='font-weight: bold;background-color: #520702;color: #ffffff;'>Back</button>
+                    <button id='backissue' class='btn' style='font-weight: bold;background-color: #ffffff;color:black;'>Back</button>
                 </form>
             </div>
             <div style='font-weight: bold;' id='response_student_excel'></div>

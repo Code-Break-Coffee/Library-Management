@@ -15,7 +15,6 @@ $(document).ready(function()
             },
             success: function(Response)
             {
-                document.getElementById("formblock").style.transform="translate(-185%,-60%)";
                 document.getElementById("iframeblock").style.display="block";
                 $("#iframeblock").html(Response);
             }
@@ -58,7 +57,6 @@ function cleared()
 {
     let holder=document.getElementById("book_s");
     document.getElementById("iframeblock").style.display="none";
-    document.getElementById("formblock").style.transform="translate(-50%,-60%)";
     holder.value="";
     document.getElementById("clear2").style.display="none";
 }
@@ -80,4 +78,13 @@ $(document).ready(function(){
     }
     window.location.href = url_;
   });
+});
+
+document.querySelector("#subbtn").addEventListener("mouseover",()=>
+{
+    document.querySelector("#subbtnimg").setAttribute("src","Assets\\img\\baseline_search_white_24dp.png");
+});
+document.querySelector("#subbtn").addEventListener("mouseout",()=>
+{
+    document.querySelector("#subbtnimg").setAttribute("src","Assets\\img\\icon-black.png");
 });

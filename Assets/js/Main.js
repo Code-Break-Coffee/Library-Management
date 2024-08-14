@@ -4,20 +4,42 @@ const displayNone=()=>
     let arr=document.querySelectorAll(".dropdown-menu");
     arr.forEach(elem=>elem.style.display="none");
 }
-
-//----------------------------------------------------------------------------mouseover
 const navbar=document.querySelector(".navbar-nav");
+
+//--------------------------------------------------------------------------mouseclick
+const links=document.getElementsByClassName("nav-link");
+const linking=()=>
+{
+    for(let i=0;i<links.length;i++)
+    {
+        links[i].style.backgroundColor="black";
+        links[i].style.color="#ffffff";
+    }
+}
+
+navbar.addEventListener("click",(e)=>
+{
+    if(e.target.classList.contains("nav-link"))
+    {
+        linking();
+        e.target.style.backgroundColor="#ffffff";
+        e.target.style.color="black";
+    }
+});
+//----------------------------------------------------------------------------mouseover
 navbar.addEventListener('mouseover',(e)=>
 {
     if(e.target.classList.contains("hovered"))
     {
         displayNone();
+        linking();
         document.getElementById(e.target.id+"div").style.display="block";
     }
 });
 //---------------------------------------------------------------------------mouseleave
 navbar.addEventListener('mouseleave',(e)=>
-{   
+{ 
+    linking();  
     if(!e.target.classList.contains("dropdown"))
     {
         displayNone();
@@ -31,7 +53,7 @@ document.getElementById("d").addEventListener("click",()=>
         container.innerHTML=`
         <div class="dabbe">
             <div class="dabbe_ka_dabba" id="deletefield">
-                <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+                <div class="dabbe_k_dabbe_ka_dabba">
                     <form id="deleteform" method="post" action="" autocomplete="off">
                         <center>
                             <h1>Book Delete Form</h1>
@@ -80,7 +102,7 @@ document.getElementById("i").addEventListener("click",()=>
     container.innerHTML=`
     <div class='dabbe'>
         <div class='dabbe_ka_dabba' id="issuefield">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="issuebook" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Book Issue Form</h1>
@@ -145,7 +167,7 @@ document.getElementById("i").addEventListener("click",()=>
         {
             e.preventDefault();
             document.getElementById("response_check").style.display="none";
-            document.getElementById("issuefield").style.transform="translate(-50%,-50%)";
+            document.getElementById("issuefield").style.transform="translate(0%,0%)";
             $.ajax(
             {
                 method: "post",
@@ -183,22 +205,24 @@ document.getElementById("r").addEventListener("click",()=>
     container.innerHTML=`
     <div id="returnfield" class="dabbe">
         <div class="dabbe_ka_dabba">
-            <form id="returnform" method="post" action="" autocomplete="off">
-                <center>
-                    <h1 class="pt-4">Book Return Form</h1>
-                    <label>Member Type:</label><br>
-                    <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
-                    <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
-                    <label>Member ID:</label>
-                    <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/><br>
+        <div class="dabbe_k_dabbe_ka_dabba">
+        <form id="returnform" method="post" action="" autocomplete="off">
+            <center>
+                <h1 class="pt-4">Book Return Form</h1>
+                <label>Member Type:</label><br>
+                <label class="form-check-label">Student:</label>&nbsp;&nbsp;<input type="radio" name="membertype" checked class="form-check-input new_css_input" value="Student"/>
+                <label class="form-check-label">Faculty:</label>&nbsp;&nbsp;<input type="radio" name="membertype" class="form-check-input new_css_input" value="Faculty"/><br><br>
+                <label>Member ID:</label>
+                <input required type="text" name="memberid" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Member ID"/><br>
 
-                    <label>Book Number:</label>
-                    <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
+                <label>Book Number:</label>
+                <input required type="text" name="bookno" class="form-control new_css_input" style="width:80%;color:#ffffff;" placeholder="Scan the Barcode or Enter Book No."/><br>
 
-                    <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
-                    <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
-                </center>
-            </form>
+                <input type="submit" class="btn new_css_btn" style="font-weight: bold;" value="Return"/>
+                <button type="reset" class="btn new_css_btn" style="font-weight: bold;">Clear</button><br><br>
+            </center>
+        </form>
+        </div>
         </div>
     </div>
     <div style="font-weight: bold;position: relative;top: 50px; right:50px;" id="response2"></div>`;
@@ -235,9 +259,9 @@ document.getElementById("au").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style="display:flex;justify-content:center;align-items:center;height:80vh;">
-        <div id="aufield" style="font-weight:bold;width:500px;height:500px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:70%;">
+    <div class="dabbe">
+        <div id="aufield" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="auform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Audit Form</h1>
@@ -685,9 +709,9 @@ document.getElementById("m").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='display:flex;justify-content:center;align-items:center;height:80vh;'>
-        <div id="memberfield" style="font-weight:bold;width:450px;height:450px;background-color: rgba(120, 62, 18, 0.7);border-radius:10%;backdrop-filter: blur(5px);color:#ffffff;">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;width:80%;">
+    <div class="dabbe">
+        <div id="memberfield" class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="memberform" method="post" action="" autocomplete="off">
                     <center>
                         <h1>Dues Member Check</h1>
@@ -739,7 +763,7 @@ document.getElementById("m").addEventListener("click",()=>
 
         $("#resetmember").click(function()
         {
-            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control bg-dark" style="width:100%;color:#ffffff;"/><br>';
+            document.getElementById("membercontain").innerHTML='<label>Member ID:</label><input required type="text" name="memberid" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;"/><br>';
             document.getElementById("membersubmit").setAttribute("value","Check");
         });
 
@@ -1113,7 +1137,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
     <div style="font-weight: bold; position: absolute; width:1200px;top:25%;left:50%;" id="response_admin_disp"></div>`;
     $("#resetadmin").on('click',()=>
     {
-        document.getElementById("display").style.transform="translate(-50%,-50%)";
+        document.getElementById("display").style.transform="translate(0%,0%)";
         document.getElementById("response_admin_disp").style.display="none";
     });
     $("#display_adm").submit(function(e)
@@ -1148,7 +1172,7 @@ document.getElementById("std").addEventListener("click",()=>
     container.innerHTML=`
     <div class="dabbe">
         <div id="std_searchField" class="dabbe_ka_dabba">
-        <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+        <div class="dabbe_k_dabbe_ka_dabba">
             <form id="std_searchform" method="post" action="" autocomplete="off">
                 <center>
                     <h2>Student Member/Not Student Member Check Page</h2>
@@ -1208,39 +1232,40 @@ document.querySelector("#b").addEventListener('click',()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div style='background-color: rgba(120, 62, 18, 0.7);backdrop-filter:blur(5px);'>
-        <form id='bookfilter_form' method='post' action='' style='color:#ffffff;font-weight:bold;' autocomplete='off'>
-            <center>
-                <h1 style='text-shadow:2px 2px black;' class='p-2'>Book Filter</h1>
-                <div class='row'>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Title:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='title' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Title or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Author:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='author' class='bookfilter' style='color:#ffffff;' placeholder='Enter Author or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Publisher:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='publisher' class=' bookfilter' style='color:#ffffff;' placeholder='Enter Publisher or leave Empty'/>
-                    </div>
-                    <div class='col-3 col-lg-3 col-sm-3 col-xl-3 col-md-3'>
-                        <label style='text-shadow:1px 1px black;'>Supplier:</label><br>
-                        <input style="background-color:#401B00;" type='text' name='supplier' class='bookfilter' style='color:#ffffff;' placeholder='Enter Supplier or leave Empty'/>
-                    </div>
-                </div><br>
-                <div style='display:flex;justify-content:center;gap:7px;'>
-                    <div>
-                        <input type='submit' style='color:#ffffff;background-color:white;color:black;' class='btn'/>
-                    </div>
-                    <div>
-                        <input id='filterreset' type='reset' style='color:#ffffff;background-color:white;color:black;' class='btn' value='Clear'/>
-                    </div>
-                </div>
-            </center>
-        </form>
-    </div>  
+    <div id='zak_container' class="container" style="margin-top:30px;background-color: rgba(120, 62, 18, 0.7); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; max-width: 600px;">
+        <div class="card" style="background-color: transparent; border: none;">
+            <div class="card-body" style="color: #ffffff; font-weight: bold;">
+                <form id='bookfilter_form' method='post' action='' autocomplete='off'>
+                    <center>
+                        <h1 class='p-2'>Book Filter</h1>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Title:</label>
+                                <input type="text" name="title" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Title or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Author:</label>
+                                <input type="text" name="author" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Author or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Publisher:</label>
+                                <input type="text" name="publisher" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Publisher or leave Empty"/>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-6">
+                                <label style='text-shadow:1px 1px black;'>Supplier:</label>
+                                <input type="text" name="supplier" class="form-control" style="background-color: #401B00; color: #ffffff;" placeholder="Enter Supplier or leave Empty"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn" style="background-color: white; color: black;">Submit</button>
+                            <button type="reset" id="filterreset" class="btn" style="background-color: white; color: black;">Clear</button>
+                        </div>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
     <div id='response_book_filter' style='font-weight:bold;width:100%;'></div>
     `;
     $(document).ready(function()
@@ -1260,6 +1285,8 @@ document.querySelector("#b").addEventListener('click',()=>
                 },
                 success: function(Result)
                 {
+                    document.getElementById("bookfilter_form").style.display="none";
+                    document.getElementById("zak_container").style.display="none";
                     document.getElementById("response_book_filter").style.display="block";
                     $( "#dialog_filter_disp" ).dialog( "destroy" );
                     $("#response_book_filter").html(Result);
@@ -1595,7 +1622,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
     container.innerHTML=`
     <div class="dabbe">
         <div id="member_books_check" class="dabbe_ka_dabba">
-            <div style="position: absolute;top:50%;left:50%;translate: -50% -50%;">
+            <div class="dabbe_k_dabbe_ka_dabba">
                 <center>   
                     <h1>Member Books Check Page</h1>
                     <form id='sbc_form' method='post' action='' autocomplete='off'>
@@ -1615,7 +1642,7 @@ document.querySelector("#sbc").addEventListener("click",()=>
         $("#reset_sbc").on("click",function()
         {
             document.querySelector("#response_member_books_check").style.display="none";
-            document.querySelector("#member_books_check").style.transform="translate(-50%,-50%)";
+            document.querySelector("#member_books_check").style.transform="translate(0%,0%)";
         });
         $("#sbc_form").submit(function(e)
         {

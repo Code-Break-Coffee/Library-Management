@@ -10,7 +10,7 @@
     <!-- jQuery UI library -->
     <link rel="stylesheet" href="jquery-ui-1.13.2.custom\jquery-ui.css">
     <script src="jquery-ui-1.13.2.custom\jquery-ui.min.js"></script>
-    <style>
+    <!-- <style>
         .btn:hover
         {
             border: 2px solid #ffffff;
@@ -142,12 +142,14 @@
         }
         tbody tr:hover {
             background: #014055;
-        }
+        } -->
 
-    </style>
+    <!-- </style> -->
+     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body style="width:99.25vw;height:100vh;background-image:url(./assets/img/1339726.png);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;">
-    <div class="row" style="text-align: center;background-color: #1a1b47;color:#E4E5EA;">
+<!-- <body style="width:99.25vw;height:100vh;background-image:url(./assets/img/1339726.png);background-repeat:no-repeat;background-size:cover;background-position: center;color:#16354D;"> -->
+    <body>
+    <!-- <div class="row" style="text-align: center;background-color: #1a1b47;color:#E4E5EA;">
         <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
             <h1>International Institute of Professional Studies</h1>
         </div>
@@ -155,16 +157,16 @@
             <h1>Library</h1>
         </div>
         <div class="col-4 col-lg-4 col-sm-4 col-xl-4 col-md-4 heading">
-            <h1>Devi Ahilya Vishva Vidyalaya</h1>
+            <h1>Devi Ahilya Vishva Vidyalaya</h1> -->
             <!-- <div>Themes</div>
                 <select id="select_theam">
                     <option value="0">- Select Theme -</option>
                     <option value="1">Theme- 1</option>
                     <option value="2">Theme- 2</option>
                 </select>-->
-        </div>
-    </div>
-    <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:400px;height:400px;top:50%;left:50%;position:relative;transform:translate(-50%,-60%);">
+        <!-- </div>
+    </div> -->
+    <!-- <div id="formblock" style="background:transparent;background-color: rgba(0, 0, 0, 0.2);backdrop-filter: blur(5px);border-radius:50%;width:400px;height:400px;top:50%;left:50%;position:relative;transform:translate(-50%,-60%);">
         <div style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);">
             <center>
                 <h2 id="searchtext" style="font-weight: bolder;color:#93B1A6;text-shadow: 2px 2px #040D12;">Search A Book</h2>
@@ -177,8 +179,46 @@
                 </form>
             </center>
         </div>
+    </div> -->
+    <video autoplay muted loop> 
+        <source src="./assets/video/2024-08-10 13-02-50.mkv" type="video/mp4">
+    </video>
+    <div class="heading">
+        <div class="sub-heading left">
+            <img src="../Assets/img/iips_logo2.png" width="100" height="100"/>
+            <div>International Institute<br>of Professional Studies</div>
+        </div>
+        <div style="font-family: product_bold;">Library</div>
+        <div class="sub-heading right">
+            <div>Devi Ahilya<br>Vishva Vidyalaya</div>
+            <img src="../Assets/img/Davv_Logo.png" width="100" height="100"/>
+        </div>
     </div>
-    <div id="iframeblock" style="width:1200px;display:none;height:650px;overflow: auto;position:absolute;top:15%;left:50%;"></div>
+    <div id="formblock">
+        <div class="dabbe_ka_dabba">
+            <div class="dabbe_k_dabbe_ka_dabba">
+                <center>
+                    <div style="font-family: product_bold;font-size: 40px;">Search A Book</div>
+                    <br>
+                    <form id="studentSearch" action="" method="post">
+                        <div>
+                            <div>
+                                <input class="form-control inputs" required id="book_s" type="text" placeholder="Search book by title or author" name="data">
+                            </div>
+                            <br>
+                            <div style="display: flex;justify-content: center;gap:16px;">
+                                <button type="submit" value="" class="btn" id="subbtn">
+                                    <img src="Assets\\img\\icon-black.png" height="30" width="30" alt="" id="subbtnimg">
+                                </button>
+                                <input type="button" class='btn' onclick='cleared();' id="clear2" value="Clear">
+                            </div>
+                        </div>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div id="iframeblock"></div>
 </body>
 <script src="./assets/js/student.js"></script>
 </html>
