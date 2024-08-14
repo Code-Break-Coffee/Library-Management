@@ -6,6 +6,12 @@
     font-family: product_bold;
     src: url(../fonts/Product\ Sans\ Bold.ttf);
 }
+
+.form-control::placeholder
+{
+    color: #FDF8D4;
+}
+
 video
 {
     position: fixed;
