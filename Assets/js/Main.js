@@ -375,7 +375,7 @@ document.getElementById("ins").addEventListener("click",()=>
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="InsertField" class="dabbe">
-        <div class="dabbe_ka_dabba" style="height:675px;width:675px;">
+        <div class="dabbe_ka_dabba" style="height:675px;width:525px;position:relative;top:70px;">
             <div class="dabbe_k_dabbe_ka_dabba">
             <form id="insertform" method="post" action="" autocomplete="off">
                 <center>
@@ -383,7 +383,7 @@ document.getElementById("ins").addEventListener("click",()=>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Book Number:</label>
-                            <input type="number" name="bookno" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Scan the Barcode or Enter Book No."/>
+                            <input type="number" name="bookno" class="form-control" style="width:100%;color:#ffffff;background-color:#401b00;" placeholder="Enter Book No."/>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-xl-6 col-lg-6">
                             <label>Title:</label>
