@@ -375,7 +375,7 @@ document.getElementById("ins").addEventListener("click",()=>
     let container=document.getElementById("container");
     container.innerHTML=`
     <div id="InsertField" class="dabbe">
-        <div class="dabbe_ka_dabba" style="height:675px;width:525px;position:relative;top:70px;">
+        <div class="box1">
             <div class="dabbe_k_dabbe_ka_dabba">
             <form id="insertform" method="post" action="" autocomplete="off">
                 <center>
