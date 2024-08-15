@@ -60,7 +60,12 @@ if(!empty($_POST["data"]))
                     }
                     echo "</tr>";
         }
-        echo "</tbody></table>";
+        echo "
+        </tbody></table>
+        <center>
+            <input type='button' class='btn' onclick='cleared();' id='clear2' value='Clear'>
+        </center>
+        ";
     }
     else
     {
