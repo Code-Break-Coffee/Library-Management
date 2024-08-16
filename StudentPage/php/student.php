@@ -31,7 +31,20 @@ if(!empty($_POST["data"]))
     {
         echo "
             <script>document.getElementById('clear2').style.display='block';</script>
-            <table class='table table-responsive table-bordered bg-dark' style='width:100%;height:100%;'>
+            <script>document.getElementById('formblock').style.display='none';</script>
+            <table class='table table-responsive table-bordered bg-dark' style='width:100%;'>
+                <tr class='thead'>
+                    <th colspan='1'>
+                        <center>
+                            <input type='button' class='btn col-6' onclick='cleared();' id='clear2' value='x'>
+                        </center>
+                    </th>
+                    <th colspan='4'>
+                        <h1 style='text-align:center;'>
+                            Books
+                        </h1>
+                    </th>
+                </tr>
                 <tr class='thead'>
                     <th>Title</th>
                     <th>Edition</th>
@@ -62,9 +75,6 @@ if(!empty($_POST["data"]))
         }
         echo "
         </tbody></table>
-        <center>
-            <input type='button' class='btn' onclick='cleared();' id='clear2' value='Clear'>
-        </center>
         ";
     }
     else

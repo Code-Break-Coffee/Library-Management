@@ -58,6 +58,7 @@ function cleared()
     let holder=document.getElementById("book_s");
     document.getElementById("iframeblock").style.display="none";
     holder.value="";
+    document.getElementById('formblock').style.display='flex';
     document.getElementById("clear2").style.display="none";
 }
 
