@@ -1,7 +1,7 @@
 1: student search book number and duplicate records table modification --UI
 2: 
 3: 
-4: 
-5: Roll Back 
+4: Remove Cases Sesitivity for Input Suggestions
+5: Using "LIKE" in a SQL statement to query for words in a sentence regardless of the order
 7: Book Return member type input Removal
 8: zakie ka bug 2.0 =======> remark php [condition for change in sql query book add.php]
