@@ -1,6 +1,7 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
 function membercheck($x,$y)
 {
     include "../../connection/dbconnect.php";
@@ -119,7 +120,7 @@ else
     {
         include "../../connection/dbconnect.php";
         // Include the PDF class
-        require_once $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/FPDF-master/fpdf.php";
+        require_once "../../FPDF-master/fpdf.php";
         class PDF extends FPDF
         {
             function Footer()
@@ -143,7 +144,7 @@ else
         
         $sql_s = "SELECT Student_Name, Student_Rollno from student where Student_Rollno like '$year%' order by Student_Rollno;";
         $result_s = $conn->query($sql_s);
-        $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
+        $pdf->Image( "../../Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
 
         // Set the position for the text cell
         $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
@@ -206,10 +207,10 @@ else
                     $pdf->Cell(60, 10, "No Dues", 1, 1, "L");
                 }
             }
-            if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf")) {   
-                unlink($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf");
+            if (file_exists("../../Doc/Registratinconfirmed.pdf")) {   
+                unlink("../../Doc/Registratinconfirmed.pdf");
             }
-            $destination = $_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\Registratinconfirmed.pdf";
+            $destination = "../../Doc/Registratinconfirmed.pdf";
             $pdf->Output($destination,'F');
             
             echo "<script>window.open('/LibraryManagement/Doc/Registratinconfirmed.pdf','_blank');</script>";

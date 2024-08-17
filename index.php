@@ -67,7 +67,7 @@ if(!empty($_SESSION["RELOAD"]))
 {
     if($_SESSION["RELOAD"] == "reload")
     {
-        $x=$_SERVER["DOCUMENT_ROOT"];
+        // $x=$_SERVER["DOCUMENT_ROOT"];
             echo"
             <script>
                 $.ajax(

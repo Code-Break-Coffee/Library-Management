@@ -1,9 +1,10 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/vendor/autoload.php');
+require_once ('../../vendor/autoload.php');
 include "../../connection/dbconnect.php";
 
 @session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
 
 if (!verification() || $_POST["Access"] != "Main-Student_add_excel") {
     header("Location: /LibraryManagement/");
@@ -12,7 +13,7 @@ if (!verification() || $_POST["Access"] != "Main-Student_add_excel") {
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
-$targetPath = $_SERVER['DOCUMENT_ROOT'].'/LibraryManagement/Doc/student.xlsx';
+$targetPath = '../../Doc/student.xlsx';
 $Reader = new Xlsx();
 $spreadSheet = $Reader->load($targetPath);
 $excelSheet = $spreadSheet->getActiveSheet();
