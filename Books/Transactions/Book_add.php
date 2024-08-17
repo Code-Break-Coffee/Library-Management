@@ -1,7 +1,8 @@
 <?php
 @session_start();
 include "../../connection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 
 
 function check($b, $count)
@@ -192,7 +193,7 @@ else
             $pdf=new PDF_Code128();
             $pdf->AddPage();
             $pdf->SetFont("Arial", "B", 18);
-            $pdf->Image( $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
+            $pdf->Image("../../Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
             // $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
             // Set the position for the text cell
             $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
@@ -223,10 +224,10 @@ else
             
                 $pdf->Ln();
             }
-            if (file_exists($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf")) {   
-                unlink($_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf");
+            if (file_exists("../../Doc/btest.pdf")) {   
+                unlink("../../Doc/btest.pdf");
             }
-            $destination = $_SERVER['DOCUMENT_ROOT']."\LibraryManagement\Doc\btest.pdf";
+            $destination = "../../Doc/btest.pdf";
             $pdf->Output($destination,'F');
             
             echo "<script>window.open('/LibraryManagement/Doc/btest.pdf','_blank');</script>";

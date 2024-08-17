@@ -3,7 +3,8 @@ include "../../connection/dbconnect.php";
 
 
 @session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
 
 if (!verification() || $_POST["Access"] != "Main-Book_add_excel") {
     header("Location: /LibraryManagement/");

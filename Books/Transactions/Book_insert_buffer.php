@@ -1,6 +1,7 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
 include "../../connection/dbconnect.php";
 
 if (!verification() || $_POST["Access"] != "Book_add_excel-insert_buffer") {
@@ -93,7 +94,7 @@ if (mysqli_num_rows($result_buff) > 0) {
         $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
 
         // Add the text cell
-        $pdf->Image($_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
+        $pdf->Image("../../Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
 
         // $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
         // Set the position for the text cell
@@ -120,10 +121,10 @@ if (mysqli_num_rows($result_buff) > 0) {
             $pdf->Ln();
         }
 
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "\LibraryManagement\Doc\insert_book.pdf")) {
-            unlink($_SERVER['DOCUMENT_ROOT'] . "\LibraryManagement\Doc\insert_book.pdf");
+        if (file_exists("../../Doc/insert_book.pdf")) {
+            unlink("../../Doc/insert_book.pdf");
         }
-        $destination = $_SERVER['DOCUMENT_ROOT'] . "\LibraryManagement\Doc\insert_book.pdf";
+        $destination = "../../Doc/insert_book.pdf";
         $pdf->Output($destination, 'F');
 
         echo "<script>window.open('/LibraryManagement/Doc/insert_book.pdf','_blank');</script>";
