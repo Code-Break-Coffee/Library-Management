@@ -2,3 +2,5 @@
 2. change the font colour in student book search
 3, back after the search in student book search
 4. fix insert from in book manupulation 
+5. Dialog box not working on V-Host while search form on wrong input
+6. 

@@ -1,6 +1,7 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
 function delete_faculty($id)
 {
     include "../../connection/dbconnect.php";

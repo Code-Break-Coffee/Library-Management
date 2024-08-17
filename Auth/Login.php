@@ -28,7 +28,8 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
                 $flag = 1;
                 include "KeyGen.php";
                 Gen();
-                include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/php/Main.php";
+                include "../Assets/php/Main.php";
+                // include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Assets/php/Main.php";
                 // $sql_delete = "DELETE from `insert buffer`;"; // delete all the records from input buffer
                 // $result=$conn->query($sql_delete);
             }
@@ -87,7 +88,7 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 }
 else
 {
-    include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/index.php";
+    include "../index.php";
     echo '
         <script>
             document.getElementById("contain").innerHTML=`

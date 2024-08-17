@@ -1,8 +1,9 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../../Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
 include "../../connection/dbconnect.php";
-require_once($_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/vendor/autoload.php");
+require_once("../../vendor/autoload.php");
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
@@ -117,7 +118,7 @@ function ErrorCheck($a1, $a2, $a3, $title, $ed, $pub, $cl, $tpag) {
     return $error;
 }
 
-$targetPath = $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Doc/book.xlsx";
+$targetPath = "../../LibraryManagement/Doc/book.xlsx";
 $Reader = new Xlsx();
 $spreadSheet = $Reader->load($targetPath);
 $excelSheet = $spreadSheet->getActiveSheet();

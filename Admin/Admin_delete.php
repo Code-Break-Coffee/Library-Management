@@ -1,7 +1,8 @@
 <?php
 @session_start();
 include "../connection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
+include "../Auth/auth.php";
+//include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 if(!verification(1) || $_POST["Access"] != "Admin-Delete" )
 {
     header("Location: /LibraryManagement/");

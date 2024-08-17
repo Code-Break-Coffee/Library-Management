@@ -1,6 +1,7 @@
 <?php
 @session_start();
-include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
+include "../Auth/auth.php";
+// include $_SERVER['DOCUMENT_ROOT']."/LibraryManagement/Auth/auth.php";
 if(empty($_POST["level"]) || !verification(1) || $_POST["Access"]!="Main-Admin_display")
 header("Location: /LibraryManagement");
 else

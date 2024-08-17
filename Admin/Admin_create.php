@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include "../connection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/LibraryManagement/Auth/auth.php";
+include "../Auth/auth.php";
 
 function password_check($p, $pc)
 {

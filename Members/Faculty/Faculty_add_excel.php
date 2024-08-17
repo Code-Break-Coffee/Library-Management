@@ -1,11 +1,11 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/LibraryManagement/vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 include "../../connection/dbconnect.php";
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 $flag = 1;
-$targetPath = $_SERVER['DOCUMENT_ROOT'] . '/LibraryManagement/Doc/faculty.xlsx';
+$targetPath = '../../Doc/faculty.xlsx';
 
 try {
     // Disable autocommit
