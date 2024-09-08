@@ -93,18 +93,20 @@ else
             }
             echo "
                 <head>
-                    <link rel='stylesheet' href='../../Assets/DataTables/jquery-ui.css'>
-                    <link rel='stylesheet' href='../../Assets/DataTables/jquery.dataTables_themeroller.css'>
+                    <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
+                    <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
                 </head>
                 <div style='width:80%;overflow:auto;height:650px;'><table id='example'>
-                <tr>
-                <th>Book No.</th>
-                <th>Title</th>
-                <th>Author's</th>
-                <th>Publisher</th>
-                <th>No of Copies</th>
-                <th>Available</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Book No.</th>
+                        <th>Title</th>
+                        <th>Author's</th>
+                        <th>Publisher</th>
+                        <th>No of Copies</th>
+                        <th>Available</th>
+                    </tr>
+                </thead>
                 <tbody>";
 
             ksort($Book_No);
@@ -118,16 +120,14 @@ else
                 <td>".$Book_Publisher["$bTitle"]."</td>
                 <td>".$Book_Copies["$bTitle"]."</td>
                 <td>".$Book_Available["$bTitle"]."</td>
-                <td></td>
-                <td></td>
                 </tr>
                 ";
             }
 
             echo"
                 </tbody></table></div>
-                <script src='../../Assets/DataTables/jquery.js'></script>
-                <script src='../../Assets/DataTables/jquery.dataTables.js'></script>
+                <script src='./Assets/js/Jquery.js'></script>
+                <script src='./Assets/DataTables/datatables.js'></script>
 
                 <script>
                     $(document).ready(function() {
