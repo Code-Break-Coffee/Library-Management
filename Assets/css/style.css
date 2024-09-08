@@ -153,7 +153,7 @@ label
     font-family: product;
 }
 
-table 
+/* table 
 {
     background: #783E12;
     border-radius: 0.25em;
@@ -180,7 +180,7 @@ tbody tr
 }
 tbody tr:hover {
     background: #000000;
-}
+} */
 .bookfilter
 {
     width:300px;

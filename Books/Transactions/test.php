@@ -1,8 +1,8 @@
 <?php
     echo'
     <head>
-        <link rel="stylesheet" href="../../Assets/DataTables/jquery-ui.css">
-        <link rel="stylesheet" href="../../Assets/DataTables/jquery.dataTables_themeroller.css">
+        <link rel="stylesheet" href="../../Assets/DataTables/datatables.min.css">
+        <link rel="stylesheet" href="../../Assets/DataTables/datatables.css">
     </head>
     <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
@@ -486,8 +486,8 @@
         </tr>
     </tbody>
 </table>
-<script src="../../Assets/DataTables/jquery.js"></script>
-<script src="../../Assets/DataTables/jquery.dataTables.js"></script>
+<script src="../../Assets/js/Jquery.js"></script>
+<script src="../../Assets/DataTables/datatables.js"></script>
 
 <script>
     $(document).ready(function() {
