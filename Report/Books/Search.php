@@ -126,7 +126,6 @@ else
 
             echo"
                 </tbody></table></div>
-                <script src='./Assets/js/Jquery.js'></script>
                 <script src='./Assets/DataTables/datatables.js'></script>
 
                 <script>

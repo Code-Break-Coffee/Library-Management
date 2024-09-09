@@ -60,7 +60,7 @@ $_SESSION["File"] = "Index.php";
             </div>
         </div>
     </div>
-    <script src="Assets\\js\\Jquery.js"></script>
+    <script src="Assets\js\Jquery.js"></script>
 <?php
 
 if(!empty($_SESSION["RELOAD"]))

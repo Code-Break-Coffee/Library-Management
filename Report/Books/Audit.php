@@ -22,13 +22,19 @@ function show_table($stat)
     if($result && mysqli_num_rows($result) > 0)
     {
         echo "
-        <div style='width:100%;height:650px;overflow:auto;'><table>
-        <tr>
-        <th>Issue Bookno</th>
-        <th>Issue By</th>
-        <th>Issue Date</th>
-        <th>Return Date</th>
-        </tr>
+        <head>
+            <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
+            <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
+        </head>
+        <div style='width:100%;height:650px;overflow:auto;'><table id='example'>
+        <thead>
+            <tr>
+                <th>Issue Bookno</th>
+                <th>Issue By</th>
+                <th>Issue Date</th>
+                <th>Return Date</th>
+            </tr>
+        </thead>
         <tbody>";
         $count=0;
         while($row=$result->fetch_assoc())
@@ -46,6 +52,15 @@ function show_table($stat)
         }
         echo "</tbody>
         </table></div>
+                <script src='./Assets/DataTables/datatables.js'></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#example').dataTable( {
+                            jQueryUI: true
+                        } );
+                    } );
+                </script>   
         <script>
             document.getElementById('aufield').style.transform='translate(-70%,0%)';
             document.getElementById('response7').style.transform='translate(50%,-90%)';

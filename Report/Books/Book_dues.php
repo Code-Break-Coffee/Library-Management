@@ -26,24 +26,30 @@ else
         {
             echo
             "
+                <head>
+                    <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
+                    <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
+                </head>
                 <div style='position:absolute;top:70%;left:50%;height:600px;overflow:auto;transform:translate(-50%,-50%);'>
-                <table>
-                    <tr>
-                        <th>Book No.</th>
-                        <th>Author 1</th>
-                        <th>Author 2</th>
-                        <th>Author 3</th>
-                        <th>Title</th>
-                        <th>Edition</th>
-                        <th>Publisher</th>
-                        <th>CL No.</th>
-                        <th>Total Pages</th>
-                        <th>Cost</th>
-                        <th>Supplier</th>
-                        <th>Remark</th>
-                        <th>Bill_No</th>
-                        <th>Status</th>
-                    </tr>
+                <table id='example'>
+                    <thead>
+                        <tr>
+                            <th>Book No.</th>
+                            <th>Author 1</th>
+                            <th>Author 2</th>
+                            <th>Author 3</th>
+                            <th>Title</th>
+                            <th>Edition</th>
+                            <th>Publisher</th>
+                            <th>CL No.</th>
+                            <th>Total Pages</th>
+                            <th>Cost</th>
+                            <th>Supplier</th>
+                            <th>Remark</th>
+                            <th>Bill_No</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
                     <tbody>
             ";
                 while($row=$result->fetch_assoc())
@@ -73,6 +79,15 @@ else
                     </tbody>
                 </table>
                 </div>
+                <script src='./Assets/DataTables/datatables.js'></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#example').dataTable( {
+                            jQueryUI: true
+                        } );
+                    } );
+                </script> 
             ";
         }
     }
