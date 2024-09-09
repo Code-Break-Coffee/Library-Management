@@ -17,12 +17,18 @@ function show_table($l)
     if($result)
     {
         echo "
+        <head>
+            <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
+            <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
+        </head>
         <div style='width:100%;height:650px;overflow:auto;'>
-        <table>
+        <table id='example'>
+        <thead>
         <tr>
-        <th>User ID</th>
-        <th>User Level</th>
+            <th>User ID</th>
+            <th>User Level</th>
         </tr>
+        </thead>
         <tbody>";
         
         while($row=$result->fetch_assoc())
@@ -37,6 +43,15 @@ function show_table($l)
         </tbody>
         </table>
         </div>
+        <script src='./Assets/DataTables/datatables.js'></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#example').dataTable( {
+                    jQueryUI: true
+                } );
+            } );
+        </script>  
         <script>
             document.getElementById('display').style.transform='translate(-30%,0%)';
         </script>";
