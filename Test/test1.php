@@ -42,5 +42,4 @@ for($i=0;$i<75;$i++)
         else echo $conn->error;
     }
 }
-
 ?>
