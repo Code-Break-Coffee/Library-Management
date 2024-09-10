@@ -28,7 +28,7 @@ function show_table($stat)
         </head>
         <div style='width:100%;height:650px;overflow:auto;'><table id='example'>
         <thead>
-            <tr>
+            <tr class='trow'>
                 <th>Issue Bookno</th>
                 <th>Issue By</th>
                 <th>Issue Date</th>

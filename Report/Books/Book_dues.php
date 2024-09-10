@@ -34,20 +34,20 @@ else
                 <table id='example'>
                     <thead>
                         <tr>
-                            <th>Book No.</th>
-                            <th>Author 1</th>
-                            <th>Author 2</th>
-                            <th>Author 3</th>
-                            <th>Title</th>
-                            <th>Edition</th>
-                            <th>Publisher</th>
-                            <th>CL No.</th>
-                            <th>Total Pages</th>
-                            <th>Cost</th>
-                            <th>Supplier</th>
-                            <th>Remark</th>
-                            <th>Bill_No</th>
-                            <th>Status</th>
+                            <th class='row_head'>Book No.</th>
+                            <th class='row_head'>Author 1</th>
+                            <th class='row_head'>Author 2</th>
+                            <th class='row_head'>Author 3</th>
+                            <th class='row_head'>Title</th>
+                            <th class='row_head'>Edition</th>
+                            <th class='row_head'>Publisher</th>
+                            <th class='row_head'>CL No.</th>
+                            <th class='row_head'>Total Pages</th>
+                            <th class='row_head'>Cost</th>
+                            <th class='row_head'>Supplier</th>
+                            <th class='row_head'>Remark</th>
+                            <th class='row_head'>Bill_No</th>
+                            <th class='row_head'>Status</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -153,9 +153,9 @@ label
     font-family: product;
 }
 
-/* table 
+table 
 {
-    background: #783E12;
+    background: #4a260a;
     border-radius: 0.25em;
     border-collapse: collapse;
 }
@@ -173,14 +173,41 @@ td
     font-weight: 400;
     padding: 0.65em 1em;
 }
-
+.row_head
+{
+    background-color: #401b00 !important;
+    color: aliceblue !important;
+}
 tbody tr 
 {
     transition: background 0.25s ease;
 }
 tbody tr:hover {
     background: #000000;
-} */
+}
+
+.dt-input
+{
+    background-color: #401b00 !important;
+}
+
+.fg-button
+{
+    background-color: aliceblue !important;
+    color: #000000 !important;
+}
+
+#example_wrapper
+{
+    background: #783E12;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 1em;
+    padding: 20px;
+    color:aliceblue
+}
 .bookfilter
 {
     width:300px;
