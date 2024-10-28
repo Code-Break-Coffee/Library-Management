@@ -26,7 +26,9 @@ function show_table($stat)
             <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
             <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
         </head>
-        <div style='width:100%;height:650px;overflow:auto;'><table id='example'>
+        <div style='width:100%;height:650px;overflow:auto;'>
+        <table id='example'>
+        <button class='btn new_css_btn' onclick='closeTable()'>x</button>
         <thead>
             <tr class='trow'>
                 <th>Issue Bookno</th>
@@ -62,8 +64,18 @@ function show_table($stat)
                     } );
                 </script>   
         <script>
-            document.getElementById('aufield').style.transform='translate(-70%,0%)';
-            document.getElementById('response7').style.transform='translate(50%,-90%)';
+            
+            document.getElementById('aufield').style.display='none';
+            document.getElementById('response7').style.display='block';
+            document.getElementsByClassName('dabbe')[0].style.height='0';
+            function closeTable()
+            {
+                document.getElementsByClassName('dabbe')[0].style.height='80vh';
+                document.getElementById('response7').style.display='none';
+                document.getElementById('aufield').style.display='flex';
+                document.getElementById('aufield').style.alignItems='center';
+                document.getElementById('aufield').style.justifyContent='center';
+            }
         </script>";
     }
     else if(!$result)
