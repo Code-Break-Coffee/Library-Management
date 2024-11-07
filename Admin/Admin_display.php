@@ -23,6 +23,7 @@ function show_table($l)
         </head>
         <div style='width:100%;height:650px;overflow:auto;'>
         <table id='example'>
+            <button class='btn new_css_btn' onclick='closeTable()'>x</button>
         <thead>
         <tr>
             <th>User ID</th>
@@ -53,7 +54,14 @@ function show_table($l)
             } );
         </script>  
         <script>
-            document.getElementById('display').style.transform='translate(-30%,0%)';
+            document.getElementById('display').style.display='none';
+            function closeTable()
+            {
+                document.getElementById('example').style.display='none';
+                document.getElementById('display').style.display='flex';
+                document.getElementById('display').style.alignItems='center';
+                document.getElementById('display').style.justifyContent='center';
+            }
         </script>";
     }
     else

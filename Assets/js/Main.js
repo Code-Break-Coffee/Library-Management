@@ -1134,7 +1134,7 @@ document.getElementById("admin_disp").addEventListener("click",()=>
         </div>
         </div>
     </div>
-    <div style="font-weight: bold; position: absolute; width:1200px;top:25%;left:50%;" id="response_admin_disp"></div>`;
+    <div style="font-weight: bold;margin-left:40px;margin-right:40px;margin-top:20px" id="response_admin_disp"></div>`;
     $("#resetadmin").on('click',()=>
     {
         document.getElementById("display").style.transform="translate(0%,0%)";
