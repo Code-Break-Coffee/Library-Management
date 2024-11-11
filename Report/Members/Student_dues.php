@@ -55,10 +55,12 @@ else
                     while($row=$result->fetch_assoc()) $count += 1;
                     if($count==0)
                     {
-                        echo "<div id='dialog-confirm' title='Remove Membership ⚠️'>
-                    <p><span class='ui-icon ui-icon-alert' style='float:left; margin:12px 12px 20px 0;'></span> 
-                    $memberId has no Book Dues!!!<br>
-                    Member $memberId will be removed from members!!! Are you sure?</p>
+                        echo "
+                    <div id='dialog-confirm' title='Remove Membership ⚠️'>
+                        <p style='display: flex; align-items: center; justify-content: center; background-color: #e6f9e6; color: #28a745; padding: 1rem; border-radius: 8px; border: 1px solid #28a745; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                        $memberId has no book dues!
+                        </p>
                     </div>";
                 echo"<script>
                 $( function() {
@@ -68,28 +70,28 @@ else
                     width: 400,
                     modal: true,
                     buttons: {
-                      'Remove Membership': function() {
-                        $.ajax(
-                            {
-                                method: 'post',
-                                url: './Members/Student/Student_member_delete.php',
-                                data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
-                                datatype: 'text',
-                                error: function()
-                                {
-                                    alert('Error Occured');
-                                },
-                                success: function(Result)
-                                {
-                                    $( '#dialog_del' ).dialog( 'destroy' );
-                                    $('#response6').html(Result);
-                                    $('#dialog_del').dialog();
-                                }
-                            });
-                        $( this ).dialog( 'close' );
+                    //   'Remove Membership': function() {
+                    //     $.ajax(
+                    //         {
+                    //             method: 'post',
+                    //             url: './Members/Student/Student_member_delete.php',
+                    //             data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
+                    //             datatype: 'text',
+                    //             error: function()
+                    //             {
+                    //                 alert('Error Occured');
+                    //             },
+                    //             success: function(Result)
+                    //             {
+                    //                 $( '#dialog_del' ).dialog( 'destroy' );
+                    //                 $('#response6').html(Result);
+                    //                 $('#dialog_del').dialog();
+                    //             }
+                    //         });
+                    //     $( this ).dialog( 'close' );
 
-                      },
-                      'Cancel': function() {
+                    //   },
+                      'Ok': function() {
                         $( this ).dialog( 'close' );
                       }
                     }
