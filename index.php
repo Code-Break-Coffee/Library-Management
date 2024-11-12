@@ -17,29 +17,39 @@ $_SESSION["File"] = "Index.php";
     <script src="./jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
 </head>
 <body>
-    <center>
-    <div class="heading" id="Title_nev">
-        <div class="heading_sub">
-            <img src="./Assets/img/iips_logo2.png" alt="logo" width="100" height="100"/>
-            <div style="text-align: left;font-family:product;font-size:x-large;">International Institute<br> of Professional Studies</div>
-        </div>
-        <div>
-            <div>
-                <div style="font-family: product_bold;font-size:x-large;">Library</div>
+<div style="background-color: #783E12;">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <!-- Left Logo and Title -->
+            <div class="col-12 col-md-4 text-center text-md-start heading_sub">
+                <img src="Assets/img/iips_logo2.png" alt="logo" width="100" height="100" class="img-fluid d-none d-md-block"/>
+                <div class="mt-2 d-none d-md-block" style="text-align: left; font-family:product; font-size:x-large; color:#ffffff;">
+                    International Institute<br> of Professional Studies
+                </div>
             </div>
-            <div>
-                <button type="submit" id="Student" value="Student" class="btn">Student</button>
-                <form id="logout" method="post" action="Auth\\Logout.php" style="display:none;">
-                    <input type="submit" id="logoutbtn" value="Logout" class="form-control btn" />
+
+            <!-- Center Library Title and Buttons -->
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center my-3 my-md-0">
+                <div style="font-family: product_bold; font-size:x-large; color:#ffffff;">Library</div>
+                <button type="button" id="Student" value="Student" class="btn btn-outline-primary mt-2">Student</button>
+                <form id="logout" method="post" action="Auth/Logout.php" style="display:none;">
+                    <input style="border-color:#ffffff;" type="submit" id="logoutbtn" value="Logout" class="btn btn-outline-danger mt-2"/>
                 </form>
             </div>
-        </div>
-        <div class="heading_sub">
-            <div style="text-align: right;font-family:product;font-size:x-large;">Devi Ahilya<br>Vishva Vidyalaya</div>
-            <img src="./Assets/img/Davv_Logo.png" alt="logo" width="100" height="100"/>
+
+            <!-- Right Logo and Title -->
+            <div class="col-12 col-md-4 text-center text-md-end heading_sub">
+                <div class="text-end d-none d-md-block" style="text-align: right; font-family:product; color:#ffffff; font-size:x-large;">
+                    Devi Ahilya<br> Vishva Vidyalaya
+                </div>
+                <img src="Assets/img/Davv_Logo.png" alt="logo" width="100" height="100" class="img-fluid d-none d-md-block"/>
+            </div>
         </div>
     </div>
-    </center>
+</div>
+
+
+
     <div id="contain">
         <div class="dabbe">
             <div class="dabbe_ka_dabba">
