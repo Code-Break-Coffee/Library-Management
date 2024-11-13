@@ -166,7 +166,7 @@ else
     {
         include "../../connection/dbconnect.php";
         $b ="%".strtolower($bauthor)."%";
-        $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b';";
+        $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
         displayTable($result, $conn);
     }
@@ -175,7 +175,7 @@ else
     {
         include "../../connection/dbconnect.php";
         $b ="%".strtolower($bname)."%";
-        $sql = "SELECT * from books where Title LIKE '$b';";
+        $sql = "SELECT * from books where Title LIKE '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
         displayTable($result, $conn);
     }
