@@ -25,9 +25,10 @@ else
         if(mysqli_num_rows($resultCheck2)>0)
         {
             echo"
-            <div id='dialog_fac' style='color:red;' title='Not Allowed❌'>
-                <p><center>Faculty $facId already present!!!
-                <br>If you think this is an issue, Kindly add the Faculty Manually!!!</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Not Allowed❌'>
+                <p class='notification-message'>Faculty $facId already present!!!  <br>
+                If you think this is an issue, Kindly add the Faculty Manually!!!
+                </p>
             </div>";
         }
         else
@@ -41,22 +42,22 @@ else
                     $sql2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
                     $result2=$conn->query($sql2);
                     if(! $result2) echo"
-                        <div id='dialog_fac' style='color:red;' title='Error❌'>
-                            <p><center>$conn->error</center></p>
+                        <div id='dialog-confirm' style='color:red;' title='Error❌'>
+                            <p class='notification-message'>$conn->error</p>
                         </div>";
                     else if($result2)
                     {
                         echo "
-                            <div id='dialog_fac' style='color:green;' title='Successful✅'>
-                                <p><center>Faculty $facId added as a member successfully!!!</center></p>
+                            <div id='dialog-confirm' style='color:green;' title='Successful✅'>
+                                <p class='notification-success-message'>Faculty $facId added as a member successfully!!!</p>
                             </div>"; 
                     }
                 }
                 else
                 {
                     echo"
-                        <div id='dialog_fac' style='color:red;' title='Error❌'>
-                            <p><center>$conn->error</center></p>
+                        <div id='dialog-confirm' style='color:red;' title='Error❌'>
+                            <p class='notification-message'>$conn->error</p>
                         </div>";
                 }
                 
@@ -64,16 +65,31 @@ else
             else
             {
                 echo "
-                <div id='dialog_fac' style='color:green;' title='Error❌'>
-                    <p><center>Faculty $facId not found in Faculty Table!!</center></p>
+                <div id='dialog-confirm' style='color:green;' title='Error❌'>
+                    <p class='notification-message'>Faculty $facId not found in Faculty Table!!</p>
                 </div>"; 
             }
         }
     }
     else echo"
-            <div id='dialog_fac' style='color:red;' title='Error❌'>
-                <p><center>$conn->error</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Error❌'>
+                <p class='notification-message'>$conn->error</p>
             </div>";
 
+    echo"<script>
+            $( function() {
+              $( '#dialog-confirm' ).dialog({
+                resizable: false,
+                height: 'auto',
+                width: 400,
+                modal: true,
+                buttons: {
+                  'Ok': function() {
+                    $( this ).dialog( 'close' );
+                  }
+                }
+              });
+            } );
+            </script>";
 }
 ?>

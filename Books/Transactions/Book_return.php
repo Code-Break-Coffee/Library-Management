@@ -111,24 +111,24 @@ else
                     if($resultIssue && $resultReturn)
                     {
                         echo "
-                        <div id='dialog2' style='color:green;' title='Success'>
-                            <p><center>Book $b Returned Successfully!!</center></p>
+                        <div id='dialog-confirm' style='color:green;' title='Success'>
+                            <p class='notification-success-message'>Book $b Returned Successfully!!</p>
                         </div>
                         "; 
                     }
                     else
                     {
                         echo "
-                        <div id='dialog2' style='color:red;' title='Error ❌'>
-                            <p><center>$conn->error</center></p>
+                        <div id='dialog-confirm' style='color:red;' title='Error ❌'>
+                            <p class='notification-message'>$conn->error</p>
                         </div>";
                     }        
                 }
                 else
                 {
                     echo "
-                    <div id='dialog2' style='color:red;' title='Not Allowed ❌'>
-                        <p><center>Book $b Return Not Allowed!!</center></p>
+                    <div id='dialog-confirm' style='color:red;' title='Not Allowed ❌'>
+                        <p class='notification-message'>Book $b Return Not Allowed!!</p>
                     </div>
                     "; 
                 }
@@ -136,26 +136,41 @@ else
             else
             {
                 echo "
-                <div id='dialog2' style='color:red;' title='Error ❌'>
-                    <p><center>$conn->error</center></p>
+                <div id='dialog-confirm' style='color:red;' title='Error ❌'>
+                    <p class='notification-message'>$conn->error</p>
                 </div>";
             }
         }
         else
         {
             echo "
-            <div id='dialog2' style='color:red;' title='Notification ❌'>
-                <p><center>Member $m not found</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Notification ❌'>
+                <p class='notification-message'>Member $m not found</p>
             </div>";
         }
     }
     else
     {
         echo "
-        <div id='dialog2' style='color:red;' title='Notification ❌'>
-            <p><center>Book $b is not issued or $m is Incorrect</center></p>
+        <div id='dialog-confirm' style='color:red;' title='Notification ❌'>
+            <p class='notification-message'>Book $b is not issued or $m is Incorrect</p>
         </div>
         "; 
     }
-}
+    echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>";
+        }
 ?>

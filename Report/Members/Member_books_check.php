@@ -76,8 +76,12 @@ if (!verification() || $_POST["Access"] != "Main-Member-Books-Check") {
                 } else {
                     echo
                         "
-                        <div style='color:green;' id='dialog_member_books_check' title='✅ Successful'>
-                            <p><center>'$memid' has no books due with him/her!!!</center></p>
+                        <div style='color:green;' id='dialog-confirm' title='✅ No Dues'>
+                        <p style='display: flex; align-items: center; justify-content: center; background-color: #e6f9e6; color: #28a745; padding: 1rem; border-radius: 8px; border: 1px solid #28a745; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                            Member $memid has no Books Dues at the moment!!!
+                        </p> 
+                            
                         </div>
                     ";
                 }
@@ -93,13 +97,30 @@ if (!verification() || $_POST["Access"] != "Main-Member-Books-Check") {
         else{
             echo
                     "
-                    <div style='color:red;' id='dialog_member_books_check' title='❌ Error'>
-                        <p><center>Member Not exists</center></p>
+                    <div style='color:red;' id='dialog-confirm' title='❌ Error'>
+                        <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72c28; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                            Member $memid Not Found
+                        </p>
                     </div>
                 ";
         }
     } else {
         echo "<script>window.open('./','_self');</script>";
     }
-
+    echo"<script>
+    $( function() {
+      $( '#dialog-confirm' ).dialog({
+        resizable: false,
+        height: 'auto',
+        width: 400,
+        modal: true,
+        buttons: {
+          'Ok': function() {
+            $( this ).dialog( 'close' );
+          }
+        }
+      });
+    } );
+    </script>";
 }

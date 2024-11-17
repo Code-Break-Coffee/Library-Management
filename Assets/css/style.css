@@ -6,6 +6,35 @@
     font-family: product_bold;
     src: url(../../Assets/fonts/Product\ Sans\ Bold.ttf);
 }
+
+.notification-message
+{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: #f9e6e6;
+     color: #a72828; padding: 
+     1rem; border-radius: 8px; 
+     border: 1px solid #a72828; 
+     max-width: 400px; 
+     margin: 20px auto; 
+     font-weight: bold;
+}
+
+.notification-success-message
+{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: #f9e6e6;
+     color: #4ca728; padding: 
+     1rem; border-radius: 8px; 
+     border: 1px solid #33a728; 
+     max-width: 400px; 
+     margin: 20px auto; 
+     font-weight: bold;
+}
+
 .box1
 {
     height:675px;

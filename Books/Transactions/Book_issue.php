@@ -133,8 +133,8 @@ if($checkedb)
                     $update_book = $conn->query($sql_UpdateB);
 
                     if($update_book)echo "
-                    <div id='dialog1' style='color:green;' title='✅Successful'>
-                        <p><center>Book Issued By Member $m Succesfull!</center></p>
+                    <div id='dialog-confirm' style='color:green;' title='✅Successful'>
+                        <p class='notification-success-message'>Book Issued By Member $m Succesfull!</p>
                     </div>
                     "; 
                     else echo "<div style='position:relative;top:50%;left:50%;transform:translate(0%, 0%);color:red;'><center>$conn->error</center></div>";
@@ -147,8 +147,8 @@ if($checkedb)
             else
             {
                 echo "
-                <div id='dialog1' style='color:red;' title='⚠️Error'>
-                    <p><center>Book Issue Not Allowed!!</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                    <p class='notification-message'>Book Issue Not Allowed!!</p>
                 </div>
                 "; 
             }
@@ -161,8 +161,8 @@ if($checkedb)
     else
     {
         echo "
-        <div id='dialog1' style='color:red;' title='⚠️Member Not Found'>
-            <p><center>Member $m Not Found</center></p>
+        <div id='dialog-confirm' style='color:red;' title='⚠️Member Not Found'>
+            <p class='notification-message'>Member $m Not Found</p>
         </div>
         "; 
     }
@@ -170,11 +170,26 @@ if($checkedb)
 else
 {
     echo "
-    <div id='dialog1' style='color:red;' title='⚠️Book Not Available'>
-        <p><center>Book $b Is Not Availabe</center></p>
+    <div id='dialog-confirm' style='color:red;' title='⚠️Book Not Available'>
+        <p class='notification-message'>Book $b Is Not Availabe</p>
     </div>
     "; 
 }
+echo"<script>
+$( function() {
+  $( '#dialog-confirm' ).dialog({
+    resizable: false,
+    height: 'auto',
+    width: 400,
+    modal: true,
+    buttons: {
+      'Ok': function() {
+        $( this ).dialog( 'close' );
+      }
+    }
+  });
+} );
+</script>";
 
 }
 ?>

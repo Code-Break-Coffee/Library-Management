@@ -13,9 +13,24 @@ else
     $sql="DELETE from books where Book_No = '$bookno';";
     $result=$conn->query($sql);
     if($result) echo "
-        <div id='dialog4' style='color:green;' title='Notification ✅'>
-            <p>Book $bookno Deleted Succesfully</p>
+        <div id='dialog-confirm' style='color:green;' title='Notification ✅'>
+            <p class='notification-success-message'>Book $bookno Deleted Succesfully</p>
         </div>"; 
     else echo $conn->error;
 }
+echo"<script>
+$( function() {
+$( '#dialog-confirm' ).dialog({
+    resizable: false,
+    height: 'auto',
+    width: 400,
+    modal: true,
+    buttons: {
+    'Ok': function() {
+        $( this ).dialog( 'close' );
+    }
+    }
+});
+} );
+</script>";
 ?>

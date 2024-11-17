@@ -145,9 +145,24 @@ else
         else if(mysqli_num_rows($result) == 0)
         {
             echo "
-                <div id='dialog' style='color:red;' title='⚠️Error'>
-                    <p><center>Book data not found</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                    <p class='notification-message'>Book data not found</p>
                 </div>";
+                echo"<script>
+                    $( function() {
+                    $( '#dialog-confirm' ).dialog({
+                        resizable: false,
+                        height: 'auto',
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                        'Ok': function() {
+                            $( this ).dialog( 'close' );
+                        }
+                        }
+                    });
+                    } );
+                    </script>";
         }
         else echo $conn->error;
     }
@@ -204,41 +219,56 @@ else
             if($f==1)
             {
                 if($Search) echo"
-                <div id='dialog' style='color:green;' title='Available ✅'>
-                    <p><center>Book $bno is Available and can be Issued!!!</center></p>
+                <div id='dialog-confirm' style='color:green;' title='Available ✅'>
+                    <p class='notification-success-message'>Book $bno is Available and can be Issued!!!</p>
                 </div>";
                 else echo "
-                <div id='dialog' style='color:red;' title='Not Found 🤡'>
-                    <p><center>Book $bno does not Exist</center></p>
+                <div id='dialog-confirm' style='color:red;' title='Not Found 🤡'>
+                    <p class='notification-message'>Book $bno does not Exist</p>
                 </div>";
             }
             else
             {
                 if($Search) echo "
-                <div id='dialog' style='color:red;' title='Not Available ❌'>
-                    <p><center>Book $bno is been Issued already!!!</center></p>
+                <div id='dialog-confirm' style='color:red;' title='Not Available ❌'>
+                    <p class='notification-message'>Book $bno is been Issued already!!!</p>
                 </div>";
                 else echo "
-                <div id='dialog' style='color:red;' title='Not Found ❌'>
-                    <p><center>Book $bno does not Exist</center></p>
+                <div id='dialog-confirm' style='color:red;' title='Not Found ❌'>
+                    <p class='notification-message'>Book $bno does not Exist</p>
                 </div>"; 
             }
         }
         else if(!$result) echo "
-        <div id='dialog' style='color:red;' title='Error ❌'>
-            <p><center>$conn->error</center></p>
+        <div id='dialog-confirm' style='color:red;' title='Error ❌'>
+            <p class='notification-message'>$conn->error</p>
         </div>";
         else if($isNum != 1)echo "
-        <div id='dialog' style='color:red;' title='Error ❌'>
-            <p><center>Enter a Valid Book Number</center></p>
+        <div id='dialog-confirm' style='color:red;' title='Error ❌'>
+            <p class='notification-message'>Enter a Valid Book Number</p>
         </div>";
         else
         {
             echo "
-            <div id='dialog' style='color:red;' title='Not Found ❌'>
-                <p><center>Book $bno does not Exist</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Not Found ❌'>
+                <p class='notification-message'>Book $bno does not Exist</p>
             </div>";
         }
+        echo"<script>
+            $( function() {
+            $( '#dialog-confirm' ).dialog({
+                resizable: false,
+                height: 'auto',
+                width: 400,
+                modal: true,
+                buttons: {
+                'Ok': function() {
+                    $( this ).dialog( 'close' );
+                }
+                }
+            });
+            } );
+            </script>";
     }
     else if(filter_input(INPUT_POST,"soption")=="Title")
     {

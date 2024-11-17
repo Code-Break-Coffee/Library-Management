@@ -17,10 +17,29 @@ else
         {
             echo
             "
-                <div title='⚠️Notification' id='dialog_book_dues' style='color:red;'>
-                    <p>There are no Books Dues at the moment!!!</p>
+                <div title='⚠️Notification' id='dialog-confirm' style='color:red;'>
+                    <p style='display: flex; align-items: center; justify-content: center; background-color: #f8d7da; color: #a72828; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                        <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                        There are no Books Dues at the moment!!!
+                    </p>    
                 </div>
             ";
+
+            echo"<script>
+            $( function() {
+              $( '#dialog-confirm' ).dialog({
+                resizable: false,
+                height: 'auto',
+                width: 400,
+                modal: true,
+                buttons: {
+                  'Ok': function() {
+                    $( this ).dialog( 'close' );
+                  }
+                }
+              });
+            } );
+            </script>";
         }
         else
         {
@@ -95,7 +114,7 @@ else
     {
         echo
         "
-            <div title='❌Error' id='dialog_book_dues' style='color:red;'>
+            <div title='❌Error' id='dialog-confirm' style='color:red;'>
                 <p>$conn->error</p>
             </div>
         ";

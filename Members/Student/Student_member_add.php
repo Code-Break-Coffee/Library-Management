@@ -24,16 +24,16 @@ else
         if(mysqli_num_rows($result_member_check)>0)
         {
             echo "
-            <div id='dialog8' style='color:red;' title='Error'>
-                <p><center>Member Already Present</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Error'>
+                <p class='notification-message'>Member Already Present</p>
             </div>";
         }
         else
         {
             $result=$conn->query($stat);
             echo "
-            <div id='dialog8' style='color:green;' title='Successfull'>
-                <p><center>$roll Added Successfully</center></p>
+            <div id='dialog-confirm' style='color:green;' title='Successfull'>
+                <p class='notification-success-message'>$roll Added Successfully</p>
             </div>
             ";
         }
@@ -41,10 +41,25 @@ else
     else
     {
         echo "
-            <div id='dialog8' style='color:red;' title='Error'>
-                <p><center>Student not found in Records</center></p>
+            <div id='dialog-confirm' style='color:red;' title='Error'>
+                <p class='notification-message'>Student not found in Records</center></p>
             </div>";
     }
+    echo"<script>
+    $( function() {
+      $( '#dialog-confirm' ).dialog({
+        resizable: false,
+        height: 'auto',
+        width: 400,
+        modal: true,
+        buttons: {
+          'Ok': function() {
+            $( this ).dialog( 'close' );
+          }
+        }
+      });
+    } );
+    </script>";
 }
 
 ?>
