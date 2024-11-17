@@ -21,7 +21,9 @@ if ($result) {
 
             $stat1 = "INSERT INTO faculty(Faculty_ID,Faculty_Name,Faculty_Type) VALUES ('$fcaId','$fName','$fType');";
             $res = $conn->query($stat1);
-            if (!$res) {
+            $stat2="INSERT into member(Member_ID,MemberType) values('$facId','Faculty');";
+            $res2=$conn->query($stat2);
+            if (!$res || !$res2) {
                 throw new Exception($conn->error);
             }
         }

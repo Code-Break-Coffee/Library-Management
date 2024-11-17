@@ -11,6 +11,7 @@ else
 {
     $facName=$_POST["fac_name"];
     $facId=$_POST["fac_id"];
+    $facId = preg_replace('/[^A-Za-z0-9\-]/', '', $facId);
     $facType=filter_input(INPUT_POST,"fac_type");
 
     $sqlCheck1="SELECT Faculty_ID from faculty where Faculty_ID = '$facId';";
@@ -33,7 +34,7 @@ else
         }
         else
         {
-            if(mysqli_num_rows($resultCheck1)>0)
+            if(!mysqli_num_rows($resultCheck1)>0)
             {
                 $sql1 = "INSERT into faculty(Faculty_ID,Faculty_Name,Faculty_Type) values('$facId','$facName','$facType');";
                 $resul1 = $conn->query($sql1);
@@ -66,7 +67,7 @@ else
             {
                 echo "
                 <div id='dialog-confirm' style='color:green;' title='Error❌'>
-                    <p class='notification-message'>Faculty $facId not found in Faculty Table!!</p>
+                    <p class='notification-message'>Faculty $facId found in Faculty Table!!</p>
                 </div>"; 
             }
         }
