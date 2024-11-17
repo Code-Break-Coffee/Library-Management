@@ -84,6 +84,21 @@ function show_table($stat)
         <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
             <p class='notification-message'> $conn->error </p>
         </div>";
+        echo"<script>
+        $( function() {
+          $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+              'Ok': function() {
+                $( this ).dialog( 'close' );
+              }
+            }
+          });
+        } );
+        </script>";
     }
     else if(mysqli_num_rows($result) <= 0)
         {
@@ -91,26 +106,26 @@ function show_table($stat)
                 <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
                     <p class='notification-message'>Data not found </p>
                 </div>";
+                echo"<script>
+                $( function() {
+                  $( '#dialog-confirm' ).dialog({
+                    resizable: false,
+                    height: 'auto',
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                      'Ok': function() {
+                        $( this ).dialog( 'close' );
+                      }
+                    }
+                  });
+                } );
+                </script>";
         }
     else
     {
         echo $conn->error;
     }
-    echo"<script>
-    $( function() {
-      $( '#dialog-confirm' ).dialog({
-        resizable: false,
-        height: 'auto',
-        width: 400,
-        modal: true,
-        buttons: {
-          'Ok': function() {
-            $( this ).dialog( 'close' );
-          }
-        }
-      });
-    } );
-    </script>";
 }
 
 if($membership=="Student")
