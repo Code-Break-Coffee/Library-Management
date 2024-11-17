@@ -170,7 +170,7 @@ else
     function Search($bVal)
     {
         include "../../connection/dbconnect.php";
-        $b = "%".strtolower($bVal)."%";
+        $b = "%".$bVal."%";
         $sql = "SELECT Title,Edition,Book_No,Author1,Author2,Author3,Publisher from books where Author1 like '$b' or Author2 like '$b' or Author3 like '$b'
         or Title like '$b' or Publisher like '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
@@ -180,7 +180,7 @@ else
     function Book_Author($bauthor)
     {
         include "../../connection/dbconnect.php";
-        $b ="%".strtolower($bauthor)."%";
+        $b ="%".$bauthor."%";
         $sql = "SELECT * from books where Author1 LIKE '$b' or Author2 LIKE '$b' or Author3 LIKE '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
         displayTable($result, $conn);
@@ -189,7 +189,7 @@ else
     function Book_Name($bname)
     {
         include "../../connection/dbconnect.php";
-        $b ="%".strtolower($bname)."%";
+        $b ="%".$bname."%";
         $sql = "SELECT * from books where Title LIKE '$b' ORDER BY Book_No;";
         $result=$conn->query($sql);
         displayTable($result, $conn);
