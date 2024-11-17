@@ -35,9 +35,13 @@ else
         if(empty($_POST["memberid"]))
         {
             echo "
-                <div id='dialog6' style='color:red;' title='⚠️Error'>
-                    <p><center>Please enter authentic Member ID</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72828; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                        <span class='ui-icon ui-icon-alert' style='margin-right: 8px;'></span>
+                        Please Enter Member ID
+                    </p>  
                 </div>";
+                
             
         }
         else if(!empty($_POST["memberid"]))
@@ -56,54 +60,21 @@ else
                     if($count==0)
                     {
                         echo "
-                    <div id='dialog-confirm' title='Remove Membership ⚠️'>
-                        <p style='display: flex; align-items: center; justify-content: center; background-color: #e6f9e6; color: #28a745; padding: 1rem; border-radius: 8px; border: 1px solid #28a745; max-width: 400px; margin: 20px auto; font-weight: bold;'>
-                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
-                        $memberId has no book dues!
-                        </p>
-                    </div>";
-                echo"<script>
-                $( function() {
-                  $( '#dialog-confirm' ).dialog({
-                    resizable: false,
-                    height: 'auto',
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                    //   'Remove Membership': function() {
-                    //     $.ajax(
-                    //         {
-                    //             method: 'post',
-                    //             url: './Members/Student/Student_member_delete.php',
-                    //             data: $(this).serialize() + '&Access=Main-delete_member&del_mem=$memberId',
-                    //             datatype: 'text',
-                    //             error: function()
-                    //             {
-                    //                 alert('Error Occured');
-                    //             },
-                    //             success: function(Result)
-                    //             {
-                    //                 $( '#dialog_del' ).dialog( 'destroy' );
-                    //                 $('#response6').html(Result);
-                    //                 $('#dialog_del').dialog();
-                    //             }
-                    //         });
-                    //     $( this ).dialog( 'close' );
-
-                    //   },
-                      'Ok': function() {
-                        $( this ).dialog( 'close' );
-                      }
-                    }
-                  });
-                } );
-                </script>";
+                        <div id='dialog-confirm' title='Notification ⚠️'>
+                            <p style='display: flex; align-items: center; justify-content: center; background-color: #e6f9e6; color: #28a745; padding: 1rem; border-radius: 8px; border: 1px solid #28a745; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                                <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                            $memberId has no book dues!
+                            </p>
+                        </div>";
                     }
                     else
                     {
                         echo "
-                        <div id='dialog6' style='color:red;' title='⚠️Notification'>
-                            <p><center>Member $memberId has $count Books Dues</center></p>
+                        <div id='dialog-confirm' style='color:red;' title='⚠️Notification'>
+                            <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72828; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                                <span class='ui-icon ui-icon-alert' style='margin-right: 8px;'></span>
+                                Member $memberId has $count Books Dues
+                            </p>
                         </div>";
                     }
                 }
@@ -113,10 +84,28 @@ else
                 </div>";
             }
             else echo "
-            <div id='dialog6' style='color:red;' title='❌Not Found'>
-                <p><center>Member Not found</center></p>
+            <div id='dialog-confirm' style='color:red;' title='❌Not Found'>
+                <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72828; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                    <span class='ui-icon ui-icon-alert' style='margin-right: 8px;'></span>
+                    Member $memberId Not Found
+                </p>
             </div>";
         }
+        echo"<script>
+        $( function() {
+          $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+              'Ok': function() {
+                $( this ).dialog( 'close' );
+              }
+            }
+          });
+        } );
+        </script>";
     }
     else if(filter_input(INPUT_POST,"moption")=="Class")
     {

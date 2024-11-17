@@ -47,9 +47,27 @@ function displayTable($records)
         else
         {
             echo "
-                <div id='dialog_std_disp' style='color:red;' title='⚠️Error'>
-                    <p><center>Data not found</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                        <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72c28; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                            Member Not Found
+                        </p>
                 </div>";
+            echo"<script>
+                $( function() {
+                $( '#dialog-confirm' ).dialog({
+                    resizable: false,
+                    height: 'auto',
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                    'Ok': function() {
+                        $( this ).dialog( 'close' );
+                    }
+                    }
+                });
+                } );
+            </script>";
         }
     }
 function membercheck($x,$y)
@@ -103,9 +121,27 @@ else
         displayTable($records);
     }
     else{
-        echo"<div id='dialog_std_disp' style='color:red;' title='⚠️Error'>
-                <p><center>$conn->error</center></p>
+        echo"<div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                        <p style='display: flex; align-items: center; justify-content: center; background-color: #f9e6e6; color: #a72c28; padding: 1rem; border-radius: 8px; border: 1px solid #a72828; max-width: 400px; margin: 20px auto; font-weight: bold;'>
+                            <span class='ui-icon ui-icon-check' style='margin-right: 8px;'></span>
+                            $conn->error
+                        </p>
             </div>";
+            echo"<script>
+                $( function() {
+                $( '#dialog-confirm' ).dialog({
+                    resizable: false,
+                    height: 'auto',
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                    'Ok': function() {
+                        $( this ).dialog( 'close' );
+                    }
+                    }
+                });
+                } );
+            </script>";
     }
 }
 

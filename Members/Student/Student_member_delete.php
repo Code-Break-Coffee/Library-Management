@@ -57,33 +57,48 @@
             if($result)
             {
                 echo "
-                    <div id='dialog_del' style='color:green;' title='✅ Successful'>
-                        <p>Member $member Deleted Succesfully</p>
+                    <div id='dialog-confirm' style='color:green;' title='✅ Successful'>
+                        <p class='notification-success-message'>Member $member Deleted Succesfully</p>
                     </div>"; 
             }
             else
             {
                 echo "
-                    <div id='dialog_del' style='color:red;' title='❌Error'>
-                        <p>$conn->error</p>
+                    <div id='dialog-confirm' style='color:red;' title='❌Error'>
+                        <p class='notification-message'>$conn->error</p>
                     </div>"; 
             }
         }
         else
         {
             echo "
-                <div id='dialog_del' style='color:red;' title='❌Error'>
-                    <p>Member $member has a Issued Book</p>
+                <div id='dialog-confirm' style='color:red;' title='❌Error'>
+                    <p class='notification-message'>Member $member has a Issued Book</p>
                 </div>";
         }
     }
     else
     {
         echo "
-        <div id='dialog_del' style='color:red;' title='❌Error'>
-            <p>Member $member not found or is not a Student</p>
+        <div id='dialog-confirm' style='color:red;' title='❌Error'>
+            <p class='notification-message'>Member $member not found or is not a Student</p>
         </div>
         ";
     }
+    echo"<script>
+    $( function() {
+      $( '#dialog-confirm' ).dialog({
+        resizable: false,
+        height: 'auto',
+        width: 400,
+        modal: true,
+        buttons: {
+          'Ok': function() {
+            $( this ).dialog( 'close' );
+          }
+        }
+      });
+    } );
+    </script>";
     
 ?>

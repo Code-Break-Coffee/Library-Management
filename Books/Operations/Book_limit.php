@@ -16,8 +16,8 @@ else
         {
             echo
             "
-                <div title='❌Not Allowed' id='dialog_issue_limit' style='color:red;'>
-                    <p>Invalid Limit!!!</p>
+                <div title='❌Not Allowed' id='dialog-confirm' style='color:red;'>
+                    <p class='notification-message'>Invalid Limit!!!</p>
                 </div>
             ";
         }
@@ -32,8 +32,8 @@ else
                 {
                     echo
                     "
-                        <div title='❌Not Allowed' id='dialog_issue_limit' style='color:red;'>
-                            <p>The Limit is already set to '$limit'!!!</p>
+                        <div title='❌Not Allowed' id='dialog-confirm' style='color:red;'>
+                            <p class='notification-message'>The Limit is already set to '$limit'!!!</p>
                         </div>
                     ";
                 }
@@ -49,8 +49,8 @@ else
                         {
                             echo
                             "
-                                <div title='✅Successful' id='dialog_issue_limit' style='color:green;'>
-                                    <p>Book Issue Limit changed to '$limit' books per member!!!</p>
+                                <div title='✅Successful' id='dialog-confirm' style='color:green;'>
+                                    <p class='notification-success-message'>Book Issue Limit changed to '$limit' books per member!!!</p>
                                 </div>
                             ";
                         }
@@ -61,8 +61,8 @@ else
                             {
                                 echo
                                 "
-                                    <div id='dialog_issue_limit' title='⚠️Notification' style='color:red;'>
-                                        <p>There was an error in changing the limit. Default limit has been changed to '3' books per member!!!</p>
+                                    <div id='dialog-confirm' title='⚠️Notification' style='color:red;'>
+                                        <p class='notification-message'>There was an error in changing the limit. Default limit has been changed to '3' books per member!!!</p>
                                     </div>
                                 ";
                             }
@@ -70,8 +70,8 @@ else
                             {
                                 echo
                                 "
-                                    <div title='❌Error' id='dialog_issue_limit' style='color:red;'>
-                                        <p>Fatal Error. Contact the Support(7024888951)!!!</p>
+                                    <div title='❌Error' id='dialog-confirm' style='color:red;'>
+                                        <p class='notification-message'>Fatal Error. Contact the Support(7024888951)!!!</p>
                                     </div>
                                 ";
                             }
@@ -81,8 +81,8 @@ else
                     {
                         echo
                         "
-                            <div title='❌Error' id='dialog_issue_limit' style='color:red;'>
-                                <p>Fatal Error. Contact the Support!!!</p>
+                            <div title='❌Error' id='dialog-confirm' style='color:red;'>
+                                <p class='notification-message'>Fatal Error. Contact the Support!!!</p>
                             </div>
                         ";
                     }
@@ -92,8 +92,8 @@ else
             {
                 echo
                 "
-                    <div title='❌Error' id='dialog_issue_limit' style='color:red;'>
-                        <p>$conn->error</p>
+                    <div title='❌Error' id='dialog-confirm' style='color:red;'>
+                        <p class='notification-message'>$conn->error</p>
                     </div>
                 ";
             }
@@ -103,8 +103,8 @@ else
     {
         echo
         "
-            <div title='❌Not Allowed' id='dialog_issue_limit' style='color:red;'>
-                <p>Invalid Limit!!!</p>
+            <div title='❌Not Allowed' id='dialog-confirm' style='color:red;'>
+                <p class='notification-message'>Invalid Limit!!!</p>
             </div>
         ";
     }
@@ -112,5 +112,20 @@ else
     {
         header("Location: /LibraryManagement/");
     }
+    echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>";
 }
 ?>

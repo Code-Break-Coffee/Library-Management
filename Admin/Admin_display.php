@@ -21,7 +21,7 @@ function show_table($l)
             <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
             <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
         </head>
-        <div style='width:100%;height:650px;overflow:auto;'>
+        <div id='display_table' style='width:100%;height:650px;overflow:auto;'>
         <table id='example'>
             <button class='btn new_css_btn' onclick='closeTable()'>x</button>
         <thead>
@@ -57,7 +57,7 @@ function show_table($l)
             document.getElementById('display').style.display='none';
             function closeTable()
             {
-                document.getElementById('example').style.display='none';
+                document.getElementById('display_table').style.display='none';
                 document.getElementById('display').style.display='flex';
                 document.getElementById('display').style.alignItems='center';
                 document.getElementById('display').style.justifyContent='center';

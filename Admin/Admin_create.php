@@ -46,31 +46,46 @@ else
             $result1 = $conn->query($stat1);
             if ($result) {
                 echo "
-            <div id='dialog_adminstrator' style='color:green;' title='✅Successful'>
-                <p><center>User Created Successfully</center></p>
+            <div id='dialog-confirm'  title='✅Successful'>
+                <p class='notification-success-message'>User Created Successfully</p>
             </div>
             ";
             } else {
                 echo "
-            <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-                <p><center>$conn->error</center></p>
+            <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                <p class='notification-message'>$conn->error</p>
             </div>
             ";
             }
         } else {
             echo "
-        <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-            <p><center>Confirmation Password Is Not Same as Password</center></p>
+        <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+            <p class='notification-message'>Confirmation Password Is Not Same as Password</p>
         </div>
         ";
         }
     } else {
         echo "
-        <div id='dialog_adminstrator' style='color:red;' title='⚠️Error'>
-            <p><center>User already exists</center></p>
+        <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+            <p class='notification-message'>User already exists</p>
         </div>
         ";
     }
+    echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>";
 }
 
 

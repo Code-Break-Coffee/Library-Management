@@ -81,21 +81,36 @@ function show_table($stat)
     else if(!$result)
     {
         echo "
-        <div id='dialog7' style='color:red;' title='⚠️Error'>
-            <p><center>$conn->error</center></p>
+        <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+            <p class='notification-message'> $conn->error </p>
         </div>";
     }
     else if(mysqli_num_rows($result) <= 0)
         {
             echo "
-                <div id='dialog7' style='color:red;' title='⚠️Error'>
-                    <p><center>Data not found</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                    <p class='notification-message'>Data not found </p>
                 </div>";
         }
     else
     {
         echo $conn->error;
     }
+    echo"<script>
+    $( function() {
+      $( '#dialog-confirm' ).dialog({
+        resizable: false,
+        height: 'auto',
+        width: 400,
+        modal: true,
+        buttons: {
+          'Ok': function() {
+            $( this ).dialog( 'close' );
+          }
+        }
+      });
+    } );
+    </script>";
 }
 
 if($membership=="Student")

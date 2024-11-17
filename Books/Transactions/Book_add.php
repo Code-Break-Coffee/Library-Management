@@ -69,8 +69,8 @@ else
         $sql_max_book = "SELECT Book_No from books;";
         $res=$conn->query($sql_max_book);
         if(!$res)echo "
-        <div id='dialog3' style='color:red;' title='⚠️Error'>
-            <p><center>$conn->error</center></p>
+        <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+            <p class='notification-message'>$conn->error</p>
         </div>
         "; 
         while($row =$res->fetch_assoc())
@@ -142,22 +142,22 @@ else
             {
                 $flag=1;
                 echo "
-                <div id='dialog3' style='color:red;' title='⚠️Error'>
-                    <p><center>Book $bookno Already Present</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                    <p class='notification-message'>Book $bookno Already Present</p>
                 </div>
                 "; }
         }
     }
     else echo "
-    <div id='dialog3' style='color:red;' title='⚠️Error'>
-        <p><center>$conn->error</center></p>
+    <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+        <p class='notification-message'>$conn->error</p>
     </div>
     "; 
     if(!check($bookno,$bookcount) && $flag == 0)
     {
         echo "
-                <div id='dialog3' style='color:red;' title='⚠️Error'>
-                    <p><center>Book Already Present in the given range</center></p>
+                <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                    <p class='notification-message'>Book Already Present in the given range</p>
                 </div>
                 "; 
         $flag = 1;
@@ -185,8 +185,8 @@ else
 
             require_once "barcode.php";
             echo "
-            <div id='dialog3' style='color:green;' title='✅Successful'>
-                <p><center>$bookcount Books Inserted Successfully</center></p>
+            <div id='dialog-confirm' style='color:green;' title='✅Successful'>
+                <p class='notification-success-message'>$bookcount Books Inserted Successfully</p>
             </div>
             ";
             
@@ -235,11 +235,26 @@ else
         else
         {
             echo "
-            <div id='dialog3' style='color:red;' title='⚠️Error'>
-                <p><center>Some Error Occured</center></p>
+            <div id='dialog-confirm' style='color:red;' title='⚠️Error'>
+                <p class='notification-message'>Some Error Occured</p>
             </div>
             "; 
         }
     }
+    echo"<script>
+    $( function() {
+    $( '#dialog-confirm' ).dialog({
+        resizable: false,
+        height: 'auto',
+        width: 400,
+        modal: true,
+        buttons: {
+        'Ok': function() {
+            $( this ).dialog( 'close' );
+        }
+        }
+    });
+    } );
+    </script>";
 }
 ?>

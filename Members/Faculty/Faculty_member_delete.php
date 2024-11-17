@@ -32,17 +32,32 @@ function check($fId)
         } else
             echo
                 "
-            <div title='Error❌' id='dialog_fac_del'>
-                <p>$conn->error</p>
+            <div title='Error❌' id='dialog-confirm'>
+                <p class='notification-message'>$conn->error</p>
             </div>
         ";
     } else
         echo
             "
-        <div title='Error❌' id='dialog_fac_del'>
-            <p>$conn->error</p>
+        <div title='Error❌' id='dialog-confirm'>
+            <p class='notification-message'>$conn->error</p>
         </div>
     ";
+    echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>";
 }
 
 function checkIssue($fId)
@@ -58,10 +73,25 @@ function checkIssue($fId)
     } else
         echo
             "
-        <div title='Error❌' id='dialog_fac_del'>
-            <p>$conn->error</p>
-        </div>
+        <div title='Error❌' id='dialog-confirm'>
+            <p class='notification-message'>$conn->error</p>
+        </div>        
     ";
+    echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>";
 }
 if (!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member") {
     header("Location: /LibraryManagement/");
@@ -73,32 +103,48 @@ if (!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member") {
                 if (delete_faculty($Fac_Id)) {
                     echo
                         "
-                        <div title='Success✅' id='dialog_fac_del'>
-                            <p style='color:green;'>Faculty '$Fac_Id' deleted successfully!!!</p>
+                        <div title='Success✅' id='dialog-confirm'>
+                            <p class='notification-success-message'>Faculty '$Fac_Id' deleted successfully!!!</p>
                         </div>
                     ";
                 } else {
                     echo
                         "
-                        <div title='Error❌' id='dialog_fac_del'>
-                            <p style='color:red;'>Some error occurred!!!</p>
+                        <div title='Error❌' id='dialog-confirm'>
+                            <p class='notification-message'>Some error occurred!!!</p>
                         </div>
                     ";
                 }
             } else
                 echo
-                    "
-                <div title='Error❌' id='dialog_fac_del'>
-                    <p style='color:red;'>Faculty $Fac_Id has not returned a book, so it can`t be deleted!!!</p>
+                "
+                <div title='Error❌' id='dialog-confirm'>
+                    <p class='notification-message'>Faculty $Fac_Id has not returned a book, so it can`t be deleted!!!</p>
                 </div>
             ";
         } else
             echo
                 "
-                <div title='Error❌' id='dialog_fac_del'>
-                    <p style='color:red;'>Faculty '$Fac_Id' Record not found, Please check once!!!</p>
+                <div title='Error❌' id='dialog-confirm'>
+                    <p class='notification-message'>Faculty '$Fac_Id' Record not found, Please check once!!!</p>
                 </div>
             ";
-    } else
+            echo"<script>
+                $( function() {
+                $( '#dialog-confirm' ).dialog({
+                    resizable: false,
+                    height: 'auto',
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                    'Ok': function() {
+                        $( this ).dialog( 'close' );
+                    }
+                    }
+                });
+                } );
+                </script>";
+    }
+     else
         header("Location: /LibraryManagement/");
 }

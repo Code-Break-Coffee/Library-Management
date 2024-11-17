@@ -27,10 +27,25 @@ else
                 {
                     $flag=1;
                     echo "
-                    <div id='dialog4' style='color:red;' title='Notification ❌'>
-                        <p><center>Book $bookno is been issued by ".$row["Issue_By"]." so it cannot be deleted!!!</center></p>
+                    <div id='dialog-confirm' style='color:red;' title='Notification ❌'>
+                        <p class='notification-message'>Book $bookno is been issued by ".$row["Issue_By"]." so it cannot be deleted!!!</p>
                     </div>
                     "; 
+                    echo"<script>
+                    $( function() {
+                    $( '#dialog-confirm' ).dialog({
+                        resizable: false,
+                        height: 'auto',
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                        'Ok': function() {
+                            $( this ).dialog( 'close' );
+                        }
+                        }
+                    });
+                    } );
+                    </script>";
                 }
             }
         }
@@ -39,7 +54,7 @@ else
     if($flag==0 && $bookExist)
     {
         echo "<div id='dialog-confirm' title='Delete Book ⚠️'>
-                    <p><span class='ui-icon ui-icon-alert' style='float:left; margin:12px 12px 20px 0;'></span> Book $bookno will be permanently deleted and cannot be recovered. Are you sure?</p>
+                    <p class='notification-message'> Book $bookno will be permanently deleted and cannot be recovered. Are you sure?</p>
                     </div>";
                 echo"<script>
                 $( function() {
@@ -81,9 +96,24 @@ else
     else if(!$bookExist)
     {
         echo "
-        <div id='dialog4' style='color:red;' title='Notification ❌'>
-            <p>Book $bookno does not Exist</p>
+        <div id='dialog-confirm' style='color:red;' title='Notification ❌'>
+            <p class='notification-message'>Book $bookno does not Exist</p>
         </div>
-        "; 
+        ";
+        echo"<script>
+        $( function() {
+        $( '#dialog-confirm' ).dialog({
+            resizable: false,
+            height: 'auto',
+            width: 400,
+            modal: true,
+            buttons: {
+            'Ok': function() {
+                $( this ).dialog( 'close' );
+            }
+            }
+        });
+        } );
+        </script>"; 
     }
 }
