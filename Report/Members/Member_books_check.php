@@ -21,7 +21,7 @@ if (!verification() || $_POST["Access"] != "Main-Member-Books-Check") {
         include "../../connection/dbconnect.php";
         $memid = $_POST["mem_id"];
         $memid = strtoupper($memid);
-        $memid = str_replace("-", "", $memid);
+        $memid = preg_replace('/[^A-Za-z0-9]/', '', $memid);
 
         $sql_m = "SELECT * from member where Member_ID ='$memid' ;";
         $result_m = $conn->query($sql_m);

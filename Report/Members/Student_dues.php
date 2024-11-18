@@ -31,7 +31,7 @@ else
         include "../../connection/dbconnect.php";
         $memberId = $_POST["memberid"];
         $memberId = strtoupper($memberId);
-        $memberId = str_replace("-","",$memberId);
+        $memberId = preg_replace('/[^A-Za-z0-9]/', '', $memberId);
         if(empty($_POST["memberid"]))
         {
             echo "

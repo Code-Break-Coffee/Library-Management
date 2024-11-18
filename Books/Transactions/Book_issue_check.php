@@ -14,7 +14,7 @@ else
     {
         $mi=$_POST["memberid"];
         $mi = strtoupper($mi);
-        $mi = str_replace("-","",$mi);
+        $mi = preg_replace('/[^A-Za-z0-9]/', '', $mi);
         $sql="SELECT Book_No,Author1,Author2,Author3,Title,Edition from books where Status='$mi';";
         $result=$conn->query($sql);
         if($result)

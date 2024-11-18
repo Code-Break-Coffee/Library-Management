@@ -26,7 +26,7 @@ function check($sArray, $sCount)
 {
     global $conn;
     for ($i = 1; $i < $sCount; $i++) {
-        $rollno = strtoupper(preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(["-", "_"], "", $sArray[$i][0])));
+        $rollno = strtoupper(preg_replace('/[^A-Za-z0-9]/', '', str_replace(["-", "_"], "", $sArray[$i][0])));
         $name = $sArray[$i][1];
         $course = $sArray[$i][2];
         $enroll = $sArray[$i][3];
@@ -135,7 +135,7 @@ try {
                     echo "
                 <tr>
                 <td>" . $bn . "</td>
-                <td>" . preg_replace('/[^A-Za-z0-9\-]/', '', $b[0]) . "</td>
+                <td>" . preg_replace('/[^A-Za-z0-9]/', '', $b[0]) . "</td>
                 <td>" . $b[1] . "</td>
                 <td>" . $b[2] . "</td>
                 <td>" . $b[3] . "</td>

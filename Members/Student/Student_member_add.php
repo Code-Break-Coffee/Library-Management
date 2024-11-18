@@ -12,7 +12,7 @@ else
     $roll=$_POST["roll_no"];
     
     $roll=strtoupper($roll);
-    $roll=str_replace("-","",$roll);
+    $roll=preg_replace('/[^A-Za-z0-9]/', '', $roll);
 
     $stat="INSERT INTO member (Member_ID,MemberType) values ('$roll','Student');";
     $stat2="SELECT * FROM student where Student_Rollno='$roll';";

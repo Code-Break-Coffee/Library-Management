@@ -95,7 +95,7 @@ else
     include "../../connection/dbconnect.php";
     $batch = $_POST["batch_id"];
     $batch=strtoupper($batch);
-    $batch=str_replace("-","",$batch);
+    $batch=preg_replace('/[^A-Za-z0-9]/', '', $batch);
     $sql_s = "SELECT * from student where Student_Rollno like '$batch%' order by Student_Rollno;";
     $result_s = $conn->query($sql_s);
     $records =[];

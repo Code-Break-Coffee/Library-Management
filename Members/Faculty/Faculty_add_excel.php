@@ -29,7 +29,7 @@ try {
 
     for ($i = 1; $i < $sheetCount; $i++) {
         $fac_id = $spreadSheetAry[$i][0];
-        $fac_id = preg_replace('/[^A-Za-z0-9\-]/', '', $fac_id);
+        $fac_id = preg_replace('/[^A-Za-z0-9]/', '', $fac_id);
         $fac_name = $spreadSheetAry[$i][1];
         $fac_type = $spreadSheetAry[$i][2];
 
@@ -104,7 +104,8 @@ try {
 
         for ($i = 1; $i < $sheetCount; $i++) {
             $fac_id = $spreadSheetAry[$i][0];
-            $fac_id = preg_replace('/[^A-Za-z0-9\-]/', '', $fac_id);
+            $fac_id = strtoupper($fac_id);
+            $fac_id = preg_replace('/[^A-Za-z0-9]/', '', $fac_id);
             $fac_name = $spreadSheetAry[$i][1];
             $fac_type = $spreadSheetAry[$i][2];
 

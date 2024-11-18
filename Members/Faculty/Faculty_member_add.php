@@ -11,7 +11,8 @@ else
 {
     $facName=$_POST["fac_name"];
     $facId=$_POST["fac_id"];
-    $facId = preg_replace('/[^A-Za-z0-9\-]/', '', $facId);
+    $facId = strtoupper($facId);
+    $facId = preg_replace('/[^A-Za-z0-9]/', '', $facId);
     $facType=filter_input(INPUT_POST,"fac_type");
 
     $sqlCheck1="SELECT Faculty_ID from faculty where Faculty_ID = '$facId';";
