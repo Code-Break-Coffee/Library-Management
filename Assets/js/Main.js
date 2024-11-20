@@ -276,8 +276,8 @@ document.getElementById("au").addEventListener("click",()=>
                         <input required type="date" name="from" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;" /><br>
                         <label>To:</label>
                         <input required type="date" name="to" class="form-control" style="width:100%;color:#ffffff;background-color:#401B00;" /><br>
-                        <input type="submit" class="btn" style="color:black;background-color: white;font-weight: bold;" value="Search"/>
-                        <button type="reset" class="btn " style="font-weight: bold;background-color: white;color: black;" id="resetsearch">Clear</button><br><br>
+                        <input type="submit" class="btn new_css_btn"  value="Search"/>
+                        <button type="reset" class="btn new_css_btn "  id="resetsearch">Clear</button><br><br>
                     </center>
                 </form>
             </div>
@@ -560,7 +560,7 @@ document.getElementById("s").addEventListener("click",()=>
     displayNone();
     let container=document.getElementById("container");
     container.innerHTML=`
-    <div class="dabbe">
+    <div id='form_display' class="dabbe">
         <div id="SearchField" class="dabbe_ka_dabba">
             <div class="dabbe_k_dabbe_ka_dabba">
                 <form id="searchform" method="post" action="" autocomplete="off">
@@ -577,15 +577,15 @@ document.getElementById("s").addEventListener("click",()=>
                         <div id="searchcontain"></div>
                         <input required type="text" class="form-control " style="width:100%;color:#ffffff;background-color:#401B00;" id="B_Search" name="book"/><br>
 
-                        <button type="submit" value="Search" class="btn" style="margin:10px;width:80px;background-color:white;border: 2px solid #401B00;"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
-                        <button id="resetsearch" type="reset" class="btn " style="margin:10px;font-weight: bold;background-color: white;color: black;">Clear</button><br><br>
+                        <button type="submit" value="Search" class="btn new_css_btn"><img src="Assets\\img\\black-search.png" height="25px" width="30px" alt=""></button>
+                        <button id="resetsearch" type="reset" class="btn new_css_btn" >Clear</button><br><br>
  
                     </center>  
                 </form>
             </div>
         </div>
     </div>
-    <div style="font-weight: bold;position: absolute; width:1200px;" id="response5"></div>`;
+    <div style="font-weight: bold;position: absolute; width:100%;" id="response5"></div>`;
     $(document).ready(function()
     {
         let sb=document.getElementById("sb");
@@ -721,8 +721,8 @@ document.getElementById("m").addEventListener("click",()=>
                             <option value="Class">Class</option>
                         </select><br>
                         <div id="membercontain"></div>
-                        <input id="membersubmit" type="submit"  class="btn" style="color:black;background-color: white;font-weight: bold;" value="Check"/>
-                        <button type="reset" id="resetmember" class="btn" style="font-weight: bold;background-color: white;color: black;">Clear</button>                                        
+                        <input id="membersubmit" type="submit"  class="btn new_css_btn" value="Check"/>
+                        <button type="reset" id="resetmember" class="btn new_css_btn" >Clear</button>                                        
                     </center>
                 </form>
             </div>
@@ -1258,8 +1258,8 @@ document.querySelector("#b").addEventListener('click',()=>
                         </div>
                         <br>
                         <div class="d-flex justify-content-center gap-3">
-                            <button type="submit" class="btn" style="background-color: white; color: black;">Submit</button>
-                            <button type="reset" id="filterreset" class="btn" style="background-color: white; color: black;">Clear</button>
+                            <button type="submit" class="btn new_css_btn" >Submit</button>
+                            <button type="reset" id="filterreset" class="btn new_css_btn" >Clear</button>
                         </div>
                     </center>
                 </form>
