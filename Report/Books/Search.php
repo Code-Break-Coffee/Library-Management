@@ -96,7 +96,17 @@ else
                     <link rel='stylesheet' href='./Assets/DataTables/datatables.min.css'>
                     <link rel='stylesheet' href='./Assets/DataTables/datatables.css'>
                 </head>
-                <div style='width:80%;overflow:auto;height:650px;'><table id='example'>
+                <style>
+                    .hideScrollbar::-webkit-scrollbar{
+                        display: none; 
+                    }
+                </style>
+                <div style='overflow:auto;height:650px;' class='hideScrollbar'>
+                <table id='example'>
+                <div class='mt-3 d-flex justify-content-between align-items-center mb-3'>
+                    <h1 style='color:aliceblue;'>Admin/Assistant List</h1>
+                    <button style='background-color:aliceblue;padding:0.5rem 1rem;border-radius:5px;' class='btn-close' onclick='closeTable()'></button>
+                </div>
                 <thead>
                     <tr>
                         <th>Book No.</th>
@@ -136,9 +146,18 @@ else
                     } );
                 </script>   
                 <script>
-                    document.getElementById('SearchField').style.transform='translate(-130%,-0%)';
-                    document.getElementById('response5').style.top='25%';
-                    document.getElementById('response5').style.left='32%';
+                    document.getElementById('SearchField').style.display='none';
+                    document.getElementById('response5').style.display='flex';
+                    document.getElementById('response5').style.alignItems='center';
+                    document.getElementById('response5').style.justifyContent='center';
+                    document.getElementById('form_display').style.display='none';
+                    function closeTable(){
+                        document.getElementById('form_display').style.display='flex';
+                        document.getElementById('form_display').style.justifyContent='center';
+                        document.getElementById('form_display').style.alignItems='center';
+                        document.getElementById('SearchField').style.display='block';
+                        document.getElementById('response5').style.display='none';
+                    }
                 </script>";
 
         }
