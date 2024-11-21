@@ -23,7 +23,10 @@ function show_table($l)
         </head>
         <div id='display_table' style='width:100%;height:650px;overflow:auto;'>
         <table id='example'>
-            <button class='btn new_css_btn' onclick='closeTable()'>x</button>
+            <div class='d-flex justify-content-between align-items-center mb-3'>
+                <h1 style='color:aliceblue;'>Admin/Assistant List</h1>
+                <button style='background-color:aliceblue;padding:0.5rem 1rem;border-radius:5px;' class='btn-close' onclick='closeTable()'></button>
+            </div>
         <thead>
         <tr>
             <th>User ID</th>
