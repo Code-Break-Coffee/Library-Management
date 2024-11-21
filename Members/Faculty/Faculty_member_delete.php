@@ -98,6 +98,8 @@ if (!verification() || $_POST["Access"] != "Main-Delete-Faculty-Member") {
 } else {
     if (!empty($_POST["fac_id"])) {
         $Fac_Id = $_POST["fac_id"];
+        $Fac_Id = strtoupper($Fac_Id);
+        $Fac_Id = preg_replace('/[^A-Za-z0-9]/', '', $Fac_Id);
         if (check($Fac_Id)) {
             if (checkIssue($Fac_Id)) {
                 if (delete_faculty($Fac_Id)) {
