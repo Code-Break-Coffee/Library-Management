@@ -7,4 +7,4 @@
 8: zakie ka bug 2.0 =======> remark php [condition for change in sql query book add.php]
 9: ' ` " : conditions book insert, corved border on check heading ====> kartikey
 10: book no can be a negative vaue now change it ++++++++++++++++++++++++++++
-AI functionality 
+AI functionality zakie
