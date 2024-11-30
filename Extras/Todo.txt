@@ -9,3 +9,4 @@
 10: book no can be a negative vaue now change it ++++++++++++++++++++++++++++
 AI functionality zakie work in progress almost done
 testing
+UI corrections 
