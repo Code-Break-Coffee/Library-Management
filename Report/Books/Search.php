@@ -104,7 +104,7 @@ else
                 <div style='overflow:auto;height:650px;' class='hideScrollbar'>
                 <table id='example'>
                 <div class='mt-3 d-flex justify-content-between align-items-center mb-3'>
-                    <h1 style='color:aliceblue;'>Admin/Assistant List</h1>
+                    <h1 style='color:aliceblue;'>Book Details</h1>
                     <button style='background-color:aliceblue;padding:0.5rem 1rem;border-radius:5px;' class='btn-close' onclick='closeTable()'></button>
                 </div>
                 <thead>
