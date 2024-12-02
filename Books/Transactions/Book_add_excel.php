@@ -81,7 +81,12 @@ function Book_num($book_seq, $update) {
         while ($row = $res->fetch_assoc()) {
             $book_seq[] = $row["Book_No"];
         }
-        $MaxBookIndex = max($book_seq);
+        if(count($book_seq) > 0) {
+            $MaxBookIndex = max($book_seq);
+        }
+        else{
+            $MaxBookIndex = 0;
+        }
         for ($i = 1; $i < $MaxBookIndex; $i++) {
             if (!in_array($i, $book_seq)) $BookSlots[] = $i;
         }
@@ -91,7 +96,12 @@ function Book_num($book_seq, $update) {
             if (!in_array($i, $book_seq)) $BookSlots[] = $i;
         }
         sort($BookSlots);
-        $MaxBookIndex = max($BookSlots);
+        if (count($book_seq) > 0) {
+            $MaxBookIndex = max($book_seq);
+        } else {
+            $MaxBookIndex = 0; 
+        }
+        
     }
 }
 
@@ -118,7 +128,7 @@ function ErrorCheck($a1, $a2, $a3, $title, $ed, $pub, $cl, $tpag) {
     return $error;
 }
 
-$targetPath = "../../LibraryManagement/Doc/book.xlsx";
+$targetPath = "../../Doc/book.xlsx";
 $Reader = new Xlsx();
 $spreadSheet = $Reader->load($targetPath);
 $excelSheet = $spreadSheet->getActiveSheet();
@@ -188,57 +198,91 @@ if (sizeof($temp_array) == sizeof($bookserial)) {
 
         if (count($Book_Record) > 0) {
             $Data_Status = true;
-            echo "<div style='width:50%;overflow:auto;height:650px;position:relative;transform:translate(450px,90px);'>
-                    <center>
-                    <h1 style='font-weight:bold;color:white;position:relative;'>Book Confirmation Page</h1><br/>
-                    <table style='background-color:#783E12;'>
-                    <tr><th colspan='6'><center><h2 style='color:white;'>Are You Sure You want to Submit?</h2></center></th></tr>
-                    <tr><th>Book No.</th><th>Author's</th><th>Title</th><th>Edition</th><th>Publisher</th><th>No of Copies</th></tr>
-                    <tbody>";
+            echo "<div style='width:50%; height:600px; position:relative; transform:translate(450px,90px); background-color: #783E12; border-radius: 10px; padding: 20px; overflow:hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);'>
+            <center>
+            <h1 style='font-weight:bold; color:white;'>Book Confirmation Page</h1><br/>
+            <div style='overflow-y:auto; height:450px; scrollbar-width:none; -ms-overflow-style:none;'>
+            <table style='width:100%; color:white; border-collapse:collapse;'>
+            <tr>
+                <th colspan='6' style='padding:10px; font-size:18px;'><center>Are You Sure You Want to Submit?</center></th>
+            </tr>
+            <tr>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>Book No.</th>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>Authors</th>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>Title</th>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>Edition</th>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>Publisher</th>
+                <th style='padding:10px; border-bottom:1px solid #ddd;'>No of Copies</th>
+            </tr>
+            <tbody>";
 
             ksort($Book_Record);
             $i = 1;
             foreach ($Book_Record as $bn => $b) {
-                echo "<tr><td>{$bn}</td><td>{$b[0]}, {$b[1]}, {$b[2]}</td><td>{$b[3]}</td><td>{$b[4]}</td><td>{$b[5]}</td><td>{$b[12]}</td></tr>";
+                echo "<tr>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$bn}</td>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$b[0]}, {$b[1]}, {$b[2]}</td>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$b[3]}</td>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$b[4]}</td>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$b[5]}</td>
+                <td style='padding:10px; border-bottom:1px solid #ddd;'>{$b[12]}</td>
+              </tr>";
+                // Escape single quotes in each field using regex
+                foreach ($b as $key => $value) {
+                    if (is_string($value)) {
+                        $b[$key] = preg_replace("/'/", "\\'", $value);
+                    }
+                }
+            
                 $sql = "INSERT INTO `insert buffer` (id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13, val14)
                         VALUES ($i, '{$b[0]}', '{$b[1]}', '{$b[2]}', '{$b[3]}', '{$b[4]}', '{$b[5]}', {$b[6]}, {$b[7]}, {$b[8]}, '{$b[9]}', '{$b[10]}', '{$b[11]}', {$b[12]}, $bn)";
+            
                 if (!$conn->query($sql)) {
                     throw new Exception($conn->error);
                 }
+            
                 $i++;
             }
 
-            echo "</tbody></table></br>
-                    <button class='btn' type='submit' id='excelConfirm' style='font-weight: bold;color:black;background-color:#ffffff;'> Confirm </button>
-                    <button type='reset' id='backissue' class='btn' style='font-weight: bold;background-color:#ffffff;color: black;'>Back</button>
-                    </center>
-                    <script>
-                    $(document).ready(function() {
-                        $('#backissue').on('click', function() {
-                            document.getElementById('response_exl_records').style.display='none';
-                            document.getElementById('exl_srch').style.alignItems = 'center';
-                            document.getElementById('exl_srch').style.justifyContent = 'center';
-                            document.getElementById('exl_srch').style.display = 'flex';
-                        });
-                        $('#excelConfirm').click(function(e) {
-                            $.ajax({
-                                method: 'post',
-                                url: './Books/Transactions/Book_insert_buffer.php',
-                                data: 'Access=Book_add_excel-insert_buffer',
-                                datatype: 'text',
-                                error: function() {
-                                    alert('Some Error Occurred!!!');
-                                },
-                                success: function(Result) {
-                                    $('#dialog_exl_disp').dialog('destroy');
-                                    $('#response_exl_records').html(Result);
-                                    $('#dialog_exl_disp').dialog();
-                                }
-                            });
-                        });
+            echo "</tbody></table>
+            </div>
+            <div style='position:sticky; bottom:0; background-color:#783E12; padding:10px; width:100%; text-align:center;'>
+                <button class='btn' type='submit' id='excelConfirm' style='font-weight: bold; color:black; background-color:#ffffff; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;'>Confirm</button>
+                <button type='reset' id='backissue' class='btn' style='font-weight: bold; background-color:#ffffff; color:black; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;'>Back</button>
+            </div>
+            </center>
+            <style>
+            div::-webkit-scrollbar {
+                display: none; /* Hide scrollbar in WebKit browsers */
+            }
+            </style>
+            <script>
+            $(document).ready(function() {
+                $('#backissue').on('click', function() {
+                    document.getElementById('response_exl_records').style.display = 'none';
+                    document.getElementById('exl_srch').style.alignItems = 'center';
+                    document.getElementById('exl_srch').style.justifyContent = 'center';
+                    document.getElementById('exl_srch').style.display = 'flex';
+                });
+                $('#excelConfirm').click(function(e) {
+                    $.ajax({
+                        method: 'post',
+                        url: './Books/Transactions/Book_insert_buffer.php',
+                        data: 'Access=Book_add_excel-insert_buffer',
+                        datatype: 'text',
+                        error: function() {
+                            alert('Some Error Occurred!!!');
+                        },
+                        success: function(Result) {
+                            $('#dialog_exl_disp').dialog('destroy');
+                            $('#response_exl_records').html(Result);
+                            $('#dialog_exl_disp').dialog();
+                        }
                     });
-                    </script>
-                  </div>";
+                });
+            });
+            </script>
+          </div>";
         } else {
             throw new Exception("Excel File is Empty!!!");
         }

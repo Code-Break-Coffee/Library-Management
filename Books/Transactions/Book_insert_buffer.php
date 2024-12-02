@@ -52,6 +52,9 @@ if (mysqli_num_rows($result_buff) > 0) {
 
     try {
         while ($row = $result_buff->fetch_assoc()) {
+            foreach ($row as $key => $value) {
+                $row[$key] = preg_replace("/'/", "\\'", $value);
+            }
             $sql_book;
             $bookno = $row["val14"];
             $author1 = $row["val1"];
@@ -91,34 +94,60 @@ if (mysqli_num_rows($result_buff) > 0) {
         $pdf = new PDF_Code128(); // Soham Pdf!!!!!!!!
         $pdf->AddPage();
         $pdf->SetFont("Arial", "B", 18);
-        $pdf->SetXY(30, 18); // Adjust the position (x, y) to align with the image
-
-        // Add the text cell
-        $pdf->Image("../../Assets/img/Davv_Logo.png", 10, 10, 20); // Adjust the position (x, y) and size as needed
-
-        // $pdf->AddFont('LibreBarcode39-Regular','','LibreBarcode39-Regular.php');
-        // Set the position for the text cell
-        $pdf->Cell(166, 5, 'International Institute of Professional Studies,Davv', 0, 0, 'C');
+        
+        // Add the logo and headers
+        $pdf->Image("../../Assets/img/Davv_Logo.png", 10, 10, 20);
+        $pdf->SetXY(30, 18);
+        $pdf->Cell(0, 10, 'International Institute of Professional Studies, Davv', 0, 1, 'C');
+        $pdf->Cell(0, 10, 'Book Insert Records Excel', 0, 1, 'C');
+        $pdf->Ln(10);
+        
+        // Define column headers and widths
+        $header = ["Book No", "Title", "Bar Code"];
+        $colWidths = [60, 70, 60]; // Total width = 190 (A4 page width - margins)
+        $pdf->SetFont("Arial", "B", 12);
+        
+        // Add the table header
+        foreach ($header as $key => $col) {
+            $pdf->Cell($colWidths[$key], 10, $col, 1, 0, "L");
+        }
         $pdf->Ln();
-        $pdf->Ln();
-        $pdf->Cell(166, 5, 'Book Insert Records Excel', 0, 0, 'C');
-        $pdf->Ln();
-        $pdf->Ln();
-        $pdf->Ln();
-        $pdf->Ln();
-        $pdf->Ln();
-
-        $pdf->Cell(70, 10, "Book No", 1, 0, "L");
-        $pdf->Cell(60, 10, "Title", 1, 0, "L");
-        $pdf->Cell(60, 10, "Bar Code", 1, 0, "L");
-        $pdf->Ln();
-
+        
+        // Add rows dynamically
+        $pdf->SetFont("Arial", "", 10);
         for ($i = 0; $i < $pdf_count; $i++) {
-            $pdf->Cell(70, 10, $pdf_arr[$i][0], 1, 0, "L");
-            $pdf->Cell(60, 10, $pdf_arr[$i][1], 1, 0, "L");
-            $barcode = $pdf->Code128($pdf->GetX() + 2, $pdf->GetY() + 1, $pdf_arr[$i][0], 40, 8);
-            $pdf->Cell(60, 10, $barcode, 1, 0, "L");
-            $pdf->Ln();
+            $startY = $pdf->GetY(); // Get the starting Y position of the row
+        
+            // Check if the current Y position will overflow onto the next page
+            if ($pdf->GetY() > 250) { // Near the bottom of the page
+                $pdf->AddPage(); // Add a new page to continue printing
+                $pdf->SetFont("Arial", "B", 12); // Reset font for header after page break
+                foreach ($header as $key => $col) { // Reprint the header on the new page
+                    $pdf->Cell($colWidths[$key], 10, $col, 1, 0, "L");
+                }
+                $pdf->Ln(); // Move to the next row
+            }
+        
+            // Book No
+            $pdf->Cell($colWidths[0], 10, $pdf_arr[$i][0], 1, 0, "L");
+        
+            // Title (wrapped using MultiCell)
+            $titleX = $pdf->GetX();
+            $titleY = $pdf->GetY();
+            $pdf->MultiCell($colWidths[1], 10, $pdf_arr[$i][1], 1, "L");
+            $endY = $pdf->GetY(); // Get the ending Y position after MultiCell
+        
+            // Adjust height for "Bar Code" to match the tallest cell in the row
+            $rowHeight = $endY - $startY; // Calculate the height of the row
+            $pdf->SetXY($titleX + $colWidths[1], $startY); // Move the cursor to the next column
+        
+            // Bar Code
+            $barcodeX = $pdf->GetX();
+            $barcodeY = $pdf->GetY();
+            $pdf->Code128($barcodeX + 2, $barcodeY + 1, $pdf_arr[$i][0], 40, 8); // Draw the barcode
+            $pdf->Cell($colWidths[2], $rowHeight, '', 1, 0, "L");
+        
+            $pdf->Ln(); // Move to the next row
         }
 
         if (file_exists("../../Doc/insert_book.pdf")) {
