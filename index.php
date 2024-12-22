@@ -101,8 +101,11 @@ if(!empty($_SESSION["RELOAD"]))
 }
 ?>
 </body>
-<script src="Assets\\js\\bootstrap.bundle.js"></script>
-<script src="Assets\\js\\index.js"></script>
+<!-- <script src="Assets\\js\\bootstrap.bundle.js"></script>
+<script src="Assets\\js\\index.js"></script> -->
+<script src="Assets/js/ajaxHandler.js"></script>
+<script src="Assets/js/bookIssueForm.js"></script>
+<script src="Assets/js/main.js"></script>
 </html>
 
 
